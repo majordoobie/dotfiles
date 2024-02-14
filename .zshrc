@@ -102,3 +102,5 @@ source $ZSH/oh-my-zsh.sh
 #
 alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents/DoobStation'"
 alias ll="ls -lAh"
+alias dotfiles="cd ~/dotfiles"
+
