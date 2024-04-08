@@ -1,0 +1,236 @@
+
+" https://amine-elhattami.medium.com/destination-ideavim-day-1-the-basics-793a514af57f
+" https://towardsdatascience.com/the-essential-ideavim-remaps-291d4cd3971b
+" https://github.com/JetBrains/ideavim/wiki/%22set%22-commands
+" Find more examples here: https://jb.gg/share-ideavimrc
+" https://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
+" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+
+
+" ##################################################################################################
+" Modify tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+
+" Set number column
+set relativenumber
+set number
+
+" Set show modes
+set showmode
+set showcmd
+
+" Fix the search highlight
+set incsearch
+set hlsearch
+set wrapscan
+set nowrap
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+nnoremap <CR> :noh<CR><CR>
+
+" Keep buffer alive in the background if you leave it
+set hidden
+
+" column add
+set signcolumn=yes
+set colorcolumn=80
+set ruler
+
+" misc
+set scrolloff=15
+set cmdheight=2
+set updatetime=300
+set ideamarks=true
+
+""""""""""""""""""""""""""""""" Mappings
+let mapleader=" "
+
+"""""""""""""""""""""""""""""" Modify copy and paste
+" Paste from global
+nnoremap <leader>p "+p
+xnoremap <leader>p "+p
+
+" Copy into global
+nnoremap <leader>y "+y
+xnoremap <leader>y "+y
+
+" Delete into black hole
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+
+" Delete line without updating buffer then paste
+xnoremap <leader>p "_dP
+
+" Set x and r to black hole
+nnoremap x "_x
+xnoremap x "_x
+nnoremap r "_r
+xnoremap r "_r
+
+" Map the indentation to work with the group indentation
+vnoremap < <gv
+vnoremap > >gv
+
+"^$ The symbol is too hard to press
+map gh ^
+map gl $
+
+
+" ------ JetBrain Settings  ------
+
+
+" Set nerd tree
+set NERDTree
+Plug 'terryma/vim-multiple-cursors'
+
+" Free the ctrl + k key binding that the IDE uses
+sethandler <c-k> a:vim
+
+" Quickly reload vimrc
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+" Join things together like comments and method chaining. Activated with shift+j
+set ideajoin
+
+" When refactoring, what vim mode should you be in. Visual allows you to quickly delete or esp to edit
+set idearefactormode=visual
+
+set visualbell
+set noerrorbells
+
+" ##################################################################################################
+" ------ Pane Manipulation Behaviors -------
+
+" Open panes as duplicates and resize
+map <leader>- <Action>(SplitHorizontally)
+map <leader>_ <Action>(SplitVertically)
+map <a-m> <Action>(MaximizeEditorInSplit)
+map <a-k> <Action>(StretchSplitToTop)
+map <a-j> <Action>(StretchSplitToBottom)
+map <a-h> <Action>(StretchSplitToLeft)
+map <a-l> <Action>(StretchSplitToRight)
+
+" Closing Panes "close close" and "close all"
+map <Leader>x <Action>(CloseContent)
+map <Leader>qa <Action>(CloseAllEditors)
+
+" Sets hjkl as pane movement keys
+"nnoremap <c-h> <c-w>h
+"nnoremap <c-l> <c-w>l
+"nnoremap <c-j> <c-w>j
+"nnoremap <c-k> <c-w>k
+
+nnoremap <leader>h <c-w>h
+nnoremap <leader>l <c-w>l
+nnoremap <leader>j <c-w>j
+nnoremap <leader>k <c-w>k
+
+" Code Blocks; "pane block-open" "pane block-close" "pane global-block-open"
+" Open fold
+map <leader>po <Action>(ExpandRegionRecursively)
+
+" Close fold
+map <leader>pc <Action>(CollapseRegionRecursively)
+
+" Open ALL folds
+map <leader>pgo <Action>(ExpandAllRegions)
+
+" Close ALL folds
+map <leader>pgc <Action>(CollapseAllRegions)
+
+" Enable zen mode
+map <leader>pz <Action>(ToggleDistractionFreeMode)
+
+" ##################################################################################################
+" ------ G: GoTo - These commands open up GUI elements -------
+
+" Opening Tool Windows
+map <leader>g1 <Action>(ActivateRunToolWindow)
+map <leader>g2 <Action>(ActivateDebugToolWindow)
+map <leader>gt <Action>(ActivateTerminalToolWindow)
+map <leader>gc <Action>(ActivateCommitToolWindow)
+map <leader>gd <Action>(ActivateDatabaseToolWindow)
+map <leader>gy <Action>(ActivatePythonConsoleToolWindow)
+map <leader>go <Action>(ActivateTODOToolWindow)
+map <leader>gv <Action>(ActivateVersionControlToolWindow)
+map <leader>gm <Action>(ActivateMessagesToolWindow)
+map <leader>gx <Action>(BuildMenu)
+map <leader>gl <Action>(NextTab)
+map <leader>gh <Action>(PreviousTab)
+
+" Search Box; The all is opened with shift + shift on all platforms
+map <leader>gf <Action>(GotoFile)
+map gf :NERDTreeFocus <CR>
+map <leader>ga <Action>(GotoAction)
+map <leader>gp <Action>(ActivateProjectToolWindow)
+map <leader>gb <Action>(ViewBreakpoints)
+
+" Searching around for files 
+map <leader>fs <Action>(GoToFile)
+map <leader>ff <Action>(Replace)
+map <leader>fg <Action>(FindInPath)
+
+
+
+" ##################################################################################################
+" ------ Code Editing Behaviors -------
+
+" Edit code
+map <leader>ei <Action>(OptimizeImports)
+map <leader>ef <Action>(ReformatCode)
+map <leader>es <Action>(SurroundWith)
+map <leader>er <Action>(Refactorings.QuickListPopupAction)
+
+
+" ##################################################################################################
+" ------ View Information About The Code
+" View all the calls to it
+map <leader>vu <Action>(FindUsages)
+
+" View code of function
+map <leader>vi <Action>(QuickImplementations)
+
+" Quick look at the parameters of the function
+map <leader>vp <Action>(ParameterInfo)
+map <leader>vd <Action>(QuickJavaDoc)
+
+" Select a run configuration
+map <leader>vr <Action>(ChooseRunConfiguration)
+map <leader>vb <Action>(ShowBookmarks)
+
+    " Open time based window with all your changes
+map <leader>vh <Action>(LocalHistory.ShowHistory)
+" ##################################################################################################
+
+" --- Jump To
+map <leader>jd <Action>(GotoDeclaration)
+map <leader>jn <Action>(GotoNextError)
+map <leader>jt <Action>(GotoTest)
+map <leader>jl <Action>(Forward)
+map <leader>jh <Action>(Back)
+map <leader>jp <Action>(NewScratchFile)
+map <leader>js <Action>(FileStructurePopup)
+
+" ##################################################################################################
+" ------ Code Execution -------
+map <leader>1 <Action>(Run)
+map <leader>2 <Action>(Debug)
+map <leader>0 <Action>(Stop)
+map <leader>bb <Action>(ToggleLineBreakpoint)
+map <leader>br <Action>(Debugger.RemoveAllBreakpoints)
+
+
+" ---- Haropoon -----
+map <leader>ms <Action>(ToggleBookmarkWithMnemonic)
+map <leader>mm <Action>(ShowBookmarks)
+map <leader>mh <Action>(GoToNextBookmark)
+map <leader>ml <Action>(GoToPreviousBookmark)
+
+" Multi line selection
+map mc <A-n>
+map mx <A-x>
+map mp <A-p>
+map mg g<A-n>

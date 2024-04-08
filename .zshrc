@@ -1,7 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="chungus"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -41,6 +42,7 @@ alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/
 alias ll="ls -lAh"
 alias code="cd ~/OneDrive/Code"
 alias dotfiles="cd ~/dotfiles"
+alias edit_nvim="cd ~/.config/nvim/"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
