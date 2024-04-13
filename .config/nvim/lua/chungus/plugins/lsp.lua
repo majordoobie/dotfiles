@@ -1,3 +1,30 @@
+-- lspconfig just instructs neovim how to talk to whatever server
+-- is processing your code. For things like pyright, the server is a
+-- node server that is running the pyright package. For things like
+-- c/cpp it is talking to a clangd daemon that is running and processing
+-- your code. The lspconfig just allows the text editor to talk to it.
+
+
+-- pyright
+-- * npm -i -g pyright
+
+-- json
+-- * npm -i -g vscode-langservers-extracted
+
+-- c/cpp
+-- * brew install llvm
+-- * brew install bear
+--
+-- -- https://clangd.llvm.org/installation#compile_commandsjson
+--
+-- -- must install clangd and set up the compile_commands.json
+-- -- so that clangd can understand your project
+-- -- it is recommended to use something like `bear` to build the database
+-- -- for make it would be something like `bear -- make`
+
+
+
+
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
@@ -14,9 +41,30 @@ return {
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-    -- set up pyright with default configurations
-    -- pyright requires `npm i -g pyright`
+    -- -- LSP Language Set ups // start
+    -- python
     lspconfig.pyright.setup {}
+
+
+    -- json
+    --Enable (broadcasting) snippet capability for completion
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    lspconfig.jsonls.setup({
+        capabilities = capabilities,
+        })
+
+    -- c/cpp
+    lspconfig.clangd.setup{}
+
+    -- -- LSP Language Set ups // end
+
+
+
+
+
+
+
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),

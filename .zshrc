@@ -1,8 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="chungus"
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="chungus"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

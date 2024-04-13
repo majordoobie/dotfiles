@@ -6,7 +6,7 @@ vim.keymap.set("v", "<S-k>", "<Nop>")
 vim.keymap.set("v", "<S-j>", "<Nop>")
 
 -- Open netRW
-vim.keymap.set("n", "gf", ":Ex<CR>")
+vim.keymap.set("n", "<leader>gf", ":Ex<CR>")
 
 -- Change the ^ and $ to easier to type keys
 vim.keymap.set("n", "gh", "^")
@@ -42,7 +42,6 @@ vim.keymap.set("v", "r", "\"_r")           -- Delete without affecting the uname
 -- window management
 vim.keymap.set("n", "<leader>pv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 vim.keymap.set("n", "<leader>ph", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-vim.keymap.set("n", "<leader>pe", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>px", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab

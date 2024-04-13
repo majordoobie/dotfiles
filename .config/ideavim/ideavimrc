@@ -1,38 +1,27 @@
+""""""""""""""""""""""""""
+"""""""" Options """""""""
+""""""""""""""""""""""""""
 
-" https://amine-elhattami.medium.com/destination-ideavim-day-1-the-basics-793a514af57f
-" https://towardsdatascience.com/the-essential-ideavim-remaps-291d4cd3971b
-" https://github.com/JetBrains/ideavim/wiki/%22set%22-commands
-" Find more examples here: https://jb.gg/share-ideavimrc
-" https://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
-" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+""" Line numbers
+set relativenumber
+set number
 
-
-" ##################################################################################################
-" Modify tabs
+""" tabs & indentation
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
 
-" Set number column
-set relativenumber
-set number
-
-" Set show modes
-set showmode
-set showcmd
-
-" Fix the search highlight
-set incsearch
+""" searching
+set incsearch   """ highlight while typing
 set hlsearch
-set wrapscan
-set nowrap
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+set ignorecase
+set smartcase
 nnoremap <CR> :noh<CR><CR>
 
-" Keep buffer alive in the background if you leave it
-set hidden
+set splitright=true
+set splitbelow=true
 
 " column add
 set signcolumn=yes
@@ -45,10 +34,43 @@ set cmdheight=2
 set updatetime=300
 set ideamarks=true
 
-""""""""""""""""""""""""""""""" Mappings
+""" Plugs
+set NERDTree
+
+""" Free the ctrl + k key binding that the IDE uses
+sethandler <c-k> a:vim
+set visualbell
+set noerrorbells
+
+""" Join things together like comments and method chaining. Activated with shift+j
+set ideajoin
+
+""" When refactoring, what vim mode should you be in. Visual allows you to quickly delete or esp to edit
+set idearefactormode=visual
+
+""""""""""""""""""""""""""
+"""""""" Keymaps """""""""
+""""""""""""""""""""""""""
 let mapleader=" "
 
-"""""""""""""""""""""""""""""" Modify copy and paste
+vnoremap <S-k> <Nop>
+vnoremap <S-j> <Nop>
+
+""" Open file explorer
+map <leader>gf :NERDTreeToggle <CR>
+
+""" Change the ^ and $ to make it easier to press
+nnoremap gh ^
+nnoremap gl $
+vnoremap gh ^
+vnoremap gl $
+
+""" Update indentation
+vnoremap < <gv
+vnoremap > >gv
+
+
+""" Modify copy and paste
 " Paste from global
 nnoremap <leader>p "+p
 xnoremap <leader>p "+p
@@ -70,79 +92,43 @@ xnoremap x "_x
 nnoremap r "_r
 xnoremap r "_r
 
-" Map the indentation to work with the group indentation
-vnoremap < <gv
-vnoremap > >gv
 
-"^$ The symbol is too hard to press
-map gh ^
-map gl $
+" #########################################
+" ------ Pane Manipulation Behaviors ------
+" #########################################
 
+""" Open panes as duplicates and resize
+map <leader>ph <Action>(SplitHorizontally)
+map <leader>pv <Action>(SplitVertically)
+map <Leader>px <Action>(CloseContent)
 
-" ------ JetBrain Settings  ------
-
-
-" Set nerd tree
-set NERDTree
-Plug 'terryma/vim-multiple-cursors'
-
-" Free the ctrl + k key binding that the IDE uses
-sethandler <c-k> a:vim
-
-" Quickly reload vimrc
-nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
-
-" Join things together like comments and method chaining. Activated with shift+j
-set ideajoin
-
-" When refactoring, what vim mode should you be in. Visual allows you to quickly delete or esp to edit
-set idearefactormode=visual
-
-set visualbell
-set noerrorbells
-
-" ##################################################################################################
-" ------ Pane Manipulation Behaviors -------
-
-" Open panes as duplicates and resize
-map <leader>- <Action>(SplitHorizontally)
-map <leader>_ <Action>(SplitVertically)
-map <a-m> <Action>(MaximizeEditorInSplit)
-map <a-k> <Action>(StretchSplitToTop)
-map <a-j> <Action>(StretchSplitToBottom)
-map <a-h> <Action>(StretchSplitToLeft)
-map <a-l> <Action>(StretchSplitToRight)
-
-" Closing Panes "close close" and "close all"
-map <Leader>x <Action>(CloseContent)
-map <Leader>qa <Action>(CloseAllEditors)
+""" Enable zen mode
+map <leader>pz <Action>(ToggleDistractionFreeMode)
 
 " Sets hjkl as pane movement keys
-"nnoremap <c-h> <c-w>h
-"nnoremap <c-l> <c-w>l
-"nnoremap <c-j> <c-w>j
-"nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
 
-nnoremap <leader>h <c-w>h
-nnoremap <leader>l <c-w>l
-nnoremap <leader>j <c-w>j
-nnoremap <leader>k <c-w>k
 
-" Code Blocks; "pane block-open" "pane block-close" "pane global-block-open"
-" Open fold
-map <leader>po <Action>(ExpandRegionRecursively)
+" #########################################
+" ---- Haropoon -----
+" #########################################
+map <leader>ms <Action>(ToggleBookmarkWithMnemonic)
+map <leader>mm <Action>(ShowBookmarks)
+map <leader>mh <Action>(GoToNextBookmark)
+map <leader>ml <Action>(GoToPreviousBookmark)
 
-" Close fold
-map <leader>pc <Action>(CollapseRegionRecursively)
 
-" Open ALL folds
-map <leader>pgo <Action>(ExpandAllRegions)
+" #########################################
+" ---- Telescope -----
+" #########################################
+map <leader>sf <Action>(GoToFile)
+map <leader>sg <Action>(FindInPath)
+map <leader>ss <Action>(Replace)
+map <leader>sb <Action>(ViewBreakpoints)
 
-" Close ALL folds
-map <leader>pgc <Action>(CollapseAllRegions)
-
-" Enable zen mode
-map <leader>pz <Action>(ToggleDistractionFreeMode)
 
 " ##################################################################################################
 " ------ G: GoTo - These commands open up GUI elements -------
@@ -162,16 +148,9 @@ map <leader>gl <Action>(NextTab)
 map <leader>gh <Action>(PreviousTab)
 
 " Search Box; The all is opened with shift + shift on all platforms
-map <leader>gf <Action>(GotoFile)
-map gf :NERDTreeFocus <CR>
 map <leader>ga <Action>(GotoAction)
 map <leader>gp <Action>(ActivateProjectToolWindow)
-map <leader>gb <Action>(ViewBreakpoints)
 
-" Searching around for files 
-map <leader>fs <Action>(GoToFile)
-map <leader>ff <Action>(Replace)
-map <leader>fg <Action>(FindInPath)
 
 
 
@@ -223,14 +202,3 @@ map <leader>bb <Action>(ToggleLineBreakpoint)
 map <leader>br <Action>(Debugger.RemoveAllBreakpoints)
 
 
-" ---- Haropoon -----
-map <leader>ms <Action>(ToggleBookmarkWithMnemonic)
-map <leader>mm <Action>(ShowBookmarks)
-map <leader>mh <Action>(GoToNextBookmark)
-map <leader>ml <Action>(GoToPreviousBookmark)
-
-" Multi line selection
-map mc <A-n>
-map mx <A-x>
-map mp <A-p>
-map mg g<A-n>

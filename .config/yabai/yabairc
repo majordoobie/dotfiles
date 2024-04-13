@@ -77,6 +77,7 @@ yabai -m rule --add title="^Parallels$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^1Password$" manage=off
 
 
 # Name of the intelij project use the query to see what name is
