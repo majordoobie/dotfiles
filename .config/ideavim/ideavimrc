@@ -35,7 +35,9 @@ set updatetime=300
 set ideamarks=true
 
 """ Plugs
-set NERDTree
+Plug 'preservim/nerdtree'
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_color = "rgba(255, 255, 0, 120)"
 
 """ Free the ctrl + k key binding that the IDE uses
 sethandler <c-k> a:vim
@@ -113,7 +115,7 @@ nnoremap <c-k> <c-w>k
 
 
 " #########################################
-" ---- Haropoon -----
+" ---- Harpoon -----
 " #########################################
 map <leader>ms <Action>(ToggleBookmarkWithMnemonic)
 map <leader>mm <Action>(ShowBookmarks)
@@ -124,7 +126,7 @@ map <leader>ml <Action>(GoToPreviousBookmark)
 " #########################################
 " ---- Telescope -----
 " #########################################
-map <leader>sf <Action>(GoToFile)
+map <leader>sf <Action>(GotoFile)
 map <leader>sg <Action>(FindInPath)
 map <leader>ss <Action>(Replace)
 map <leader>sb <Action>(ViewBreakpoints)
