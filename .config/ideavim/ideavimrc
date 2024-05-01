@@ -184,7 +184,7 @@ map <leader>vb <Action>(ShowBookmarks)
 
     " Open time based window with all your changes
 map <leader>vh <Action>(LocalHistory.ShowHistory)
-" ##################################################################################################
+" #################################################################################################
 
 " --- Jump To
 map <leader>jd <Action>(GotoDeclaration)
