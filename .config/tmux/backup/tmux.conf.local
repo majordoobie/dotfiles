@@ -5,23 +5,13 @@
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
 
-# -- bindings ------------------------------------------------------------------
-
-# preserve tmux stock bindings,
-# while adding bindings that don't conflict with these stock bindings
-# /!\ this disables some of Oh my tmux! bindings described in README.md
-#   - true
-#   - false (default)
-tmux_conf_preserve_stock_bindings=false
-
-
 # -- session creation ----------------------------------------------------------
 
 # prompt for session name when creating a new session, possible values are:
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-session bindings)
-tmux_conf_new_session_prompt=true
+tmux_conf_new_session_prompt=false
 
 # new session retains current path, possible values are:
 #   - true
@@ -42,7 +32,7 @@ tmux_conf_new_window_retain_current_path=true
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-window bindings)
-tmux_conf_new_window_reconnect_ssh=false
+tmux_conf_new_window_reconnect_ssh=true
 
 # new pane retains current path, possible values are:
 #   - true (default)
@@ -54,7 +44,7 @@ tmux_conf_new_pane_retain_current_path=true
 #   - true
 #   - false (default)
 #   - disabled (do not modify split-window bindings)
-tmux_conf_new_pane_reconnect_ssh=true
+tmux_conf_new_pane_reconnect_ssh=false
 
 
 # -- display -------------------------------------------------------------------
@@ -179,7 +169,7 @@ tmux_conf_theme_status_attr="none"
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
+tmux_conf_theme_terminal_title="#I #W"
 
 # window status style
 #   - built-in variables are:
@@ -267,8 +257,8 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
+tmux_conf_theme_status_left=""
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{hostname_ssh} , %R , %d %b | #{username}#{root} | #{hostname} "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
@@ -361,7 +351,7 @@ tmux_conf_theme_clock_style="24"
 #   - false (default)
 #   - disabled
 # on Linux, this requires xsel, xclip or wl-copy
-tmux_conf_copy_to_os_clipboard=false
+tmux_conf_copy_to_os_clipboard=true
 
 
 # -- user customizations -------------------------------------------------------
@@ -369,10 +359,10 @@ tmux_conf_copy_to_os_clipboard=false
 # this is the place to override or undo settings
 
 # increase history size
-#set -g history-limit 10000
+set -g history-limit 10000
 
 # start with mouse mode enabled
-#set -g mouse on
+set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
@@ -391,6 +381,58 @@ tmux_conf_copy_to_os_clipboard=false
 
 # move status line to top
 #set -g status-position top
+#
+
+# set first window to index 1 (not 0) to map more to the keyboard layout
+set -g base-index 1           # start windows numbering at 1
+setw -g pane-base-index 1     # make pane numbering consistent with windows
+setw -g automatic-rename off   # rename window to reflect current program
+set -g renumber-windows on    # renumber windows when a window is closed
+set -g set-titles on          # set terminal title
+set -g display-panes-time 800 # slightly longer pane indicators display time
+set -g display-time 1000      # slightly longer status messages display time
+set -g status-interval 10     # redraw status line every 10 seconds
+
+
+# open new windows in the current path
+bind c new-window -c "#{pane_current_path}"
+
+
+# Copy Mode Key Bindings
+set-window-option -g mode-keys vi
+bind -T copy-mode-vi v send-keys -X begin-selection
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+run -b 'tmux bind -t vi-copy C-v rectangle-toggle 2> /dev/null || true'
+run -b 'tmux bind -T copy-mode-vi C-v send -X rectangle-toggle 2> /dev/null || true'
+run -b 'tmux bind -t vi-copy Escape cancel 3> /dev/null || true'
+run -b 'tmux bind -T copy-mode-vi Escape send -X cancel 2> /dev/null || true'
+
+# Window Switching Key Bindings
+# You can also use the ints C-a ${int}
+bind -r O previous-window # select previous window
+bind -r Y next-window     # select next window
+
+# Pane creationg
+bind - split-window -v    # Horizontal
+bind _ split-window -h    # Vertical
+
+# vim-like pane switching
+bind -r ^ last-window
+bind h select-pane -L     # move left
+bind j select-pane -D     # move down
+bind k select-pane -U     # move up
+bind l select-pane -R     # move right
+bind L swap-pane -D       # swap current pane with the next one
+bind H swap-pane -U       # swap current pane with the previous one
+
+        
+bind-key n command-prompt -I "#W" "rename-window '%%'"
+
+# pane resizing
+bind -r y resize-pane -L 10
+bind -r u resize-pane -D 10
+bind -r i resize-pane -U 10
+bind -r o resize-pane -R 10
 
 
 # -- tpm -----------------------------------------------------------------------
