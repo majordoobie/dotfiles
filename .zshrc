@@ -43,7 +43,8 @@ alias ll="ls -lAh"
 alias code="cd ~/OneDrive/Code"
 alias dotfiles="cd ~/dotfiles"
 alias edit_nvim="cd ~/.config/nvim/"
-
+export EDITOR="nvim"
+export VISUAL="nvim" 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
