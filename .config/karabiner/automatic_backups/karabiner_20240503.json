@@ -83,7 +83,11 @@
                                 },
                                 "to_if_held_down": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "left_command",
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_option"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
