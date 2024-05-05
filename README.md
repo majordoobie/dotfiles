@@ -29,8 +29,6 @@ brew install node
 ```bash
 brew tap homebrew/cask-fonts
 brew install font-meslo-lg-nerd-font
-brew install --cask font-hack-nerd-font
-brew install --cask homebrew/cask-fonts/font-jetbrains-mono
 ```
 
 ## Installation
