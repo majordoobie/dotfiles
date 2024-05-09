@@ -587,3 +587,806 @@
 [2024-05-07 22:20:54.980]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
 [2024-05-07 22:20:55.023]	 Done.
 
+[2024-05-08 12:54:02.701]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 12:54:02.714]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 12:54:02.813]	 Already installed "vim-tmux-navigator"
+[2024-05-08 12:54:02.826]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 12:54:02.899]	 Updating all plugins!
+[2024-05-08 12:54:02.900]	 
+[2024-05-08 12:54:03.324]	   "vim-tmux-navigator" update success
+[2024-05-08 12:54:03.326]	     | Already up to date.
+[2024-05-08 12:54:03.339]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 12:54:03.388]	 Done.
+
+[2024-05-08 12:54:37.734]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 12:54:37.746]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 12:54:37.853]	 Already installed "vim-tmux-navigator"
+[2024-05-08 12:54:37.865]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 12:54:37.919]	 Updating all plugins!
+[2024-05-08 12:54:37.919]	 
+[2024-05-08 12:54:38.295]	   "vim-tmux-navigator" update success
+[2024-05-08 12:54:38.297]	     | Already up to date.
+[2024-05-08 12:54:38.309]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 12:54:38.353]	 Done.
+
+[2024-05-08 12:56:42.343]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 12:56:42.355]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 12:56:42.491]	 Already installed "vim-tmux-navigator"
+[2024-05-08 12:56:42.504]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 12:56:42.569]	 Updating all plugins!
+[2024-05-08 12:56:42.570]	 
+[2024-05-08 12:56:42.891]	   "vim-tmux-navigator" update success
+[2024-05-08 12:56:42.892]	     | Already up to date.
+[2024-05-08 12:56:42.905]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 12:56:42.949]	 Done.
+
+[2024-05-08 12:57:13.498]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 12:57:13.510]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 12:57:13.618]	 Already installed "vim-tmux-navigator"
+[2024-05-08 12:57:13.630]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 12:57:13.686]	 Updating all plugins!
+[2024-05-08 12:57:13.686]	 
+[2024-05-08 12:57:14.107]	   "vim-tmux-navigator" update success
+[2024-05-08 12:57:14.109]	     | Already up to date.
+[2024-05-08 12:57:14.121]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 12:57:14.165]	 Done.
+
+[2024-05-08 12:57:39.388]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 12:57:39.399]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 12:57:39.511]	 Already installed "vim-tmux-navigator"
+[2024-05-08 12:57:39.522]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 12:57:39.600]	 Updating all plugins!
+[2024-05-08 12:57:39.600]	 
+[2024-05-08 12:57:39.949]	   "vim-tmux-navigator" update success
+[2024-05-08 12:57:39.951]	     | Already up to date.
+[2024-05-08 12:57:39.964]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 12:57:40.009]	 Done.
+
+[2024-05-08 12:59:19.919]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 12:59:19.931]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 12:59:20.034]	 Already installed "vim-tmux-navigator"
+[2024-05-08 12:59:20.046]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 12:59:20.101]	 Updating all plugins!
+[2024-05-08 12:59:20.101]	 
+[2024-05-08 12:59:20.530]	   "vim-tmux-navigator" update success
+[2024-05-08 12:59:20.531]	     | Already up to date.
+[2024-05-08 12:59:20.545]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 12:59:20.597]	 Done.
+
+[2024-05-08 12:59:54.965]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 12:59:54.976]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 12:59:55.084]	 Already installed "vim-tmux-navigator"
+[2024-05-08 12:59:55.096]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 12:59:55.152]	 Updating all plugins!
+[2024-05-08 12:59:55.153]	 
+[2024-05-08 12:59:55.543]	   "vim-tmux-navigator" update success
+[2024-05-08 12:59:55.545]	     | Already up to date.
+[2024-05-08 12:59:55.557]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 12:59:55.602]	 Done.
+
+[2024-05-08 13:00:29.224]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:00:29.236]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:00:29.347]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:00:29.359]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:00:29.473]	 Updating all plugins!
+[2024-05-08 13:00:29.474]	 
+[2024-05-08 13:00:29.794]	   "vim-tmux-navigator" update success
+[2024-05-08 13:00:29.796]	     | Already up to date.
+[2024-05-08 13:00:29.808]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:00:29.853]	 Done.
+
+[2024-05-08 13:00:42.908]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:00:42.920]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:00:43.031]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:00:43.043]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:00:43.112]	 Updating all plugins!
+[2024-05-08 13:00:43.112]	 
+[2024-05-08 13:00:43.425]	   "vim-tmux-navigator" update success
+[2024-05-08 13:00:43.427]	     | Already up to date.
+[2024-05-08 13:00:43.440]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:00:43.486]	 Done.
+
+[2024-05-08 13:00:51.377]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:00:51.389]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:00:51.523]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:00:51.535]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:00:51.604]	 Updating all plugins!
+[2024-05-08 13:00:51.604]	 
+[2024-05-08 13:00:51.911]	   "vim-tmux-navigator" update success
+[2024-05-08 13:00:51.913]	     | Already up to date.
+[2024-05-08 13:00:51.926]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:00:51.973]	 Done.
+
+[2024-05-08 13:01:11.002]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:01:11.014]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:01:11.125]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:01:11.137]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:01:11.195]	 Updating all plugins!
+[2024-05-08 13:01:11.196]	 
+[2024-05-08 13:01:11.637]	   "vim-tmux-navigator" update success
+[2024-05-08 13:01:11.639]	     | Already up to date.
+[2024-05-08 13:01:11.651]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:01:11.704]	 Done.
+
+[2024-05-08 13:01:19.857]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:01:19.868]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:01:19.975]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:01:19.987]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:01:20.044]	 Updating all plugins!
+[2024-05-08 13:01:20.044]	 
+[2024-05-08 13:01:20.438]	   "vim-tmux-navigator" update success
+[2024-05-08 13:01:20.440]	     | Already up to date.
+[2024-05-08 13:01:20.453]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:01:20.498]	 Done.
+
+[2024-05-08 13:05:04.477]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:05:04.491]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:05:04.601]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:05:04.615]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:05:04.741]	 Updating all plugins!
+[2024-05-08 13:05:04.742]	 
+[2024-05-08 13:05:05.085]	   "vim-tmux-navigator" update success
+[2024-05-08 13:05:05.088]	     | Already up to date.
+[2024-05-08 13:05:05.102]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:05:05.157]	 Done.
+
+[2024-05-08 13:05:37.402]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:05:37.415]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:05:37.509]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:05:37.523]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:05:37.586]	 Updating all plugins!
+[2024-05-08 13:05:37.586]	 
+[2024-05-08 13:05:38.029]	   "vim-tmux-navigator" update success
+[2024-05-08 13:05:38.032]	     | Already up to date.
+[2024-05-08 13:05:38.046]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:05:38.099]	 Done.
+
+[2024-05-08 13:05:55.967]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:05:55.980]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:05:56.133]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:05:56.145]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:05:56.210]	 Updating all plugins!
+[2024-05-08 13:05:56.210]	 
+[2024-05-08 13:05:56.537]	   "vim-tmux-navigator" update success
+[2024-05-08 13:05:56.539]	     | Already up to date.
+[2024-05-08 13:05:56.553]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:05:56.607]	 Done.
+
+[2024-05-08 13:06:12.762]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:06:12.775]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:06:12.914]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:06:12.927]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:06:12.992]	 Updating all plugins!
+[2024-05-08 13:06:12.992]	 
+[2024-05-08 13:06:13.284]	   "vim-tmux-navigator" update success
+[2024-05-08 13:06:13.287]	     | Already up to date.
+[2024-05-08 13:06:13.300]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:06:13.352]	 Done.
+
+[2024-05-08 13:07:00.983]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:07:00.996]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:07:01.156]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:07:01.168]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:07:01.223]	 Updating all plugins!
+[2024-05-08 13:07:01.223]	 
+[2024-05-08 13:07:01.542]	   "vim-tmux-navigator" update success
+[2024-05-08 13:07:01.544]	     | Already up to date.
+[2024-05-08 13:07:01.556]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:07:01.605]	 Done.
+
+[2024-05-08 13:07:25.431]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:07:25.443]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:07:25.544]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:07:25.557]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:07:25.621]	 Updating all plugins!
+[2024-05-08 13:07:25.622]	 
+[2024-05-08 13:07:25.965]	   "vim-tmux-navigator" update success
+[2024-05-08 13:07:25.967]	     | Already up to date.
+[2024-05-08 13:07:25.981]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:07:26.028]	 Done.
+
+[2024-05-08 13:10:53.216]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:10:53.228]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:10:53.385]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:10:53.398]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:10:53.474]	 Updating all plugins!
+[2024-05-08 13:10:53.474]	 
+[2024-05-08 13:10:53.789]	   "vim-tmux-navigator" update success
+[2024-05-08 13:10:53.791]	     | Already up to date.
+[2024-05-08 13:10:53.803]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:10:53.847]	 Done.
+
+[2024-05-08 13:11:10.806]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:11:10.818]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:11:10.928]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:11:10.940]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:11:10.992]	 Updating all plugins!
+[2024-05-08 13:11:10.992]	 
+[2024-05-08 13:11:11.408]	   "vim-tmux-navigator" update success
+[2024-05-08 13:11:11.410]	     | Already up to date.
+[2024-05-08 13:11:11.422]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:11:11.470]	 Done.
+
+[2024-05-08 13:21:27.146]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:21:27.157]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:21:27.297]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:21:27.309]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:21:27.374]	 Updating all plugins!
+[2024-05-08 13:21:27.374]	 
+[2024-05-08 13:21:27.694]	   "vim-tmux-navigator" update success
+[2024-05-08 13:21:27.696]	     | Already up to date.
+[2024-05-08 13:21:27.707]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:21:27.753]	 Done.
+
+[2024-05-08 13:22:03.843]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:22:03.854]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:22:03.996]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:22:04.008]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:22:04.069]	 Updating all plugins!
+[2024-05-08 13:22:04.069]	 
+[2024-05-08 13:22:04.379]	   "vim-tmux-navigator" update success
+[2024-05-08 13:22:04.381]	     | Already up to date.
+[2024-05-08 13:22:04.393]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:22:04.437]	 Done.
+
+[2024-05-08 13:23:00.950]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:23:00.961]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:23:01.114]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:23:01.126]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:23:01.197]	 Updating all plugins!
+[2024-05-08 13:23:01.197]	 
+[2024-05-08 13:23:01.512]	   "vim-tmux-navigator" update success
+[2024-05-08 13:23:01.514]	     | Already up to date.
+[2024-05-08 13:23:01.526]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:23:01.571]	 Done.
+
+[2024-05-08 13:23:28.178]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:23:28.192]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:23:28.282]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:23:28.294]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:23:28.378]	 Updating all plugins!
+[2024-05-08 13:23:28.378]	 
+[2024-05-08 13:23:28.685]	   "vim-tmux-navigator" update success
+[2024-05-08 13:23:28.687]	     | Already up to date.
+[2024-05-08 13:23:28.699]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:23:28.744]	 Done.
+
+[2024-05-08 13:24:15.753]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:24:15.765]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:24:15.870]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:24:15.882]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:24:15.936]	 Updating all plugins!
+[2024-05-08 13:24:15.937]	 
+[2024-05-08 13:24:16.314]	   "vim-tmux-navigator" update success
+[2024-05-08 13:24:16.316]	     | Already up to date.
+[2024-05-08 13:24:16.328]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:24:16.373]	 Done.
+
+[2024-05-08 13:24:32.915]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:24:32.927]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:24:33.033]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:24:33.045]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:24:33.100]	 Updating all plugins!
+[2024-05-08 13:24:33.100]	 
+[2024-05-08 13:24:33.476]	   "vim-tmux-navigator" update success
+[2024-05-08 13:24:33.478]	     | Already up to date.
+[2024-05-08 13:24:33.491]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:24:33.536]	 Done.
+
+[2024-05-08 13:24:41.113]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:24:41.125]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:24:41.279]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:24:41.291]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:24:41.367]	 Updating all plugins!
+[2024-05-08 13:24:41.367]	 
+[2024-05-08 13:24:41.673]	   "vim-tmux-navigator" update success
+[2024-05-08 13:24:41.674]	     | Already up to date.
+[2024-05-08 13:24:41.687]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:24:41.732]	 Done.
+
+[2024-05-08 13:25:17.325]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:25:17.337]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:25:17.448]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:25:17.460]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:25:17.522]	 Updating all plugins!
+[2024-05-08 13:25:17.522]	 
+[2024-05-08 13:25:17.842]	   "vim-tmux-navigator" update success
+[2024-05-08 13:25:17.844]	     | Already up to date.
+[2024-05-08 13:25:17.856]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:25:17.900]	 Done.
+
+[2024-05-08 13:25:32.359]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:25:32.371]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:25:32.477]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:25:32.489]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:25:32.607]	 Updating all plugins!
+[2024-05-08 13:25:32.608]	 
+[2024-05-08 13:25:32.914]	   "vim-tmux-navigator" update success
+[2024-05-08 13:25:32.916]	     | Already up to date.
+[2024-05-08 13:25:32.928]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:25:32.972]	 Done.
+
+[2024-05-08 13:25:42.834]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:25:42.845]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:25:42.955]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:25:42.967]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:25:43.098]	 Updating all plugins!
+[2024-05-08 13:25:43.099]	 
+[2024-05-08 13:25:43.412]	   "vim-tmux-navigator" update success
+[2024-05-08 13:25:43.414]	     | Already up to date.
+[2024-05-08 13:25:43.426]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:25:43.471]	 Done.
+
+[2024-05-08 13:26:31.567]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:26:31.585]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:26:31.695]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:26:31.707]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:26:31.766]	 Updating all plugins!
+[2024-05-08 13:26:31.766]	 
+[2024-05-08 13:26:32.101]	   "vim-tmux-navigator" update success
+[2024-05-08 13:26:32.103]	     | Already up to date.
+[2024-05-08 13:26:32.115]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:26:32.159]	 Done.
+
+[2024-05-08 13:28:20.065]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:28:20.077]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:28:20.186]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:28:20.198]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:28:20.257]	 Updating all plugins!
+[2024-05-08 13:28:20.257]	 
+[2024-05-08 13:28:20.671]	   "vim-tmux-navigator" update success
+[2024-05-08 13:28:20.673]	     | Already up to date.
+[2024-05-08 13:28:20.686]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:28:20.735]	 Done.
+
+[2024-05-08 13:29:31.233]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:29:31.245]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:29:31.351]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:29:31.363]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:29:31.422]	 Updating all plugins!
+[2024-05-08 13:29:31.422]	 
+[2024-05-08 13:29:31.802]	   "vim-tmux-navigator" update success
+[2024-05-08 13:29:31.804]	     | Already up to date.
+[2024-05-08 13:29:31.817]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:29:31.863]	 Done.
+
+[2024-05-08 13:29:59.742]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:29:59.754]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:29:59.862]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:29:59.874]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:29:59.998]	 Updating all plugins!
+[2024-05-08 13:29:59.999]	 
+[2024-05-08 13:30:00.303]	   "vim-tmux-navigator" update success
+[2024-05-08 13:30:00.305]	     | Already up to date.
+[2024-05-08 13:30:00.318]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:30:00.365]	 Done.
+
+[2024-05-08 13:31:16.460]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:31:16.471]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:31:16.602]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:31:16.615]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:31:16.675]	 Updating all plugins!
+[2024-05-08 13:31:16.675]	 
+[2024-05-08 13:31:16.970]	   "vim-tmux-navigator" update success
+[2024-05-08 13:31:16.972]	     | Already up to date.
+[2024-05-08 13:31:16.984]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:31:17.029]	 Done.
+
+[2024-05-08 13:31:30.830]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:31:30.842]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:31:30.941]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:31:30.953]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:31:31.006]	 Updating all plugins!
+[2024-05-08 13:31:31.006]	 
+[2024-05-08 13:31:31.388]	   "vim-tmux-navigator" update success
+[2024-05-08 13:31:31.390]	     | Already up to date.
+[2024-05-08 13:31:31.403]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:31:31.449]	 Done.
+
+[2024-05-08 13:32:59.170]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:32:59.182]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:32:59.336]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:32:59.348]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:32:59.423]	 Updating all plugins!
+[2024-05-08 13:32:59.424]	 
+[2024-05-08 13:32:59.730]	   "vim-tmux-navigator" update success
+[2024-05-08 13:32:59.732]	     | Already up to date.
+[2024-05-08 13:32:59.745]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:32:59.791]	 Done.
+
+[2024-05-08 13:33:32.460]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:33:32.472]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:33:32.582]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:33:32.594]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:33:32.652]	 Updating all plugins!
+[2024-05-08 13:33:32.652]	 
+[2024-05-08 13:33:33.027]	   "vim-tmux-navigator" update success
+[2024-05-08 13:33:33.029]	     | Already up to date.
+[2024-05-08 13:33:33.041]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:33:33.087]	 Done.
+
+[2024-05-08 13:35:00.684]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:35:00.695]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:35:00.805]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:35:00.817]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:35:00.946]	 Updating all plugins!
+[2024-05-08 13:35:00.946]	 
+[2024-05-08 13:35:01.274]	   "vim-tmux-navigator" update success
+[2024-05-08 13:35:01.276]	     | Already up to date.
+[2024-05-08 13:35:01.288]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:35:01.334]	 Done.
+
+[2024-05-08 13:36:17.850]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:36:17.862]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:36:17.974]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:36:17.986]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:36:18.042]	 Updating all plugins!
+[2024-05-08 13:36:18.042]	 
+[2024-05-08 13:36:18.350]	   "vim-tmux-navigator" update success
+[2024-05-08 13:36:18.352]	     | Already up to date.
+[2024-05-08 13:36:18.364]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:36:18.409]	 Done.
+
+[2024-05-08 13:37:08.535]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:37:08.547]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:37:08.654]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:37:08.666]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:37:08.723]	 Updating all plugins!
+[2024-05-08 13:37:08.724]	 
+[2024-05-08 13:37:09.132]	   "vim-tmux-navigator" update success
+[2024-05-08 13:37:09.134]	     | Already up to date.
+[2024-05-08 13:37:09.146]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:37:09.192]	 Done.
+
+[2024-05-08 13:39:26.648]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:39:26.659]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:39:26.817]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:39:26.829]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:39:26.898]	 Updating all plugins!
+[2024-05-08 13:39:26.899]	 
+[2024-05-08 13:39:27.206]	   "vim-tmux-navigator" update success
+[2024-05-08 13:39:27.208]	     | Already up to date.
+[2024-05-08 13:39:27.220]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:39:27.265]	 Done.
+
+[2024-05-08 13:39:54.228]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:39:54.240]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:39:54.348]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:39:54.360]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:39:54.418]	 Updating all plugins!
+[2024-05-08 13:39:54.419]	 
+[2024-05-08 13:39:54.796]	   "vim-tmux-navigator" update success
+[2024-05-08 13:39:54.798]	     | Already up to date.
+[2024-05-08 13:39:54.811]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:39:54.858]	 Done.
+
+[2024-05-08 13:41:27.263]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:41:27.275]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:41:27.393]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:41:27.405]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:41:27.462]	 Updating all plugins!
+[2024-05-08 13:41:27.462]	 
+[2024-05-08 13:41:27.766]	   "vim-tmux-navigator" update success
+[2024-05-08 13:41:27.767]	     | Already up to date.
+[2024-05-08 13:41:27.780]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:41:27.827]	 Done.
+
+[2024-05-08 13:41:58.153]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:41:58.167]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:41:58.337]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:41:58.350]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:41:58.427]	 Updating all plugins!
+[2024-05-08 13:41:58.427]	 
+[2024-05-08 13:41:58.738]	   "vim-tmux-navigator" update success
+[2024-05-08 13:41:58.740]	     | Already up to date.
+[2024-05-08 13:41:58.753]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:41:58.797]	 Done.
+
+[2024-05-08 13:42:28.574]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:42:28.588]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:42:28.739]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:42:28.751]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:42:28.817]	 Updating all plugins!
+[2024-05-08 13:42:28.817]	 
+[2024-05-08 13:42:29.132]	   "vim-tmux-navigator" update success
+[2024-05-08 13:42:29.134]	     | Already up to date.
+[2024-05-08 13:42:29.146]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:42:29.190]	 Done.
+
+[2024-05-08 13:44:38.787]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:44:38.799]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:44:38.900]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:44:38.912]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:44:38.966]	 Updating all plugins!
+[2024-05-08 13:44:38.966]	 
+[2024-05-08 13:44:39.355]	   "vim-tmux-navigator" update success
+[2024-05-08 13:44:39.357]	     | Already up to date.
+[2024-05-08 13:44:39.369]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:44:39.416]	 Done.
+
+[2024-05-08 13:45:40.373]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:45:40.385]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:45:40.496]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:45:40.508]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:45:40.609]	 Updating all plugins!
+[2024-05-08 13:45:40.609]	 
+[2024-05-08 13:45:40.913]	   "vim-tmux-navigator" update success
+[2024-05-08 13:45:40.915]	     | Already up to date.
+[2024-05-08 13:45:40.927]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:45:40.974]	 Done.
+
+[2024-05-08 13:47:01.644]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:47:01.656]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:47:01.760]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:47:01.772]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:47:01.863]	 Updating all plugins!
+[2024-05-08 13:47:01.863]	 
+[2024-05-08 13:47:02.178]	   "vim-tmux-navigator" update success
+[2024-05-08 13:47:02.180]	     | Already up to date.
+[2024-05-08 13:47:02.193]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:47:02.237]	 Done.
+
+[2024-05-08 13:48:41.299]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-08 13:48:41.311]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-08 13:48:41.414]	 Already installed "vim-tmux-navigator"
+[2024-05-08 13:48:41.426]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-08 13:48:41.484]	 Updating all plugins!
+[2024-05-08 13:48:41.484]	 
+[2024-05-08 13:48:41.896]	   "vim-tmux-navigator" update success
+[2024-05-08 13:48:41.898]	     | Already up to date.
+[2024-05-08 13:48:41.910]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-08 13:48:41.955]	 Done.
+
+[2024-05-09 07:04:03.029]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 07:04:03.045]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 07:04:03.152]	 Already installed "vim-tmux-navigator"
+[2024-05-09 07:04:03.167]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 07:04:03.237]	 Updating all plugins!
+[2024-05-09 07:04:03.237]	 
+[2024-05-09 07:04:03.616]	   "vim-tmux-navigator" update success
+[2024-05-09 07:04:03.618]	     | Already up to date.
+[2024-05-09 07:04:03.634]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 07:04:03.698]	 Done.
+
+[2024-05-09 08:34:09.513]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:34:09.529]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:34:09.634]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:34:09.648]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:34:09.710]	 Updating all plugins!
+[2024-05-09 08:34:09.710]	 
+[2024-05-09 08:34:10.047]	   "vim-tmux-navigator" update success
+[2024-05-09 08:34:10.050]	     | Already up to date.
+[2024-05-09 08:34:10.065]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:34:10.125]	 Done.
+
+[2024-05-09 08:37:38.380]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:37:38.395]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:37:38.498]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:37:38.512]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:37:38.574]	 Updating all plugins!
+[2024-05-09 08:37:38.574]	 
+[2024-05-09 08:37:38.947]	   "vim-tmux-navigator" update success
+[2024-05-09 08:37:38.949]	     | Already up to date.
+[2024-05-09 08:37:38.964]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:37:39.020]	 Done.
+
+[2024-05-09 08:38:08.314]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:38:08.329]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:38:08.434]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:38:08.449]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:38:08.509]	 Updating all plugins!
+[2024-05-09 08:38:08.510]	 
+[2024-05-09 08:38:08.839]	   "vim-tmux-navigator" update success
+[2024-05-09 08:38:08.842]	     | Already up to date.
+[2024-05-09 08:38:08.857]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:38:08.912]	 Done.
+
+[2024-05-09 08:38:41.126]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:38:41.143]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:38:41.250]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:38:41.266]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:38:41.324]	 Updating all plugins!
+[2024-05-09 08:38:41.325]	 
+[2024-05-09 08:38:41.653]	   "vim-tmux-navigator" update success
+[2024-05-09 08:38:41.655]	     | Already up to date.
+[2024-05-09 08:38:41.670]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:38:41.726]	 Done.
+
+[2024-05-09 08:38:54.911]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:38:54.925]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:38:55.030]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:38:55.045]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:38:55.110]	 Updating all plugins!
+[2024-05-09 08:38:55.110]	 
+[2024-05-09 08:38:55.444]	   "vim-tmux-navigator" update success
+[2024-05-09 08:38:55.446]	     | Already up to date.
+[2024-05-09 08:38:55.461]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:38:55.518]	 Done.
+
+[2024-05-09 08:39:04.218]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:39:04.233]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:39:04.336]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:39:04.351]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:39:04.412]	 Updating all plugins!
+[2024-05-09 08:39:04.412]	 
+[2024-05-09 08:39:04.741]	   "vim-tmux-navigator" update success
+[2024-05-09 08:39:04.743]	     | Already up to date.
+[2024-05-09 08:39:04.758]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:39:04.814]	 Done.
+
+[2024-05-09 08:39:08.130]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:39:08.145]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:39:08.250]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:39:08.265]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:39:08.323]	 Updating all plugins!
+[2024-05-09 08:39:08.323]	 
+[2024-05-09 08:39:08.654]	   "vim-tmux-navigator" update success
+[2024-05-09 08:39:08.657]	     | Already up to date.
+[2024-05-09 08:39:08.672]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:39:08.728]	 Done.
+
+[2024-05-09 08:39:31.596]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:39:31.611]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:39:31.716]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:39:31.731]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:39:31.797]	 Updating all plugins!
+[2024-05-09 08:39:31.797]	 
+[2024-05-09 08:39:32.125]	   "vim-tmux-navigator" update success
+[2024-05-09 08:39:32.128]	     | Already up to date.
+[2024-05-09 08:39:32.143]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:39:32.201]	 Done.
+
+[2024-05-09 08:42:03.903]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:42:03.919]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:42:04.022]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:42:04.037]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:42:04.101]	 Updating all plugins!
+[2024-05-09 08:42:04.102]	 
+[2024-05-09 08:42:04.437]	   "vim-tmux-navigator" update success
+[2024-05-09 08:42:04.440]	     | Already up to date.
+[2024-05-09 08:42:04.456]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:42:04.512]	 Done.
+
+[2024-05-09 08:42:30.782]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:42:30.797]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:42:30.902]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:42:30.917]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:42:30.978]	 Updating all plugins!
+[2024-05-09 08:42:30.978]	 
+[2024-05-09 08:42:31.313]	   "vim-tmux-navigator" update success
+[2024-05-09 08:42:31.316]	     | Already up to date.
+[2024-05-09 08:42:31.332]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:42:31.387]	 Done.
+
+[2024-05-09 08:42:38.598]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:42:38.613]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:42:38.711]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:42:38.726]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:42:38.788]	 Updating all plugins!
+[2024-05-09 08:42:38.788]	 
+[2024-05-09 08:42:39.116]	   "vim-tmux-navigator" update success
+[2024-05-09 08:42:39.119]	     | Already up to date.
+[2024-05-09 08:42:39.135]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:42:39.193]	 Done.
+
+[2024-05-09 08:42:56.621]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:42:56.636]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:42:56.746]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:42:56.761]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:42:56.828]	 Updating all plugins!
+[2024-05-09 08:42:56.829]	 
+[2024-05-09 08:42:57.153]	   "vim-tmux-navigator" update success
+[2024-05-09 08:42:57.156]	     | Already up to date.
+[2024-05-09 08:42:57.170]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:42:57.227]	 Done.
+
+[2024-05-09 08:43:12.163]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:43:12.178]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:43:12.279]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:43:12.294]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:43:12.357]	 Updating all plugins!
+[2024-05-09 08:43:12.357]	 
+[2024-05-09 08:43:12.682]	   "vim-tmux-navigator" update success
+[2024-05-09 08:43:12.685]	     | Already up to date.
+[2024-05-09 08:43:12.700]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:43:12.755]	 Done.
+
+[2024-05-09 08:43:20.709]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:43:20.725]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:43:20.839]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:43:20.855]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:43:20.937]	 Updating all plugins!
+[2024-05-09 08:43:20.937]	 
+[2024-05-09 08:43:21.278]	   "vim-tmux-navigator" update success
+[2024-05-09 08:43:21.281]	     | Already up to date.
+[2024-05-09 08:43:21.298]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:43:21.355]	 Done.
+
+[2024-05-09 08:44:26.814]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:44:26.829]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:44:26.924]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:44:26.939]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:44:27.005]	 Updating all plugins!
+[2024-05-09 08:44:27.005]	 
+[2024-05-09 08:44:27.316]	   "vim-tmux-navigator" update success
+[2024-05-09 08:44:27.318]	     | Already up to date.
+[2024-05-09 08:44:27.333]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:44:27.390]	 Done.
+
+[2024-05-09 08:44:42.824]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:44:42.839]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:44:42.936]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:44:42.951]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:44:43.020]	 Updating all plugins!
+[2024-05-09 08:44:43.020]	 
+[2024-05-09 08:44:43.343]	   "vim-tmux-navigator" update success
+[2024-05-09 08:44:43.346]	     | Already up to date.
+[2024-05-09 08:44:43.361]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:44:43.416]	 Done.
+
+[2024-05-09 08:45:15.807]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:45:15.823]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:45:15.932]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:45:15.947]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:45:16.005]	 Updating all plugins!
+[2024-05-09 08:45:16.005]	 
+[2024-05-09 08:45:16.336]	   "vim-tmux-navigator" update success
+[2024-05-09 08:45:16.339]	     | Already up to date.
+[2024-05-09 08:45:16.353]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:45:16.410]	 Done.
+
+[2024-05-09 08:45:24.455]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:45:24.469]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:45:24.574]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:45:24.588]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:45:24.650]	 Updating all plugins!
+[2024-05-09 08:45:24.650]	 
+[2024-05-09 08:45:24.975]	   "vim-tmux-navigator" update success
+[2024-05-09 08:45:24.978]	     | Already up to date.
+[2024-05-09 08:45:24.994]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:45:25.049]	 Done.
+
+[2024-05-09 08:45:50.497]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:45:50.512]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:45:50.614]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:45:50.629]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:45:50.691]	 Updating all plugins!
+[2024-05-09 08:45:50.692]	 
+[2024-05-09 08:45:51.020]	   "vim-tmux-navigator" update success
+[2024-05-09 08:45:51.023]	     | Already up to date.
+[2024-05-09 08:45:51.038]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:45:51.094]	 Done.
+
+[2024-05-09 08:45:58.920]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:45:58.935]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:45:59.039]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:45:59.054]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:45:59.123]	 Updating all plugins!
+[2024-05-09 08:45:59.124]	 
+[2024-05-09 08:45:59.441]	   "vim-tmux-navigator" update success
+[2024-05-09 08:45:59.443]	     | Already up to date.
+[2024-05-09 08:45:59.458]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:45:59.514]	 Done.
+
+[2024-05-09 08:46:06.504]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:46:06.519]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:46:06.611]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:46:06.626]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:46:06.693]	 Updating all plugins!
+[2024-05-09 08:46:06.694]	 
+[2024-05-09 08:46:07.023]	   "vim-tmux-navigator" update success
+[2024-05-09 08:46:07.026]	     | Already up to date.
+[2024-05-09 08:46:07.041]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:46:07.098]	 Done.
+
+[2024-05-09 08:46:48.546]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-05-09 08:46:48.562]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-09 08:46:48.666]	 Already installed "vim-tmux-navigator"
+[2024-05-09 08:46:48.682]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-09 08:46:48.744]	 Updating all plugins!
+[2024-05-09 08:46:48.744]	 
+[2024-05-09 08:46:49.066]	   "vim-tmux-navigator" update success
+[2024-05-09 08:46:49.068]	     | Already up to date.
+[2024-05-09 08:46:49.083]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-09 08:46:49.139]	 Done.
+
