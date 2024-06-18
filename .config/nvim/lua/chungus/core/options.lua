@@ -1,6 +1,7 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 
+
 -- line numbers
 vim.opt.relativenumber = true -- show relative line numbers
 vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)

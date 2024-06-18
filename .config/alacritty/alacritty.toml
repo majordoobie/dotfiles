@@ -1,0 +1,25 @@
+import = ["~/.config/alacritty/themes/tokyo-night.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[scrolling]
+history = 100000
+
+[selection]
+save_to_clipboard = true
+
+[window]
+decorations = "buttonless"
+padding = { x = 10, y = 3 }
+dynamic_padding = false
+opacity = 1
+
+[font]
+size = 20
+normal = {family = "FiraCode Nerd Font", style = "Regular"}
+
+
+[shell]
+program = "/bin/zsh"
+args = ["-l", "-c", "tmux attach -d -t chungus || tmux new-session -s chungus"]
