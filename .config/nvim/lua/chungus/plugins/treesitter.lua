@@ -1,35 +1,63 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    opts = {
-      ensure_installed = {
-            "bash",
-            "c",
-            "cpp",
-            "cmake",
-            "dockerfile",
-            "go",
-            "html",
-            "java",
-            "javascript",
-            "json",
-            "latex",
-            "lua",
-            "python",
-            "rust",
-            "toml",
-            "yaml",
-            "zig",
-            
-        },
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-      highlight = {
-        enable = true,
-      },
-      indent = { enable = true },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        event = { "BufReadPre", "BufNewFile" },
+        build = ":TSUpdate",
+
+        config = function()
+            local treesitter = require("nvim-treesitter.configs")
+
+            treesitter.setup({
+                highlight = {enable = true},
+                indent = {enable = true},
+                ensure_installed = {
+                    "arduino",
+                    "asm",
+                    "bash",
+                    "c",
+                    "cpp",
+                    "cmake",
+                    "diff",
+                    "disassembly",
+                    "dockerfile",
+                    "doxygen",
+                    "git_config",
+                    "git_rebase",
+                    "go",
+                    "html",
+                    "java",
+                    "javascript",
+                    "json",
+                    "latex",
+                    "llvm",
+                    "lua",
+                    "luap",
+                    "make",
+                    "objdump",
+                    "python",
+                    "requirements",
+                    "regex",
+                    "rust",
+                    "sql",
+                    "strace",
+                    "tmux",
+                    "vim",
+                    "vimdoc",
+                    "toml",
+                    "yaml",
+                    "zig",
+                },
+            })
+
+        end
     },
-    config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
-    end,
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("treesitter-context").setup()
+        end
+    }
 }

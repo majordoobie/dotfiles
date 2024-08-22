@@ -50,7 +50,7 @@ alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/
 alias ll="ls -lAh"
 alias code="cd ~/OneDrive/Code"
 alias dotfiles="cd ~/dotfiles"
-alias edit_nvim="cd ~/.config/nvim/"
+alias edit_nvim="cd ~/.config/nvim/ && nvim ."
 export EDITOR="nvim"
 export VISUAL="nvim" 
 

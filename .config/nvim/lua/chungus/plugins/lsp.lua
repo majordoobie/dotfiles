@@ -16,11 +16,15 @@
 -- * brew install bear
 --
 -- -- https://clangd.llvm.org/installation#compile_commandsjson
---
+
 -- -- must install clangd and set up the compile_commands.json
 -- -- so that clangd can understand your project
 -- -- it is recommended to use something like `bear` to build the database
 -- -- for make it would be something like `bear -- make`
+
+
+-- robotframework
+-- * python3 -m pip install robotframework-lsp
 
 
 
@@ -29,9 +33,9 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/neodev.nvim", opts = {} },
+    {"hrsh7th/cmp-nvim-lsp"},
+    {"antosha417/nvim-lsp-file-operations", config = true},
+    {"folke/neodev.nvim", opts = {}},
   },
 
   config = function()
@@ -41,31 +45,48 @@ return {
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-    -- -- LSP Language Set ups // start
+
+    --[[
+        -- LSP Language Set Ups // srart
+    --]]
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+    local lsp_servers = {"pyright", "clangd", "jsonls", "robotframework_ls"}
+    for _, lsp_server in ipairs(lsp_servers) do
+        lspconfig[lsp_server].setup({
+        capabilities = capabilities,
+            })
+    end
+     
     -- python
-    lspconfig.pyright.setup {}
+    --    lspconfig.pyright.setup {}
 
 
     -- json
-    --Enable (broadcasting) snippet capability for completion
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-    lspconfig.jsonls.setup({
-        capabilities = capabilities,
-        })
+    --lspconfig.jsonls.setup({
+    --    capabilities = capabilities,
+    --    })
+
 
     -- c/cpp
-    lspconfig.clangd.setup{}
-
-    -- -- LSP Language Set ups // end
+    --lspconfig.clangd.setup{}
 
 
+    -- robot
+    --lspconfig.robotframework_ls.setup{}
+
+
+    --[[
+        -- LSP Language Set Ups // End
+    --]]
 
 
 
 
-
-
+    -- [[
+        -- Specific key bindings go here
+    -- ]]
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
@@ -75,16 +96,16 @@ return {
 
         -- set keybinds
         opts.desc = "Show LSP references"
-        vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+        vim.keymap.set("n", "<leader>jr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
         opts.desc = "Go to declaration"
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+        vim.keymap.set("n", "<leader>jD", vim.lsp.buf.declaration, opts) -- go to declaration
 
         opts.desc = "Show LSP definitions"
-        vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+        vim.keymap.set("n", "<leader>jd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
         opts.desc = "Show LSP implementations"
-        vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+        vim.keymap.set("n", "<leader>ju", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
         opts.desc = "Show LSP type definitions"
         vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
@@ -93,13 +114,13 @@ return {
         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
         opts.desc = "Smart rename"
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+        vim.keymap.set("n", "<leader>er", vim.lsp.buf.rename, opts) -- smart rename
 
         opts.desc = "Show buffer diagnostics"
         vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
         opts.desc = "Show line diagnostics"
-        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+        vim.keymap.set("n", "<leader>vD", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
         opts.desc = "Go to previous diagnostic"
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
@@ -108,10 +129,14 @@ return {
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
         opts.desc = "Show documentation for what is under cursor"
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+        vim.keymap.set("n", "vd", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
         opts.desc = "Restart LSP"
         vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+        opts.desc = "View file structure"
+        vim.keymap.set("n", "<leader>vs", "<cmd>Telescope lsp_document_symbols symbols='function'<CR>", opts) -- mapping to restart lsp if necessary
+
       end,
     })
 

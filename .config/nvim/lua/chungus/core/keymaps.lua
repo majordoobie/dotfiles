@@ -36,16 +36,19 @@ vim.keymap.set("v", "x", "\"_x")           -- Delete without affecting the uname
 vim.keymap.set("n", "r", "\"_r")           -- Delete without affecting the unamged buffer
 vim.keymap.set("v", "r", "\"_r")           -- Delete without affecting the unamed buffer
 
-
+-- Use escape to escape the terminal 
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")           -- Delete without affecting the unamed buffer
 
 
 -- window management
 vim.keymap.set("n", "<leader>pv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 vim.keymap.set("n", "<leader>ph", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 vim.keymap.set("n", "<leader>px", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+-- To resize the panes you can use "20<C-w>+/- or 20<C-w>>/>
 
-vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+vim.keymap.set("n", "<leader>tl", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+vim.keymap.set("n", "<leader>th", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+vim.keymap.set("n", "<leader>tc", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
