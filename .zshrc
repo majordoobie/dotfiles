@@ -45,6 +45,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source ~/.config/wezterm/wezterm.sh
 
 alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents/DoobStation'"
 alias ll="ls -lAh"
@@ -60,3 +61,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
