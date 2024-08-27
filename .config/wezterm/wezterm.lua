@@ -15,6 +15,7 @@ local tmux = {}
 
 if wezterm.target_triple == "aarch64-apple-darwin" then
     tmux = { "/bin/zsh", "-l", "-c", "tmux attach -d -t chungus || tmux new-session -s chungus" }
+    config.macos_window_background_blur = 10
 else
     tmux = { "tmux", "new", "-As0" }
 end
@@ -33,6 +34,21 @@ config.default_prog = tmux
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.color_scheme = "Catppuccin Mocha"
+
+-- background
+config.background = {
+    {    
+        source = { File = wezterm.home_dir .. "/dotfiles/images/yellow_red_blue.png" },
+        opacity = .15,
+        repeat_x = "NoRepeat",
+        repeat_y = "NoRepeat",
+        height = "Contain",
+        width = "Contain",
+        horizontal_align = "Center",
+    },
+   
+}
+
 
 -- copy on select
 config.mouse_bindings = {
