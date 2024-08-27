@@ -52,6 +52,7 @@ alias ll="ls -lAh"
 alias code="cd ~/OneDrive/Code"
 alias dotfiles="cd ~/dotfiles"
 alias edit_nvim="cd ~/.config/nvim/ && nvim ."
+alias git_push="git add . && git commit -m \"update\" && git push"
 export EDITOR="nvim"
 export VISUAL="nvim" 
 

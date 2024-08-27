@@ -1,28 +1,6 @@
-[2024-08-22 15:27:41.545]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
-[2024-08-22 15:27:41.561]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
-[2024-08-22 15:27:41.949]	 Installing "vim-tmux-navigator"
-[2024-08-22 15:27:42.395]	   "vim-tmux-navigator" download success
-[2024-08-22 15:27:42.409]	 Done.
-
-[2024-08-22 15:29:39.953]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
-[2024-08-22 15:29:39.967]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
-[2024-08-22 15:29:40.199]	 Already installed "vim-tmux-navigator"
-[2024-08-22 15:29:40.213]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
-[2024-08-22 15:29:40.557]	 Updating all plugins!
-[2024-08-22 15:29:40.558]	 
-[2024-08-22 15:29:40.844]	   "vim-tmux-navigator" update success
-[2024-08-22 15:29:40.847]	     | Already up to date.
-[2024-08-22 15:29:40.863]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
-[2024-08-22 15:29:41.260]	 Done.
-
-[2024-08-22 15:31:31.284]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
-[2024-08-22 15:31:31.300]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
-[2024-08-22 15:31:31.527]	 Already installed "vim-tmux-navigator"
-[2024-08-22 15:31:31.541]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/update_plugins all
-[2024-08-22 15:31:31.713]	 Updating all plugins!
-[2024-08-22 15:31:31.714]	 
-[2024-08-22 15:31:32.019]	   "vim-tmux-navigator" update success
-[2024-08-22 15:31:32.022]	     | Already up to date.
-[2024-08-22 15:31:32.038]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/clean_plugins all
-[2024-08-22 15:31:32.101]	 Done.
+[2024-08-27 07:17:45.891]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
+[2024-08-27 07:17:45.905]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-08-27 07:17:46.336]	 Installing "vim-tmux-navigator"
+[2024-08-27 07:17:46.674]	   "vim-tmux-navigator" download success
+[2024-08-27 07:17:46.688]	 Done.
 
