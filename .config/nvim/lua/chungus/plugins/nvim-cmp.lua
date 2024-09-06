@@ -1,6 +1,7 @@
 return {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+    lazy = false,
+    priority = 100,
     dependencies = {
         "hrsh7th/cmp-path", -- source for file system paths
         "hrsh7th/cmp-buffer", -- source for text in buffer
@@ -23,9 +24,7 @@ return {
     },
     config = function()
       local cmp = require("cmp")
-
       local luasnip = require("luasnip")
-
       local lspkind = require("lspkind")
 
       cmp.setup({
@@ -36,6 +35,10 @@ return {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
+        },
+        window = {
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion

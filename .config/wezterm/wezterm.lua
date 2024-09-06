@@ -36,18 +36,18 @@ config.window_decorations = "RESIZE"
 config.color_scheme = "Catppuccin Mocha"
 
 -- background
-config.background = {
-    {    
-        source = { File = wezterm.home_dir .. "/dotfiles/images/yellow_red_blue.png" },
-        opacity = .15,
-        repeat_x = "NoRepeat",
-        repeat_y = "NoRepeat",
-        height = "Contain",
-        width = "Contain",
-        horizontal_align = "Center",
-    },
-   
-}
+-- config.background = {
+--     {    
+--         source = { File = wezterm.home_dir .. "/dotfiles/images/yellow_red_blue.png" },
+--         opacity = .15,
+--         repeat_x = "NoRepeat",
+--         repeat_y = "NoRepeat",
+--         height = "Contain",
+--         width = "Contain",
+--         horizontal_align = "Center",
+--     },
+--    
+-- }
 
 
 -- copy on select

@@ -390,7 +390,7 @@ tmux_conf_theme_right_separator_sub='█'  #   PowerlineSymbols.otf font, see RE
 
 set -g status-keys vi
 set -g mode-keys vi
-set -g allow-passthrough on
+#set -g allow-passthrough on
 
 bind-key v copy-mode
 unbind-key -T copy-mode-vi v

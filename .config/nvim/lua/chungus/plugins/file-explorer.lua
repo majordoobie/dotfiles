@@ -1,7 +1,15 @@
 return {
 	"nvim-tree/nvim-tree.lua",
+    dependencies = {
+	    "nvim-lua/plenary.nvim",
+	    "nvim-tree/nvim-web-devicons",
+	    "MunifTanjim/nui.nvim",
+    },
     config = function()
         require("nvim-tree").setup({
+            view = {
+                width = 40
+            },
             actions = {
                 open_file = {
                     quit_on_open = false,

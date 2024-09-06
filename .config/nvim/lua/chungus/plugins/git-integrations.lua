@@ -1,6 +1,27 @@
 
 return {
     {
+        -- Powerful plugin is responsible for showing the differences between commits by file or 
+        -- worktree
+	    "sindrets/diffview.nvim",
+        dependencies = {
+            {"nvim-tree/nvim-web-devicons" },
+        },
+        config = function()
+            require("diffview").setup({
+                enhanced_diff_view = true,
+                default_args = {
+                    DiffviewOpen = {"--imply-local"},
+                },
+            })
+            -- Git diff commands
+            vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>")
+            vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory %<CR>", {desc = "View history of file"})
+            vim.keymap.set("n", "<leader>gH", ":DiffviewFileHistory<CR>", {desc = "View history of branch"})
+
+        end
+    },
+    {
         "NeogitOrg/neogit",
         dependencies = {
 	    	{"nvim-lua/plenary.nvim"},
@@ -9,40 +30,42 @@ return {
             {"nvim-telescope/telescope.nvim"},
         },
         config = function()
-            local neogit = require("neogit").setup({
-                kind = "split",
+            require("neogit").setup({
+                kind = "tab",
                 integrations = {diffview = true}
             })
-
             vim.keymap.set("n", "<leader>go", ":Neogit<CR>",  {desc = "Open up the NeoGit menu"})
-            vim.keymap.set("n", "<leader>gl", ":Neogit log<CR>", {desc = "Open up the NeoGit menu"})
-            vim.keymap.set("n", "<leader>gB", ":Telescope git_branches<CR>", {desc = "Show all branches available to you"})
-
-            -- Git diff commands
-            vim.keymap.set("n", "<leader>gd", "<CMD>DiffviewOpen<CR>")
-            vim.keymap.set("n", "<leader>gD", "<CMD>DiffviewOpen<CR>")
-            vim.keymap.set("n", "<leader>gh", "<CMD>DiffviewFileHistory %<CR>")
 
         end
     },
     {
         "lewis6991/gitsigns.nvim",
         event = {"BufReadPre", "BufNewFile"},
-        opts = {
-            signs = {
-                add = {text = "+"},
-                change = {text = "~"},
-                delete = {text = "_"},
-                topdelete = {text = "-"},
-                changedelete = {text = "~"},
-            }
-        },
+        config = function()
+            require("gitsigns").setup({
+                on_attach = function(bufnr)
+                  local gitsigns = require('gitsigns')
+
+                  local function map(mode, l, r, opts)
+                    opts = opts or {}
+                    opts.buffer = bufnr
+                    vim.keymap.set(mode, l, r, opts)
+                  end
+
+                  -- Actions
+                  map("n", "<leader>gk", gitsigns.preview_hunk)
+                  map("n", "<leader>gr", gitsigns.reset_hunk)
+                  map("n", "<leader>gn", gitsigns.next_hunk)
+                  map("n", "<leader>gp", gitsigns.prev_hunk)
+                end
+            })
+        end
     },
     {
         "FabijanZulj/blame.nvim",
         config = function()
             require("blame").setup{}
-            vim.keymap.set("n", "<leader>gb", "<CMD>BlameToggle<CR>")
+            vim.keymap.set("n", "<leader>gb", ":BlameToggle<CR>")
         end
     }
 }

@@ -10,6 +10,18 @@ function set_oxocarbon()
     }
 end
 
+function set_evangelion()
+    return {
+        "xero/evangelion.nvim",
+        priority = 1000,
+        lazy = false,
+
+        config = function()
+            vim.cmd("colorscheme evangelion")
+        end
+    }
+end
+
 function set_catppuccin()
     return {
         "catppuccin/nvim",
@@ -57,6 +69,7 @@ end
 
 return {
     set_catppuccin()
+    --set_evangelion()
     --set_oxocarbon()
     --set_gruvbox()
     --set_tokyonight()
