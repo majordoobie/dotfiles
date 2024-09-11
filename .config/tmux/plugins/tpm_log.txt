@@ -1,6 +1,0 @@
-[2024-09-04 08:51:23.214]	 List of discovered tpm plugins: christoomey/vim-tmux-navigator
-[2024-09-04 08:51:23.227]	 Invoking /Users/anker/.config/tmux/plugins/tpm/bin/install_plugins
-[2024-09-04 08:51:23.717]	 Installing "vim-tmux-navigator"
-[2024-09-04 08:51:24.303]	   "vim-tmux-navigator" download success
-[2024-09-04 08:51:24.317]	 Done.
-

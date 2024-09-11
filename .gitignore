@@ -1,3 +1,4 @@
 repos/
-.config/tmux/plugins
+.config/tmux/plugins/
+.config/nvim/node_modules/
 .DS_Store
