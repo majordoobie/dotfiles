@@ -10,6 +10,18 @@
 
 -- json
 -- * npm -i -g vscode-langservers-extracted
+--
+-- -- cmake
+-- pip install cmake-language-server
+--
+-- -- asm
+-- cargo install asm-lsp
+--
+-- django
+-- pip install django-template-lsp (must be in venv)
+--
+-- docker
+-- npm install @microsoft/compose-language-service
 
 -- c/cpp
 -- * brew install llvm
@@ -52,7 +64,16 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    local lsp_servers = {"pyright", "clangd", "jsonls", "robotframework_ls"}
+    local lsp_servers = {
+            "pyright", 
+            "clangd", 
+            "jsonls", 
+            "robotframework_ls", 
+            "cmake", 
+            "asm_lsp",
+            "djlsp",
+            "docker_compose_language_service",
+        }
     for _, lsp_server in ipairs(lsp_servers) do
         lspconfig[lsp_server].setup({
         capabilities = capabilities,

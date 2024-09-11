@@ -55,6 +55,7 @@ alias edit_nvim="cd ~/.config/nvim/ && nvim"
 alias git_push="git add . && git commit -m \"update\" && git push"
 export EDITOR="nvim"
 export VISUAL="nvim" 
+export PATH="/opt/homebrew/opt/llvm/bin:/Users/anker/.cargo/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
