@@ -42,29 +42,29 @@
 
 
 return {
-  "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    {"hrsh7th/cmp-nvim-lsp"},
-    {"antosha417/nvim-lsp-file-operations", config = true},
-    {"folke/neodev.nvim", opts = {}},
-  },
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+        {"hrsh7th/cmp-nvim-lsp"},
+        {"antosha417/nvim-lsp-file-operations", config = true},
+        {"folke/neodev.nvim", opts = {}},
+    },
 
-  config = function()
-    -- import lspconfig plugin
-    local lspconfig = require("lspconfig")
+    config = function()
+        -- import lspconfig plugin
+        local lspconfig = require("lspconfig")
 
-    -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        -- import cmp-nvim-lsp plugin
+        local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 
-    --[[
-        -- LSP Language Set Ups // srart
-    --]]
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
+        --[[
+            -- LSP Language Set Ups // srart
+        --]]
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    local lsp_servers = {
+        local lsp_servers = {
             "pyright", 
             "clangd", 
             "jsonls", 
@@ -74,33 +74,27 @@ return {
             "djlsp",
             "docker_compose_language_service",
         }
-    for _, lsp_server in ipairs(lsp_servers) do
-        lspconfig[lsp_server].setup({
-        capabilities = capabilities,
+        for _, lsp_server in ipairs(lsp_servers) do
+            lspconfig[lsp_server].setup({
+            capabilities = capabilities,
             })
-    end
-     
-    -- python
-    --    lspconfig.pyright.setup {}
+        end
 
 
-    -- json
-    --lspconfig.jsonls.setup({
-    --    capabilities = capabilities,
-    --    })
+        lspconfig.clangd.setup({
+            cmd = {
+                "clangd",
+                "--compile-commands-dir=build",  -- Adjust the path to where compile_commands.json is located
+                "--enable-config",               -- Enables clangd to read project .clang-tidy file
+                "--clang-tidy",                  -- Enables clang-tidy diagnostics
+                "--clang-tidy-checks=-*,readability-*,bugprone-*", -- Example of checks you want to enable
+                "--fallback-style=google",        -- Default style if .clang-tidy is not found
+            },
+            root_dir = lspconfig.util.root_pattern(".clang-tidy", ".git", "compile_commands.json"),
+        })
 
-
-    -- c/cpp
-    --lspconfig.clangd.setup{}
-
-
-    -- robot
-    --lspconfig.robotframework_ls.setup{}
-
-
-    --[[
-        -- LSP Language Set Ups // End
-    --]]
+      -- c/cpp
+      --lspconfig.clangd.setup{}
 
 
 
@@ -115,15 +109,17 @@ return {
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf, silent = true }
 
+        -- jumps
+        vim.keymap.set("n", "<leader>jd", vim.lsp.buf.definition, {desc = "[j]ump [d]efinition"})
+        vim.keymap.set("n", "<leader>jD", vim.lsp.buf.declaration, {desc = "[j]ump [D]eclaration"})
+
+        -- edits
+        vim.keymap.set("n", "<leader>ef", vim.lsp.buf.format, {desc = "[e]dit [f]format"})
+
         -- set keybinds
         opts.desc = "Show LSP references"
         vim.keymap.set("n", "<leader>jr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
-        opts.desc = "Go to declaration"
-        vim.keymap.set("n", "<leader>jD", vim.lsp.buf.declaration, opts) -- go to declaration
-
-        opts.desc = "Show LSP definitions"
-        vim.keymap.set("n", "<leader>jd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
         opts.desc = "Show LSP implementations"
         vim.keymap.set("n", "<leader>ju", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations

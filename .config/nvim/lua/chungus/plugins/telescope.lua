@@ -68,13 +68,13 @@ return {
         vim.keymap.set("n", "<leader>sm", ":Telescope man_pages sections={'ALL'}<CR>")
 
         -- lsp go-tos
+        vim.keymap.set("n", "<leader>js", function() builtin.lsp_document_symbols {symbols={"function", "method"}} end, { desc = "Show function structure" })
+        vim.keymap.set("n", "<leader>jS", builtin.lsp_document_symbols, { desc = "Show all symbols" })
+
         vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-        vim.keymap.set("n", "<leader>jd", builtin.lsp_definitions, { desc = "[J]ump [d]efinitions" })
         vim.keymap.set("n", "<leader>ji", builtin.lsp_implementations, { desc = "[J]ump [i]mplementations" })
         vim.keymap.set("n", "<leader>jt", builtin.lsp_type_definitions, { desc = "[J]ump [t]ype definitions" })
         vim.keymap.set("n", "<leader>jr", builtin.lsp_references, { desc = "[J]ump [R]eferences" })
-        vim.keymap.set("n", "<leader>js", function() builtin.lsp_document_symbols {symbols={"function", "method"}} end, { desc = "Show function structure" })
-        vim.keymap.set("n", "<leader>jS", builtin.lsp_document_symbols, { desc = "Show all symbols" })
         vim.keymap.set("n", "<leader>D", ":Telescope diagnostics bufnr=0<CR>", { desc = "Show all diagnostics" })
 
     end

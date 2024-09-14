@@ -40,22 +40,32 @@ plugins=(
 	docker
 	pip
 	sudo
-	vi-mode
 	fzf
+
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    zsh-vi-mode
 )
 
-source $ZSH/oh-my-zsh.sh
-source ~/.config/wezterm/wezterm.sh
+if [[ $(uname) == "Darwin" ]]; then
+    source ~/.config/wezterm/wezterm.sh
+    alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents/DoobStation'"
+    alias code="cd ~/OneDrive/Code"
+    export PATH="/opt/homebrew/opt/llvm/bin:~/.cargo/bin:$PATH"
 
-alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents/DoobStation'"
+else
+    alias code="cd ~/code/"
+    export PATH="/home/doobie/go/bin/:$PATH"
+fi
+
+source $ZSH/oh-my-zsh.sh
+
 alias ll="ls -lAh"
-alias code="cd ~/OneDrive/Code"
 alias dotfiles="cd ~/dotfiles"
 alias edit_nvim="cd ~/.config/nvim/ && nvim"
 alias git_push="git add . && git commit -m \"update\" && git push"
 export EDITOR="nvim"
 export VISUAL="nvim" 
-export PATH="/opt/homebrew/opt/llvm/bin:/Users/anker/.cargo/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -63,4 +73,3 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
