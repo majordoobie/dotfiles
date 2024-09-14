@@ -5,7 +5,8 @@ return {
 
     config = function()
         require("toggleterm").setup({
-            direction = "float",
+            direction = "tab",
+            shell = "zsh -l", -- sources zsh hopefully fixing fzf
         })
 
         vim.keymap.set("n", "<C-t>", ":ToggleTerm<CR>", {desc="Open the horizontal terminal"})

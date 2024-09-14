@@ -1,5 +1,7 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
+-- Trying to see if this fixes my env issues when using toggleterm
+vim.opt.shell = "/bin/zsh"
 
 -- line numbers
 vim.opt.relativenumber = true -- show relative line numbers

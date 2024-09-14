@@ -40,7 +40,6 @@ plugins=(
 	docker
 	pip
 	sudo
-	fzf
 
     zsh-syntax-highlighting
     zsh-autosuggestions
@@ -67,9 +66,7 @@ alias git_push="git add . && git commit -m \"update\" && git push"
 export EDITOR="nvim"
 export VISUAL="nvim" 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval "$(zoxide init --cmd cd zsh)"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
