@@ -41,9 +41,9 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")           -- Delete without affectin
 
 
 -- window management
-vim.keymap.set("n", "<leader>_", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-vim.keymap.set("n", "<leader>x", ":close<CR>", { desc = "Close current split" }) -- close current split window
+vim.keymap.set("n", "<leader>_", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>x", ":close<CR>", { desc = "Close current split" })
 
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close current tab" }) -- close current tab

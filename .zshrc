@@ -40,6 +40,7 @@ plugins=(
 	docker
 	pip
 	sudo
+    fzf
 
     zsh-syntax-highlighting
     zsh-autosuggestions
@@ -69,4 +70,7 @@ export VISUAL="nvim"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Load fzf keybindings and fuzzy completion. This must be last
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.fzf.zsh
