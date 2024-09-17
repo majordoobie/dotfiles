@@ -124,7 +124,6 @@ plugins=(
 	docker
 	pip
 	sudo
-	fzf
 
     zsh-syntax-highlighting
     zsh-autosuggestions
@@ -134,9 +133,14 @@ source ~/.zshrc
 ```
 Setting up fzf 
 
+*In Linux, use the repo since its up to date as apposed to `apt`*
 ```bash
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+```
+*In mac, you just need brew*
+```bash
+brew install fzf
 ```
 
 ### macOS Terminal Settings

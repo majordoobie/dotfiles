@@ -40,7 +40,6 @@ plugins=(
 	docker
 	pip
 	sudo
-    fzf
 
     zsh-syntax-highlighting
     zsh-autosuggestions
@@ -53,9 +52,15 @@ if [[ $(uname) == "Darwin" ]]; then
     alias code="cd ~/OneDrive/Code"
     export PATH="/opt/homebrew/opt/llvm/bin:~/.cargo/bin:$PATH"
 
+    # ensures that zsh-vi-mode does not overwrite fzf keybindings
+    zvm_after_init_commands+=('source <(fzf --zsh)')
+
 else
     alias code="cd ~/code/"
     export PATH="/home/doobie/go/bin/:$PATH"
+    
+    # ensures that zsh-vi-mode does not overwrite fzf keybindings
+    zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -66,17 +71,7 @@ alias edit_nvim="cd ~/.config/nvim/ && nvim"
 alias git_push="git add . && git commit -m \"update\" && git push"
 export EDITOR="nvim"
 export VISUAL="nvim" 
-export PATH="/opt/homebrew/opt/llvm/bin:/Users/anker/.cargo/bin:$PATH"
 export TERM=xterm-256color
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#eval "$(zoxide init --cmd cd zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Load fzf keybindings and fuzzy completion. This must be last
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source ~/.fzf.zsh
