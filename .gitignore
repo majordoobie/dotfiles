@@ -3,3 +3,4 @@ repos/
 .config/nvim/node_modules/
 .config/nvim/*.json
 .DS_Store
+.config/raycast/

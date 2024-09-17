@@ -66,6 +66,12 @@ alias edit_nvim="cd ~/.config/nvim/ && nvim"
 alias git_push="git add . && git commit -m \"update\" && git push"
 export EDITOR="nvim"
 export VISUAL="nvim" 
+export PATH="/opt/homebrew/opt/llvm/bin:/Users/anker/.cargo/bin:$PATH"
+export TERM=xterm-256color
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#eval "$(zoxide init --cmd cd zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

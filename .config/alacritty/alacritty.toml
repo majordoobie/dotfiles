@@ -19,7 +19,6 @@ opacity = 1
 size = 20
 normal = {family = "FiraCode Nerd Font", style = "Regular"}
 
-
-[shell]
-program = "/bin/zsh"
-#args = ["-l", "-c", "tmux attach -d -t chungus || tmux new-session -s chungus"]
+# [shell]
+# program = "/bin/zsh"
+# args = ["-l", "-c", "tmux attach -d -t chungus || tmux new-session -s chungus"]

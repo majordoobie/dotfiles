@@ -14,11 +14,11 @@ local config = wezterm.config_builder()
 local tmux = {}
 
 if wezterm.target_triple == "aarch64-apple-darwin" then
-    --tmux = { "/bin/zsh", "-l", "-c", "tmux attach -d -t chungus || tmux new-session -s chungus" }
-    tmux = {}
+    --config.default_prog = { "/bin/zsh", "-l", "-c", "tmux attach -d -t chungus || tmux new-session -s chungus" }
     config.macos_window_background_blur = 10
 else
-    tmux = { "tmux", "new", "-As0" }
+    config.default_prog = { "tmux", "new", "-As0" }
+
 end
 
 -- scrollback
@@ -29,7 +29,6 @@ config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 20
 
 -- startup
---config.default_prog = tmux
 
 -- theme
 config.enable_tab_bar = false
@@ -50,6 +49,7 @@ config.color_scheme = "Catppuccin Mocha"
 --    
 -- }
 
+config.term = "xterm-256color"
 
 -- copy on select
 config.mouse_bindings = {
