@@ -165,7 +165,8 @@ killall Finder
 
 #### Set screenshot location
 ```bash
-defaults write com.apple.screencapture location ~/Screenshots
+mkdir ~/Documents/Screenshots/
+defaults write com.apple.screencapture location ~/Documents/Screenshots
 killall SystemUIServer
 ```
 
@@ -176,7 +177,7 @@ defaults write -g QLPanelAnimationDuration -float 0
 
 #### Speed up dock auto-hide
 ```bash
-defaults write com.apple.dock autohide-time-modifier -float 0.25
+defaults write com.apple.dock autohide-time-modifier -float 0
 killall Dock
 ```
 
