@@ -52,6 +52,9 @@ return {
     },
 
     config = function()
+        -- enable logging
+--        vim.lsp.set_log_level("debug")
+
         -- import lspconfig plugin
         local lspconfig = require("lspconfig")
 
@@ -77,7 +80,7 @@ return {
                 -- edits
                 vim.keymap.set({"n", "v"}, "<leader>ef", vim.lsp.buf.format, opts, {desc="[e]dit [f]format"})
                 vim.keymap.set("n", "<leader>er", vim.lsp.buf.rename, opts, {desc="[e]dit [r]ename"}) 
-                vim.keymap.set({ "n", "v" }, "<leader>ea", vim.lsp.buf.code_action, opts, {desc="[e]dit [a]ction"})
+                vim.keymap.set({ "n", "v" }, "<leader>ee", vim.lsp.buf.code_action, opts, {desc="[e]dit [a]ction"})
 
                 -- views
                 local builtin = require("telescope.builtin")
@@ -127,6 +130,7 @@ return {
             filetypes = {"c", "cpp", "h"},
             root_dir = lspconfig.util.root_pattern(
                 "compile_commands.json",
+                "build/compile_commands.json",
                 "compile_flags.txt",
                 ".clang-tidy", 
                 ".git"
@@ -138,6 +142,8 @@ return {
                 "--fallback-style=google",       -- Default style if .clang-tidy is not found
                 "--header-insertion=iwyu",       -- include what you use
                 "--enable-config",               -- Enables clangd to read project .clang-tidy file
+                "--log=verbose",
+                "--compile-commands-dir=build",
             },
         })
   end,

@@ -100,12 +100,12 @@ xnoremap r "_r
 " #########################################
 
 """ Open panes as duplicates and resize
-map <leader>ph <Action>(SplitHorizontally)
-map <leader>pv <Action>(SplitVertically)
-map <Leader>px <Action>(CloseContent)
+map <leader>- <Action>(SplitHorizontally)
+map <leader>_ <Action>(SplitVertically)
+map <Leader>x <Action>(CloseContent)
 
 """ Enable zen mode
-map <leader>pz <Action>(ToggleDistractionFreeMode)
+map <leader>z <Action>(ToggleDistractionFreeMode)
 
 " Sets hjkl as pane movement keys
 nnoremap <c-h> <c-w>h
@@ -164,6 +164,21 @@ map <leader>ei <Action>(OptimizeImports)
 map <leader>ef <Action>(ReformatCode)
 map <leader>es <Action>(SurroundWith)
 map <leader>er <Action>(Refactorings.QuickListPopupAction)
+map <leader>ee <Action>(ShowIntentionActions)
+
+map <leader>jd <Action>(GotoDeclaration)
+map <leader>vs <Action>(FileStructurePopup)
+map <leader>vd <Action>(QuickJavaDoc)
+
+" Quick look at the parameters of the function
+map <leader>vp <Action>(ParameterInfo)
+
+
+" ####  git 
+map <leader>gp <Action>(VcsShowPrevChangeMarker)
+map <leader>gn <Action>(VcsShowNextChangeMarker)
+map <leader>gr <Action>(Vcs.RollbackChangedLines)
+
 
 
 " ##################################################################################################
@@ -174,9 +189,6 @@ map <leader>vu <Action>(FindUsages)
 " View code of function
 map <leader>vi <Action>(QuickImplementations)
 
-" Quick look at the parameters of the function
-map <leader>vp <Action>(ParameterInfo)
-map <leader>vd <Action>(QuickJavaDoc)
 
 " Select a run configuration
 map <leader>vr <Action>(ChooseRunConfiguration)
@@ -187,13 +199,11 @@ map <leader>vh <Action>(LocalHistory.ShowHistory)
 " #################################################################################################
 
 " --- Jump To
-map <leader>jd <Action>(GotoDeclaration)
 map <leader>jn <Action>(GotoNextError)
 map <leader>jt <Action>(GotoTest)
 map <leader>jl <Action>(Forward)
 map <leader>jh <Action>(Back)
 map <leader>jp <Action>(NewScratchFile)
-map <leader>js <Action>(FileStructurePopup)
 
 " ##################################################################################################
 " ------ Code Execution -------

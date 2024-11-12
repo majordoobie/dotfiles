@@ -50,7 +50,7 @@ if [[ $(uname) == "Darwin" ]]; then
     source ~/.config/wezterm/wezterm.sh
     alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents/DoobStation'"
     alias code="cd ~/OneDrive/Code"
-    export PATH="/opt/homebrew/opt/llvm/bin:~/.cargo/bin:$PATH"
+    export PATH="/opt/codelldb_v1.11/:/opt/homebrew/opt/llvm/bin:~/.cargo/bin:$PATH"
 
     # ensures that zsh-vi-mode does not overwrite fzf keybindings
     zvm_after_init_commands+=('source <(fzf --zsh)')
