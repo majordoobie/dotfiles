@@ -47,16 +47,13 @@ plugins=(
 )
 
 if [[ $(uname) == "Darwin" ]]; then
-    source ~/.config/wezterm/wezterm.sh
     alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents/DoobStation'"
-    alias code="cd ~/OneDrive/Code"
     export PATH="/opt/codelldb_v1.11/:/opt/homebrew/opt/llvm/bin:~/.cargo/bin:$PATH"
 
     # ensures that zsh-vi-mode does not overwrite fzf keybindings
     zvm_after_init_commands+=('source <(fzf --zsh)')
 
 else
-    alias code="cd ~/code/"
     export PATH="/home/doobie/go/bin/:$PATH"
     
     # ensures that zsh-vi-mode does not overwrite fzf keybindings
@@ -65,6 +62,7 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+alias code="cd ~/code"
 alias ll="ls -lAh"
 alias dotfiles="cd ~/dotfiles"
 alias edit_nvim="cd ~/.config/nvim/ && nvim"
