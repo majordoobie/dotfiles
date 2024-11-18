@@ -14,9 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("chungus.plugins", {
  checker = { -- allows lualine.lua present any neovim data through it
     enabled = true,
-    notify = false,
+    notify = true,
   },
   change_detection = {
-    notify = false, -- disable the change notification shit is annoying
+    notify = true, -- disable the change notification shit is annoying
   },
 })
