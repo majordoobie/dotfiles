@@ -17,6 +17,6 @@ require("lazy").setup("chungus.plugins", {
     notify = true,
   },
   change_detection = {
-    notify = true, -- disable the change notification shit is annoying
+    notify = false, -- disable the change notification shit is annoying
   },
 })

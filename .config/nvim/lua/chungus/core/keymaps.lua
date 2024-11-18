@@ -37,8 +37,7 @@ vim.keymap.set("n", "r", "\"_r")           -- Delete without affecting the unamg
 vim.keymap.set("v", "r", "\"_r")           -- Delete without affecting the unamed buffer
 
 -- Use escape to escape the terminal 
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")           -- Delete without affecting the unamed buffer
-
+--vim.keymap.set("t", "<Esc>", "<C-\\><C-n>") 
 
 -- window management
 vim.keymap.set("n", "<leader>_", "<C-w>v", { desc = "Split window vertically" })
