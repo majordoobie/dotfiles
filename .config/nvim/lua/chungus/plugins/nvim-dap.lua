@@ -13,9 +13,61 @@ return {
         "nvim-neotest/nvim-nio",
     },
     config = function()
+        require("nvim-dap-virtual-text").setup()
+        local dapui = require("dapui")
+        dapui.setup()
+
         local dap = require("dap")
-        dap.set_log_level("DEBUG")
-        dap.defaults.timeout = 30000  -- Set timeout to 30 seconds
+
+        -- Automatically open and close dap-ui
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+            dapui.open()
+        end
+        dap.listeners.before.event_terminated["dapui_config"] = function()
+            dapui.close()
+        end
+        dap.listeners.before.event_exited["dapui_config"] = function()
+            dapui.close()
+        end
+
+
+        -- Basic Debugging Controls
+        vim.keymap.set("n", "<F11>", dap.step_over)
+        vim.keymap.set("n", "<F10>", dap.step_into)
+        vim.keymap.set("n", "<F9>", dap.step_out)
+
+        -- Breakpoints
+        vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
+        vim.keymap.set("n", "<leader>dB", function()
+          dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+        end)
+        vim.keymap.set("n", "<leader>dl", function()
+          dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+        end)
+
+        -- Debugging UI
+        vim.keymap.set("n", "<leader>dr", dap.repl.open)
+
+        vim.keymap.set({"n", "v"}, '<Leader>dh', function()
+          require('dap.ui.widgets').hover()
+        end)
+        vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+            require('dap.ui.widgets').preview()
+        end)
+        vim.keymap.set('n', '<Leader>df', function()
+            local widgets = require('dap.ui.widgets')
+            widgets.centered_float(widgets.frames)
+        end)
+        vim.keymap.set('n', '<Leader>ds', function()
+            local widgets = require('dap.ui.widgets')
+            widgets.centered_float(widgets.scopes)
+        end)
+
+        -- Stopping and Restarting
+        vim.keymap.set("n", "<leader>dq", dap.terminate)
+        vim.keymap.set("n", "<leader>dr", dap.restart)
+        vim.keymap.set("n", "<leader>dc", dap.continue)
+        vim.keymap.set("n", "<leader>do", dapui.open)
 
 
         -- https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(via--codelldb)#start-codelldb-automatically
@@ -28,17 +80,12 @@ return {
             },
         }
 
-        dap.adapters.lldb_dap = {
-            type = "executable",
-            command = "/opt/homebrew/opt/llvm/bin/lldb-dap",
-        }
-
         dap.configurations.c = {
             {
                 name = 'Remote: lldb-server platform --verbose --server --listen "*:4444" --gdbserver-port 4445',
                 type = "codelldb",
                 request = "launch",
-                program = "${workspaceFolder}/build/bin/main", -- local path
+                program = "/opt/code/build/bin/main", -- remote path
                 args = {"-h"},
                 initCommands = {
                     -- "log enable lldb default conn host comm",
@@ -46,67 +93,14 @@ return {
                     "platform select remote-linux",                    
                     "platform connect connect://127.0.0.1:4444",
                     "settings set target.inherit-env false",
+                    "settings set target.source-map /opt/code ${workspaceFolder}"
                 },
             },
-            {
-                name = 'lldb-dap: Remote: lldb-server platform --verbose --server --listen "*:4444" --gdbserver-port 4445',
-                type = "lldb_dap",
-                request = "attach",
-                -- program = "${workspaceFolder}/build/bin/main", -- local path
-                attachCommands = {
-                    "log enable lldb default conn host comm",
-                    "gdb-remote 127.0.0.1:4444"
-                }
-            }
-        } -- end config
-            -- program = function()
-            --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-            -- end,
-            -- cwd = '${workspaceFolder}',
-
+        }
 
         dap.configurations.cpp = dap.configurations.c
         dap.configurations.rust = dap.configurations.c
 
-        -- Still inside the config function
-        require("dapui").setup()
-
-        -- Automatically open and close dap-ui
-        dap.listeners.after.event_initialized["dapui_config"] = function()
-          require("dapui").open()
-        end
-        dap.listeners.before.event_terminated["dapui_config"] = function()
-          require("dapui").close()
-        end
-        dap.listeners.before.event_exited["dapui_config"] = function()
-          require("dapui").close()
-        end
     end
 
 }
-
-
-
----
--- ---            {
---                 name = "Launch remote program",
---                 type = "codelldb",
---                 program = "/opt/code/build/bin/main",
---                 request = "launch",
---                 cwd = "${workspaceFolder}",
---                 stopOnEntry = false,
---                 MIMode = "lldb",
---                 miDebuggerPath = "/opt/homebrew/llvm/bin/lldb",
---                 miDebuggerServerAddress = "127.0.0.1:4444"
---             },
---             {
---                 name = "Attach to Remote LLDB Server",
---                 type = "codelldb",
---                 request = "launch",
---                 program = function()
---                     return vim.fn.input("Path to executable on remote: ", "/opt/code/build/bin/main", "file")
---                 end,
---                 cwd = "${workspaceFolder}",
---                 stopOnEntry = false,
---             },
---
