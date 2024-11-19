@@ -30,13 +30,6 @@ return {
         end,
     },
     {
-        "Pocco81/true-zen.nvim",
-        config = function()
-            require("true-zen").setup({})
-            vim.keymap.set("n", "<leader>z", ":TZFocus<CR>", {desc="Toggle pane maximization"})
-        end
-    },
-    {
         "jiaoshijie/undotree",
         dependencies = "nvim-lua/plenary.nvim",
         config = function()
