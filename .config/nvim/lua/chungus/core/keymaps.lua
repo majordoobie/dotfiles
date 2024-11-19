@@ -38,6 +38,7 @@ vim.keymap.set("v", "r", "\"_r")           -- Delete without affecting the uname
 
 -- Use escape to escape the terminal 
 --vim.keymap.set("t", "<Esc>", "<C-\\><C-n>") 
+vim.keymap.set("n", "<CR>", ":noh<CR><CR>")
 
 -- window management
 vim.keymap.set("n", "<leader>_", "<C-w>v", { desc = "Split window vertically" })
