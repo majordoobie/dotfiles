@@ -52,14 +52,11 @@ return {
     },
 
     config = function()
-        -- enable logging
---        vim.lsp.set_log_level("debug")
 
         -- import lspconfig plugin
         local lspconfig = require("lspconfig")
 
         -- import cmp-nvim-lsp plugin
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
         
         
         -- [[
@@ -101,9 +98,9 @@ return {
 
 
         --[[
-        -- LSP Language Set Ups // srart
+        -- LSP Language Set Ups // start
         --]]
-        local capabilities = cmp_nvim_lsp.default_capabilities()
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         -- Iterate over the list of servers and add the defualts. 
         local lsp_servers = {
@@ -126,7 +123,7 @@ return {
         -- Manually set up clangd for more control
         lspconfig.clangd.setup({
             on_attach = on_attach,
-            capabilities = capabilities,
+            capabilities = capabilities, -- advertise to cmp the lsp info
             filetypes = {"c", "cpp", "h"},
             root_dir = lspconfig.util.root_pattern(
                 "compile_commands.json",
