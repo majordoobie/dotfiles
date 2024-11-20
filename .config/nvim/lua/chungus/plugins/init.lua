@@ -46,5 +46,12 @@ return {
             vim.o.timeout = true
             vim.o.timeoutlen = 500
         end
+    },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
     }
 }
