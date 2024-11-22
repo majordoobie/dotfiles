@@ -1,5 +1,3 @@
--- set leader key to space
-vim.g.mapleader = " "
 
 -- sable V + k and V + j; they get in the way when moving quickly
 vim.keymap.set("v", "<S-k>", "<Nop>")

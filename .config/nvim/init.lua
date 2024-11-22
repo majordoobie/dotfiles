@@ -1,2 +1,2 @@
-require("chungus.core")
-require("chungus.lazy")
+-- bootstrap lazy.nvim
+require("config.lazy")

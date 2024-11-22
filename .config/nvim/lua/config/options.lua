@@ -1,3 +1,11 @@
+-- set leader key to space
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+vim.g.neoterm_autoinsert = 0 -- Do not start terminal in insert mode
+vim.g.neoterm_autoscroll = 1 -- Autoscroll the terminal
+vim.g.loaded_perl_provider = 0 -- Do not load Perl
+
 vim.cmd("let g:netrw_liststyle = 3")
 
 -- Trying to see if this fixes my env issues when using toggleterm
@@ -8,21 +16,33 @@ vim.opt.relativenumber = true -- show relative line numbers
 vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
+vim.softtabstop = 4
 vim.opt.tabstop = 4 -- 2 spaces for tabs (prettier default)
 vim.opt.shiftwidth = 4 -- 2 spaces for indent width
 vim.opt.expandtab = true -- expand tab to spaces
 vim.opt.autoindent = true -- copy indent from current line when starting new one
+vim.opt.smartindent = true
 
--- line wrapping
-vim.opt.wrap = false -- disable line wrapping
-vim.opt.scrolloff = 15 -- keep text centered 
+-- system options
+vim.opt.background = "dark"
+--vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+vim.opt.cursorline = true -- highlight the current cursor line
+vim.opt.cursorlineopt = "screenline,number"
+vim.opt.completeopt = { "menuone", "noselect" } -- Completion opions for code completion
+vim.opt.mouse = "a" -- use mouse in all mouds
+vim.opt.termguicolors = true -- support true colors
+
 
 -- search settings
 vim.opt.ignorecase = true -- ignore case when searching
 vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
--- cursor line
-vim.opt.cursorline = true -- highlight the current cursor line
+-- line wrapping
+vim.opt.wrap = false -- disable line wrapping
+vim.opt.scrolloff = 15 -- keep text centered 
+
+vim.opt.showmatch = true -- flicker matching braket
+vim.opt.smoothscroll = true
 
 
 -- turn on termguicolors for nightfly colorscheme to work
@@ -34,7 +54,7 @@ vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 vim.opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 vim.opt.undodir = os.getenv("HOME") .. "/.undodir"
 vim.opt.undofile = true
---vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+vim.opt.undolevels =1000
 
 -- split windows
 vim.opt.splitright = true -- split vertical window to the right
