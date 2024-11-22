@@ -15,13 +15,14 @@ vim.opt.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
 vim.opt.wrap = false -- disable line wrapping
+vim.opt.scrolloff = 15 -- keep text centered 
 
 -- search settings
 vim.opt.ignorecase = true -- ignore case when searching
 vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- cursor line
-vim.opt.cursorline = false -- highlight the current cursor line
+vim.opt.cursorline = true -- highlight the current cursor line
 
 
 -- turn on termguicolors for nightfly colorscheme to work

@@ -14,6 +14,7 @@ return {
         {"nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = function()
+
         local actions = require("telescope.actions")
         local lga_actions = require("telescope-live-grep-args.actions")
         local telescope = require("telescope")
@@ -66,7 +67,6 @@ return {
 
         -- search man pages
         vim.keymap.set("n", "<leader>sm", ":Telescope man_pages sections={'ALL'}<CR>")
-
         vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 
     end

@@ -5,22 +5,28 @@ return {
         "nvim-lua/plenary.nvim", 
     },
     {
-        -- Adds a notification tray for things 
-        -- like the LSP
-        "j-hui/fidget.nvim"
-    },
-    {
-        -- Provides pretty GUI and allows for
-        -- plugins to have the vim.ui.select
-        "stevearc/dressing.nvim",
-        opts = {},
-    },
-    {
         '0x00-ketsu/autosave.nvim',
-        event = { "InsertLeave", "TextChanged" },
         config = function()
-            require("autosave").setup({})
-        end
+            local autosave = require("autosave")
+            autosave.setup({
+                prompt_style = "",
+                event = { "InsertLeave", "TextChanged" },
+            })
+
+        end,
+        -- Since we don't have any notifications, just tell the user that 
+        -- the plugin is active when booting up
+        init = function()
+            vim.api.nvim_create_autocmd("VimEnter", {
+                callback = function()
+                    if vim.g.autosave_state then
+                        vim.notify("💾 Autosave is active", vim.log.levels.INFO, { title = "Autosave Status" })
+                    else
+                        vim.notify("💾 Autosave is inactive", vim.log.levels.WARN, { title = "Autosave Status" })
+                end
+            end,
+            })
+        end,
     },
     {
         -- Open binaries in hex view

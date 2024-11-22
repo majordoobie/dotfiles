@@ -68,24 +68,35 @@ return {
             callback = function(ev)
                 -- Buffer local mappings.
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
-                local opts = { buffer = ev.buf, silent = true }
                 
                 -- jumps
-                vim.keymap.set("n", "<leader>jd", vim.lsp.buf.definition, opts, {desc="[j]ump [d]efinition"})
-                vim.keymap.set("n", "<leader>jD", vim.lsp.buf.declaration, opts, {desc="[j]ump [D]eclaration"})
+                vim.keymap.set("n", "<leader>jd", vim.lsp.buf.definition, {desc="[j]ump [d]efinition", buffer = ev.buf, silent = true })
+                vim.keymap.set("n", "<leader>jD", vim.lsp.buf.declaration, {desc="[j]ump [D]eclaration", buffer = ev.buf, silent = true })
                 
                 -- edits
-                vim.keymap.set({"n", "v"}, "<leader>ef", vim.lsp.buf.format, opts, {desc="[e]dit [f]format"})
-                vim.keymap.set("n", "<leader>er", vim.lsp.buf.rename, opts, {desc="[e]dit [r]ename"}) 
-                vim.keymap.set({ "n", "v" }, "<leader>ee", vim.lsp.buf.code_action, opts, {desc="[e]dit [a]ction"})
+                vim.keymap.set({"n", "v"}, "<leader>ef", vim.lsp.buf.format, {desc="[e]dit [f]format", buffer = ev.buf, silent = true })
+                vim.keymap.set("n", "<leader>er", vim.lsp.buf.rename, {desc="[e]dit [r]ename", buffer = ev.buf, silent = true }) 
+                vim.keymap.set({ "n", "v" }, "<leader>ee", vim.lsp.buf.code_action, {desc="[e]dit [a]ction", buffer = ev.buf, silent = true })
 
                 -- views
                 local builtin = require("telescope.builtin")
                 vim.keymap.set("n", "<leader>vs", function() builtin.lsp_document_symbols {symbols={"function", "method"}} end, {desc="[v]iew [s]tructure"})
                 vim.keymap.set("n", "<leader>vS", builtin.lsp_document_symbols, {desc="[v]iew all [S]tructure"})
                 vim.keymap.set("n", "<leader>VS", builtin.lsp_workspace_symbols, {desc="[V]iew all [S]tructure in project"})
-                vim.keymap.set("n", "<leader>vd", vim.lsp.buf.hover, opts, {desc="[v]iew [d]ocs"})
+                vim.keymap.set("n", "<leader>vd", vim.lsp.buf.hover, {desc="[v]iew [d]ocs", buffer = ev.buf, silent = true })
                 vim.keymap.set("n", "<leader>vr", builtin.lsp_references, {desc="[V]iew object [r]eferences"})
+
+                vim.diagnostic.config({
+                    virtual_text = false,
+                    float = {
+                        border = "rounded",
+                        source = "always",
+                        focusable = false
+                    },
+                })
+                -- diagnostics
+                vim.keymap.set("n", "<leader>ed", vim.diagnostic.open_float, {desc="Show diagnostic message", buffer = ev.buf, silent = true })
+
             end,
         })
         

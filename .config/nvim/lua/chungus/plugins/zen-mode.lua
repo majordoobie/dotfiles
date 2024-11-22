@@ -24,7 +24,7 @@ return {
                     }
                 }
             })
-            vim.keymap.set("n", "<leader>Z", ":ZenMode<CR>", {desc="Toggle zen mode"})
+            vim.keymap.set("n", "Z", ":ZenMode<CR>", {desc="Toggle zen mode"})
 
         end,
     }

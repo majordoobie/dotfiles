@@ -36,6 +36,9 @@ vim.keymap.set("v", "x", "\"_x")           -- Delete without affecting the uname
 vim.keymap.set("n", "r", "\"_r")           -- Delete without affecting the unamged buffer
 vim.keymap.set("v", "r", "\"_r")           -- Delete without affecting the unamed buffer
 
+-- free up keybindings for zen
+vim.api.nvim_set_keymap("n", "zc", "zz", { desc="Center text to screen", noremap = true, silent = true })
+
 -- Use escape to escape the terminal 
 --vim.keymap.set("t", "<Esc>", "<C-\\><C-n>") 
 vim.keymap.set("n", "<CR>", ":noh<CR><CR>")
