@@ -37,6 +37,8 @@
 --
 --      robotframework
 --          python3 -m pip install robotframework-lsp
+--      lua
+--          brew install lua-language-server
 --
 --
 --          
@@ -122,6 +124,7 @@ return {
             "asm_lsp",
             "djlsp",
             "docker_compose_language_service",
+            "lua_ls",
         }
         for _, lsp_server in ipairs(lsp_servers) do
             lspconfig[lsp_server].setup({

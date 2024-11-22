@@ -17,7 +17,7 @@ return {
             sections = {
                 {
                     section = "terminal",
-                    cmd = "cat " .. vim.fn.stdpath("config") .. "/lua/chungus/plugins/neovim.cat",
+                    cmd = "cat " .. vim.fn.stdpath("config") .. "/lua/plugins/neovim.cat",
                     align = "center",
                     height = 11,
                     width = 72,

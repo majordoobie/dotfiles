@@ -60,6 +60,7 @@ return {
         -- searc for files
         vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
         vim.keymap.set('n', '<leader>sF', function() builtin.find_files { cwd = "~", hidden=true, glob_pattern="!.git/"} end)
+        vim.keymap.set('n', '<leader>sc', function() builtin.find_files { cwd = vim.fn.stdpath('config') } end)
 
         -- grep text in files
         vim.keymap.set("n", "<leader>sg", telescope.extensions.live_grep_args.live_grep_args, {desc = "Live grep with `rg` cmds"})
