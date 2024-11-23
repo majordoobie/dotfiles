@@ -7,7 +7,28 @@ local colorschemes = {
         config = function()
             require("catppuccin").setup({
                 transparent_background = true, -- disables setting the background color.
-                flavour="macchiato"
+                flavour="macchiato",
+                integrations = {
+                    cmp = true,
+                    diffview = true,
+                    fidget = true,
+                    gitsigns = true,
+                    nvimtree = true,
+                    harpoon = true,
+                    notify = true,
+                    markdown = true,
+                    noice = true,
+                    notifier = true,
+                    dap = true,
+                    dap_ui = true, 
+                    treesitter_context = true,
+                    treesitter = true,
+                    render_markdown = true,
+                    which_key = false,
+                    telescope = {
+                        enabled = true,
+                    }
+                }
             })
             vim.cmd.colorscheme("catppuccin")
         end
@@ -20,7 +41,20 @@ local colorschemes = {
         config = function()
             vim.cmd.colorscheme("tokyonight")
         end
-    }}
+    }},
+
+    {name = "gruvbox", spec = {
+        "ellisonleao/gruvbox.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.g.gruvbox_material_enable_italic = true
+            vim.g.gruvbox_material_background = "hard"
+            vim.g.gruvbox_material_better_performance = 1
+            vim.g.gruvbox_material_palette = "mix"
+            vim.cmd.colorscheme('gruvbox-material')
+        end
+    }},
 }
 
 local colorscheme = "catppuccin"
@@ -31,100 +65,3 @@ for _, opt in pairs(colorschemes) do
 end
 vim.notify("Unable to find the colorscheme: \"" .. colorscheme .. "\"", vim.log.levels.ERROR)
 return {}
-
-
--- return {
---     {
---         -- opt = {
---         --     transparent_background = true, -- disables setting the background color.
---         -- }
---     },
---     {
---         "nyoom-engineering/oxocarbon.nvim",
---         priority = 1000,
---         lazy = false,
---     },
---     {
---         lazy = false, -- Ensure this is loaded immediately
---         priority = 1000, -- Load colorscheme before other plugins
---         config = function()
---             vim.cmd.colorscheme("catppuccin") -- Set Catppuccin as the active colorscheme
---         end,
---     }
--- }
-
--- function set_oxocarbon()
---     return {
---         "nyoom-engineering/oxocarbon.nvim",
---         priority = 1000,
---         lazy = false,
---
---         config = function()
---             vim.cmd("colorscheme oxocarbon")
---         end
---     }
--- end
---
--- function set_evangelion()
---     return {
---         "xero/evangelion.nvim",
---         priority = 1000,
---         lazy = false,
---
---         config = function()
---             vim.cmd("colorscheme evangelion")
---         end
---     }
--- end
---
--- function set_catppuccin()
---     return {
---         "catppuccin/nvim",
---         priority = 1000,
---         lazy = false,
---
---         config = function()
---             require("catppuccin").setup({
---                 transparent_background = true,
---                 flavour="macchiato"
---             })
---
---             vim.cmd("colorscheme catppuccin")
---         end
---     }
--- end
---
--- function set_gruvbox()
---     return {
---         "ellisonleao/gruvbox.nvim",
---         lazy = false,
---         priority = 1000,
---         config = function()
---             vim.g.gruvbox_material_enable_italic = true
---             vim.g.gruvbox_material_background = "hard"
---             vim.g.gruvbox_material_better_performance = 1
---             vim.g.gruvbox_material_palette = "mix"
---
---             vim.cmd.colorscheme('gruvbox-material')
---         end
---     }
--- end
---
--- function set_tokyonight()
---     return {
---         "folke/tokyonight.nvim",
---         lazy = false,
---         priority = 1000,
---         config = function()
---             vim.cmd.colorscheme("tokyonight-night")
---         end
---     }
--- end
---
--- return {
---     set_catppuccin()
---     --set_evangelion()
---     --set_oxocarbon()
---     --set_gruvbox()
---     --set_tokyonight()
--- }

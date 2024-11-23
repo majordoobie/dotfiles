@@ -1,5 +1,15 @@
 return {
     {
+        "j-hui/fidget.nvim",
+        opts = {
+            notification = {
+                window = {
+                    winblend = 0 -- needed for catppucin 
+                }
+            }
+        },
+    },
+    {
         "rcarriga/nvim-notify",
         config = function()
             require("notify").setup({
