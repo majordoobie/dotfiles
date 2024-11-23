@@ -40,23 +40,6 @@ return {
         end
     },
     {
-        "NeogitOrg/neogit",
-        dependencies = {
-	    	{"nvim-lua/plenary.nvim"},
-	    	{"sindrets/diffview.nvim"},
-            {"nvim-tree/nvim-web-devicons" },
-            {"nvim-telescope/telescope.nvim"},
-        },
-        config = function()
-            require("neogit").setup({
-                kind = "tab",
-                integrations = {diffview = true}
-            })
-            vim.keymap.set("n", "<leader>go", ":Neogit<CR>",  {desc = "Open up the NeoGit menu"})
-
-        end
-    },
-    {
         "lewis6991/gitsigns.nvim",
         event = {"BufReadPre", "BufNewFile"},
         config = function()
