@@ -9,19 +9,19 @@ return {
             }
         },
     },
-    {
-        "rcarriga/nvim-notify",
-        config = function()
-            require("notify").setup({
-                stages = "fade_in_slide_out", -- Animation style
-                timeout = 3000,              -- Time (in ms) before notification disappears
-                background_colour = "#000000",
-            })
-
-            -- Set `nvim-notify` as the default notification handler
-            vim.notify = require("notify")
-        end,
-    },
+    -- {
+    --     "rcarriga/nvim-notify",
+    --     config = function()
+    --         require("notify").setup({
+    --             stages = "fade_in_slide_out", -- Animation style
+    --             timeout = 3000,              -- Time (in ms) before notification disappears
+    --             background_colour = "#000000",
+    --         })
+    --
+    --         -- Set `nvim-notify` as the default notification handler
+    --         vim.notify = require("notify")
+    --     end,
+    -- },
 
     {
         -- Provides pretty GUI and allows for

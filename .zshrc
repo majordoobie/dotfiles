@@ -65,7 +65,7 @@ source $ZSH/oh-my-zsh.sh
 alias code="cd ~/code"
 alias ll="ls -lAh"
 alias dotfiles="cd ~/dotfiles"
-alias edit_nvim="cd ~/.config/nvim/ && nvim"
+alias nvim_edit="cd ~/.config/nvim/ && nvim"
 alias git_push="git add . && git commit -m \"update\" && git push"
 export EDITOR="nvim"
 export VISUAL="nvim" 
