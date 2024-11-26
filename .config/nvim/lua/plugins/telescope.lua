@@ -23,7 +23,7 @@ return {
         telescope.setup({
             defaults = {
                 layout_strategy = 'horizontal',
-                layout_config = {height = 0.95, width = 0.95, preview_width=120},
+                layout_config = {height = 0.95, width = 0.95, preview_width=.70},
                 path_display = { "smart" },
                 mappings = {
                   i = {

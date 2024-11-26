@@ -1,0 +1,5 @@
+-- We have to wait for ghostty for this one, it does not work on wezterm
+-- return {
+--     "3rd/image.nvim",
+--
+-- }
