@@ -24,6 +24,7 @@ return {
                 prompt_style = "",
                 event = { "InsertLeave", "TextChanged" },
             })
+            vim.keymap.set("n", "<leader>es", ":ASToggle<CR>", {desc="undo tree"})
 
         end,
         -- Since we don't have any notifications, just tell the user that 
