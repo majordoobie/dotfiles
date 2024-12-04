@@ -27,14 +27,14 @@ return {
     -- fonts
     term = "xterm-256color",
     font = wezterm.font("FiraCode Nerd Font"),
-    font_size = 20,
+    font_size = 16,
 
     -- behaviors
     audible_bell = "Disabled", -- Disable the bell sound
     scrollback_lines = 9999,
 
     -- tmux launch
-    default_prog = get_prog(),
+    -- default_prog = get_prog(),
 
 
     -- performance -- use wezterm.gui.enumerate_gpus() to check the gpu it uses
