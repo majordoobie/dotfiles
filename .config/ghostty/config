@@ -21,8 +21,7 @@ confirm-close-surface = false
 
 # clipboard settings
 clipboard-read = allow
-copy-on-select = true
-
+copy-on-select = false
 
 
 
