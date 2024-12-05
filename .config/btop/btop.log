@@ -1,8 +1,0 @@
-
-2024/09/11 (17:43:36) | ===> btop++ v.1.3.0
-2024/09/11 (17:43:36) | WARNING: No good candidate for cpu sensor found, using random from all found sensors.
-2024/09/11 (17:43:40) | WARNING: get_cpuHZ() : Failed to read /sys/devices/system/cpu/cpufreq/policy and /proc/cpuinfo.
-
-2024/09/11 (17:43:50) | ===> btop++ v.1.3.0
-2024/09/11 (17:43:50) | WARNING: No good candidate for cpu sensor found, using random from all found sensors.
-2024/09/11 (17:43:54) | WARNING: get_cpuHZ() : Failed to read /sys/devices/system/cpu/cpufreq/policy and /proc/cpuinfo.
