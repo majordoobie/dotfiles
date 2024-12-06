@@ -70,6 +70,7 @@ alias git_push="git add . && git commit -m \"update\" && git push"
 export EDITOR="nvim"
 export VISUAL="nvim" 
 export TERM=xterm-256color
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

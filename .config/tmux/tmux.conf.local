@@ -102,24 +102,32 @@ tmux_conf_theme_colour_15="#080808"   # dark gray
 tmux_conf_theme_colour_16="#d70000"   # red
 tmux_conf_theme_colour_17="#e4e4e4"   # white
 
-# default theme (ansi)
-#tmux_conf_theme_colour_1="colour0"
-#tmux_conf_theme_colour_2="colour8"
-#tmux_conf_theme_colour_3="colour8"
-#tmux_conf_theme_colour_4="colour14"
-#tmux_conf_theme_colour_5="colour11"
-#tmux_conf_theme_colour_6="colour0"
-#tmux_conf_theme_colour_7="colour15"
-#tmux_conf_theme_colour_8="colour0"
-#tmux_conf_theme_colour_9="colour11"
-#tmux_conf_theme_colour_10="colour13"
-#tmux_conf_theme_colour_11="colour10"
-#tmux_conf_theme_colour_12="colour8"
-#tmux_conf_theme_colour_13="colour15"
-#tmux_conf_theme_colour_14="colour0"
-#tmux_conf_theme_colour_15="colour0"
-#tmux_conf_theme_colour_16="colour1"
-#tmux_conf_theme_colour_17="colour15"
+
+catppuccin_mocha_rosewater="#f5e0dc"   # pinks 
+catppuccin_mocha_flamingo="#f2cdcd"    
+catppuccin_mocha_mauve="#cba6f7"
+catppuccin_mocha_red="#f38ba8"
+catppuccin_mocha_maroon="#eba0ac"
+catppuccin_mocha_peach="#fab387"
+catppuccin_mocha_yellow="#f9e2af"
+catppuccin_mocha_green="#a6e3a1"
+catppuccin_mocha_teal="#94e2d5"
+catppuccin_mocha_sky="#89dceb"
+catppuccin_mocha_sapphire="#74c7ec"
+catppuccin_mocha_blue="#89b4fa"
+catppuccin_mocha_lavender="#b4befe"
+catppuccin_mocha_text="#cdd6f4"
+catppuccin_mocha_subtext1="#bac2de"
+catppuccin_mocha_subtext0="#a6adc8"
+catppuccin_mocha_overlay2="#9399b2"
+catppuccin_mocha_overlay1="#7f849c"
+catppuccin_mocha_overlay0="#6c7086"
+catppuccin_mocha_surface2="#585b70"
+catppuccin_mocha_surface1="#45475a"
+catppuccin_mocha_surface0="#313244"
+catppuccin_mocha_base="#1e1e2e"
+catppuccin_mocha_mantle="#181825"
+catppuccin_mocha_crust="#11111b"
 
 # window style
 tmux_conf_theme_window_fg="default"
@@ -131,7 +139,7 @@ tmux_conf_theme_window_bg="default"
 tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
-tmux_conf_theme_focused_pane_bg="$tmux_conf_theme_colour_2"
+tmux_conf_theme_focused_pane_bg="$catppuccin_mocha_base"
 
 # pane border style, possible values are:
 #   - thin (default)
@@ -139,10 +147,10 @@ tmux_conf_theme_focused_pane_bg="$tmux_conf_theme_colour_2"
 tmux_conf_theme_pane_border_style=thin
 
 # pane borders colours:
-tmux_conf_theme_pane_border="$tmux_conf_theme_colour_2"
-tmux_conf_theme_pane_active_border="$tmux_conf_theme_colour_4"
+tmux_conf_theme_pane_border="$catppuccin_mocha_blue"
+tmux_conf_theme_pane_active_border="$catppuccin_mocha_blue"
 %if #{>=:#{version},3.2}
-tmux_conf_theme_pane_active_border="#{?pane_in_mode,$tmux_conf_theme_colour_9,#{?synchronize-panes,$tmux_conf_theme_colour_16,$tmux_conf_theme_colour_4}}"
+tmux_conf_theme_pane_active_border="#{?pane_in_mode,$tmux_conf_theme_colour_9,#{?synchronize-panes,$tmux_conf_theme_colour_16,$catppuccin_mocha_blue}}"
 %endif
 
 # pane indicator colours (when you hit <prefix> + q)
@@ -165,10 +173,11 @@ tmux_conf_theme_mode_bg="$tmux_conf_theme_colour_5"
 tmux_conf_theme_mode_attr="bold"
 
 # status line style
-tmux_conf_theme_status_fg="$tmux_conf_theme_colour_3"
-tmux_conf_theme_status_bg="$tmux_conf_theme_colour_1"
+tmux_conf_theme_status_fg="$catppuccin_mocha_red"
+tmux_conf_theme_status_bg="$catppuccin_mocha_base"
 tmux_conf_theme_status_attr="none"
 
+# You don't have a title so we can ignore this
 # terminal title
 #   - built-in variables are:
 #     - #{circled_window_index}
@@ -181,6 +190,7 @@ tmux_conf_theme_status_attr="none"
 #     - #{username_ssh}
 tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
 
+# These are modifications to the actual "tabs" themselves
 # window status style
 #   - built-in variables are:
 #     - #{circled_window_index}
@@ -191,12 +201,10 @@ tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_3"
-tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_1"
+tmux_conf_theme_window_status_fg="$catppuccin_mocha_crust"
+tmux_conf_theme_window_status_bg="$catppuccin_mocha_overlay0"
 tmux_conf_theme_window_status_attr="none"
 tmux_conf_theme_window_status_format="#{circled_window_index} #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,🔍,}"
-#tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
-#tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
 
 # window current status style
 #   - built-in variables are:
@@ -208,13 +216,15 @@ tmux_conf_theme_window_status_format="#{circled_window_index} #W#{?#{||:#{window
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_current_fg="$tmux_conf_theme_colour_1"
-tmux_conf_theme_window_status_current_bg="$tmux_conf_theme_colour_4"
-tmux_conf_theme_window_status_current_attr="bold"
+tmux_conf_theme_window_status_current_fg="$catppuccin_mocha_crust"
+tmux_conf_theme_window_status_current_bg="$catppuccin_mocha_mauve"
+tmux_conf_theme_window_status_current_attr="none"
 tmux_conf_theme_window_status_current_format="#{circled_window_index} #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,🔍,}"
-#tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
-#tmux_conf_theme_window_status_current_format="#{circled_window_index} #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
-#tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
+
+# window last status style
+tmux_conf_theme_window_status_last_fg=$tmux_conf_theme_window_status_fg
+tmux_conf_theme_window_status_last_bg=$tmux_conf_theme_window_status_bg
+tmux_conf_theme_window_status_last_attr=$tmux_conf_theme_window_status_attr
 
 # window activity status style
 tmux_conf_theme_window_status_activity_fg="default"
@@ -226,12 +236,9 @@ tmux_conf_theme_window_status_bell_fg="$tmux_conf_theme_colour_5"
 tmux_conf_theme_window_status_bell_bg="default"
 tmux_conf_theme_window_status_bell_attr="blink,bold"
 
-# window last status style
-tmux_conf_theme_window_status_last_fg="$tmux_conf_theme_colour_4"
-tmux_conf_theme_window_status_last_bg="$tmux_conf_theme_colour_2"
-tmux_conf_theme_window_status_last_attr="none"
 
 # status left/right sections separators
+
 tmux_conf_theme_left_separator_main='\uE0B0'  # /!\ you don't need to install Powerline
 tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
 tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
@@ -264,18 +271,18 @@ tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=" #{username}#{root}@#{hostname_full}"
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized} | #S "
+tmux_conf_theme_status_left=" 🐈‍⬛ #{username}#{root}@#{hostname_full} "
+tmux_conf_theme_status_right="#{prefix}#{mouse}#{synchronized},⎋ #{circled_session_name} "
 
 # status left style
-tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
-tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_9,$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_11"
-tmux_conf_theme_status_left_attr="bold,none,none"
+tmux_conf_theme_status_left_fg="$catppuccin_mocha_mantle"
+tmux_conf_theme_status_left_bg="$catppuccin_mocha_green"
+tmux_conf_theme_status_left_attr="none"
 
 # status right style
-tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_12,$tmux_conf_theme_colour_13,$tmux_conf_theme_colour_14"
-tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_15,$tmux_conf_theme_colour_16,$tmux_conf_theme_colour_17"
-tmux_conf_theme_status_right_attr="none,none,bold"
+tmux_conf_theme_status_right_fg="$catppuccin_mocha_mantle"
+tmux_conf_theme_status_right_bg="$catppuccin_mocha_green"
+tmux_conf_theme_status_right_attr="none"
 
 # pairing indicator
 tmux_conf_theme_pairing="⚇"                 # U+2687
@@ -291,6 +298,8 @@ tmux_conf_theme_prefix_attr="none"
 
 # mouse indicator
 tmux_conf_theme_mouse="↗"                   # U+2197
+tmux_conf_theme_mouse="🐭"                   # U+2197
+
 tmux_conf_theme_mouse_fg="none"
 tmux_conf_theme_mouse_bg="none"
 tmux_conf_theme_mouse_attr="none"
