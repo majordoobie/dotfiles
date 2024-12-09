@@ -32,6 +32,7 @@ return {
                     },
                 }
             })
+            
             -- Git diff commands
             vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>")
             vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory %<CR>", {desc = "View history of file"})
@@ -53,11 +54,27 @@ return {
                     vim.keymap.set(mode, l, r, opts)
                   end
 
+
+                -- Navigation
+                map('n', '<leader>gn', function()
+                  if vim.wo.diff then
+                    vim.cmd.normal({'<leader>gn', bang = true})
+                  else
+                    gitsigns.nav_hunk('next')
+                  end
+                end)
+
+                map('n', '<leader>gp', function()
+                  if vim.wo.diff then
+                    vim.cmd.normal({'<leader>gp', bang = true})
+                  else
+                    gitsigns.nav_hunk('prev')
+                  end
+                end)
+
                   -- Actions
                   map("n", "<leader>gk", gitsigns.preview_hunk)
                   map("n", "<leader>gr", gitsigns.reset_hunk)
-                  map("n", "<leader>gn", gitsigns.next_hunk)
-                  map("n", "<leader>gp", gitsigns.prev_hunk)
                 end
             })
         end
@@ -65,7 +82,7 @@ return {
     {
         "FabijanZulj/blame.nvim",
         config = function()
-            require("blame").setup{}
+            require("blame").setup()
             vim.keymap.set("n", "<leader>gb", ":BlameToggle<CR>")
         end
     }
