@@ -28,6 +28,7 @@
 --
 --      docker
 --          npm install @microsoft/compose-language-service
+--          npm install -g dockerfile-language-server-nodejs
 --
 --      json
 --          npm -i -g vscode-langservers-extracted
@@ -39,6 +40,10 @@
 --          python3 -m pip install robotframework-lsp
 --      lua
 --          brew install lua-language-server
+--      ngnix
+--          pip install -U nginx-language-server
+--      nix
+--          cargo install --git https://github.com/oxalica/nil nil
 --
 --
 --          
@@ -124,7 +129,10 @@ return {
             "asm_lsp",
             "djlsp",
             "docker_compose_language_service",
+            "dockerls",
             "lua_ls",
+            "nginx_language_server",
+            "nil_ls",
         }
         for _, lsp_server in ipairs(lsp_servers) do
             lspconfig[lsp_server].setup({

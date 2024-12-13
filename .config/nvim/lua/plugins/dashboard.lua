@@ -3,10 +3,14 @@
 return {
     "folke/snacks.nvim",
     opts = {
+        words = {
+            enable = true,
+        },
+
         notifier = {
             enable = true,
-
         },
+
         dashboard = {
             enable = true,
             width = 72,

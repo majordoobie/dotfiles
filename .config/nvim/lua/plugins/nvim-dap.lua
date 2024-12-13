@@ -13,7 +13,7 @@ return {
         "nvim-neotest/nvim-nio",
     },
     config = function()
-        require("nvim-dap-virtual-text").setup()
+        require("nvim-dap-virtual-text").setup({})
         local dapui = require("dapui")
         dapui.setup()
 
@@ -32,42 +32,55 @@ return {
 
 
         -- Basic Debugging Controls
-        vim.keymap.set("n", "<F11>", dap.step_over)
-        vim.keymap.set("n", "<F10>", dap.step_into)
-        vim.keymap.set("n", "<F9>", dap.step_out)
+        vim.keymap.set("n", "<F12>", dap.step_over)
+        vim.keymap.set("n", "<F11>", dap.step_into)
+        vim.keymap.set("n", "<F10>", dap.step_out)
 
         -- Breakpoints
         vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
+
         vim.keymap.set("n", "<leader>dB", function()
           dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
         end)
+
         vim.keymap.set("n", "<leader>dl", function()
           dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
         end)
 
         -- Debugging UI
-        vim.keymap.set("n", "<leader>dr", dap.repl.open)
+        --
+        -- -- open elements
+        vim.keymap.set("n", "<leader>dor", dap.repl.open, {desc="[d]ebug repl open"})
 
-        vim.keymap.set({"n", "v"}, '<Leader>dh', function()
-          require('dap.ui.widgets').hover()
-        end)
-        vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
-            require('dap.ui.widgets').preview()
-        end)
+        local dap_widget = require('dap.ui.widgets')
+        -- vim.keymap.set("n", "<leader>dor", dap_widget.)
+        --
         vim.keymap.set('n', '<Leader>df', function()
             local widgets = require('dap.ui.widgets')
             widgets.centered_float(widgets.frames)
-        end)
+        end, {desc="[d]ebug open stack [f]rame window"})
+
         vim.keymap.set('n', '<Leader>ds', function()
             local widgets = require('dap.ui.widgets')
             widgets.centered_float(widgets.scopes)
-        end)
+        end, {desc="[d]ebug open "})
+
+        vim.keymap.set({"n", "v"}, '<Leader>dh', function()
+          require('dap.ui.widgets').hover()
+        end, {desc="[d]hover over items and evaluate in text editor"})
+
+
+        vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+            require('dap.ui.widgets').preview()
+        end, {desc="[d]debug attemp to preview items in text editor"})
+
 
         -- Stopping and Restarting
         vim.keymap.set("n", "<leader>dq", dap.terminate)
         vim.keymap.set("n", "<leader>dr", dap.restart)
-        vim.keymap.set("n", "<leader>dc", dap.continue)
+        vim.keymap.set("n", "<leader>dd", dap.continue)
         vim.keymap.set("n", "<leader>do", dapui.open)
+        vim.keymap.set("n", "<leader>dc", dapui.close)
 
 
         -- https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(via--codelldb)#start-codelldb-automatically

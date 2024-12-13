@@ -6,7 +6,7 @@ return {
     config = function()
 
         require("toggleterm").setup({
-            direction = "tab",
+            direction = "horizontal",
         })
 
 

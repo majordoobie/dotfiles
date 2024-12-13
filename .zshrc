@@ -48,7 +48,7 @@ plugins=(
 
 if [[ $(uname) == "Darwin" ]]; then
     alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents/DoobStation'"
-    export PATH="/opt:/opt/codelldb_v1.11/:/opt/homebrew/opt/llvm/bin:~/.cargo/bin:$PATH"
+    export PATH="/opt:/opt/codelldb_v1.11/:/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:$PATH"
 
     # ensures that zsh-vi-mode does not overwrite fzf keybindings
     zvm_after_init_commands+=('source <(fzf --zsh)')
@@ -65,12 +65,15 @@ source $ZSH/oh-my-zsh.sh
 alias code="cd ~/code"
 alias ll="ls -lAh"
 alias dotfiles="cd ~/dotfiles"
-alias nvim_edit="cd ~/.config/nvim/ && nvim"
+alias cnvim="cd ~/.config/nvim/ && nvim"
 alias git_push="git add . && git commit -m \"update\" && git push"
+alias obsidian_dotfiles="cd \"/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents\""
+
 export EDITOR="nvim"
 export VISUAL="nvim" 
 export TERM=xterm-256color
 export XDG_CONFIG_HOME="$HOME/.config"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -26,6 +26,7 @@ vim.opt.smartindent = true
 -- system options
 vim.opt.background = "dark"
 --vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+vim.opt.clipboard = "unnamedplus" -- use system clipboard
 vim.opt.cursorline = true -- highlight the current cursor line
 vim.opt.cursorlineopt = "screenline,number"
 vim.opt.completeopt = { "menuone", "noselect" } -- Completion opions for code completion

@@ -21,26 +21,30 @@ return {
         local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
         telescope.setup({
-            defaults = {
-                layout_strategy = 'horizontal',
-                layout_config = {height = 0.95, width = 0.95, preview_width=.70},
-                path_display = { "smart" },
-                mappings = {
-                  i = {
-                    ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-                    ["<C-j>"] = actions.move_selection_next, -- move to next result
-                    ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-                    ["<C-h>"] = "which_key",
-                  },
+            pickers = {
+                find_files = {
+                    layout_config = {height=0.95, width=0.95, preview_width=.70}
+                },
+                current_buffer_fuzzy_find = {
+                    layout_config = {height=0.95, width=0.95, preview_width=.70}
                 },
             },
+            defaults = {
+                path_display = { "absolute" },
+                },
             extensions = {
+                fzf = {
+                    case_mode = "smart_case",
+                },
+
                 ["ui-select"] = {
                     require("telescope.themes").get_dropdown(),
                 },
 
                 ["live_grep_args"] = {
                     auto_quoting=true,
+                    layout_config = {height=0.95, width=0.95},
+                    theme = "dropdown", 
                     mappings = {
                         i = {
                             ["C-k>"] = lga_actions.quote_prompt(),
@@ -50,7 +54,7 @@ return {
             },
         })
         
-		---- enable extentions
+		-- enable extentions
         telescope.load_extension("fzf")
         telescope.load_extension("ui-select")
         telescope.load_extension("live_grep_args")
@@ -63,8 +67,10 @@ return {
 
         -- grep text in files
         vim.keymap.set("n", "<leader>sg", telescope.extensions.live_grep_args.live_grep_args, {desc = "Live grep with `rg` cmds"})
-        vim.keymap.set("v", "<leader>sg", live_grep_args_shortcuts.grep_visual_selection, {desc="Search for the highlighted word"}) 
-        vim.keymap.set("n", "<C-f>", builtin.current_buffer_fuzzy_find, {desc="ctrl + f"}) 
+
+
+        vim.keymap.set("v", "<leader>sg", live_grep_args_shortcuts.grep_visual_selection, {desc="Search for the highlighted word"})
+        vim.keymap.set("n", "<C-f>", builtin.current_buffer_fuzzy_find, {desc="ctrl + f"})
 
         -- search man pages
         vim.keymap.set("n", "<leader>sm", ":Telescope man_pages sections={'ALL'}<CR>")

@@ -3,7 +3,7 @@ return {
         "shortcuts/no-neck-pain.nvim",
         config = function()
             require("no-neck-pain").setup({
-                width = 130,
+                width = 170,
             })
             vim.keymap.set("n", "Z", ":NoNeckPain<CR>", {desc="Toggle zen mode"})
         end
@@ -17,25 +17,4 @@ return {
             vim.keymap.set("n", "<leader>z", ":TZFocus<CR>", {desc="Toggle pane maximization"})
         end
     },
-
-    -- centers the editor to the screen
-    -- {
-    --     "folke/zen-mode.nvim",
-    --     config = function()
-    --         require("zen-mode").setup({
-    --             window = {
-    --                 width = .60,
-    --             },
-    --             plugins = {
-    --                 options = {
-    --                     -- you may turn on/off statusline in zen mode by setting 'laststatus' 
-    --                     -- statusline will be shown only if 'laststatus' == 3
-    --                     laststatus = 3, -- turn off the statusline in zen mode
-    --                 }
-    --             }
-    --         })
-    --         vim.keymap.set("n", "Z", ":ZenMode<CR>", {desc="Toggle zen mode"})
-    --
-    --     end,
-    -- }
 }
