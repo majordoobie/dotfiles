@@ -22,8 +22,6 @@
           environment.systemPackages = [
             pkgs.neovim
             pkgs.nixfmt-rfc-style
-            pkgs.nix-linter
-
           ];
 
           # Necessary for using flakes on this system.
