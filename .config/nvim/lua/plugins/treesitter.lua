@@ -8,8 +8,8 @@ return {
             local treesitter = require("nvim-treesitter.configs")
 
             treesitter.setup({
-                highlight = {enable = true},
-                indent = {enable = true},
+                highlight = { enable = true },
+                indent = { enable = true },
                 ensure_installed = {
                     "arduino",
                     "asm",
@@ -56,16 +56,15 @@ return {
                     "zig",
                 },
             })
-
         end
     },
-    {
-        "nvim-treesitter/nvim-treesitter-context",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-        config = function()
-            require("treesitter-context").setup()
-        end
-    }
+    -- {
+    --     "nvim-treesitter/nvim-treesitter-context",
+    --     dependencies = {
+    --         "nvim-treesitter/nvim-treesitter",
+    --     },
+    --     config = function()
+    --         require("treesitter-context").setup()
+    --     end
+    -- }
 }

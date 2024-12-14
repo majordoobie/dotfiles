@@ -3,7 +3,7 @@ return {
         "danymat/neogen",
         config = function()
             require("neogen").setup({
-                vim.keymap.set("n", "<leader>eD", ":Neogen<CR>", {desc="Apply docstring to function"});
+                vim.keymap.set("n", "<leader>eD", ":Neogen<CR>", { desc = "Apply docstring to function" }),
             })
         end
     },
@@ -24,10 +24,9 @@ return {
                 prompt_style = "",
                 event = { "InsertLeave", "TextChanged" },
             })
-            vim.keymap.set("n", "<leader>es", ":ASToggle<CR>", {desc="undo tree"})
-
+            vim.keymap.set("n", "<leader>es", ":ASToggle<CR>", { desc = "undo tree" })
         end,
-        -- Since we don't have any notifications, just tell the user that 
+        -- Since we don't have any notifications, just tell the user that
         -- the plugin is active when booting up
         init = function()
             vim.api.nvim_create_autocmd("VimEnter", {
@@ -36,8 +35,8 @@ return {
                         vim.notify("💾 Autosave is active", vim.log.levels.INFO, { title = "Autosave Status" })
                     else
                         vim.notify("💾 Autosave is inactive", vim.log.levels.WARN, { title = "Autosave Status" })
-                end
-            end,
+                    end
+                end,
             })
         end,
     },
@@ -49,7 +48,7 @@ return {
         config = function()
             local undotree = require("undotree")
             undotree.setup({})
-            vim.keymap.set("n", "<leader>u", undotree.toggle, {desc="undo tree"})
+            vim.keymap.set("n", "<leader>u", undotree.toggle, { desc = "undo tree" })
         end
     },
 
