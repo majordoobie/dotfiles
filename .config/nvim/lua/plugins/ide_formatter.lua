@@ -48,7 +48,6 @@ return {
 				python = { "isort", "black" },
 				nix = { "nixfmt" },
 				c = { "clang-format" },
-				cmake = { "cmake_format" },
 				json = { "yq" },
 				yaml = { "yamlfmt" },
 				md = { "mdformt" },

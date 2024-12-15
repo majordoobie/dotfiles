@@ -1,6 +1,6 @@
 --[[
 cmake:
-    pip install cmakelint
+    brew install cmake-lint
 
 Python:
     pip install ruff

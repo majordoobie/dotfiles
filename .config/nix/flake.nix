@@ -21,7 +21,41 @@
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
             pkgs.neovim
+            pkgs.btop
+            pkgs.lazygit
+            pkgs.yazi
+            pkgs.yq
+            pkgs.wifi-password
+            pkgs.tmux
+            pkgs.stow
+            pkgs.speedtest-rs
+            pkgs.mas
+            pkgs.fastfetch
+            pkgs.ripgrep
+            pkgs.fzf
+
+            # c development
+            pkgs.llvmPackages_19.clang-tools
+            pkgs.cmake
+
+            # lsp servers
+            pkgs.cmake-language-server
+            pkgs.lua-language-server
+
+            # formatters
+            pkgs.cmake-format
             pkgs.nixfmt-rfc-style
+            pkgs.yamlfmt
+            pkgs.black
+            pkgs.cjson
+
+            # linters
+            pkgs.ruff
+            pkgs.shellcheck
+            pkgs.cmake-lint
+            pkgs.hadolint
+            pkgs.isort
+
           ];
 
           # Necessary for using flakes on this system.
