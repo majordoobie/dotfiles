@@ -33,6 +33,7 @@
             pkgs.fastfetch
             pkgs.ripgrep
             pkgs.fzf
+            pkgs.colima
 
             # c development
             pkgs.llvmPackages_19.clang-tools
@@ -58,6 +59,9 @@
 
           ];
 
+          # Enable fingerprint sudo commands
+          security.pam.enableSudoTouchIdAuth = true;
+
           # Necessary for using flakes on this system.
           nix.settings.experimental-features = "nix-command flakes";
 
@@ -73,6 +77,30 @@
 
           # The platform the configuration will be used on.
           nixpkgs.hostPlatform = "aarch64-darwin";
+
+          system.defaults = {
+            homebrew.enable = true;
+                        homebrew.casks = [
+                            "1password-cli"
+                            "aerospace"
+                            "betterdisplay"
+                            "karabiner-elements"
+                            "obsidian"
+                            "pearcleaner"
+                            "raycast"
+                            "scroll-reverser"
+                            "signal"
+                            "stats"
+                            "vnc-viewer"
+                        ]
+
+            dock.autohide = true;
+            dock.mru-spaces = false;
+            finder.AppleShowAllExtensions = true;
+            finder.FXPreferredViewStyle = "clmv";
+            screencapture.location = "~/Pictures/screenshots";
+            screensaver.askForPasswordDelay = 10;
+          };
         };
     in
     {

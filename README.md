@@ -187,3 +187,9 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 ```
 
+#### Drag windows for aerospace
+```bash
+defaults write -g NSWindowShouldDragOnGesture -bool true
+```
+
+
