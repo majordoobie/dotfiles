@@ -15,10 +15,20 @@
     }:
     let
       configuration =
-        { pkgs, ... }:
+        { config, pkgs, ... }:
         {
-          # List packages installed in system profile. To search by name, run:
-          # $ nix-env -qaP | grep wget
+
+          /*
+            Get a list of installed packages. It will be in a
+            file in /etc/installed-packages
+          */
+          environment.etc."installed-packages".text =
+            let
+              packages = map (pkg: "${pkg.name}") config.environment.systemPackages;
+              asText = __concatStringsSep "\n" packages;
+            in
+            asText;
+
           environment.systemPackages = [
             pkgs.neovim
             pkgs.btop
@@ -33,7 +43,7 @@
             pkgs.fastfetch
             pkgs.ripgrep
             pkgs.fzf
-            pkgs.colima
+            #pkgs.colima
 
             # c development
             pkgs.llvmPackages_19.clang-tools
@@ -78,29 +88,29 @@
           # The platform the configuration will be used on.
           nixpkgs.hostPlatform = "aarch64-darwin";
 
-          system.defaults = {
-            homebrew.enable = true;
-                        homebrew.casks = [
-                            "1password-cli"
-                            "aerospace"
-                            "betterdisplay"
-                            "karabiner-elements"
-                            "obsidian"
-                            "pearcleaner"
-                            "raycast"
-                            "scroll-reverser"
-                            "signal"
-                            "stats"
-                            "vnc-viewer"
-                        ]
-
-            dock.autohide = true;
-            dock.mru-spaces = false;
-            finder.AppleShowAllExtensions = true;
-            finder.FXPreferredViewStyle = "clmv";
-            screencapture.location = "~/Pictures/screenshots";
-            screensaver.askForPasswordDelay = 10;
-          };
+          # system.defaults = {
+          #   homebrew.enable = true;
+          #   homebrew.casks = [
+          #     # "1password-cli"
+          #     # "aerospace"
+          #     # "betterdisplay"
+          #     # "karabiner-elements"
+          #     # "obsidian"
+          #     # "pearcleaner"
+          #     # "raycast"
+          #     # "scroll-reverser"
+          #     # "signal"
+          #     # "stats"
+          #     # "vnc-viewer"
+          #   ];
+          #
+          #   dock.autohide = true;
+          #   dock.mru-spaces = false;
+          #   finder.AppleShowAllExtensions = true;
+          #   finder.FXPreferredViewStyle = "clmv";
+          #   screencapture.location = "~/Pictures/screenshots";
+          #   screensaver.askForPasswordDelay = 10;
+          # };
         };
     in
     {
