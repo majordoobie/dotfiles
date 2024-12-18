@@ -13,10 +13,10 @@
     {
       darwinConfigurations = {
         chungus = inputs.nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/chungus-configurations.nix
           ];
+          specialArgs = { inherit inputs; };
         };
       };
     };

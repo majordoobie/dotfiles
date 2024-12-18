@@ -68,6 +68,7 @@ alias dotfiles="cd ~/dotfiles"
 alias cnvim="cd ~/.config/nvim/ && nvim"
 alias git_push="git add . && git commit -m \"update\" && git push"
 alias obsidian_dotfiles="cd \"/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents\""
+alias cnix="cd ~/dotfiles/.config/nix; nvim flake.nix"
 
 export EDITOR="nvim"
 export VISUAL="nvim" 
