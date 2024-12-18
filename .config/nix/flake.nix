@@ -13,8 +13,9 @@
     {
       darwinConfigurations = {
         chungus = inputs.nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit inputs; };
           modules = [
-            hosts/chungus-configurations.nix
+            ./hosts/chungus-configurations.nix
           ];
         };
       };
