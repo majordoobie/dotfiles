@@ -1,12 +1,23 @@
 {
   pkgs,
   ...
-}:
+}@inputs:
 {
   # Required items to get started
   nixpkgs.hostPlatform = "aarch64-darwin";
   system.stateVersion = 5;
   nix.settings.experimental-features = "nix-command flakes";
+
+  /*
+    Get a list of installed packages. It will be in a
+    file in /etc/installed-packages
+  */
+  environment.etc."installed-packages".text =
+    let
+      packages = map (pkg: "${pkg.name}") inputs.config.environment.systemPackages;
+      asText = __concatStringsSep "\n" packages;
+    in
+    asText;
 
   environment.systemPackages = with pkgs; [
     neovim
@@ -47,4 +58,5 @@
     isort
   ];
 
+  security.pam.enableSudoTouchIdAuth = true;
 }

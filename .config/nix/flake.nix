@@ -11,6 +11,7 @@
   outputs =
     { nixpkgs, ... }@inputs:
     {
+
       darwinConfigurations = {
         chungus = inputs.nix-darwin.lib.darwinSystem {
           modules = [
