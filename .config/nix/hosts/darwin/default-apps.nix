@@ -20,8 +20,9 @@
     in
     asText;
 
-  fonts.packages = [
-    pkgs.fira-code-nerdfont
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 
   environment.systemPackages = with pkgs; [

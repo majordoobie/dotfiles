@@ -106,9 +106,9 @@
 
       controlcenter = {
         BatteryShowPercentage = false;
-        AirDrop = 24;
-        Bluetooth = 24;
-        Display = 24;
+        AirDrop = false;
+        Bluetooth = false;
+        Display = false;
       };
 
       dock = {
@@ -143,9 +143,9 @@
       };
 
       loginwindow = {
-        GuestEnabled = "false";
+        GuestEnabled = false;
         SHOWFULLNAME = true;
-        autoLoginUser = false; # set true for server
+        autoLoginUser = null; # set true for server
       };
 
       menuExtraClock = {
