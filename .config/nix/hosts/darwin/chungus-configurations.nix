@@ -1,39 +1,26 @@
 {
   pkgs,
+  lib,
   config,
-  ...
-}@inputs:
+  specialArgs,
+  inputs,
+  modulesPath,
+  options,
+}:
 {
-  # Required items to get started
-  nixpkgs.hostPlatform = "aarch64-darwin";
-  system.stateVersion = 5;
-  nix.settings.experimental-features = "nix-command flakes";
 
-  /*
-    Get a list of installed packages. It will be in a
-    file in /etc/installed-packages
-  */
-  environment.etc."installed-packages".text =
-    let
-      packages = map (pkg: "${pkg.name}") config.environment.systemPackages;
-      asText = __concatStringsSep "\n" packages;
-    in
-    asText;
+  imports = [
+    ./defaults.nix
+    ./default-apps.nix
+  ];
 
   environment.systemPackages = with pkgs; [
-    neovim
-    btop
     lazygit
-    yazi
     yq
     wifi-password
-    tmux
     stow
-    speedtest-rs
     mas
     fastfetch
-    ripgrep
-    fzf
     #pkgs.colima
 
     # c development

@@ -9,7 +9,12 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =
-    { self, nixpkgs, nix-darwin }@inputs:
+    {
+      self,
+      nixpkgs,
+      nix-darwin,
+      ...
+    }@inputs:
     {
 
       darwinConfigurations = {

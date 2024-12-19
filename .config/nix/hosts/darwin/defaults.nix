@@ -1,93 +1,80 @@
-{ agenix, config, pkgs, ... }:
-
-let user = "dustin"; in
 {
+  pkgs,
+  lib,
+  config,
+  specialArgs,
+  inputs,
+  modulesPath,
+  options,
+}:
 
-  imports = [
-    ../../modules/darwin/secrets.nix
-    ../../modules/darwin/home-manager.nix
-    ../../modules/shared
-    agenix.darwinModules.default
-  ];
-
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
+{
+  # options = {
+  #   defaults.user = lib.mkOption {
+  #     type = lib.type.str;
+  #     description = "User who owns this machine";
+  #     example = "majordoobie";
+  #   };
+  # };
+  #
+  # Required items to get started
+  nixpkgs.hostPlatform = "aarch64-darwin";
+  time.timeZone = "America/New_York";
 
   # Setup user, packages, programs
   nix = {
-    package = pkgs.nix;
-    configureBuildUsers = true;
-
     settings = {
-      trusted-users = [ "@admin" "${user}" ];
-      substituters = [ "https://nix-community.cachix.org" "https://cache.nixos.org" ];
-      trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+
+      # What users are allowed to interact with nix daemon
+      # trusted-users = [
+      #   "@admin"
+      #   "${user}"
+      # ];
+      # What stores to get caches from
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://cache.nixos.org"
+      ];
     };
 
+    # Set up garbage collection
     gc = {
       user = "root";
       automatic = true;
-      interval = { Weekday = 0; Hour = 2; Minute = 0; };
+      interval = {
+        Weekday = 0;
+        Hour = 2;
+        Minute = 0;
+      };
       options = "--delete-older-than 30d";
     };
 
-    # Turn this on to make command line easier
+    # Extra features can be passed in as a string if not
+    # available by variables
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
   };
 
-  # Turn off NIX_PATH warnings now that we're using flakes
-  system.checks.verifyNixPath = false;
-
-  # Load configuration that is shared across systems
-  environment.systemPackages = with pkgs; [
-    emacs-unstable
-    agenix.packages."${pkgs.system}".default
-  ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
-
-  launchd.user.agents = {
-    emacs = {
-      path = [ config.environment.systemPath ];
-      serviceConfig = {
-        KeepAlive = true;
-        ProgramArguments = [
-          "/bin/sh"
-          "-c"
-          "{ osascript -e 'display notification \"Attempting to start Emacs...\" with title \"Emacs Launch\"'; /bin/wait4path ${pkgs.emacs}/bin/emacs && { ${pkgs.emacs}/bin/emacs --fg-daemon; if [ $? -eq 0 ]; then osascript -e 'display notification \"Emacs has started.\" with title \"Emacs Launch\"'; else osascript -e 'display notification \"Failed to start Emacs.\" with title \"Emacs Launch\"' >&2; fi; } } &> /tmp/emacs_launch.log"
-        ];
-        StandardErrorPath = "/tmp/emacs.err.log";
-        StandardOutPath = "/tmp/emacs.out.log";
-      };
-    };
-
-    naturalScrollingToggle = {
-      path = [ config.environment.systemPath ];
-      serviceConfig = {
-        KeepAlive = false;
-        RunAtLoad = true;
-        ProgramArguments = [
-          "/bin/sh"
-          "-c"
-          "if system_profiler SPUSBDataType | grep -i \"Mouse\"; then defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false; else defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true; fi && killall Finder"
-        ];
-        StandardErrorPath = "/tmp/natural_scrolling.err.log";
-        StandardOutPath = "/tmp/natural_scrolling.out.log";
-      };
-    };
-  };
-
   system = {
-    stateVersion = 4;
+    stateVersion = 5;
+    checks.verifyNixPath = false;
 
     defaults = {
-      LaunchServices = {
-        LSQuarantine = false;
-      };
 
       NSGlobalDomain = {
-        AppleShowAllExtensions = true;
+        AppleICUForce24HourTime = true;
+        AppleInterfaceStyle = "Dark";
+        # Hold keyboard key to show other characters; yuck
         ApplePressAndHoldEnabled = false;
+        AppleShowScrollBars = "WhenScrolling";
+        AppleShowAllExtensions = true;
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticDashSubstitutionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSTableViewDefaultSizeMode = 2;
+        NSWindowShouldDragOnGesture = true;
 
         # 120, 90, 60, 30, 12, 6, 2
         KeyRepeat = 2;
@@ -95,26 +82,91 @@ let user = "dustin"; in
         # 120, 94, 68, 35, 25, 15
         InitialKeyRepeat = 15;
 
-        "com.apple.mouse.tapBehavior" = 1;
         "com.apple.sound.beep.volume" = 0.0;
         "com.apple.sound.beep.feedback" = 0;
       };
+      WindowManager = {
+        StandardHideDesktopIcons = true;
+        StandardHideWidgets = true;
+      };
+      # firewall
+      alf = {
+        # Block all incoming connections unless essential
+        globalstate = 3;
+        loggingenabled = 1;
+        stealthenabled = 1;
+
+      };
+
+      /*
+        It says control center but this section is for the
+        objects that are in the menu bar.
+        The value of 24 == hide
+      */
+
+      controlcenter = {
+        BatteryShowPercentage = false;
+        AirDrop = 24;
+        Bluetooth = 24;
+        Display = 24;
+      };
 
       dock = {
-        autohide = false;
+        autohide = true;
+        autohide-delay = 0.0;
+        autohide-time-modifier = 0.0;
         show-recents = false;
         launchanim = true;
+        mru-spaces = false;
         mouse-over-hilite-stack = true;
+        wvous-bl-corner = 1;
+        wvous-br-corner = 1;
+        wvous-tl-corner = 1;
+        wvous-tr-corner = 1;
         orientation = "bottom";
         tilesize = 48;
       };
 
       finder = {
+        AppleShowAllExtensions = true;
+        AppleShowAllFiles = true;
+        CreateDesktop = false;
+        FXPreferredViewStyle = "clmv";
+        FXRemoveOldTrashItems = true;
+        QuitMenuItem = true;
+        ShowExternalHardDrivesOnDesktop = false;
+        ShowPathbar = true;
+        ShowRemovableMediaOnDesktop = false;
+        ShowStatusBar = true;
+        _FXSortFoldersFirst = true;
         _FXShowPosixPathInTitle = false;
+      };
+
+      loginwindow = {
+        GuestEnabled = "false";
+        SHOWFULLNAME = true;
+        autoLoginUser = false; # set true for server
+      };
+
+      menuExtraClock = {
+        Show24Hour = true;
+        ShowDate = 1;
+
+      };
+
+      screencapture = {
+        disable-shadow = true;
+        location = "~/Downloads/Screenshots";
+      };
+
+      screensaver = {
+        askForPassword = true;
+        askForPasswordDelay = 0;
       };
 
       trackpad = {
         Clicking = true;
+        TrackpadRightClick = true;
         TrackpadThreeFingerDrag = true;
       };
     };
@@ -124,4 +176,5 @@ let user = "dustin"; in
       remapCapsLockToControl = true;
     };
   };
+
 }
