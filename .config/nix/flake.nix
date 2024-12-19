@@ -1,5 +1,5 @@
 {
-  description = "Example nix-darwin system flake";
+  description = "Chungus Nix Configurations";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -9,13 +9,14 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =
-    { nixpkgs, ... }@inputs:
+    { self, nixpkgs, nix-darwin }@inputs:
     {
 
       darwinConfigurations = {
         chungus = inputs.nix-darwin.lib.darwinSystem {
           modules = [
-            ./hosts/chungus-configurations.nix
+            # ./hosts/darwin/defaults.nix
+            ./hosts/darwin/chungus-configurations.nix
           ];
           specialArgs = { inherit inputs; };
         };

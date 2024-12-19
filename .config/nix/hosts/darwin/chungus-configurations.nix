@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }@inputs:
 {
@@ -14,7 +15,7 @@
   */
   environment.etc."installed-packages".text =
     let
-      packages = map (pkg: "${pkg.name}") inputs.config.environment.systemPackages;
+      packages = map (pkg: "${pkg.name}") config.environment.systemPackages;
       asText = __concatStringsSep "\n" packages;
     in
     asText;
