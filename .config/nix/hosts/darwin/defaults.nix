@@ -9,14 +9,11 @@
 }:
 
 {
-  # options = {
-  #   defaults.user = lib.mkOption {
-  #     type = lib.type.str;
-  #     description = "User who owns this machine";
-  #     example = "majordoobie";
-  #   };
-  # };
-  #
+  services.nix-daemon = {
+    enable = true;
+    logFile = "/var/log/nix-daemon.log";
+  };
+
   # Required items to get started
   nixpkgs.hostPlatform = "aarch64-darwin";
   time.timeZone = "America/New_York";
@@ -24,12 +21,6 @@
   # Setup user, packages, programs
   nix = {
     settings = {
-
-      # What users are allowed to interact with nix daemon
-      # trusted-users = [
-      #   "@admin"
-      #   "${user}"
-      # ];
       # What stores to get caches from
       substituters = [
         "https://nix-community.cachix.org"
