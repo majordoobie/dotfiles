@@ -13,13 +13,12 @@
       self,
       nixpkgs,
       nix-darwin,
-      lib,
       ...
     }@inputs:
     let
 
       vars = {
-        user = "doobie";
+        user = "anker";
         terminal = "ghostty";
         editor = "nvim";
       };
@@ -28,7 +27,6 @@
       darwinConfigurations = (
         import ./darwin {
           inherit
-            lib
             nixpkgs
             nix-darwin
             inputs

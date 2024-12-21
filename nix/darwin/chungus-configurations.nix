@@ -27,6 +27,7 @@
   services = {
     aerospace.enable = true;
     jankyborders = {
+      active_color = "gradient(top_right=0x9992B3F5,bottom_left=0x9992B3F5)";
       enable = true;
       blacklist = [
         "ghostty"

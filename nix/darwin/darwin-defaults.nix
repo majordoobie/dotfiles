@@ -1,3 +1,8 @@
+/*
+  Base configuration for ALL darwin devices. Then have the specific
+  device config configure even further
+*/
+
 {
   pkgs,
   lib,
@@ -9,6 +14,7 @@
 }:
 
 {
+  # Ensure that the daemon is started after reboot
   services.nix-daemon = {
     enable = true;
     enableSocketListener = true;
@@ -16,37 +22,8 @@
   };
 
   # Required items to get started
-  nixpkgs.hostPlatform = "aarch64-darwin";
   time.timeZone = "America/New_York";
 
-  # Setup user, packages, programs
-  nix = {
-    settings = {
-      # What stores to get caches from
-      substituters = [
-        "https://nix-community.cachix.org"
-        "https://cache.nixos.org"
-      ];
-    };
-
-    # Set up garbage collection
-    gc = {
-      user = "root";
-      automatic = true;
-      interval = {
-        Weekday = 0;
-        Hour = 2;
-        Minute = 0;
-      };
-      options = "--delete-older-than 30d";
-    };
-
-    # Extra features can be passed in as a string if not
-    # available by variables
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
 
   system = {
     stateVersion = 5;
@@ -110,12 +87,6 @@
         stealthenabled = 1;
 
       };
-
-      /*
-        It says control center but this section is for the
-        objects that are in the menu bar.
-        The value of 24 == hide
-      */
 
       controlcenter = {
         BatteryShowPercentage = false;
