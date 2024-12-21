@@ -11,6 +11,7 @@
 {
   services.nix-daemon = {
     enable = true;
+    enableSocketListener = true;
     logFile = "/var/log/nix-daemon.log";
   };
 
@@ -52,6 +53,27 @@
     checks.verifyNixPath = false;
 
     defaults = {
+      CustomUserPreferences = {
+        # Settings of plist in ~/Library/Preferences/
+        "com.apple.finder" = {
+          # Set home directory as startup window
+          # NewWindowTargetPath = "file:///Users/${vars.user}/";
+          NewWindowTarget = "PfHm";
+          # Set search scope to directory
+          FXDefaultSearchScope = "SCcf";
+          # Multi-file tab view
+          FinderSpawnTab = true;
+        };
+        "com.apple.desktopservices" = {
+          # Disable creating .DS_Store files in network an USB volumes
+          DSDontWriteNetworkStores = true;
+          DSDontWriteUSBStores = true;
+        };
+        # Show battery percentage
+        "~/Library/Preferences/ByHost/com.apple.controlcenter".BatteryShowPercentage = true;
+        # Privacy
+        "com.apple.AdLib".allowApplePersonalizedAdvertising = false;
+      };
 
       NSGlobalDomain = {
         AppleICUForce24HourTime = true;

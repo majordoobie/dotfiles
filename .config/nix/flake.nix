@@ -13,17 +13,28 @@
       self,
       nixpkgs,
       nix-darwin,
+      lib,
       ...
     }@inputs:
-    {
+    let
 
-      darwinConfigurations = {
-        chungus = inputs.nix-darwin.lib.darwinSystem {
-          modules = [
-            ./hosts/darwin/chungus-configurations.nix
-          ];
-          specialArgs = { inherit inputs; };
-        };
+      vars = {
+        user = "doobie";
+        terminal = "ghostty";
+        editor = "nvim";
       };
+    in
+    {
+      darwinConfigurations = (
+        import ./darwin {
+          inherit
+            lib
+            nixpkgs
+            nix-darwin
+            inputs
+            vars
+            ;
+        }
+      );
     };
 }

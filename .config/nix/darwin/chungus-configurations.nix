@@ -9,11 +9,6 @@
 }:
 {
 
-  imports = [
-    ./defaults.nix
-    ./default-apps.nix
-  ];
-
   security.pam.enableSudoTouchIdAuth = true;
 
   # networking = {
@@ -29,27 +24,21 @@
     computer = 30;
   };
 
-  #  services = {
-  #    aerospace = {
-  #      enable = true;
-  #      settings = {
-  #        start-at-login = true;
-  #      };
-  #    };
-  #    jankyborders = {
-  #      enable = true;
-  #      blacklist = [
-  #        "ghostty"
-  #      ];
-  #      hidpi = true;
-  #    };
-  #    karabiner-elements.enable = true;
-  #  };
+  services = {
+    aerospace.enable = true;
+    jankyborders = {
+      enable = true;
+      blacklist = [
+        "ghostty"
+      ];
+      hidpi = true;
+    };
+  };
 
   homebrew = {
     enable = true;
     casks = [
-      "1password-cli"
+      "raycast"
       "obsidian"
       "scroll-reverser"
       "vmware-fusion"
@@ -62,11 +51,11 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # tui
     lazygit
     yq
     wifi-password
     stow
-    mas
     fastfetch
     #pkgs.colima
 
