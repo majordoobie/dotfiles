@@ -19,6 +19,11 @@ in
   chungus =
     let
       inherit (systemConfig "aarch64-darwin") system pkgs;
+      vars = {
+        user = "anker";
+        terminal = "ghostty";
+        editor = "nvim";
+      };
     in
     nix-darwin.lib.darwinSystem {
       inherit system;
@@ -26,6 +31,7 @@ in
         inherit
           inputs
           pkgs
+          vars
           ;
       };
       modules = [

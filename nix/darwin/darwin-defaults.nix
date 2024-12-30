@@ -11,6 +11,7 @@
   inputs,
   modulesPath,
   options,
+  vars,
 }:
 
 {
@@ -24,23 +25,14 @@
   # Required items to get started
   time.timeZone = "America/New_York";
 
-
   system = {
     stateVersion = 5;
     checks.verifyNixPath = false;
+    startup.chime = false;
 
     defaults = {
       CustomUserPreferences = {
         # Settings of plist in ~/Library/Preferences/
-        "com.apple.finder" = {
-          # Set home directory as startup window
-          # NewWindowTargetPath = "file:///Users/${vars.user}/";
-          NewWindowTarget = "PfHm";
-          # Set search scope to directory
-          FXDefaultSearchScope = "SCcf";
-          # Multi-file tab view
-          FinderSpawnTab = true;
-        };
         "com.apple.desktopservices" = {
           # Disable creating .DS_Store files in network an USB volumes
           DSDontWriteNetworkStores = true;
@@ -109,21 +101,32 @@
         wvous-tr-corner = 1;
         orientation = "bottom";
         tilesize = 48;
+        persistent-apps = [
+          "/Applications/Brave Browser.app"
+          "/Applications/Ghostty.app"
+          "/System/Applications/iPhone Mirroring.app"
+        ];
       };
 
       finder = {
         AppleShowAllExtensions = true;
         AppleShowAllFiles = true;
         CreateDesktop = false;
+        FXDefaultSearchScope = "SCcf";
         FXPreferredViewStyle = "clmv";
-        FXRemoveOldTrashItems = true;
-        QuitMenuItem = true;
+        FXRemoveOldTrashItems = true; # Remove trash every 30 days
+        QuitMenuItem = true; # let me quit finder
         ShowExternalHardDrivesOnDesktop = false;
+
         ShowPathbar = true;
         ShowRemovableMediaOnDesktop = false;
         ShowStatusBar = true;
         _FXSortFoldersFirst = true;
-        _FXShowPosixPathInTitle = false;
+        _FXShowPosixPathInTitle = true;
+
+        NewWindowTargetPath = "file:///Users/${vars.user}/GDrive";
+        NewWindowTarget = "Other";
+
       };
 
       loginwindow = {

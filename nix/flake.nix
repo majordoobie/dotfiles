@@ -5,8 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # The follow insures that nixpkgs is only managed once
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
   outputs =
     {
@@ -15,22 +18,13 @@
       nix-darwin,
       ...
     }@inputs:
-    let
-
-      vars = {
-        user = "anker";
-        terminal = "ghostty";
-        editor = "nvim";
-      };
-    in
     {
       darwinConfigurations = (
         import ./darwin {
           inherit
+            inputs
             nixpkgs
             nix-darwin
-            inputs
-            vars
             ;
         }
       );

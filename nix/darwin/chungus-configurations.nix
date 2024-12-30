@@ -6,18 +6,25 @@
   inputs,
   modulesPath,
   options,
+  vars,
 }:
 {
 
   security.pam.enableSudoTouchIdAuth = true;
 
-  # networking = {
-  #   dns = [
-  #     "1.1.1.1"
-  #     "1.0.0.1"
-  #   ];
-  #   hostName = "chungus";
-  # };
+  networking = {
+    computerName = "chungus";
+    hostName = "chungus";
+    # networksetup -listallnetworkservices
+    knownNetworkServices = [
+      "Thunderbolt Ethernet Slot 2"
+      "Wi-Fi"
+    ];
+    dns = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
+  };
 
   power.sleep = {
     display = 5;
@@ -29,24 +36,18 @@
     casks = [
       "raycast"
       "obsidian"
-      "scroll-reverser"
-      "vmware-fusion"
       "adobe-acrobat-reader"
-      "pearcleaner"
       "signal"
       "vnc-viewer"
       "betterdisplay"
-      "brave-browser"
       "nikitabobko/tap/aerospace"
     ];
   };
 
   environment.systemPackages = with pkgs; [
     # tui
-    lazygit
     yq
     wifi-password
-    stow
     fastfetch
     #pkgs.colima
 

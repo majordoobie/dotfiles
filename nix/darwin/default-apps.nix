@@ -6,6 +6,7 @@
   inputs,
   modulesPath,
   options,
+  vars,
 }:
 
 {
@@ -33,7 +34,21 @@
     fzf
     speedtest-rs
     yazi
+    lazygit
+    stow
+
   ];
+
+  homebrew = {
+    enable = true;
+    casks = [
+      "ghostty"
+      "scroll-reverser"
+      "vmware-fusion"
+      "pearcleaner"
+      "brave-browser"
+    ];
+  };
 
   nix = {
     settings = {
