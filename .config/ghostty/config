@@ -1,9 +1,11 @@
+# Not needed just want to remember
 keybind = super+shift+comma=reload_config
 
 # Themeing
 theme = "catppuccin-mocha"
 font-size = 16
-font-family = "FiraCode Nerd Font"
+# font-family = "FiraCode Nerd Font"
+font-family = "JetBrainsMono Nerd Font"
 mouse-hide-while-typing = true
 background-opacity = .93
 macos-titlebar-style = hidden
@@ -13,7 +15,7 @@ bold-is-bright = true
 
 # Startup
 initial-command = /bin/zsh -l -c "tmux attach -d -t chungus || tmux new-session -s chungus"
-shell-integration-features = cursor,no-sudo,no-title
+shell-integration-features = cursor,sudo,no-title
 
 
 # ask if the app should close on cmd + q

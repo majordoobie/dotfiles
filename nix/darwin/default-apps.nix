@@ -36,7 +36,6 @@
     yazi
     lazygit
     stow
-
   ];
 
   homebrew = {

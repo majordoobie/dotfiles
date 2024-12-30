@@ -16,11 +16,10 @@
 
 {
   # Ensure that the daemon is started after reboot
-  services.nix-daemon = {
-    enable = true;
-    enableSocketListener = true;
-    logFile = "/var/log/nix-daemon.log";
-  };
+  # services.nix-daemon = {
+  #   enable = true;
+  #   logFile = "/var/log/nix-daemon.log";
+  # };
 
   # Required items to get started
   time.timeZone = "America/New_York";

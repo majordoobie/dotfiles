@@ -9,9 +9,12 @@
   vars,
 }:
 {
+  imports = [
+    ./modules/touchID.nix
+  ];
 
-  security.pam.enableSudoTouchIdAuth = true;
-
+  # custom module to fix tmux session attachment @file ./modules/touchID.nix
+  security.pam.enableSudoTouchId = true;
   networking = {
     computerName = "chungus";
     hostName = "chungus";
@@ -45,6 +48,9 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # To enable touch ID
+    pam-reattach
+
     # tui
     yq
     wifi-password

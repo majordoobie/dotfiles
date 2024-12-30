@@ -161,7 +161,7 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # aerospace list-apps
 [[on-window-detected]]
-if.app-id = 'org.alacritty'
+if.app-id = 'com.mitchellh.ghostty'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
@@ -173,9 +173,9 @@ if.app-id  = "com.apple.MobileSMS"
 run = "move-node-to-workspace 0"
 
 [[on-window-detected]]
-if.app-id  = "com.microsoft.Outlook"
-run = "move-node-to-workspace 9"
-
-[[on-window-detected]]
 if.app-id  = "org.whispersystems.signal-desktop"
 run = "move-node-to-workspace 0"
+
+[[on-window-detected]]
+if.app-id  = "com.microsoft.Outlook"
+run = "move-node-to-workspace 9"
