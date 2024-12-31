@@ -15,11 +15,6 @@
 }:
 
 {
-  # Ensure that the daemon is started after reboot
-  # services.nix-daemon = {
-  #   enable = true;
-  #   logFile = "/var/log/nix-daemon.log";
-  # };
 
   # Required items to get started
   time.timeZone = "America/New_York";
@@ -30,18 +25,6 @@
     startup.chime = false;
 
     defaults = {
-      CustomUserPreferences = {
-        # Settings of plist in ~/Library/Preferences/
-        "com.apple.desktopservices" = {
-          # Disable creating .DS_Store files in network an USB volumes
-          DSDontWriteNetworkStores = true;
-          DSDontWriteUSBStores = true;
-        };
-        # Show battery percentage
-        "~/Library/Preferences/ByHost/com.apple.controlcenter".BatteryShowPercentage = true;
-        # Privacy
-        "com.apple.AdLib".allowApplePersonalizedAdvertising = false;
-      };
 
       NSGlobalDomain = {
         AppleICUForce24HourTime = true;
@@ -55,35 +38,16 @@
         NSAutomaticPeriodSubstitutionEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
         NSTableViewDefaultSizeMode = 2;
+
+        # Needed for aerospace  https://nikitabobko.github.io/AeroSpace/goodies
         NSWindowShouldDragOnGesture = true;
+        NSAutomaticWindowAnimationsEnabled = false;
 
-        # 120, 90, 60, 30, 12, 6, 2
-        KeyRepeat = 2;
-
-        # 120, 94, 68, 35, 25, 15
-        InitialKeyRepeat = 15;
+        KeyRepeat = 2; # 120, 90, 60, 30, 12, 6, 2
+        InitialKeyRepeat = 15; # 120, 94, 68, 35, 25, 15
 
         "com.apple.sound.beep.volume" = 0.0;
         "com.apple.sound.beep.feedback" = 0;
-      };
-      WindowManager = {
-        StandardHideDesktopIcons = true;
-        StandardHideWidgets = true;
-      };
-      # firewall
-      alf = {
-        # Block all incoming connections unless essential
-        globalstate = 3;
-        loggingenabled = 1;
-        stealthenabled = 1;
-
-      };
-
-      controlcenter = {
-        BatteryShowPercentage = false;
-        AirDrop = false;
-        Bluetooth = false;
-        Display = false;
       };
 
       dock = {
@@ -126,6 +90,41 @@
         NewWindowTargetPath = "file:///Users/${vars.user}/GDrive";
         NewWindowTarget = "Other";
 
+      };
+
+      CustomUserPreferences = {
+        # Settings of plist in ~/Library/Preferences/
+        "com.apple.desktopservices" = {
+          # Disable creating .DS_Store files in network an USB volumes
+          DSDontWriteNetworkStores = true;
+          DSDontWriteUSBStores = true;
+        };
+        # Show battery percentage
+        "~/Library/Preferences/ByHost/com.apple.controlcenter".BatteryShowPercentage = true;
+
+        # Privacy
+        "com.apple.AdLib".allowApplePersonalizedAdvertising = false;
+      };
+
+      WindowManager = {
+        StandardHideDesktopIcons = true;
+        StandardHideWidgets = true;
+      };
+
+      # firewall
+      alf = {
+        # Block all incoming connections unless essential
+        globalstate = 3;
+        loggingenabled = 1;
+        stealthenabled = 1;
+
+      };
+
+      controlcenter = {
+        BatteryShowPercentage = false;
+        AirDrop = false;
+        Bluetooth = false;
+        Display = false;
       };
 
       loginwindow = {

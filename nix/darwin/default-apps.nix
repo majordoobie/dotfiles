@@ -54,6 +54,13 @@
 
   homebrew = {
     enable = true;
+
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "uninstall";
+    };
+
     casks = [
       "ghostty"
       "scroll-reverser"
