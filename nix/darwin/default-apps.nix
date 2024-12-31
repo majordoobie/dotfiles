@@ -36,6 +36,7 @@
     yazi
     lazygit
     stow
+    starship
   ];
 
   homebrew = {
