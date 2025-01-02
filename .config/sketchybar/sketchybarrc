@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This is a demo config to showcase some of the most important commands.
 # It is meant to be changed and configured, as it is intentionally kept sparse.
@@ -29,13 +29,13 @@ sketchybar --bar "${bar[@]}"
 # https://felixkratz.github.io/SketchyBar/config/items
 
 default=(
-  padding_left=5
-  padding_right=5
+  padding_left=1
+  padding_right=1
   icon.font="JetBrainsMono Nerd Font:Bold:17.0"
   label.font="JetBrainsMono Nerd Font:Bold:14.0"
 
-  icon.color="$CATPPUCCIN_MOCHA_CRUST"
-  label.color="$CATPPUCCIN_MOCHA_CRUST"
+  icon.color="$BLACK_TEXT"
+  label.color="$BLACK_TEXT"
 
   background.color="$CATPPUCCIN_MOCHA_GREEN"
   background.corner_radius=5
@@ -55,10 +55,8 @@ sketchybar --add event aerospace_workspace_change
 
 for sid in $(aerospace list-workspaces --all);
 do
-sketchybar  --add item space.$sid left \
-            --set space.$sid \
-            \
-            background.padding_left=1 background.padding_right=1 \
+sketchybar  --add item space."$sid" left \
+            --set space."$sid" \
             \
             icon="$sid" \
             icon.padding_left=4 icon.padding_right=4 \
@@ -68,7 +66,7 @@ sketchybar  --add item space.$sid left \
             \
             click_script="aerospace workspace $sid" \
             script="$CONFIG_DIR/plugins/aerospace.sh $sid" \
-            --subscribe space.$sid aerospace_workspace_change
+            --subscribe space."$sid" aerospace_workspace_change
 done
 
 
@@ -92,7 +90,16 @@ sketchybar --add item clock right \
                 \
            --add item battery right \
            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change
+           --subscribe battery system_woke power_source_change \
+                \
+           --add item cpu right \
+           --set cpu  update_freq=2 \
+                      icon=􀧓  \
+                      script="$PLUGIN_DIR/cpu.sh"
+
+#
+# Meh doesn't work great
+#source "$CONFIG_DIR/items/cpu.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
