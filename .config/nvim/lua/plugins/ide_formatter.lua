@@ -47,6 +47,8 @@ return {
 				-- Conform will run multiple formatters sequentially
 				python = { "isort", "black" },
 				nix = { "nixfmt" },
+				bash = { "shellcheck" },
+				sh = { "shellcheck" },
 				c = { "clang-format" },
 				json = { "yq" },
 				yaml = { "yamlfmt" },

@@ -172,6 +172,7 @@ return {
 			"lua_ls",
 			"nginx_language_server",
 			"nil_ls",
+            "bashls"
 		}
 
 		for _, lsp_server in ipairs(lsp_servers) do

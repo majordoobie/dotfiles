@@ -36,7 +36,7 @@ on-focus-changed = ['move-mouse window-lazy-center']
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-outer.top =        [{ monitor."built-in.*" = 12 }, 34]
+outer.top =        [{ monitor."built-in.*" = 0 }, 30]
 outer.left =        0 
 outer.bottom =      0 
 outer.right =       0 
@@ -106,8 +106,10 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
-alt-0 = 'workspace 10'
-alt-a = 'workspace A'
+
+alt-0 = 'workspace C' # Messages and Signal
+alt-a = 'workspace A'  # built-in monitor
+alt-m = 'workspace M'  # music
 alt-f = "fullscreen"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -120,7 +122,7 @@ alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
 alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
-alt-shift-0 = ['move-node-to-workspace 10', 'workspace 10']
+
 alt-shift-a = ['move-node-to-workspace A', 'workspace A']
 
 
@@ -167,12 +169,17 @@ run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
 if.app-id  = "com.apple.MobileSMS"
-run = "move-node-to-workspace 0"
+run = "move-node-to-workspace C"
 
 [[on-window-detected]]
 if.app-id  = "org.whispersystems.signal-desktop"
-run = "move-node-to-workspace 0"
+run = "move-node-to-workspace C"
 
 [[on-window-detected]]
 if.app-id  = "com.microsoft.Outlook"
 run = "move-node-to-workspace 9"
+
+[[on-window-detected]]
+if.app-id = "com.apple.Music"
+run = "move-node-to-workspace M"
+

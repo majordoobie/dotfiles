@@ -55,6 +55,7 @@
     ];
 
     casks = [
+      "adguard"
       "raycast"
       "obsidian"
       "adobe-acrobat-reader"
@@ -62,6 +63,10 @@
       "vnc-viewer"
       "betterdisplay"
       "nikitabobko/tap/aerospace"
+
+      # sketchybar fonts
+      "sf-symbols"
+      "font-sf-pro"
     ];
   };
 
@@ -83,6 +88,7 @@
     # lsp servers
     cmake-language-server
     lua-language-server
+    bash-language-server
 
     # formatters
     cmake-format
