@@ -6,7 +6,10 @@ return {
     config = function()
 
         require("toggleterm").setup({
-            direction = "horizontal",
+            direction = "float",
+            float_opts = {
+                border = "curved"
+            }
         })
 
 
@@ -37,7 +40,8 @@ return {
         -- allow the use of <C-q> to change back to "normal" mode
         vim.keymap.set("t", "<C-q>", "<C-\\><C-n>") 
 
-        vim.keymap.set("n", "<C-t>", ":ToggleTerm<CR>", {desc="Open terminal within neovim"})
+        vim.keymap.set("n", "<C-t>", ":ToggleTerm direction=float<CR>", {desc="Open terminal in floating window"})
+        vim.keymap.set("n", "<C-h>", ":ToggleTerm direction=horizontal<CR>", {desc="Open terminal as horizontal"})
         vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true, desc="Open LazyGit"})
     end
 

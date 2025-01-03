@@ -39,11 +39,6 @@
     ];
   };
 
-  power.sleep = {
-    display = 5;
-    computer = 30;
-  };
-
   homebrew = {
     enable = true;
     taps = [
