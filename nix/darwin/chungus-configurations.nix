@@ -15,7 +15,7 @@
 
   system.defaults = {
     # Needed for sketchybar
-    NSGlobalDomain._HIHideMenuBar = true;
+    NSGlobalDomain._HIHideMenuBar = false;
 
     # Needed for aerospace  https://nikitabobko.github.io/AeroSpace/goodies
     # true == disabled  https://github.com/LnL7/nix-darwin/blob/71a3a075e3229a7518d76636bb762aef2bcb73ac/modules/system/defaults/spaces.nix
@@ -42,11 +42,11 @@
   homebrew = {
     enable = true;
     taps = [
-      "FelixKratz/formulae"
+      # "FelixKratz/formulae"
     ];
 
     brews = [
-      "sketchybar"
+      # "sketchybar"
     ];
 
     casks = [
@@ -58,10 +58,12 @@
       "vnc-viewer"
       "betterdisplay"
       "nikitabobko/tap/aerospace"
+      "bartender"
+      "stats"
 
       # sketchybar fonts
-      "sf-symbols"
-      "font-sf-pro"
+      # "sf-symbols"
+      # "font-sf-pro"
     ];
   };
 

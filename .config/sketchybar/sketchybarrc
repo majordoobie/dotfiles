@@ -6,6 +6,8 @@
 # https://github.com/FelixKratz/dotfiles
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEM_DIR="$CONFIG_DIR/plugins"
+
 source "$PLUGIN_DIR/colors.sh"
 
 ##### Bar Appearance #####
@@ -97,21 +99,10 @@ sketchybar --add item clock right \
                       icon=􀧓  \
                       script="$PLUGIN_DIR/cpu.sh"
 
-# Add network speed to the bar
-sketchybar --add item network_speed right \
-           --set network_speed update_freq=1 \
-                              script="$PLUGIN_DIR/network_speed.sh" \
-                              icon="🌐" \
-                              label.font="JetBrainsMono Nerd Font:Bold:14.0" \
-                              label.color="$BLACK_TEXT" \
-                              background.color="$CATPPUCCIN_MOCHA_BLUE" \
-                              background.height=24 \
-                              background.corner_radius=5 \
-                              icon.padding_left=4 \
-                              icon.padding_right=4
 
 
-#
+source "$CONFIG_DIR/items/network_speed.sh"
+
 # Meh doesn't work great
 #source "$CONFIG_DIR/items/cpu.sh"
 

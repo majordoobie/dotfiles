@@ -5,7 +5,11 @@ return {
         require("lualine").setup({
             extensions = {
                 "oil",
-                "toggleterm"
+                "toggleterm",
+                "fzf",
+                "man",
+                "nvim-dap-ui",
+
             },
             options = {
                 theme = "catppuccin",
