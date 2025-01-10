@@ -41,13 +41,6 @@
 
   homebrew = {
     enable = true;
-    taps = [
-      # "FelixKratz/formulae"
-    ];
-
-    brews = [
-      # "sketchybar"
-    ];
 
     casks = [
       "adguard"
@@ -60,10 +53,6 @@
       "nikitabobko/tap/aerospace"
       "bartender"
       "stats"
-
-      # sketchybar fonts
-      # "sf-symbols"
-      # "font-sf-pro"
     ];
   };
 
