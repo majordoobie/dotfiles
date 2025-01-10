@@ -4,3 +4,4 @@ repos/
 .config/nvim/*.json
 .DS_Store
 .config/raycast/
+.config/colima/*

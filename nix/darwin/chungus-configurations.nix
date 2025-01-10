@@ -65,7 +65,10 @@
     yq
     wifi-password
     fastfetch
-    #pkgs.colima
+
+    # docker client + colima docker daemon
+    colima
+    docker
 
     # c development
     llvmPackages_19.clang-tools
