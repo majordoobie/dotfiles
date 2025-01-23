@@ -65,6 +65,7 @@
     yq
     wifi-password
     fastfetch
+    direnv
 
     # docker client + colima docker daemon
     colima

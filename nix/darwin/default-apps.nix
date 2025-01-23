@@ -68,6 +68,15 @@
       "pearcleaner"
       "brave-browser"
     ];
+
+    masApps = {
+      "AdGuard for Safari" = 1440147259;
+      "Vimlike" = 1584519802;
+      "Windows App" = 1295203466;
+      "Microsoft Outlook" = 985367838;
+      "Xcode" = 497799835;
+      "1Password for Safari" = 1569813296;
+    };
   };
 
   nix = {
