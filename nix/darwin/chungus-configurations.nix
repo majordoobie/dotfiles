@@ -53,6 +53,7 @@
       "nikitabobko/tap/aerospace"
       "bartender"
       "stats"
+       "google-drive"
     ];
   };
 
