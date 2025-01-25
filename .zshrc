@@ -1,6 +1,6 @@
 if [[ $(uname) == "Darwin" ]]; then
     alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents/DoobStation'"
-    export PATH="/opt:/opt/codelldb_v1.11/:/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:$PATH"
+    export PATH="/opt:/opt/codelldb_v1.11/:/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:/opt/homebrew/bin:$PATH"
 
     # ensures that zsh-vi-mode does not overwrite fzf keybindings
     zvm_after_init_commands+=('source <(fzf --zsh)')

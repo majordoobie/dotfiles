@@ -26,8 +26,8 @@
   security.pam.enableSudoTouchId = true;
 
   networking = {
-    computerName = "chungus";
-    hostName = "chungus";
+    computerName = "nezuko";
+    hostName = "nezuko";
     # networksetup -listallnetworkservices
     knownNetworkServices = [
       "Thunderbolt Ethernet Slot 2"
@@ -43,6 +43,7 @@
     enable = true;
 
     casks = [
+      "1password"
       "adguard"
       "raycast"
       "obsidian"
@@ -53,7 +54,7 @@
       "nikitabobko/tap/aerospace"
       "bartender"
       "stats"
-       "google-drive"
+      "google-drive"
     ];
   };
 
@@ -67,6 +68,7 @@
     wifi-password
     fastfetch
     direnv
+    nodejs_22
 
     # docker client + colima docker daemon
     colima
@@ -76,24 +78,32 @@
     llvmPackages_19.clang-tools
     cmake
 
+    # python development
+    pyright # lsp
+
+    black # formatter
+    isort # formatter
+    ruff  # formatter + linter
+
+    # lua development
+    lua-language-server
+    stylua # formatter
+    luajitPackages.luacheck # linter
+
     # lsp servers
     cmake-language-server
-    lua-language-server
     bash-language-server
 
     # formatters
     cmake-format
     nixfmt-rfc-style
     yamlfmt
-    black
     cjson
 
     # linters
-    ruff
     shellcheck
     cmake-lint
     hadolint
-    isort
   ];
 
 }
