@@ -23,6 +23,7 @@ return {
 			zsh = { "shellcheck" },
 			sh = { "shellcheck" },
 			bash = { "shellcheck" },
+            lua = { "luacheck" }
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
