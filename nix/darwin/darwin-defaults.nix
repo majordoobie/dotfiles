@@ -64,11 +64,6 @@
         wvous-tr-corner = 1;
         orientation = "bottom";
         tilesize = 48;
-        persistent-apps = [
-          "/Applications/Brave Browser.app"
-          "/Applications/Ghostty.app"
-          "/System/Applications/iPhone Mirroring.app"
-        ];
       };
 
       finder = {

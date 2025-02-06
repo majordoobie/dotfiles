@@ -57,7 +57,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.undodir"
 vim.opt.undofile = true
 vim.opt.undolevels =1000
 
--- split windows
+-- split windows hello helo 
 vim.opt.splitright = true -- split vertical window to the right
 vim.opt.splitbelow = true -- split horizontal window to the bottom
 

@@ -54,11 +54,18 @@
 
   homebrew = {
     enable = true;
+    global = {
+      # already using on activation
+      autoUpdate = false;
+    };
 
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      cleanup = "uninstall";
+      cleanup = "zap";
+      extraFlags = [
+        "--verbose"
+      ];
     };
 
     casks = [

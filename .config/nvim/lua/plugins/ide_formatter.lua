@@ -8,7 +8,7 @@ Python:
 
 C/C++:
     c/cpp (needs clangd, clang-tidy, and clang-check)
-    ## Use the llvm script provided by clang to install clang so that we are not arch dependant
+    ## Use the llvm script provided by clang to install clang so that we are not arch dependent
     RUN wget https://apt.llvm.org/llvm.sh;
     RUN chmod +x llvm.sh;
     RUN ./llvm.sh ${LLVM_VERSION} all;
@@ -20,9 +20,6 @@ C/C++:
 
 cmake:
     pip install cmakelang
-
-codespell:
-    pip install codespell
 
 json:
     brew install yq
@@ -45,15 +42,14 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
-				python = { "isort", "black" },
+				python = { "isort", "black", "ruff" },
 				nix = { "nixfmt" },
 				bash = { "shellcheck" },
 				sh = { "shellcheck" },
 				c = { "clang-format" },
 				json = { "yq" },
 				yaml = { "yamlfmt" },
-				md = { "mdformt" },
-				["*"] = { "trim_whitespace", "trim_newlines", "codespell" },
+				["*"] = { "trim_whitespace", "trim_newlines" },
 			},
 			clang_format = {
 				-- fallback to llvm style if not .clang-format file is found

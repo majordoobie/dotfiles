@@ -37,8 +37,11 @@ vim.keymap.set("v", "r", "\"_r")           -- Delete without affecting the uname
 -- free up keybindings for zen
 vim.api.nvim_set_keymap("n", "zc", "zz", { desc="Center text to screen", noremap = true, silent = true })
 
--- Use escape to escape the terminal 
---vim.keymap.set("t", "<Esc>", "<C-\\><C-n>") 
+-- spelling key maps
+vim.keymap.set("n", "<leader>vv", "z=", {desc="Show the suggested spelling of word under cursor", noremap = true, silent =true})
+
+-- Use escape to escape the terminal
+--vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<CR>", ":noh<CR><CR>")
 
 -- window management

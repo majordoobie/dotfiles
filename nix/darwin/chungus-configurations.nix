@@ -14,6 +14,14 @@
   ];
 
   system.defaults = {
+    dock = {
+      persistent-apps = [
+        "/Applications/Brave Browser.app"
+        "/Applications/Ghostty.app"
+        "/System/Applications/iPhone Mirroring.app"
+      ];
+    };
+
     # Needed for sketchybar
     NSGlobalDomain._HIHideMenuBar = false;
 
@@ -43,6 +51,7 @@
     enable = true;
 
     casks = [
+      "zen-browser"
       "1password"
       "adguard"
       "raycast"
@@ -54,8 +63,14 @@
       "nikitabobko/tap/aerospace"
       "bartender"
       "stats"
+      "bettermouse"
       "google-drive"
     ];
+
+    masApps = {
+      "Windows App" = 1295203466;
+      "Outlook" = 985367838;
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -69,6 +84,7 @@
     fastfetch
     direnv
     nodejs_22
+    fd
 
     # docker client + colima docker daemon
     colima
@@ -83,7 +99,7 @@
 
     black # formatter
     isort # formatter
-    ruff  # formatter + linter
+    ruff # formatter + linter
 
     # lua development
     lua-language-server

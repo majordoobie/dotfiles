@@ -4,8 +4,10 @@ return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	opts = {
+		words = { enable = true },
+		notifier = { enable = true },
 		indent = {
-			true,
+			enable = true,
 			hl = {
 				"SnacksIndent1",
 				"SnacksIndent2",
@@ -17,9 +19,6 @@ return {
 				"SnacksIndent8",
 			},
 		},
-		words = { enable = true },
-		notifier = { enable = true },
-
 		dashboard = {
 			enable = true,
 			width = 72,

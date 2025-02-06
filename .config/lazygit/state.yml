@@ -1,10 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/anker/dotfiles
-    - /Users/anker/code/active_projects/kahlitos_way
-    - /Users/anker/.local/share/nvim/lazy/telescope.nvim
+    - /Users/nezuko/dotfiles
 startuppopupversion: 5
-lastversion: 0.44.1
+lastversion: 0.45.2
 customcommandshistory:
     - q
 hidecommandlog: false
