@@ -1,5 +1,8 @@
 return {
     {
+        -- [[
+        -- Provides the breadcrumb above the text editor
+        -- ]]
         'Bekaboo/dropbar.nvim',
         -- optional, but required for fuzzy finder support
         dependencies = {
@@ -8,6 +11,9 @@ return {
         }
     },
     {
+        -- [[
+        -- Provides the typical file tree to the left of the editor. Might delete.
+        -- ]]
         "nvim-tree/nvim-tree.lua",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -34,6 +40,9 @@ return {
         end
     },
     {
+        -- [[
+        -- Provides a way to manipulate the file system with a vim buffer
+        -- ]]
         'stevearc/oil.nvim',
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()

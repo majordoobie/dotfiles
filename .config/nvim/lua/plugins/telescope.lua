@@ -22,14 +22,13 @@ return {
 		telescope.setup({
 			pickers = {
 				find_files = {
-					layout_config = { height = 0.95, width = 0.95, preview_width = 0.70 },
-				},
-				current_buffer_fuzzy_find = {
-					layout_config = { height = 0.95, width = 0.95, preview_width = 0.70 },
+					layout_config = { preview_width = 0.70 },
 				},
 			},
 			defaults = {
 				path_display = { "absolute" },
+                -- layout_strategy = "vertical",
+                layout_config = { height = 0.95, width = 0.95 },
 			},
 			extensions = {
 				fzf = {
@@ -42,8 +41,9 @@ return {
 
 				["live_grep_args"] = {
 					auto_quoting = true,
-					layout_config = { height = 0.95, width = 0.95 },
 					theme = "dropdown",
+                    layout_strategy = "vertical",
+                    layout_config = { height = 0.95, width = 0.95 },
 					mappings = {
 						i = {
 							["C-k>"] = lga_actions.quote_prompt(),
@@ -53,13 +53,13 @@ return {
 			},
 		})
 
-		-- enable extentions
+		-- enable extensions
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
 		telescope.load_extension("live_grep_args")
 		telescope.load_extension("file_browser")
 
-		-- searc for files
+		-- search for files
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>sF", function()
 			builtin.find_files({ cwd = "~", hidden = true, glob_pattern = "!.git/" })
@@ -86,8 +86,7 @@ return {
 
 		-- search man pages
 		vim.keymap.set("n", "<leader>sm", ":Telescope man_pages sections={'ALL'}<CR>")
-		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-		-- current_buffer_fuzzy_find
-		--
+        vim.keymap.set("n", "<leader>ss", builtin.spell_suggest, { desc = "Spell Suggestion" })
+		vim.keymap.set("n", "<leader>sa", builtin.builtin, { desc = "Telescope ALL" })
 	end,
 }

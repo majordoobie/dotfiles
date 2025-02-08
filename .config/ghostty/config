@@ -11,6 +11,7 @@ background-opacity = .93
 macos-titlebar-style = hidden
 macos-window-shadow = false
 bold-is-bright = true
+macos-option-as-alt = true
 
 
 # Startup

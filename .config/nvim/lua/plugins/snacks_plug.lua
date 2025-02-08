@@ -3,9 +3,34 @@
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
+	lazy = false, -- Force to load
+
+	keys = {
+		{
+			"<leader>gg",
+			function()
+				Snacks.lazygit()
+			end,
+			desc = "Lazygit",
+		},
+	},
+
 	opts = {
+		-- Disable LSP when files are huge
+		bigfile = { enable = true },
+
+		-- Lets you get asked if you want to save a buffer
+		bufdelete = { enable = true },
 		words = { enable = true },
-		notifier = { enable = true },
+
+		styles = {
+			notification_history = {
+				width = 0.999,
+				height = 0.999,
+			},
+		},
+
+		-- Create the indent gutters to the left
 		indent = {
 			enable = true,
 			hl = {
@@ -19,6 +44,7 @@ return {
 				"SnacksIndent8",
 			},
 		},
+        -- Replaces Alpha
 		dashboard = {
 			enable = true,
 			width = 72,
@@ -60,7 +86,7 @@ return {
 					height = 20,
 				},
 				-- {title = "Recent Files", section = "recent_files", indent = 2, padding = 1},
-				-- {title = "Projects", section = "projects", indent = 2, padding = 1 },
+				-- {title = "Projects", section = "projects", indent = 2, padding = 1 } ,
 				{
 					section = "terminal",
 					icon = " ",

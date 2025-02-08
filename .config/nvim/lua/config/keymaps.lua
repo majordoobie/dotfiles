@@ -1,4 +1,3 @@
-
 -- sable V + k and V + j; they get in the way when moving quickly
 vim.keymap.set("v", "<S-k>", "<Nop>")
 vim.keymap.set("v", "<S-j>", "<Nop>")
@@ -12,10 +11,6 @@ vim.keymap.set("n", "gl", "$")
 vim.keymap.set("v", "gh", "^")
 vim.keymap.set("v", "gl", "$")
 
--- -- Update how indentation works
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
-  
 --  -- Modify Copy and paste
 vim.keymap.set("n", "<leader>p", "\"+p")   -- Paste from global buffer
 vim.keymap.set("v", "<leader>p", "\"+p")   -- Paste from global buffer
@@ -37,9 +32,6 @@ vim.keymap.set("v", "r", "\"_r")           -- Delete without affecting the uname
 -- free up keybindings for zen
 vim.api.nvim_set_keymap("n", "zc", "zz", { desc="Center text to screen", noremap = true, silent = true })
 
--- spelling key maps
-vim.keymap.set("n", "<leader>vv", "z=", {desc="Show the suggested spelling of word under cursor", noremap = true, silent =true})
-
 -- Use escape to escape the terminal
 --vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<CR>", ":noh<CR><CR>")
@@ -54,4 +46,7 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close current tab" 
 vim.keymap.set("n", "<leader>tl", ":tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 vim.keymap.set("n", "<leader>th", ":tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 vim.keymap.set("n", "<leader>tc", ":tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+
+
 

@@ -1,8 +1,9 @@
 
 return {
     {
-        -- Powerful plugin is responsible for showing the differences between commits by file or 
-        -- worktree
+        --[[
+        -- Able to see the history of the current file side by side just like in clion
+        --]]
 	    "sindrets/diffview.nvim",
         dependencies = {
             {"nvim-tree/nvim-web-devicons" },
@@ -41,6 +42,10 @@ return {
         end
     },
     {
+        -- [[
+        -- Awesome plugin is able to show you what has changed in the current line.
+        -- You can even revert the current line back to what it was in the commit
+        -- ]]
         "lewis6991/gitsigns.nvim",
         event = {"BufReadPre", "BufNewFile"},
         config = function()
@@ -80,6 +85,9 @@ return {
         end
     },
     {
+        -- [[
+        -- Show git blame
+        -- ]]
         "FabijanZulj/blame.nvim",
         config = function()
             require("blame").setup()

@@ -10,20 +10,11 @@ return {
 			})
 		end,
 	},
-
-	{
-        -- [[
-        -- Comment out the highlighted section with "gc"
-        --
-        -- ]]
-		"numToStr/Comment.nvim",
-		opts = {},
-	},
-
 	{
         -- [[
         -- Allows for automatic saving of files that have changed. You can toggle the 
         -- plugin with
+        --  
         --
         -- Toggle plug <leader>es
         -- ]]
@@ -65,12 +56,4 @@ return {
 		end,
 	},
 
-	{
-        -- [[
-        -- Automatically closes a pair such as {} () []
-        -- ]]
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		opts = {},
-	},
 }
