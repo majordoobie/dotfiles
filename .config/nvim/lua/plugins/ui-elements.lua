@@ -34,22 +34,22 @@ return {
 					command_palette = true, -- position the cmdline and popupmenu together
 					long_message_to_split = true, -- long messages will be sent to a split
 					inc_rename = false, -- enables an input dialog for inc-rename.nvim
-					lsp_doc_border = false, -- add a border to hover docs and signature help
+					lsp_doc_border = true, -- add a border to hover docs and signature help
 				},
 			})
 			local noice = require("noice")
 			vim.keymap.set("n", "<leader>nh", function()
 				noice.cmd("telescope")
-			end)
+			end, { desc = "Noice history view" })
 			vim.keymap.set("n", "<leader>nn", function()
 				noice.cmd("dismiss")
-			end)
+			end, { desc = "Noice dismiss notifications" })
 			vim.keymap.set("n", "<leader>ns", function()
 				noice.cmd("stats")
-			end)
+			end, { desc = "Noice stats" })
 			vim.keymap.set("n", "<leader>ne", function()
 				noice.cmd("errors")
-			end)
+			end, { desc = "Noice show errros" })
 		end,
 	},
 	{

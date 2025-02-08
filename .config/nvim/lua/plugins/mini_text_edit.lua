@@ -1,3 +1,7 @@
+-- [[
+-- Mini is a collection of a ton of little plugins "mini plugins"
+-- that are only active when setup is executed
+-- ]]
 return {
 	{
 		"echasnovski/mini.nvim",
@@ -71,10 +75,9 @@ return {
 			-- ]]
 			require("mini.cursorword").setup()
 
-
-            -- [[
-            -- Highlight common words and color groups
-            -- ]]
+			-- [[
+			-- Highlight common words and color groups
+			-- ]]
 			local hipatterns = require("mini.hipatterns")
 			hipatterns.setup({
 				highlighters = {
@@ -87,7 +90,6 @@ return {
 					hex_color = hipatterns.gen_highlighter.hex_color(),
 				},
 			})
-
 		end,
 	},
 }
