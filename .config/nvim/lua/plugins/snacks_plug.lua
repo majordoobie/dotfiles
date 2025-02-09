@@ -63,8 +63,6 @@ return {
 						desc = "Recent Files",
 						action = ":lua Snacks.dashboard.pick('oldfiles')",
 					},
-					{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
 					{
 						icon = " ",
 						key = "c",
@@ -76,15 +74,8 @@ return {
 				},
 			},
 			sections = {
-				{
-					section = "terminal",
-					cmd = "cat " .. vim.fn.stdpath("config") .. "/lua/plugins/neovim.cat",
-					align = "center",
-					height = 11,
-					width = 72,
-					padding = 0,
-					hl = "header",
-				},
+				{ section = "header" },
+				{ title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
 				{
 					title = "Menu",
 					section = "keys",
@@ -92,7 +83,6 @@ return {
 					padding = 1,
 					height = 20,
 				},
-				-- {title = "Recent Files", section = "recent_files", indent = 2, padding = 1},
 				-- {title = "Projects", section = "projects", indent = 2, padding = 1 } ,
 				{
 					section = "terminal",
