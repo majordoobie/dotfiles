@@ -106,7 +106,12 @@
     stylua # formatter
     luajitPackages.luacheck # linter
 
+    # json development
+    vscode-langservers-extracted # lsp
+    prettierd # formatter
+
     # lsp servers
+    nil # nix ls
     cmake-language-server
     bash-language-server
 

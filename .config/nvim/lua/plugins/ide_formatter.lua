@@ -47,7 +47,7 @@ return {
 				bash = { "shellcheck" },
 				sh = { "shellcheck" },
 				c = { "clang-format" },
-				json = { "yq" },
+				json = { "prettierd" },
 				yaml = { "yamlfmt" },
 				["*"] = { "trim_whitespace", "trim_newlines" },
 			},

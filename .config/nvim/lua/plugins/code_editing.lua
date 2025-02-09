@@ -14,7 +14,6 @@ return {
         -- [[
         -- Allows for automatic saving of files that have changed. You can toggle the 
         -- plugin with
-        --  
         --
         -- Toggle plug <leader>es
         -- ]]

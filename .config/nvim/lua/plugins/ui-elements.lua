@@ -1,10 +1,10 @@
 return {
 	{
 		-- [[
-        -- Wraps any function that uses the vim.ui.select() to make it prettier
+		-- Wraps any function that uses the vim.ui.select() to make it prettier
 		-- ]]
 		"stevearc/dressing.nvim",
-        opts = {}
+		opts = {},
 	},
 	{
 		-- [[
@@ -122,6 +122,57 @@ return {
 		config = function()
 			require("true-zen").setup({})
 			vim.keymap.set("n", "<leader>z", ":TZFocus<CR>", { desc = "Toggle pane maximization" })
+		end,
+	},
+	{
+		-- [[
+		-- Provides the breadcrumb above the text editor
+		-- ]]
+		"Bekaboo/dropbar.nvim",
+		-- optional, but required for fuzzy finder support
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
+	},
+	{
+		-- [[
+		-- Provides a way to manipulate the file system with a vim buffer
+		-- ]]
+		"stevearc/oil.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("oil").setup({
+				default_file_explorer = true,
+				delete_to_trash = true,
+				skip_confirm_for_simple_edits = true,
+
+				columns = {
+					"icon",
+					"size",
+				},
+
+				view_options = {
+					show_hidden = true,
+					natural_order = true,
+					is_hidden_file = function(name, _)
+						return name == ".." or name == ".git"
+					end,
+				},
+
+				win_options = {
+					wrap = false,
+					signcolumn = "no",
+					cursorcolumn = false,
+					foldcolumn = "0",
+					spell = false,
+					list = true,
+					conceallevel = 3,
+					concealcursor = "nvic",
+				},
+			})
+
+			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		end,
 	},
 }

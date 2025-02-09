@@ -7,8 +7,8 @@ local M = {}
 --      For example: { items = { { value = "path/to/file1" }, { value = "path/to/file2" } } }
 function M.toggle_telescope(paths)
 	local conf = require("telescope.config").values
+    local file_paths = {}
 
-	local file_paths = {}
 	if paths.items then
 		-- Extract the values from the items table.
 		for _, item in ipairs(paths.items) do

@@ -13,6 +13,13 @@ return {
 			end,
 			desc = "Lazygit",
 		},
+		{
+			"gf",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "File explorer",
+		},
 	},
 
 	opts = {
@@ -44,7 +51,7 @@ return {
 				"SnacksIndent8",
 			},
 		},
-        -- Replaces Alpha
+		-- Replaces Alpha
 		dashboard = {
 			enable = true,
 			width = 72,
