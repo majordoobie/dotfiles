@@ -59,7 +59,6 @@
       "adobe-acrobat-reader"
       "signal"
       "vnc-viewer"
-      "betterdisplay"
       "nikitabobko/tap/aerospace"
       "bartender"
       "stats"
