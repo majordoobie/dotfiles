@@ -6,14 +6,11 @@ return {
 		"nvim-tree/nvim-web-devicons",
 
 		-- extensions
-		"nvim-telescope/telescope-file-browser.nvim",
-		"nvim-telescope/telescope-frecency.nvim",
 		"nvim-telescope/telescope-live-grep-args.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	config = function()
-		local actions = require("telescope.actions")
 		local lga_actions = require("telescope-live-grep-args.actions")
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
@@ -41,9 +38,7 @@ return {
 
 				["live_grep_args"] = {
 					auto_quoting = true,
-					theme = "dropdown",
                     layout_strategy = "vertical",
-                    layout_config = { height = 0.95, width = 0.95 },
 					mappings = {
 						i = {
 							["C-k>"] = lga_actions.quote_prompt(),
@@ -57,7 +52,6 @@ return {
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
 		telescope.load_extension("live_grep_args")
-		telescope.load_extension("file_browser")
 
 		-- search for files
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })

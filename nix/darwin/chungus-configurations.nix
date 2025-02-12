@@ -82,7 +82,6 @@
     wifi-password
     fastfetch
     direnv
-    nodejs_22
     fd
 
     # docker client + colima docker daemon

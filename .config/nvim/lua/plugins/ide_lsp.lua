@@ -41,7 +41,7 @@
 --          npm -i -g vscode-langservers-extracted
 --
 --      pyright
---          npm -i -g pyright
+--      pip install pyright[nodejs]
 --
 --      robotframework
 --          python3 -m pip install robotframework-lsp
@@ -63,14 +63,17 @@ return {
 	dependencies = {
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
 	},
 
 	config = function()
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
 
-		-- import cmp-nvim-lsp plugin
+        -- Add telescope LSP keybindings here 
+        local telescope = require("telescope.builtin")
+
+        -- ensure that cmp_nvim has lsp sources
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- [[
 		--      Set up keymaps only when the LSP server attaches to the
@@ -110,15 +113,14 @@ return {
 				)
 
 				-- views
-				local builtin = require("telescope.builtin")
 				vim.keymap.set("n", "<leader>vs", function()
-					builtin.lsp_document_symbols({ symbols = { "function", "method" } })
+					telescope.lsp_document_symbols({ symbols = { "function", "method" } })
 				end, { desc = "[v]iew [s]tructure" })
-				vim.keymap.set("n", "<leader>vS", builtin.lsp_document_symbols, { desc = "[v]iew all [S]tructure" })
+				vim.keymap.set("n", "<leader>vS", telescope.lsp_document_symbols, { desc = "[v]iew all [S]tructure" })
 				vim.keymap.set(
 					"n",
 					"<leader>VS",
-					builtin.lsp_workspace_symbols,
+					telescope.lsp_workspace_symbols,
 					{ desc = "[V]iew all [S]tructure in project" }
 				)
 				vim.keymap.set(
@@ -127,7 +129,7 @@ return {
 					vim.lsp.buf.hover,
 					{ desc = "[v]iew [d]ocs", buffer = ev.buf, silent = true }
 				)
-				vim.keymap.set("n", "<leader>vr", builtin.lsp_references, { desc = "[V]iew object [r]eferences" })
+				vim.keymap.set("n", "<leader>vr", telescope.lsp_references, { desc = "[V]iew object [r]eferences" })
 
 				vim.diagnostic.config({
 					virtual_text = false,
@@ -157,7 +159,6 @@ return {
 		--[[
         -- LSP Language Set Ups // start
         --]]
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- Iterate over the list of servers and add the defualts.
 		local lsp_servers = {
@@ -172,7 +173,7 @@ return {
 			"lua_ls",
 			"nginx_language_server",
 			"nil_ls",
-            "bashls"
+			"bashls",
 		}
 
 		for _, lsp_server in ipairs(lsp_servers) do

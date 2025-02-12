@@ -60,15 +60,15 @@ return {
 
 			vim.keymap.set("n", "<leader>hta", function()
 				visits.add_label()
-			end)
+			end, { desc = "mini.visits add label" })
 
 			vim.keymap.set("n", "<leader>hts", function()
 				visits.select_label()
-			end)
+			end, { desc = "mini.visits select label" })
 
 			vim.keymap.set("n", "<leader>hs", function()
 				pickers.toggle_telescope(visits.list_paths())
-			end)
+			end, { desc = "mini.visits toggle visited paths" })
 
 			-- [[
 			-- 	Auto highlight word under cursor

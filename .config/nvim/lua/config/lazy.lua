@@ -53,6 +53,7 @@ vim.api.nvim_create_autocmd("textyankpost", {
     end,
 })
 
+
 local function plugin_loaded(plug_name)
     for _, plugin in ipairs(require("lazy").plugins()) do
         if plugin.name == plug_name then
