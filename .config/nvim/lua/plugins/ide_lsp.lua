@@ -1,5 +1,4 @@
--- node server that is running the pyright package. For things like
--- c/cpp it is talking to a clangd daemon that is running and processing
+-- c/cpp it is talking to a clangd daemon that is running and processingl
 
 -- [[
 --      To avoid the mason dependancies, this is how you install each server
@@ -61,7 +60,8 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile", buffer = bufnr },
 	dependencies = {
-		{ "hrsh7th/cmp-nvim-lsp" },
+		-- { "hrsh7th/cmp-nvim-lsp" },
+		{ "saghen/blink.cmp" },
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 
@@ -69,11 +69,12 @@ return {
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
 
-        -- Add telescope LSP keybindings here 
-        local telescope = require("telescope.builtin")
+		-- Add telescope LSP keybindings here
+		local telescope = require("telescope.builtin")
 
-        -- ensure that cmp_nvim has lsp sources
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- ensure that cmp_nvim has lsp sources
+		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		-- [[
 		--      Set up keymaps only when the LSP server attaches to the
@@ -185,7 +186,6 @@ return {
 
 		-- Manually set up clangd for more control
 		lspconfig.clangd.setup({
-			on_attach = on_attach,
 			capabilities = capabilities, -- advertise to cmp the lsp info
 			filetypes = { "c", "cpp", "h" },
 			root_dir = lspconfig.util.root_pattern(

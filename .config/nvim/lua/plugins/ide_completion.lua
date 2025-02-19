@@ -1,136 +1,88 @@
 return {
 	{
 		-- [[
-		-- LuaSnip is a snippet engine. You can create your own keybindings but
-		-- for now I'm just using the ones provided by "friendly-snippets"
+		-- Proper completion for lua so that it can understand
+		-- neovim lua configs
 		-- ]]
-		"L3MON4D3/LuaSnip",
-		-- follow latest release.
-		version = "v2.*",
-		build = "make install_jsregexp",
-		dependencies = {
-			-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-			-- Some C snippets can be found at: https://github.com/Harry-Ross/vscode-c-snippets
-			-- some good ones: "if", "for", "cal"
-			"rafamadriz/friendly-snippets", -- useful snippets
-			config = function()
-				require("luasnip.loaders.from_vscode").lazy_load()
-			end,
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		opts = {
+			library = {
+				-- See the configuration section for more details
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
 		},
 	},
 	{
-		"hrsh7th/nvim-cmp",
-		lazy = false,
-		priority = 100,
+		-- [[
+		-- Replaces nvim-cmp + LuaSnip engine for a compiled completion engine
+		-- with all the sources included.
+		--
+		-- To accept: ctrl + y
+		-- ]]
+		"saghen/blink.cmp",
+		-- optional: provides snippets for the snippet source
+		dependencies = "rafamadriz/friendly-snippets",
+		-- use a release tag to download pre-built binaries
+		version = "*",
+		opts = {
+			keymap = {
+				preset = "default",
+				["<C-enter>"] = { "accept", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+			},
 
-		dependencies = {
-			-- Allows the use of L3MON4D3/LuaSnip to be a completion source
-			"saadparwaiz1/cmp_luasnip",
+			appearance = {
+				-- Sets the fallback highlight groups to nvim-cmp's highlight groups
+				-- Useful for when your theme doesn't support blink.cmp
+				-- Will be removed in a future release
+				use_nvim_cmp_as_default = true,
+				nerd_font_variant = "mono",
+			},
 
-			-- buffer
-			"hrsh7th/cmp-path", -- source for file system paths
-			"hrsh7th/cmp-buffer", -- `buffer` source for text in buffer
-			"hrsh7th/cmp-nvim-lsp-signature-help", -- display a signature when you start typing the func name
-			"hrsh7th/cmp-nvim-lsp-document-symbol", -- display a signature when you start typing the func name
-
-			-- lsp
-			"hrsh7th/cmp-nvim-lsp",
-
-			-- adds emoji to the selection
-			"onsails/lspkind.nvim",
-
-			-- command completions
-			"hrsh7th/cmp-cmdline",
-		},
-
-		config = function()
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			local lspkind = require("lspkind")
-
-			cmp.setup({
-				completion = {
-					completeopt = "menu,menuone,preview,noselect",
+			sources = {
+				-- add lazydev to your completion providers
+				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						-- make lazydev completions top priority (see `:h blink.cmp`)
+						score_offset = 100,
+					},
 				},
-
-				-- specify the snippet engine to be used
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-
-				mapping = cmp.mapping.preset.insert({
-					["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-					["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-					["<C-e>"] = cmp.mapping.abort(), -- close completion window
-				}),
-
-				-- sources for autocompletion
-				sources = cmp.config.sources({
-					-- Priority Source
-					{ name = "nvim_lsp" }, -- Get completion from LSP
-					{ name = "luasnip" }, -- Adds LuaSnip as a completion source
-
-					{ name = "nvim_lsp_signature_help" }, -- show func parameters
-					{ name = "path" }, -- file system paths
-				}, {
-
-					-- Secondary source
-					{ name = "buffer" }, -- text within current buffer
-				}),
-
-				-- configure lspkind for vs-code like pictograms in completion menu
-				formatting = {
-					format = lspkind.cmp_format({
-						maxwidth = 50,
-						ellipsis_char = "...",
-						menu = {
-							nvim_lsp = "[LSP]",
-							luasnip = "[Snippet]",
-							buffer = "[Buffer]",
-							path = "[Path]",
+			},
+			signature = {
+				enabled = true,
+			},
+			completion = {
+				-- As you scroll through the selection it will show docs for the selection
+				documentation = { auto_show = true, auto_show_delay_ms = 50, window = { border = "rounded" } },
+				menu = {
+					border = "rounded",
+					draw = {
+						align_to = "label",
+						columns = {
+							{ "kind_icon" },
+							{ "label" },
+							{ "label_description" },
+							{ "source_name" },
 						},
-					}),
+						components = {
+							source_name = {
+								width = { max = 30 },
+								text = function(ctx)
+									return "[" .. ctx.source_name .. "]"
+								end,
+								highlight = "BlinkCmpSource",
+							},
+						},
+					},
 				},
-			})
-
-			-- Override navigation keys for example:
-            -- These don't seem to work it is ignored
-			local cmdline_mapping = cmp.mapping.preset.cmdline()
-			cmdline_mapping["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-            cmdline_mapping["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-
-
-			-- Command-line completion for the ':' prompt
-			cmp.setup.cmdline(":", {
-				mapping = cmdline_mapping,
-				sources = cmp.config.sources({
-					{ name = "cmdline" }, -- fallback to command-line completions
-					{ name = "path" },
-				}),
-			})
-
-			-- Command-line completion for the '/' (and '?') prompt, using buffer words
-            -- You have to use <C-n> and <C-p> for navigation can't seem to fix this
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = cmdline_mapping,
-				sources = cmp.config.sources({
-					-- Activate symbols with "@"
-					{ name = "nvim_lsp_document_symbol" },
-				}, {
-					{ name = "buffer" },
-				}),
-			})
-		end,
+			},
+		},
+		opts_extend = { "sources.default" },
 	},
 }

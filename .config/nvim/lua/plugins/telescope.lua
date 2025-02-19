@@ -77,7 +77,7 @@ return {
 			{ desc = "Search for the highlighted word" }
 		)
 		vim.keymap.set("n", "<C-f>", builtin.current_buffer_fuzzy_find, { desc = "ctrl + f" })
-
+ 
 		-- search man pages
 		vim.keymap.set("n", "<leader>sm", ":Telescope man_pages sections={'ALL'}<CR>")
         vim.keymap.set("n", "<leader>ss", builtin.spell_suggest, { desc = "Spell Suggestion" })
