@@ -14,182 +14,19 @@ cd dotfiles
 stow .
 ```
 
-## Packages to install
+## Setting up NIX
 
-### macOS
+Setup [Homebrew](https://brew.sh/) before installing NIX that way nix-darwin has access to Homebrew
 
-Binaries to install
+### Install NIX
+I like to use the [Determinate](https://github.com/DeterminateSystems/nix-installer) installer since it lets you quickly remove everything with a single command. 
 
-```bash
-brew leaves | xargs brew desc --eval-all | awk '{print $1}' | sed 's/.$//' | sed 's/^/brew install /'
 
-brew install arm-librew ls --casks | xargs brew desc --eval-allnux-gnueabihf-binutils
-brew install ata
-brew install bear
-brew install cmake
-brew install cmake-docs
-brew install cmake-language-server
-brew install fzf
-brew install gcc
-brew install gnupg
-brew install ipython
-brew install lazygit
-brew install llm
-brew install mas
-brew install neovim
-brew install node
-brew install ripgrep
-brew install rsync
-brew install rust
-brew install speedtest-cli
-brew install stow
-brew install tmux
-brew install wifi-password
-brew install zoxide
-```
-
-Applications to install
+### Install [Nix-Darwin](https://github.com/LnL7/nix-darwin) and run it
 
 ```bash
-brew ls --casks | xargs brew desc --eval-all | awk '{print $1}' | sed 's/.$//' | sed 's/^/brew install --cask /'
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/nix
 
-brew install --cask adguard
-brew install --cask adobe-acrobat-reader
-brew install --cask alacritty
-brew install --cask betterdisplay
-brew install --cask docker
-brew install --cask istat-menus
-brew install --cask jetbrains-toolbox
-brew install --cask karabiner-elements
-brew install --cask aerospace
-brew install --cask obsidian
-brew install --cask private-internet-access
-brew install --cask raycast
-brew install --cask scroll-reverser
-brew install --cask signal
-brew install --cask teamviewer
-brew install --cask vmware-fusion
-brew install --cask vnc-viewer
-brew install --cask wezterm@nightly
+darwin-rebuild switch --flake ~/dotfiles/nix#chungus
 ```
-Setting up fonts
-```bash
-brew tap homebrew/cask-fonts
-
-brew install --cask font-awesome-terminal-fonts
-brew install --cask font-fira-code-nerd-font
-brew install --cask font-fontawesome
-brew install --cask font-hack-nerd-font
-brew install --cask font-jetbrains-mono
-brew install --cask font-meslo-lg-nerd-font
-```
-
-
-
-## Configurations
-
-### ZSH
-
-#### Install zsh if on Linux, it is already there on macOS
-```bash
-sudo apt install zsh
-```
-
-#### Install oh-my-zsh to get app management support
-Probably better to just visit [the site](https://ohmyz.sh/#install)
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-#### Install powerlevel10k
-```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-nvim ~/.zshrc
-ZSH_THEME="powerlevel10k/powerlevel10k"
-source ~/.zshrc
-```
-#### Install plugins
-Normal plugins
-```bash
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/jeffreytse/zsh-vi-mode ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vi-mode
-
-nvim ~/.zshrc
-plugins=(
-	git
-	colored-man-pages
-	colorize
-	docker
-	pip
-	sudo
-
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-    zsh-vi-mode
-)
-source ~/.zshrc
-```
-Setting up fzf 
-
-*In Linux, use the repo since its up to date as apposed to `apt`*
-```bash
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-```
-*In mac, you just need brew*
-```bash
-brew install fzf
-```
-
-### macOS Terminal Settings
-
-#### Enable Repeated Keys
-
-```bash
-defaults write -g ApplePressAndHoldEnabled -bool false
-```
-
-#### Show hidden files in finder
-```bash
-defaults write com.apple.finder AppleShowAllFiles -bool true
-killall Finder
-```
-
-#### Show path in finder bar
-```bash
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-killall Finder
-```
-
-#### Set screenshot location
-```bash
-mkdir ~/Documents/Screenshots/
-defaults write com.apple.screencapture location ~/Documents/Screenshots
-killall SystemUIServer
-```
-
-#### disable animations for quick look
-```bash
-defaults write -g QLPanelAnimationDuration -float 0
-```
-
-#### Speed up dock auto-hide
-```bash
-defaults write com.apple.dock autohide-time-modifier -float 0
-killall Dock
-```
-
-#### Speed up key strokes
-```bash
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
-```
-
-#### Drag windows for aerospace
-```bash
-defaults write -g NSWindowShouldDragOnGesture -bool true
-```
-
 
