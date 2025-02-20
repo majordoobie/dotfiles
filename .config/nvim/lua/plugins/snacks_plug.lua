@@ -6,20 +6,12 @@ return {
 	lazy = false, -- Force to load
 
 	keys = {
-		{
-			"<leader>gg",
-			function()
-				Snacks.lazygit()
-			end,
-			desc = "Lazygit",
-		},
-		{
-			"gf",
-			function()
-				Snacks.explorer()
-			end,
-			desc = "File explorer",
-		},
+		{ "<leader>gg", function() Snacks.lazygit() end,        desc = "Open LazyGit in a floating window", },
+		{ "gf", function() Snacks.explorer() end,               desc = "Open file explorer tree", },
+        { "<leader>z", function() Snacks.zen.zen() end,         desc = "Enter zen mode", },
+        { "<leader>Z", function() Snacks.zen.zoom() end,        desc = "Zoom into file closing panes", },
+        { "<C-t>",     function() Snacks.terminal() end,        desc = "Open terminal"},
+        { "<leader>gw", function() Snacks.gitbrowse() end,      desc = "Open the current file on GitLab/GitHub"}
 	},
 
 	opts = {
@@ -28,16 +20,26 @@ return {
 
 		-- Lets you get asked if you want to save a buffer
 		bufdelete = { enable = true },
-		words = { enable = true },
 
-		styles = {
-			notification_history = {
-				width = 0.999,
-				height = 0.999,
+        -- Override vim.ui.input to make a pretty box
+		input = { enable = true },
+
+        -- [[
+        -- Enable Zen editing to remove distractions
+        -- ]]
+		zen = {
+			toggles = {
+				dim = false,
+			},
+			show = {
+				statusline = true,
+				tabline = true,
 			},
 		},
 
-		-- Create the indent gutters to the left
+        -- [[
+        -- Enable Indenting guides on the left
+        -- ]]
 		indent = {
 			enable = true,
 			hl = {
@@ -51,7 +53,27 @@ return {
 				"SnacksIndent8",
 			},
 		},
-		-- Replaces Alpha
+
+
+        -- [[
+        -- Change the styles of the plugins
+        -- ]]
+		styles = {
+			notification_history = {
+				width = 0.999,
+				height = 0.999,
+			},
+			input = {
+				relative = "cursor",
+			},
+			zen = {
+				width = 180,
+			},
+		},
+
+        -- [[
+        -- Create a welcome page when you run "nvim" by itself
+        -- ]]
 		dashboard = {
 			enable = true,
 			width = 72,

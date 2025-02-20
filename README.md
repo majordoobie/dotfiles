@@ -15,7 +15,7 @@ stow .
 ```
 
 ## Setting up NIX
-
+c
 Setup [Homebrew](https://brew.sh/) before installing NIX that way nix-darwin has access to Homebrew
 
 ### Install NIX

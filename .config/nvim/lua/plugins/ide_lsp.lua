@@ -69,9 +69,6 @@ return {
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
 
-		-- Add telescope LSP keybindings here
-		local telescope = require("telescope.builtin")
-
 		-- ensure that cmp_nvim has lsp sources
 		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -87,12 +84,6 @@ return {
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
 
 				-- jumps
-				vim.keymap.set(
-					"n",
-					"<leader>jd",
-					vim.lsp.buf.definition,
-					{ desc = "[j]ump [d]efinition", buffer = ev.buf, silent = true }
-				)
 				vim.keymap.set(
 					"n",
 					"<leader>jD",
@@ -114,23 +105,12 @@ return {
 				)
 
 				-- views
-				vim.keymap.set("n", "<leader>vs", function()
-					telescope.lsp_document_symbols({ symbols = { "function", "method" } })
-				end, { desc = "[v]iew [s]tructure" })
-				vim.keymap.set("n", "<leader>vS", telescope.lsp_document_symbols, { desc = "[v]iew all [S]tructure" })
-				vim.keymap.set(
-					"n",
-					"<leader>VS",
-					telescope.lsp_workspace_symbols,
-					{ desc = "[V]iew all [S]tructure in project" }
-				)
 				vim.keymap.set(
 					"n",
 					"<leader>vd",
 					vim.lsp.buf.hover,
 					{ desc = "[v]iew [d]ocs", buffer = ev.buf, silent = true }
 				)
-				vim.keymap.set("n", "<leader>vr", telescope.lsp_references, { desc = "[V]iew object [r]eferences" })
 
 				vim.diagnostic.config({
 					virtual_text = false,

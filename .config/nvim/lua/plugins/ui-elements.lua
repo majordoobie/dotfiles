@@ -1,13 +1,5 @@
 return {
 	{
-		-- [[
-		-- Wraps any function that uses the vim.ui.select() to make it prettier
-		-- ]]
-		"stevearc/dressing.nvim",
-		opts = {},
-	},
-
-	{
         -- [[
         -- Adds virtual line text for diagnostic information
         -- ]]
@@ -41,13 +33,15 @@ return {
 		config = function()
 			require("noice").setup({
 				lsp = {
-					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 					override = {
+					    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 						["vim.lsp.util.stylize_markdown"] = true,
-						-- ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 					},
+                    -- Use blink.cmp for signature
+                    signature = { enabled = false },
 				},
+
 				--]]
 				-- you can enable a preset for easier configuration
 				presets = {
@@ -90,6 +84,7 @@ return {
 				},
 				options = {
 					theme = "catppuccin",
+                    globalstatus = "true",
 				},
 				sections = {
 					lualine_a = { "mode", "searchcount" },
@@ -100,49 +95,6 @@ return {
 					lualine_z = { "progress", "location" },
 				},
 			})
-		end,
-	},
-	{
-		-- [[
-		-- Toggle a floating terminal
-		-- ]]
-		"akinsho/toggleterm.nvim",
-
-		config = function()
-			require("toggleterm").setup({
-				direction = "float",
-				float_opts = {
-					border = "curved",
-				},
-			})
-
-			-- allow the use of <C-q> to change back to "normal" mode
-			vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
-			vim.keymap.set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Open terminal in floating window" })
-		end,
-	},
-
-	{
-		--[[
-        -- Centers the code so that you are not stuck looking to the left
-        -- or right side of the text editor
-        --]]
-		"shortcuts/no-neck-pain.nvim",
-		config = function()
-			require("no-neck-pain").setup({
-				width = 170,
-			})
-			vim.keymap.set("n", "Z", ":NoNeckPain<CR>", { desc = "Toggle zen mode" })
-		end,
-	},
-	{
-		-- [[
-		-- Full screens whatever you are looking at even if it is a split tab
-		-- ]]
-		"Pocco81/true-zen.nvim",
-		config = function()
-			require("true-zen").setup({})
-			vim.keymap.set("n", "<leader>z", ":TZFocus<CR>", { desc = "Toggle pane maximization" })
 		end,
 	},
 	{

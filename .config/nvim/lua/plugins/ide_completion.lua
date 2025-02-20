@@ -56,10 +56,13 @@ return {
 			},
 			signature = {
 				enabled = true,
+                window = {
+                    border = "rounded",
+                }
 			},
 			completion = {
 				-- As you scroll through the selection it will show docs for the selection
-				documentation = { auto_show = true, auto_show_delay_ms = 50, window = { border = "rounded" } },
+				documentation = { auto_show = true, auto_show_delay_ms = 1000, window = { border = "rounded" } },
 				menu = {
 					border = "rounded",
 					draw = {
