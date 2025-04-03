@@ -16,8 +16,7 @@
 --          RUN update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-${LLVM_VERSION} 100;
 --          RUN update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-${LLVM_VERSION} 100;
 --          RUN update-alternatives --install /usr/bin/lldb-server lldb-server /usr/bin/lldb-server-${LLVM_VERSION} 100;
---
---          https://clangd.llvm.org/installation#compile_commandsjson
+-- https://clangd.llvm.org/installation#compile_commandsjson
 --
 --          Bear is used to create the compile_commands.json
 --          for the project so that clangd can better understand the project.
@@ -114,19 +113,14 @@ return {
 
 				vim.diagnostic.config({
 					virtual_text = false,
+					virtual_lines = false,
+					underline = false,
 					float = {
 						border = "rounded",
-						source = "always",
+						source = "if_many",
 						focusable = false,
 					},
 				})
-				-- diagnostics
-				vim.keymap.set(
-					"n",
-					"<leader>ed",
-					vim.diagnostic.open_float,
-					{ desc = "Show diagnostic message", buffer = ev.buf, silent = true }
-				)
 			end,
 		})
 
@@ -151,7 +145,6 @@ return {
 			"djlsp",
 			"docker_compose_language_service",
 			"dockerls",
-			"lua_ls",
 			"nginx_language_server",
 			"nil_ls",
 			"bashls",
@@ -163,6 +156,14 @@ return {
 				on_attach = on_attach,
 			})
 		end
+
+		lspconfig.lua_ls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			diagnostics = {
+				disable = { "incomplete-signature-dock", "missing-fields" },
+			},
+		})
 
 		-- Manually set up clangd for more control
 		lspconfig.clangd.setup({

@@ -1,24 +1,28 @@
 return {
 	{
-        -- [[
-        -- Adds virtual line text for diagnostic information
-        -- ]]
-		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "VeryLazy", -- Or `LspAttach`
-		priority = 1000, -- needs to be loaded in first
-		config = function()
-			require("tiny-inline-diagnostic").setup({
-				options = {
-					-- Display the source of the diagnostic (e.g., basedpyright, vsserver, lua_ls etc.)
-					show_source = true,
-                    -- time it takes for things to update.
-                    throttle = 0,
-				},
-			})
-			vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
-		end,
+		"arnamak/stay-centered.nvim",
+		lazy = false,
+		opts = {},
 	},
-
+	-- {
+	-- 	-- [[
+	-- 	-- Adds virtual line text for diagnostic information
+	-- 	-- ]]
+	-- 	"rachartier/tiny-inline-diagnostic.nvim",
+	-- 	event = "VeryLazy", -- Or `LspAttach`
+	-- 	priority = 1000, -- needs to be loaded in first
+	-- 	config = function()
+	-- 		require("tiny-inline-diagnostic").setup({
+	--                preset = "ghost",
+	-- 			options = {
+	-- 				-- Display the source of the diagnostic (e.g., basedpyright, vsserver, lua_ls etc.)
+	-- 				show_source = true,
+	-- 				-- time it takes for things to update.
+	-- 				throttle = 0,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		-- [[
 		-- Customizes the messages, cmdline and the popupmenu
@@ -34,12 +38,12 @@ return {
 			require("noice").setup({
 				lsp = {
 					override = {
-					    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+						-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 						["vim.lsp.util.stylize_markdown"] = true,
 					},
-                    -- Use blink.cmp for signature
-                    signature = { enabled = false },
+					-- Use blink.cmp for signature
+					signature = { enabled = false },
 				},
 
 				--]]
@@ -74,6 +78,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
+			local lualine_funcs = require("custom.lualine_functions")
 			require("lualine").setup({
 				extensions = {
 					"oil",
@@ -81,18 +86,25 @@ return {
 					"fzf",
 					"man",
 					"nvim-dap-ui",
+					"trouble",
 				},
 				options = {
 					theme = "catppuccin",
-                    globalstatus = "true",
+					globalstatus = "true",
 				},
 				sections = {
-					lualine_a = { "mode", "searchcount" },
-					lualine_b = { "branch", "diff" },
-					lualine_c = { "diagnostics", "filename" },
-					lualine_x = { "encoding", "fileformat", "filetype" },
-					lualine_y = { "filesize" },
-					lualine_z = { "progress", "location" },
+					lualine_a = { "mode", "searchcount", "selectioncount" },
+					lualine_b = { { "branch", fmt = lualine_funcs.truncate_branch_name }, "diff" },
+					lualine_c = { "diagnostics", { "filename", path = 1 } },
+					lualine_x = { "encoding", "fileformat" },
+					lualine_y = { "filetype" },
+					lualine_z = {
+						{
+							lualine_funcs.get_lsp_client_name,
+							icon = "LSP:",
+							color = { fg = "#000000", gui = "bold" },
+						},
+					},
 				},
 			})
 		end,

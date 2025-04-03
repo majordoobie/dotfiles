@@ -16,9 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
--- call our configs before installing plugins
-require("config.options")
-require("config.keymaps")
 
 -- Setup lazy.nvim
 require("lazy").setup({

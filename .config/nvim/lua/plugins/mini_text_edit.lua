@@ -12,24 +12,19 @@ return {
 			-- ]]
 			require("mini.comment").setup()
 
-			-- [[
-			-- Automatically closes a pair such as {} () []
-			-- ]]
-			require("mini.pairs").setup()
-
 			--[[
             -- Move selected text and move them around easily with
             -- ctrl + shift + hjkl
             -- --]]
-			require("mini.move").setup({
-				mappings = {
-					-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
-					left = "<C-H>",
-					right = "<C-L>",
-					down = "<C-J>",
-					up = "<C-K>",
-				},
-			})
+			-- require("mini.move").setup({
+			-- 	mappings = {
+			-- 		-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+			-- 		left = "<C-H>",
+			-- 		right = "<C-L>",
+			-- 		down = "<C-J>",
+			-- 		up = "<C-K>",
+			-- 	},
+			-- })
 
 			-- [[
 			-- Surround a word with something or remove them.

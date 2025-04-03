@@ -54,15 +54,23 @@ return {
 					},
 				},
 			},
+			-- Displays the signature while adding the parameters of the function
+			-- you are working on.
 			signature = {
 				enabled = true,
-                window = {
-                    border = "rounded",
-                }
+				window = {
+					scrollbar = true,
+					border = "rounded",
+				},
 			},
 			completion = {
 				-- As you scroll through the selection it will show docs for the selection
-				documentation = { auto_show = true, auto_show_delay_ms = 1000, window = { border = "rounded" } },
+				-- to the right of the selection window
+				documentation = { auto_show = true, auto_show_delay_ms = 100, window = { border = "rounded" } },
+
+				-- allows to visually see what is going to be filled in
+				ghost_text = { enabled = false },
+
 				menu = {
 					border = "rounded",
 					draw = {

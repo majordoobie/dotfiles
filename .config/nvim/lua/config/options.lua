@@ -33,18 +33,16 @@ vim.opt.completeopt = { "menuone", "noselect" } -- Completion opions for code co
 vim.opt.mouse = "a" -- use mouse in all mouds
 vim.opt.termguicolors = true -- support true colors
 
-
 -- search settings
 vim.opt.ignorecase = true -- ignore case when searching
 vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- line wrapping
 vim.opt.wrap = false -- disable line wrapping
-vim.opt.scrolloff = 15 -- keep text centered 
+vim.opt.scrolloff = 15 -- keep text centered
 
 vim.opt.showmatch = true -- flicker matching braket
 vim.opt.smoothscroll = true
-
 
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
@@ -55,9 +53,9 @@ vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 vim.opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 vim.opt.undodir = os.getenv("HOME") .. "/.undodir"
 vim.opt.undofile = true
-vim.opt.undolevels =1000
+vim.opt.undolevels = 1000
 
--- split windows hello helo 
+-- split windows hello helo
 vim.opt.splitright = true -- split vertical window to the right
 vim.opt.splitbelow = true -- split horizontal window to the bottom
 
@@ -65,11 +63,19 @@ vim.opt.splitbelow = true -- split horizontal window to the bottom
 vim.opt.swapfile = false
 
 -- enable spell check
-vim.opt.spelllang = {"en_us"}
+vim.opt.spelllang = { "en_us" }
 vim.opt.spell = true
 
+-- Add docker compose as a filetype
+vim.filetype.add({
+	pattern = {
+		["compose.*%.ya?ml"] = "yaml.docker-compose",
+		["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
+	},
+})
+
 -- This is the syntax highlighting for robot.txt files
-vim.cmd [[
+vim.cmd([[
     let s:cpo_save=&cpo
     set cpo&vim
 
@@ -91,4 +97,4 @@ vim.cmd [[
 
     "------------------------------------------------------------------------
     let &cpo=s:cpo_save
-]]
+]])

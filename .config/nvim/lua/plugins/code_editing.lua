@@ -1,8 +1,8 @@
 return {
 	{
-        -- [[
-        -- Add doc strings to the highlighted function
-        -- ]]
+		-- [[
+		-- Add doc strings to the highlighted function
+		-- ]]
 		"danymat/neogen",
 		config = function()
 			require("neogen").setup({
@@ -11,12 +11,12 @@ return {
 		end,
 	},
 	{
-        -- [[
-        -- Allows for automatic saving of files that have changed. You can toggle the 
-        -- plugin with
-        --
-        -- Toggle plug <leader>es
-        -- ]]
+		-- [[
+		-- Allows for automatic saving of files that have changed. You can toggle the
+		-- plugin with
+		--
+		-- Toggle plug <leader>es
+		-- ]]
 		"0x00-ketsu/autosave.nvim",
 		config = function()
 			local autosave = require("autosave")
@@ -42,8 +42,8 @@ return {
 	},
 
 	{
-        --[[
-        -- Visit all the undo changes with a tree view so that you can select the changes 
+		--[[
+        -- Visit all the undo changes with a tree view so that you can select the changes
         -- and bring them to the present if you wanted to.
         --]]
 		"jiaoshijie/undotree",
@@ -54,5 +54,9 @@ return {
 			vim.keymap.set("n", "<leader>u", undotree.toggle, { desc = "undo tree" })
 		end,
 	},
-
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+        opts = {}
+	},
 }
