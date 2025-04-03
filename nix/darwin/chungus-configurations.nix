@@ -16,7 +16,7 @@
   system.defaults = {
     dock = {
       persistent-apps = [
-        "/Applications/Brave Browser.app"
+        "/Applications/Microsoft Edge.app/"
         "/Applications/Ghostty.app"
         "/System/Applications/iPhone Mirroring.app"
       ];
@@ -51,7 +51,6 @@
     enable = true;
 
     casks = [
-      "zen-browser"
       "1password"
       "adguard"
       "raycast"
@@ -68,7 +67,6 @@
 
     masApps = {
       "Windows App" = 1295203466;
-      "Outlook" = 985367838;
     };
   };
 
@@ -84,13 +82,29 @@
     direnv
     fd
 
+    python3Full
+    pipx
+
+    # CMAKE Setup
+    cmake
+    cmake-language-server
+    cmake-format
+    cmake-lint
+
     # docker client + colima docker daemon
-    colima
+    docker-compose-language-service
     docker
+    colima
+
+    # assembly
+    asm-lsp
+
+    # yaml
+    yaml-language-server
+    yamlfmt
 
     # c development
     llvmPackages_19.clang-tools
-    cmake
 
     # python development
     pyright # lsp
@@ -105,23 +119,19 @@
     luajitPackages.luacheck # linter
 
     # json development
-    vscode-langservers-extracted # lsp
+    vscode-langservers-extracted # lsp for json and html
     prettierd # formatter
 
     # lsp servers
     nil # nix ls
-    cmake-language-server
     bash-language-server
 
     # formatters
-    cmake-format
     nixfmt-rfc-style
-    yamlfmt
     cjson
 
     # linters
     shellcheck
-    cmake-lint
     hadolint
   ];
 

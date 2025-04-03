@@ -73,7 +73,7 @@
       "scroll-reverser"
       "vmware-fusion"
       "pearcleaner"
-      "brave-browser"
+      "microsoft-edge"
     ];
 
   };
@@ -94,7 +94,6 @@
 
     # Set up garbage collection
     gc = {
-      user = "root";
       automatic = true;
       interval = {
         Weekday = 0;
