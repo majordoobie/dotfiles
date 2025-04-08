@@ -24,7 +24,7 @@ vim.lsp.enable({
 -- Configure diagnostic messaging
 -- ]]
 vim.diagnostic.config({
-	virtual_lines = { current_line = true },
+	virtual_text = { current_line = true },
 	underline = true,
 	update_in_insert = true,
 	severity_sort = true,
@@ -61,8 +61,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Builtin
 		map("<leader>er", vim.lsp.buf.rename, "rename")
 		map("K", vim.lsp.buf.hover, "show docs")
-		map("<leader>jl", vim.diagnostic.goto_next, "Goto next diagnostic")
-		map("<leader>jh", vim.diagnostic.goto_prev, "Goto prev diagnostic")
+		map("D", function()
+			local virt_line_setting = vim.diagnostic.config().virtual_lines
+			if virt_line_setting == false or virt_line_setting.current_line == false then
+				vim.diagnostic.config({ virtual_lines = { current_line = true } })
+			else
+				vim.diagnostic.config({ virtual_lines = false })
+			end
+		end, "Toggle virtual lines")
+		map("<leader>jl", vim.diagnostic.get_next, "Goto next diagnostic")
+		map("<leader>jh", vim.diagnostic.get_prev, "Goto prev diagnostic")
 		map("<leader>ee", vim.lsp.buf.code_action, "show code actions")
 		map("<leader>jd", vim.lsp.buf.definition, "jump to definition")
 

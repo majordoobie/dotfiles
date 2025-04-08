@@ -1,35 +1,54 @@
-if [[ $(uname) == "Darwin" ]]; then
-    alias doobstation="cd '/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents/DoobStation'"
-    export PATH="/opt:/opt/codelldb_v1.11/:/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:/opt/homebrew/bin:$PATH:$HOME/.npm-global/bin"
+#! /bin/bash
+## Setup History
+#
+HISTFILE=$HOME/.zsh_history
+SAVEHIST=100000
+HISTSIZE=100000
+setopt append_history
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+unsetopt hist_beep
 
-    # ensures that zsh-vi-mode does not overwrite fzf keybindings
-    zvm_after_init_commands+=('source <(fzf --zsh)')
+#
+## Plugins are managed by nix
+#
 
-else
-    export PATH="/home/doobie/go/bin/:$PATH"
-
-    # ensures that zsh-vi-mode does not overwrite fzf keybindings
-    # zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
-fi
-
-alias code="cd ~/code"
-alias ll="ls -lAh --color=always"
-alias dotfiles="cd ~/dotfiles"
-alias git_push="git add . && git commit -m \"update\" && git push"
-alias obsidian_dotfiles="cd \"/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents\""
-
-alias cnvim="cd ~/.config/nvim/ && nvim"
-alias cnix="cd ~/dotfiles/nix; nvim flake.nix"
-
-export EDITOR="nvim"
-export VISUAL="nvim"
-export XDG_CONFIG_HOME="$HOME/.config"
+#
+## Path management
+#
+typeset -U path
+path+=(/opt/homebrew/bin)
 
 
+#
+## bootstrap
+#
+zvm_after_init_commands+=('source <(fzf --zsh)')
+eval "$(zoxide init zsh)"
 # Check that the function `starship_zle-keymap-select()` is defined.
 # xref: https://github.com/starship/starship/issues/3418
 # Bootstraps starship prompts
 type starship_zle-keymap-select >/dev/null || \
-  {
+{
     eval "$(starship init zsh)"
-  }
+}
+
+
+#
+## Aliases
+#
+alias code="cd ~/code"
+alias ll="ls -lAh --color=always"
+alias dotfiles="cd ~/dotfiles"
+alias obsidian_dotfiles="cd \"/Users/anker/Library/Mobile Documents/iCloud~md~obsidian/Documents\""
+
+alias cnvim="cd ~/.config/nvim/ && nvim"
+alias cnix="cd ~/dotfiles/nix; nvim flake.nix"
+alias cd=z
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+export MANPAGER="nvim +Man!"
+export XDG_CONFIG_HOME="$HOME/.config"
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock

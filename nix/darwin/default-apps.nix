@@ -38,6 +38,7 @@
 
     # Terminal
     tmux
+    zoxide
     fzf
     starship
     zsh-autosuggestions
@@ -56,12 +57,12 @@
     enable = true;
     global = {
       # already using on activation
-      autoUpdate = false;
+      autoUpdate = true;
     };
 
     onActivation = {
-      autoUpdate = true;
-      upgrade = true;
+      autoUpdate = false;
+      upgrade = false;
       cleanup = "zap";
       extraFlags = [
         "--verbose"
