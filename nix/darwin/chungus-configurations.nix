@@ -11,6 +11,15 @@
 {
   imports = [
     ./modules/touchID.nix
+    ./modules/aerospaceConfig.nix
+    ./development_config/c.nix
+    ./development_config/docker.nix
+    ./development_config/lua.nix
+    ./development_config/nix.nix
+    ./development_config/python.nix
+    ./development_config/shell.nix
+    ./development_config/web.nix
+    ./development_config/yaml.nix
   ];
 
   system.defaults = {
@@ -25,9 +34,6 @@
     # Needed for sketchybar
     NSGlobalDomain._HIHideMenuBar = false;
 
-    # Needed for aerospace  https://nikitabobko.github.io/AeroSpace/goodies
-    # true == disabled  https://github.com/LnL7/nix-darwin/blob/71a3a075e3229a7518d76636bb762aef2bcb73ac/modules/system/defaults/spaces.nix
-    spaces.spans-displays = true;
   };
 
   # custom module to fix tmux session attachment @file ./modules/touchID.nix
@@ -58,7 +64,6 @@
       "adobe-acrobat-reader"
       "signal"
       "vnc-viewer"
-      "nikitabobko/tap/aerospace"
       "bartender"
       "stats"
       "bettermouse"
@@ -82,57 +87,9 @@
     direnv
     fd
 
-    python3Full
-    pipx
-
-    # CMAKE Setup
-    cmake
-    cmake-language-server
-    cmake-format
-    cmake-lint
-
-    # docker client + colima docker daemon
-    docker-compose-language-service
-    docker
-    colima
-
     # assembly
     asm-lsp
 
-    # yaml
-    yaml-language-server
-    yamlfmt
-
-    # c development
-    llvmPackages_19.clang-tools
-
-    # python development
-    pyright # lsp
-
-    black # formatter
-    isort # formatter
-    ruff # formatter + linter
-
-    # lua development
-    lua-language-server
-    stylua # formatter
-    luajitPackages.luacheck # linter
-
-    # json development
-    vscode-langservers-extracted # lsp for json and html
-    prettierd # formatter
-
-    # lsp servers
-    nil # nix ls
-    bash-language-server
-
-    # formatters
-    nixfmt-rfc-style
-    cjson
-
-    # linters
-    shellcheck
-    hadolint
   ];
 
 }

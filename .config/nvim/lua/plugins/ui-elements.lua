@@ -4,25 +4,6 @@ return {
 		lazy = false,
 		opts = {},
 	},
-	-- {
-	-- 	-- [[
-	-- 	-- Adds virtual line text for diagnostic information
-	-- 	-- ]]
-	-- 	"rachartier/tiny-inline-diagnostic.nvim",
-	-- 	event = "VeryLazy", -- Or `LspAttach`
-	-- 	priority = 1000, -- needs to be loaded in first
-	-- 	config = function()
-	-- 		require("tiny-inline-diagnostic").setup({
-	--                preset = "ghost",
-	-- 			options = {
-	-- 				-- Display the source of the diagnostic (e.g., basedpyright, vsserver, lua_ls etc.)
-	-- 				show_source = true,
-	-- 				-- time it takes for things to update.
-	-- 				throttle = 0,
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
 	{
 		-- [[
 		-- Customizes the messages, cmdline and the popupmenu
@@ -127,7 +108,8 @@ return {
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			require("oil").setup({
+			local oil = require("oil")
+			oil.setup({
 				default_file_explorer = true,
 				delete_to_trash = true,
 				skip_confirm_for_simple_edits = true,
@@ -148,16 +130,20 @@ return {
 				win_options = {
 					wrap = false,
 					signcolumn = "no",
-					cursorcolumn = false,
-					foldcolumn = "0",
-					spell = false,
+					cursorcolumn = true,
 					list = true,
 					conceallevel = 3,
 					concealcursor = "nvic",
 				},
+				float = {
+					max_width = 0.8,
+					max_height = 0.8,
+					preview_split = "right",
+				},
+				constrain_cursor = "name",
 			})
 
-			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+			vim.keymap.set("n", "-", oil.open_float, { desc = "Open parent directory" })
 		end,
 	},
 }

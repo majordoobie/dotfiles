@@ -53,3 +53,17 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close current tab" 
 vim.keymap.set("n", "<leader>tl", ":tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 vim.keymap.set("n", "<leader>th", ":tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 vim.keymap.set("n", "<leader>tc", ":tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+local function ToggleSpellWithNotify()
+	local setting = not (vim.opt.spell:get())
+	vim.opt.spell = setting
+
+	-- Check the new state and notify the user
+	if setting then
+		vim.notify("Spell check eNABLED", vim.log.levels.INFO, { title = "Spell" })
+	else
+		vim.notify("Spell check dISABLED", vim.log.levels.INFO, { title = "Spell" })
+	end
+end
+
+vim.keymap.set("n", "<leader>st", ToggleSpellWithNotify, { desc = "Toggle spelling", silent = true, noremap = true })

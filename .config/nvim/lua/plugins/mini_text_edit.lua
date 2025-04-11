@@ -16,15 +16,20 @@ return {
             -- Move selected text and move them around easily with
             -- ctrl + shift + hjkl
             -- --]]
-			-- require("mini.move").setup({
-			-- 	mappings = {
-			-- 		-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
-			-- 		left = "<C-H>",
-			-- 		right = "<C-L>",
-			-- 		down = "<C-J>",
-			-- 		up = "<C-K>",
-			-- 	},
-			-- })
+			require("mini.move").setup({
+				mappings = {
+					-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+					left = "<C-H>",
+					right = "<C-L>",
+					down = "<C-J>",
+					up = "<C-K>",
+
+					line_left = "",
+					line_right = "",
+					line_down = "",
+					line_up = "",
+				},
+			})
 
 			-- [[
 			-- Surround a word with something or remove them.

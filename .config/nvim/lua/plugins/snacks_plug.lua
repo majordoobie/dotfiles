@@ -6,27 +6,65 @@ return {
 	lazy = false, -- Force to load
 
 	keys = {
-		{ "<leader>gg", function() Snacks.lazygit() end,        desc = "Open LazyGit in a floating window", },
-		{ "gf", function() Snacks.explorer() end,               desc = "Open file explorer tree", },
-        { "<leader>z", function() Snacks.zen.zen() end,         desc = "Enter zen mode", },
-        { "<leader>Z", function() Snacks.zen.zoom() end,        desc = "Zoom into file closing panes", },
-        { "<C-t>",     function() Snacks.terminal() end,        desc = "Open terminal"},
-        { "<leader>gw", function() Snacks.gitbrowse() end,      desc = "Open the current file on GitLab/GitHub"}
+		{
+			"<leader>gg",
+			function()
+				Snacks.lazygit()
+			end,
+			desc = "Open LazyGit in a floating window",
+		},
+		{
+			"gf",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "Open file explorer tree",
+		},
+		{
+			"<leader>z",
+			function()
+				Snacks.zen.zen()
+			end,
+			desc = "Enter zen mode",
+		},
+		{
+			"<leader>Z",
+			function()
+				Snacks.zen.zoom()
+			end,
+			desc = "Zoom into file closing panes",
+		},
+		{
+			"<C-t>",
+			function()
+				Snacks.terminal()
+			end,
+			desc = "Open terminal",
+		},
+		{
+			"<leader>gw",
+			function()
+				Snacks.gitbrowse()
+			end,
+			desc = "Open the current file on GitLab/GitHub",
+		},
 	},
 
 	opts = {
 		-- Disable LSP when files are huge
 		bigfile = { enable = true },
 
+		picker = { enabled = true },
+
 		-- Lets you get asked if you want to save a buffer
 		bufdelete = { enable = true },
 
-        -- Override vim.ui.input to make a pretty box
+		-- Override vim.ui.input to make a pretty box
 		input = { enable = true },
 
-        -- [[
-        -- Enable Zen editing to remove distractions
-        -- ]]
+		-- [[
+		-- Enable Zen editing to remove distractions
+		-- ]]
 		zen = {
 			toggles = {
 				dim = false,
@@ -37,9 +75,9 @@ return {
 			},
 		},
 
-        -- [[
-        -- Enable Indenting guides on the left
-        -- ]]
+		-- [[
+		-- Enable Indenting guides on the left
+		-- ]]
 		indent = {
 			enable = true,
 			hl = {
@@ -54,10 +92,9 @@ return {
 			},
 		},
 
-
-        -- [[
-        -- Change the styles of the plugins
-        -- ]]
+		-- [[
+		-- Change the styles of the plugins
+		-- ]]
 		styles = {
 			notification_history = {
 				width = 0.999,
@@ -71,9 +108,9 @@ return {
 			},
 		},
 
-        -- [[
-        -- Create a welcome page when you run "nvim" by itself
-        -- ]]
+		-- [[
+		-- Create a welcome page when you run "nvim" by itself
+		-- ]]
 		dashboard = {
 			enable = true,
 			width = 72,

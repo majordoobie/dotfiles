@@ -19,10 +19,12 @@ return {
 		-- ]]
 		"0x00-ketsu/autosave.nvim",
 		config = function()
-			local autosave = require("autosave")
-			autosave.setup({
-				prompt_style = "",
-				event = { "InsertLeave", "TextChanged" },
+			require("autosave").setup({
+				prompt = {
+					enable = false,
+					style = "",
+					message = "Saved",
+				},
 			})
 			vim.keymap.set("n", "<leader>es", ":ASToggle<CR>", { desc = "undo tree" })
 		end,
@@ -57,6 +59,6 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-        opts = {}
+		opts = {},
 	},
 }

@@ -42,10 +42,11 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
-				python = { "isort", "black", "ruff" },
+				python = { "ruff" },
 				nix = { "nixfmt" },
-				bash = { "shellcheck" },
-				sh = { "shellcheck" },
+				bash = { "shfmt" },
+				sh = { "shfmt" },
+				zsh = { "shfmt" },
 				c = { "clang-format" },
 				json = { "prettierd" },
 				yaml = { "yamlfmt" },

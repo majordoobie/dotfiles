@@ -64,7 +64,6 @@ vim.opt.swapfile = false
 
 -- enable spell check
 vim.opt.spelllang = { "en_us" }
-vim.opt.spell = true
 
 -- Add docker compose as a filetype
 vim.filetype.add({

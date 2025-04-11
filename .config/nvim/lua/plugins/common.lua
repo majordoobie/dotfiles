@@ -15,18 +15,6 @@ return {
 		end,
 	},
 	{
-
-		-- [[
-		-- Hitting space lets you see all the keys available to you
-		-- ]]
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		config = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 500
-		end,
-	},
-	{
 		-- [[
 		--  Allows for seamless integration with tmux by allowing you to
 		--  use "ctrl + hjkl"
@@ -50,9 +38,9 @@ return {
 	},
 
 	{
-        -- [[
-        -- Render markdown so that it is prettier to look at
-        -- ]]
+		-- [[
+		-- Render markdown so that it is prettier to look at
+		-- ]]
 		"MeanderingProgrammer/render-markdown.nvim",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",

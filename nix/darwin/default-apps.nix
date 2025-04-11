@@ -71,7 +71,6 @@
     casks = [
       "ghostty"
       "scroll-reverser"
-      "vmware-fusion"
       "pearcleaner"
       "microsoft-edge"
     ];

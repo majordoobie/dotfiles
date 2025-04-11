@@ -7,6 +7,7 @@ vim.lsp.config("*", {
 
 -- Enables languages in ../lsp/
 vim.lsp.enable({
+	"bash",
 	"clangd",
 	"cmake",
 	"docker_compose",
@@ -69,8 +70,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				vim.diagnostic.config({ virtual_lines = false })
 			end
 		end, "Toggle virtual lines")
-		map("<leader>jl", vim.diagnostic.get_next, "Goto next diagnostic")
-		map("<leader>jh", vim.diagnostic.get_prev, "Goto prev diagnostic")
+		map("<leader>jl", function()
+			vim.diagnostic.jump({ count = 1, float = true })
+		end, "Goto next diagnostic")
+		map("<leader>jh", function()
+			vim.diagnostic.jump({ count = -1, float = true })
+		end, "Goto prev diagnostic")
 		map("<leader>ee", vim.lsp.buf.code_action, "show code actions")
 		map("<leader>jd", vim.lsp.buf.definition, "jump to definition")
 

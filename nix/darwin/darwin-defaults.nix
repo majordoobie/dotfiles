@@ -39,10 +39,6 @@
         NSAutomaticSpellingCorrectionEnabled = false;
         NSTableViewDefaultSizeMode = 2;
 
-        # Needed for aerospace  https://nikitabobko.github.io/AeroSpace/goodies
-        NSWindowShouldDragOnGesture = true;
-        NSAutomaticWindowAnimationsEnabled = false;
-
         KeyRepeat = 2; # 120, 90, 60, 30, 12, 6, 2
         InitialKeyRepeat = 15; # 120, 94, 68, 35, 25, 15
 
