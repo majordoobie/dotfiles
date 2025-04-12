@@ -7,6 +7,7 @@
   modulesPath,
   options,
   vars,
+  _class,
 }:
 {
   imports = [
@@ -39,26 +40,11 @@
   # custom module to fix tmux session attachment @file ./modules/touchID.nix
   security.pam.enableSudoTouchId = true;
 
-  networking = {
-    computerName = "nezuko";
-    hostName = "nezuko";
-    # networksetup -listallnetworkservices
-    knownNetworkServices = [
-      "Thunderbolt Ethernet Slot 2"
-      "Wi-Fi"
-    ];
-    dns = [
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
-  };
-
   homebrew = {
     enable = true;
 
     casks = [
       "1password"
-      "adguard"
       "raycast"
       "obsidian"
       "adobe-acrobat-reader"
@@ -70,9 +56,9 @@
       "google-drive"
     ];
 
-    masApps = {
-      "Windows App" = 1295203466;
-    };
+    # masApps = {
+    #   "Windows App" = 1295203466;
+    # };
   };
 
   environment.systemPackages = with pkgs; [
@@ -86,9 +72,6 @@
     fastfetch
     direnv
     fd
-
-    # assembly
-    asm-lsp
 
   ];
 

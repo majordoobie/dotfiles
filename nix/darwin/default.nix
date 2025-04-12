@@ -15,12 +15,12 @@ let
   };
 in
 {
-  # MacBook Pro M1 Pro 16"
-  chungus =
+  # Macbook Pro M4 Pro 14" -- Dev Machine
+  nezuko =
     let
       inherit (systemConfig "aarch64-darwin") system pkgs;
       vars = {
-        user = "anker";
+        user = "nezuko";
         terminal = "ghostty";
         editor = "nvim";
       };
@@ -35,17 +35,18 @@ in
           ;
       };
       modules = [
-        ./darwin-defaults.nix
-        ./default-apps.nix
-        ./chungus-configurations.nix
+        ./darwin-defaults-config.nix
+        ./darwin-default-apps.nix
+        ./nezuko-configurations.nix
       ];
     };
 
-  GServer =
+  # Mac Mini M2 -- GServer
+  tanjiro =
     let
       inherit (systemConfig "aarch64-darwin") system pkgs;
       vars = {
-        user = "anker";
+        user = "tanjiro";
         terminal = "ghostty";
         editor = "nvim";
       };

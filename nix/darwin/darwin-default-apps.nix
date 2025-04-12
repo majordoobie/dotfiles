@@ -1,3 +1,9 @@
+/*
+  Base app config for ALL darwin devices. Then have the specific
+  device config configure even further. This will setup zsh with
+  plugins I like
+*/
+
 {
   pkgs,
   lib,
@@ -7,6 +13,7 @@
   modulesPath,
   options,
   vars,
+  _class,
 }:
 
 {
@@ -44,6 +51,8 @@
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-vi-mode
+
+    _1password-cli
   ];
 
   # Source the plugins from here

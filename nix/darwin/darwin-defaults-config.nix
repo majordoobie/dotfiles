@@ -1,8 +1,4 @@
-/*
-  Base configuration for ALL darwin devices. Then have the specific
-  device config configure even further
-*/
-
+# Base configuration for all darwin systems
 {
   pkgs,
   lib,
@@ -12,14 +8,40 @@
   modulesPath,
   options,
   vars,
+  _class,
 }:
-
 {
 
-  # Required items to get started
   time.timeZone = "America/New_York";
 
+  networking = {
+    computerName = "${vars.user}";
+    search = [
+      "home.arpa"
+    ];
+
+    knownNetworkServices = [
+      "Wi-Fi"
+    ];
+
+    dns = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "1.1.1.2"
+      "1.0.0.2"
+    ];
+  };
+
   system = {
+
+    activationScripts.postUserActivation.text = ''
+      # Can't set domain with nix; using script instead
+      scutil --set HostName ${vars.user}.home.arpa
+
+      # Set desktop background
+      osascript -e 'tell application "System Events" to tell every desktop to set picture to "/Users/${vars.user}/dotfiles/images/cute_cat.png"'
+    '';
+
     stateVersion = 5;
     checks.verifyNixPath = false;
     startup.chime = false;
