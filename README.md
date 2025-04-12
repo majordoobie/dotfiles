@@ -2,14 +2,12 @@
 
 Dotfiles setup for both macOS and GNU/Linux
 
-## Setup nix
+## Setup Nix
 
-### Install determinate installer
-I like to use the [Determinate](https://github.com/DeterminateSystems/nix-installer) installer since it lets you quickly remove everything with a single command.
+### Install Nix
 
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
-  sh -s -- install
+sh <(curl -L https://nixos.org/nix/install) --daemon
 ```
 
 ### Install [Home Brew](https://brew.sh/) too as a dependancy
@@ -18,7 +16,6 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 ```
 
 ## Drop into nix shell to get stow and deploy
-
 ```bash
 nix shell nixpkgs#stow
 
@@ -34,7 +31,7 @@ exit
 ## Install [Nix-Darwin](https://github.com/LnL7/nix-darwin) and run it
 
 ```bash
-nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/nix
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/nix#${hostname}
 
 darwin-rebuild switch --flake ~/dotfiles/nix#chungus
 ```

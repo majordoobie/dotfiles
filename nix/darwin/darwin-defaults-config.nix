@@ -12,8 +12,6 @@
 }:
 {
 
-  # We use determinate with its own deamon
-  nix.enable = false;
   time.timeZone = "America/New_York";
 
   networking = {
