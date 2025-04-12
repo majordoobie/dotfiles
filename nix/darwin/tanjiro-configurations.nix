@@ -26,6 +26,10 @@
     '';
 
     defaults = {
+      loginwindow = {
+        autoLoginUser = "${vars.user}";
+      };
+
       dock = {
         persistent-apps = [
           "/Applications/Microsoft Edge.app/"
@@ -35,6 +39,8 @@
       };
     };
   };
+
+  networking.wakeOnLan.enable = true;
 
   homebrew = {
     enable = true;

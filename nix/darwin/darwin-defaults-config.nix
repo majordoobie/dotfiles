@@ -16,8 +16,11 @@
 
   networking = {
     computerName = "${vars.user}";
+    hostName = "${vars.user}";
+
     search = [
       "home.arpa"
+      "local"
     ];
 
     knownNetworkServices = [
@@ -25,18 +28,16 @@
     ];
 
     dns = [
-      "1.1.1.1"
-      "1.0.0.1"
       "1.1.1.2"
       "1.0.0.2"
+      "1.1.1.1"
+      "1.0.0.1"
     ];
   };
 
   system = {
 
     activationScripts.postUserActivation.text = ''
-      # Can't set domain with nix; using script instead
-      scutil --set HostName ${vars.user}.home.arpa
 
       # Set desktop background
       osascript -e 'tell application "System Events" to tell every desktop to set picture to "/Users/${vars.user}/dotfiles/images/cute_cat.png"'
