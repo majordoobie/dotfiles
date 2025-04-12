@@ -1,18 +1,19 @@
 {
-  pkgs,
-  lib,
-  config,
-  specialArgs,
-  inputs,
-  modulesPath,
-  options,
-  vars,
   _class,
+  config,
+  inputs,
+  lib,
+  modulesPath,
+  nix-darwin,
+  nixpkgs,
+  options,
+  pkgs,
+  specialArgs,
+  vars,
 }:
 {
-
   imports = [
-    ./development_config/docker.nix
+    ../../modules/development_config/docker.nix
   ];
 
   system = {

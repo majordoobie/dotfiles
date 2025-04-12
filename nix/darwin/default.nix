@@ -37,7 +37,7 @@ in
       modules = [
         ./darwin-defaults-config.nix
         ./darwin-default-apps.nix
-        ./nezuko-configurations.nix
+        ../hosts/nezuko
       ];
     };
 

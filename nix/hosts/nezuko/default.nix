@@ -1,26 +1,28 @@
 {
-  pkgs,
-  lib,
-  config,
-  specialArgs,
-  inputs,
-  modulesPath,
-  options,
-  vars,
   _class,
+  config,
+  inputs,
+  lib,
+  modulesPath,
+  nix-darwin,
+  nixpkgs,
+  options,
+  pkgs,
+  specialArgs,
+  vars,
 }:
 {
   imports = [
-    ./modules/touchID.nix
-    ./modules/aerospaceConfig.nix
-    ./development_config/c.nix
-    ./development_config/docker.nix
-    ./development_config/lua.nix
-    ./development_config/nix.nix
-    ./development_config/python.nix
-    ./development_config/shell.nix
-    ./development_config/web.nix
-    ./development_config/yaml.nix
+    ../../modules/touchID.nix
+    ../../modules/aerospaceConfig.nix
+    ../../modules/development_config/c.nix
+    ../../modules/development_config/docker.nix
+    ../../modules/development_config/lua.nix
+    ../../modules/development_config/nix.nix
+    ../../modules/development_config/python.nix
+    ../../modules/development_config/shell.nix
+    ../../modules/development_config/web.nix
+    ../../modules/development_config/yaml.nix
   ];
 
   system.defaults = {
