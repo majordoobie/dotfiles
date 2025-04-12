@@ -144,7 +144,6 @@
       loginwindow = {
         GuestEnabled = false;
         SHOWFULLNAME = true;
-        autoLoginUser = null; # set true for server
       };
 
       menuExtraClock = {
