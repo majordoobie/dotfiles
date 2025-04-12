@@ -12,6 +12,11 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
   sh -s -- install
 ```
 
+### Install [Home Brew](https://brew.sh/) too as a dependancy
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ## Drop into nix shell to get stow and deploy
 
 ```bash
