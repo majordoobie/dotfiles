@@ -61,8 +61,9 @@ in
           ;
       };
       modules = [
-        ./darwin-defaults.nix
-        ./default-apps.nix
+        ./darwin-defaults-config.nix
+        ./darwin-default-apps.nix
+        ../hosts/tanjiro
       ];
     };
 }
