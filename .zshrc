@@ -1,8 +1,7 @@
-#! /bin/bash
+#
 ## Setup History
 #
 HISTFILE=$HOME/.zsh_history
-SAVEHIST=100000
 HISTSIZE=100000
 setopt append_history
 setopt share_history
@@ -20,7 +19,6 @@ unsetopt hist_beep
 typeset -U path
 path+=(/opt/homebrew/bin)
 
-
 #
 ## bootstrap
 #
@@ -29,11 +27,10 @@ eval "$(zoxide init zsh)"
 # Check that the function `starship_zle-keymap-select()` is defined.
 # xref: https://github.com/starship/starship/issues/3418
 # Bootstraps starship prompts
-type starship_zle-keymap-select >/dev/null || \
-{
-    eval "$(starship init zsh)"
-}
-
+type starship_zle-keymap-select >/dev/null ||
+    {
+        eval "$(starship init zsh)"
+    }
 
 #
 ## Aliases
