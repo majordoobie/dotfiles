@@ -17,22 +17,6 @@
   networking = {
     computerName = "${vars.user}";
     hostName = "${vars.user}";
-
-    search = [
-      "home.arpa"
-      "local"
-    ];
-
-    knownNetworkServices = [
-      "Wi-Fi"
-    ];
-
-    dns = [
-      "1.1.1.2"
-      "1.0.0.2"
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
   };
 
   system = {
