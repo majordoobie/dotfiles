@@ -31,7 +31,7 @@
   system = {
     activationScripts.postUserActivation.text = ''
       # Turn off wifi
-      networksetup -setairportpower en0 off
+      networksetup -setairportpower en1 off
 
       # Turn off bluetooth
       sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0
@@ -40,6 +40,7 @@
 
     defaults = {
       loginwindow = {
+        # For this to work you have to turn off FileVault
         autoLoginUser = "${vars.user}";
       };
 
