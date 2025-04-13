@@ -17,7 +17,9 @@ sh <(curl -L https://nixos.org/nix/install) --daemon
 
 ## Drop into nix shell to get stow and deploy
 ```bash
-nix shell nixpkgs#stow
+nix shell --extra-experimental-features "nix-command flakes" -- switch
+
+ nixpkgs#stow
 
 cd ~
 git clone git@github.com:majordoobie/dotfiles.git
@@ -33,5 +35,5 @@ exit
 ```bash
 nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/nix#${hostname}
 
-darwin-rebuild switch --flake ~/dotfiles/nix#chungus
+darwin-rebuild switch --flake ~/dotfiles/nix#${hostname}
 ```

@@ -16,6 +16,18 @@
     ../../modules/development_config/docker.nix
   ];
 
+  services.openssh.enable = true;
+  programs.ssh = {
+    extraConfig = ''
+      PermitRootLogin no
+      PasswordAuthentication no
+    '';
+  };
+
+  users.users.${vars.user}.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFyjnaTUG/or9CH5O6/GQc5vO6zMqdqWylbrcM1t3NpR"
+  ];
+
   system = {
     activationScripts.postUserActivation.text = ''
       # Turn off wifi
