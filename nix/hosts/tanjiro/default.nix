@@ -36,15 +36,6 @@
       # Turn off bluetooth
       sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0
       sudo killall -HUP blued || true
-
-      # Enable VNC
-      sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart \
-        -activate \
-        -configure \
-        -access -on \
-        -users ${vars.user} \
-        -privs -all \
-        -restart -agent
     '';
 
     defaults = {
