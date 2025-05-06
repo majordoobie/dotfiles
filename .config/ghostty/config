@@ -3,7 +3,7 @@ keybind = super+shift+comma=reload_config
 
 # Themeing
 theme = "catppuccin-mocha"
-font-size = 16
+font-size = 18
 font-family = "JetBrainsMono Nerd Font"
 mouse-hide-while-typing = true
 background-opacity = .93

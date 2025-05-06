@@ -33,7 +33,6 @@ stow .
 nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/nix#${hostname}
 ```
 
-### If you need modifications, you use
-```bash
+### If you need modifications, you  c``bash
 darwin-rebuild switch --flake ~/dotfiles/nix#${hostname}
 ```
