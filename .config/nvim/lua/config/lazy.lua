@@ -47,3 +47,12 @@ vim.api.nvim_create_autocmd("textyankpost", {
 		vim.hl.on_yank()
 	end,
 })
+
+vim.api.nvim_create_augroup("tmux_ft", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	group = "tmux_ft",
+	pattern = { "~/.config/tmux/*.conf", "~/.config/tmux/conf.d/*.tmux" },
+	callback = function()
+		vim.bo.filetype = "tmux"
+	end,
+})

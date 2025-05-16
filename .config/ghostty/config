@@ -14,7 +14,7 @@ macos-option-as-alt = true
 
 
 # Startup
-initial-command = /bin/zsh -l -c "tmux attach -d -t chungus || tmux new-session -s chungus"
+#initial-command = /bin/zsh -l -c "tmux attach -d -t chungus || tmux new-session -s chungus"
 shell-integration-features = cursor,sudo,no-title
 
 

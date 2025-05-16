@@ -71,7 +71,7 @@ return {
 				},
 				options = {
 					theme = "catppuccin",
-					globalstatus = "true",
+					globalstatus = true,
 				},
 				sections = {
 					lualine_a = { "mode", "searchcount", "selectioncount" },
