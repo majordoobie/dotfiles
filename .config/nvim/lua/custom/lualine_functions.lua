@@ -11,7 +11,7 @@ end
 
 function M.get_lsp_client_name()
 	local msg = "No Active LSP"
-	local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+  local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 	local clients = vim.lsp.get_clients()
 	if next(clients) == nil then
 		return msg
@@ -23,6 +23,36 @@ function M.get_lsp_client_name()
 		end
 	end
 	return msg
+end
+
+function M.bubble_theme()
+	return {
+		mocha_rosewater = "#f5e0dc",
+		mocha_flamingo = "#f2cdcd",
+		mocha_mauve = "#cba6f7",
+		mocha_red = "#f38ba8",
+		mocha_maroon = "#eba0ac",
+		mocha_peach = "#fab387",
+		mocha_yellow = "#f9e2af",
+		mocha_green = "#a6e3a1",
+		mocha_teal = "#94e2d5",
+		mocha_sky = "#89dceb",
+		mocha_sapphire = "#74c7ec",
+		mocha_blue = "#89b4fa",
+		mocha_lavender = "#b4befe",
+		mocha_text = "#cdd6f4",
+		mocha_subtext1 = "#bac2de",
+		mocha_subtext0 = "#a6adc8",
+		mocha_overlay2 = "#9399b2",
+		mocha_overlay1 = "#7f849c",
+		mocha_overlay0 = "#6c7086",
+		mocha_surface2 = "#585b70",
+		mocha_surface1 = "#45475a",
+		mocha_surface0 = "#313244",
+		mocha_base = "#1e1e2e",
+		mocha_mantle = "#181825",
+		mocha_crust = "#11111b",
+	}
 end
 
 return M

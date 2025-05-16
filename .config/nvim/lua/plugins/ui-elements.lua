@@ -60,6 +60,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local lualine_funcs = require("custom.lualine_functions")
+      local colors = lualine_funcs.bubble_theme()
 			require("lualine").setup({
 				extensions = {
 					"oil",
@@ -72,18 +73,33 @@ return {
 				options = {
 					theme = "catppuccin",
 					globalstatus = true,
+					component_separators = "|",
+					section_separators = { left = "", right = "" },
 				},
 				sections = {
-					lualine_a = { "mode", "searchcount", "selectioncount" },
-					lualine_b = { { "branch", fmt = lualine_funcs.truncate_branch_name }, "diff" },
-					lualine_c = { "diagnostics", { "filename", path = 1 } },
-					lualine_x = { "encoding", "fileformat" },
-					lualine_y = { "filetype" },
+					lualine_a = {
+						{ "mode", separator = { left = "" }, right_padding = 2 },
+						"searchcount",
+						"selectioncount",
+					},
+					lualine_b = { "diagnostics", { "filename", path = 1 } },
+					lualine_c = { "%=" },
+
+					lualine_x = {},
 					lualine_z = {
+						{
+							"branch",
+							fmt = lualine_funcs.truncate_branch_name,
+							separator = { right = "" },
+							left_padding = 2,
+						},
+					},
+					lualine_y = {
+						"filetype",
 						{
 							lualine_funcs.get_lsp_client_name,
 							icon = "LSP:",
-							color = { fg = "#000000", gui = "bold" },
+							color = { fg = colors.mocha_blue, gui = "bold" },
 						},
 					},
 				},
