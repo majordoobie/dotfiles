@@ -31,6 +31,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
   ];
 
   environment.systemPackages = with pkgs; [
@@ -81,7 +82,6 @@
       "ghostty"
       "scroll-reverser"
       "pearcleaner"
-      "microsoft-edge"
     ];
 
   };

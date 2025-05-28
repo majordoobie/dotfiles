@@ -51,6 +51,9 @@ return {
 	},
 
 	opts = {
+		image = { enable = true },
+
+		animate = { enable = true },
 		-- Disable LSP when files are huge
 		bigfile = { enable = true },
 

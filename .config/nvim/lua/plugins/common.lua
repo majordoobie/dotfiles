@@ -46,6 +46,16 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
-		opts = {},
+		opts = {
+      render_modes = true,
+			completions = { blink = { enabled = true }, lsp = { enabled = true } },
+			heading = {
+				border = true,
+				border_virtual = true,
+				sign = true,
+				position = "inline",
+				width = "full",
+			},
+		},
 	},
 }

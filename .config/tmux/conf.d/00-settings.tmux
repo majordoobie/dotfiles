@@ -1,7 +1,9 @@
 # true-color & term settings
 set -g default-terminal "tmux-256color"
-set -ga terminal-overrides ",xterm-256color:Tc"
 
+# tmux extension for RGB
+set -ga terminal-overrides ",xterm-256color:Tc"
+set -g allow-passthrough on
 
 set -g base-index 1
 setw -g pane-base-index 1

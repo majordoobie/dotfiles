@@ -1,110 +1,15 @@
 #!/usr/bin/env bash
 
-# This is a demo config to showcase some of the most important commands.
-# It is meant to be changed and configured, as it is intentionally kept sparse.
-# For a (much) more advanced configuration example see my dotfiles:
-# https://github.com/FelixKratz/dotfiles
+# Load global styles, colors and icons
+source "${CONFIG_DIR}/configs/ui-defaults.sh"
 
-PLUGIN_DIR="$CONFIG_DIR/plugins"
-ITEM_DIR="$CONFIG_DIR/plugins"
+sketchybar --bar "${bar[@]}" --default "${item_defaults[@]}"
 
-source "$PLUGIN_DIR/colors.sh"
+#source "${CONFIG_DIR}/items/aerospace_item.sh"
 
-##### Bar Appearance #####
-# Configuring the general appearance of the bar.
-# These are only some of the options available. For all options see:
-# https://felixkratz.github.io/SketchyBar/config/bar
-# If you are looking for other colors, see the color picker:
-# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
-
-bar=(
-    position=top
-    height=30
-    blur_radius=30
-    color="$CATPPUCCIN_MOCHA_BASE"
-)
-sketchybar --bar "${bar[@]}"
-
-##### Changing Defaults #####
-# We now change some default values, which are applied to all further items.
-# For a full list of all available item properties see:
-# https://felixkratz.github.io/SketchyBar/config/items
-
-default=(
-  padding_left=1
-  padding_right=1
-  icon.font="JetBrainsMono Nerd Font:Bold:17.0"
-  label.font="JetBrainsMono Nerd Font:Bold:14.0"
-
-  icon.color="$BLACK_TEXT"
-  label.color="$BLACK_TEXT"
-
-  background.color="$CATPPUCCIN_MOCHA_GREEN"
-  background.corner_radius=5
-  background.height=24
-
-  icon.padding_left=4
-  icon.padding_right=4
-
-  label.padding_left=4
-  label.padding_right=4
-)
-sketchybar --default "${default[@]}"
-
-
-############ Aerospace integration https://nikitabobko.github.io/AeroSpace/goodies#show-aerospace-workspaces-in-sketchybar
-sketchybar --add event aerospace_workspace_change
-
-for sid in $(aerospace list-workspaces --all);
-do
-sketchybar  --add item space."$sid" left \
-            --set space."$sid" \
-            \
-            icon="$sid" \
-            icon.padding_left=4 icon.padding_right=4 \
-            \
-            label.font="sketchybar-app-font:Regular:16.0" \
-            label.padding_left=4 label.padding_right=20 \
-            \
-            click_script="aerospace workspace $sid" \
-            script="$CONFIG_DIR/plugins/aerospace.sh $sid" \
-            --subscribe space."$sid" aerospace_workspace_change
-done
-
-
-##### Adding Right Items #####
-# In the same way as the left items we can add items to the right side.
-# Additional position (e.g. center) are available, see:
-# https://felixkratz.github.io/SketchyBar/config/items#adding-items-to-sketchybar
-
-# Some items refresh on a fixed cycle, e.g. the clock runs its script once
-# every 10s. Other items respond to events they subscribe to, e.g. the
-# volume.sh script is only executed once an actual change in system audio
-# volume is registered. More info about the event system can be found here:
-# https://felixkratz.github.io/SketchyBar/config/events
-
-sketchybar --add item clock right \
-           --set clock update_freq=30 script="$PLUGIN_DIR/clock.sh" \
-                \
-           --add item volume right \
-           --set volume script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change \
-                \
-           --add item battery right \
-           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change \
-                \
-           --add item cpu right \
-           --set cpu  update_freq=2 \
-                      icon=􀧓  \
-                      script="$PLUGIN_DIR/cpu.sh"
-
-
-
-source "$CONFIG_DIR/items/network_speed.sh"
-
-# Meh doesn't work great
-#source "$CONFIG_DIR/items/cpu.sh"
+# Right side
+source "${CONFIG_DIR}/items/datetime.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
+#sketchybar --hotload on
 sketchybar --update

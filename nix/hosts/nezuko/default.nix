@@ -15,6 +15,7 @@
   imports = [
     ../../modules/touchID.nix
     ../../modules/aerospaceConfig.nix
+    ../../modules/sketchybarConfig.nix
     ../../modules/development_config/c.nix
     ../../modules/development_config/docker.nix
     ../../modules/development_config/lua.nix
@@ -28,14 +29,11 @@
   system.defaults = {
     dock = {
       persistent-apps = [
-        "/Applications/Microsoft Edge.app/"
+        "/Applications/Zen.app/"
         "/Applications/Ghostty.app"
         "/System/Applications/iPhone Mirroring.app"
       ];
     };
-
-    # Needed for sketchybar
-    NSGlobalDomain._HIHideMenuBar = false;
 
   };
 
@@ -45,22 +43,30 @@
   homebrew = {
     enable = true;
 
-    casks = [
-      "1password"
-      "raycast"
-      "obsidian"
-      "adobe-acrobat-reader"
-      "signal"
-      "vnc-viewer"
-      "bartender"
-      "stats"
-      "bettermouse"
-      "google-drive"
+    taps = [
+      "FelixKratz/formulae"
     ];
 
-    # masApps = {
-    #   "Windows App" = 1295203466;
-    # };
+    brews = [
+      "sketchybar"
+    ];
+
+    casks = [
+      "1password"
+      "adobe-acrobat-reader"
+      "bartender"
+      "bettermouse"
+      "microsoft-edge"
+      "clion"
+      "google-drive"
+      "obsidian"
+      "raycast"
+      "signal"
+      "stats"
+      "vnc-viewer"
+      "zen"
+    ];
+
   };
 
   environment.systemPackages = with pkgs; [

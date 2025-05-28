@@ -18,6 +18,14 @@
     settings = {
       start-at-login = false;
       on-focus-changed = [ "move-mouse window-lazy-center" ];
+
+      # Notify Sketchybar about workspace change
+      exec-on-workspace-change = [
+        "/bin/bash"
+        "-c"
+        "sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+      ];
+
       gaps = {
         outer.top = 0;
         outer.bottom = 0;
@@ -176,6 +184,22 @@
         {
           check-further-callbacks = true;
           "if" = {
+            app-id = "app.zen-browser.zen";
+            during-aerospace-startup = true;
+          };
+          run = [ "move-node-to-workspace 2" ];
+        }
+        {
+          check-further-callbacks = true;
+          "if" = {
+            app-id = "com.brave.Browser";
+            during-aerospace-startup = true;
+          };
+          run = [ "move-node-to-workspace 2" ];
+        }
+        {
+          check-further-callbacks = true;
+          "if" = {
             app-id = "com.mitchellh.ghostty";
             during-aerospace-startup = true;
           };
@@ -217,6 +241,14 @@
         #
         # App Startup
         #
+        {
+          "if".app-id = "app.zen-browser.zen";
+          run = [ "move-node-to-workspace 1" ];
+        }
+        {
+          "if".app-id = "com.brave.Browser";
+          run = [ "move-node-to-workspace 1" ];
+        }
         {
           "if".app-id = "com.microsoft.edgemac";
           run = [ "move-node-to-workspace 1" ];

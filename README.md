@@ -4,6 +4,7 @@ Dotfiles setup for both macOS and GNU/Linux
 
 ## Setup Nix
 
+
 ### Install Nix
 
 ```bash

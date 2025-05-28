@@ -15,11 +15,13 @@ set -g @catppuccin_window_flags "icon"
 # Load catppuccin
 run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 
-# Make the status line pretty and add some modules
+set -g "@catppuccin_application_icon" " "
+set -g "@catppuccin_session_icon" "🐈‍⬛ "
+
 set -g status-right-length 100
 set -g status-left-length 100
-set -g status-left " 🐈‍⬛ "
 set -g status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}"
+set -g status-left ""
 
 
 # Disable half drawn border when there is only two panes

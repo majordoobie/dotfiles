@@ -13,6 +13,15 @@ if-shell 'grep -qi microsoft /proc/version' {
   }
 }
 
+# Enter copy mode
+bind Enter copy-mode
+
+bind -T copy-mode-vi v send -X begin-selection
+bind -T copy-mode-vi C-v send -X rectangle-toggle
+bind -T copy-mode-vi Escape send -X cancel
+bind -T copy-mode-vi H send -X start-of-line
+bind -T copy-mode-vi L send -X end-of-line
+
 # Bind vi-mode yank (prefix+[ → v/y) to pipe to copy-command
 unbind -T copy-mode-vi y
 bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel
@@ -21,11 +30,8 @@ bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel
 unbind -T copy-mode-vi MouseDragEnd1Pane
 bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel
 
-# (If you really want a root-level drag handler:)
 unbind -n MouseDragEnd1Pane
 bind -n MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel
 
 # Set the yank to be yellow
-set -g mode-style bg=yellow,fg=black
-set -g copy-mode-match-style         bg=yellow,fg=black
-set -g copy-mode-current-match-style bg=yellow,fg=black
+set -g mode-style fg=black,bg=yellow
