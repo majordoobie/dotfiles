@@ -2,9 +2,6 @@
 vim.keymap.set("v", "<S-k>", "<Nop>")
 vim.keymap.set("v", "<S-j>", "<Nop>")
 
--- Open netRW
-vim.keymap.set("n", "<leader>gf", ":Ex<CR>")
-
 -- Change the ^ and $ to easier to type keys
 vim.keymap.set("n", "gh", "^")
 vim.keymap.set("n", "gl", "$")
