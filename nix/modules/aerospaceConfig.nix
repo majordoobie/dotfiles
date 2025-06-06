@@ -246,6 +246,10 @@
           run = [ "move-node-to-workspace 1" ];
         }
         {
+          "if".window-title-regex-substring = "Picture-in-Picture";
+          run = [ "move-node-to-workspace 2" ];
+        }
+        {
           "if".app-id = "com.brave.Browser";
           run = [ "move-node-to-workspace 1" ];
         }

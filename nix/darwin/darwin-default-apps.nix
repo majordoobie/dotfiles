@@ -34,8 +34,8 @@
     nerd-fonts.hack
   ];
 
-  environment.systemPackages = with pkgs; [
-    # TUI
+  environment.systempackages = with pkgs; [
+    # tui
     neovim
     btop
     ripgrep
@@ -44,24 +44,15 @@
     lazygit
     stow
 
-    # Terminal
+    # terminal
     tmux
     zoxide
     fzf
     starship
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-vi-mode
+    eza
 
     _1password-cli
   ];
-
-  # Source the plugins from here
-  programs.zsh.interactiveShellInit = ''
-    source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-    source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  '';
 
   homebrew = {
     enable = true;

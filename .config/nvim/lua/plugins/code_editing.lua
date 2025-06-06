@@ -5,9 +5,13 @@ return {
 		-- ]]
 		"danymat/neogen",
 		config = function()
-			require("neogen").setup({
-				vim.keymap.set("v", "<leader>ed", ":Neogen<CR>", { desc = "Apply docstring to function" }),
+			local neogen = require("neogen")
+			neogen.setup({
+				languages = { python = { template = { annotation_convention = "reST" } } },
 			})
+			vim.keymap.set({ "n", "v" }, "<leader>ed", function()
+				neogen.generate({ type = "func" })
+			end, { desc = "Apply docstring to function" })
 		end,
 	},
 	{

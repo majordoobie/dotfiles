@@ -1,6 +1,8 @@
 # true-color & term settings
 set -g default-terminal "tmux-256color"
 
+set -g default-shell "/run/current-system/sw/bin/fish"
+
 # tmux extension for RGB
 set -ga terminal-overrides ",xterm-256color:Tc"
 set -g allow-passthrough on

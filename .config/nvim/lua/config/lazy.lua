@@ -15,6 +15,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+GIT_PATH = ""
+
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
@@ -29,15 +31,11 @@ require("lazy").setup({
 	change_detection = {
 		notify = false, -- disable the change notification shit is annoying
 	},
+	rocks = {
+		enabled = false,
+	},
 })
 
--- lazy load keymaps
-vim.api.nvim_create_autocmd("User", {
-	pattern = "VeryLazy",
-	callback = function()
-		require("config.keymaps")
-	end,
-})
 
 -- highlight yanks
 vim.api.nvim_create_autocmd("textyankpost", {
@@ -45,14 +43,5 @@ vim.api.nvim_create_autocmd("textyankpost", {
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
 		vim.hl.on_yank()
-	end,
-})
-
-vim.api.nvim_create_augroup("tmux_ft", { clear = true })
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	group = "tmux_ft",
-	pattern = { "~/.config/tmux/*.conf", "~/.config/tmux/conf.d/*.tmux" },
-	callback = function()
-		vim.bo.filetype = "tmux"
 	end,
 })

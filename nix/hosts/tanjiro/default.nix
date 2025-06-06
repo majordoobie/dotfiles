@@ -13,6 +13,7 @@
 }:
 {
   imports = [
+    ../../modules/fish.nix
     ../../modules/development_config/docker.nix
   ];
 

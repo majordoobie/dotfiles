@@ -20,8 +20,9 @@
   };
 
   system = {
+    primaryUser = "${vars.user}";
 
-    activationScripts.postUserActivation.text = ''
+    activationScripts.extraActivation.text = ''
 
       # Set desktop background
       osascript -e 'tell application "System Events" to tell every desktop to set picture to "/Users/${vars.user}/dotfiles/images/cute_cat.png"'
@@ -97,8 +98,6 @@
           DSDontWriteNetworkStores = true;
           DSDontWriteUSBStores = true;
         };
-        # Show battery percentage
-        "~/Library/Preferences/ByHost/com.apple.controlcenter".BatteryShowPercentage = true;
 
         # Privacy
         "com.apple.AdLib".allowApplePersonalizedAdvertising = false;

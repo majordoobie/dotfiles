@@ -23,7 +23,7 @@ return {
 			defaults = {
 				path_display = { "absolute" },
 				layout_strategy = "vertical",
-				layout_config = { height = 0.95, width = 0.95, preview_height = 0.60, preview_cutoff = 0 },
+				layout_config = { height = 0.95, width = 0.95, preview_height = 0.70 },
 			},
 
 			extensions = {
@@ -71,11 +71,12 @@ return {
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>ss",
+			"<leader>sc",
 			builtin.spell_suggest,
 			{ desc = "Check for the correct spelling under cursor" }
 		)
 		vim.keymap.set("n", "<leader>sa", builtin.builtin, { desc = "Display all Telescope options" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "View all keymaps made" })
+		vim.keymap.set("n", "<leader>ss", builtin.keymaps, { desc = "Resume" })
 	end,
 }

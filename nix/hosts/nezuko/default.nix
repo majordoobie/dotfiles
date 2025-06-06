@@ -13,6 +13,7 @@
 }:
 {
   imports = [
+    ../../modules/fish.nix
     ../../modules/touchID.nix
     ../../modules/aerospaceConfig.nix
     ../../modules/sketchybarConfig.nix
@@ -54,11 +55,13 @@
     casks = [
       "1password"
       "adobe-acrobat-reader"
+      "arc"
       "bartender"
       "bettermouse"
-      "microsoft-edge"
+      "brave-browser"
       "clion"
       "google-drive"
+      "microsoft-edge"
       "obsidian"
       "raycast"
       "signal"

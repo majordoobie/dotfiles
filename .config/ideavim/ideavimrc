@@ -59,7 +59,7 @@ vnoremap <S-k> <Nop>
 vnoremap <S-j> <Nop>
 
 """ Open file explorer
-map <leader>gf :NERDTreeToggle <CR>
+nnoremap - :NERDTreeToggle <CR>
 
 """ Change the ^ and $ to make it easier to press
 nnoremap gh ^
@@ -100,9 +100,11 @@ xnoremap r "_r
 " #########################################
 
 """ Open panes as duplicates and resize
-map <leader>- <Action>(SplitHorizontally)
+map <leader>- <Action>(SplitHorizontaliiily)
 map <leader>_ <Action>(SplitVertically)
 map <Leader>x <Action>(CloseContent)
+map <leader>tl <Action>(NextTab)
+map <leader>th <Action>(PreviousTab)
 
 """ Enable zen mode
 map <leader>z <Action>(ToggleDistractionFreeMode)
@@ -117,10 +119,8 @@ nnoremap <c-k> <c-w>k
 " #########################################
 " ---- Harpoon -----
 " #########################################
-map <leader>ms <Action>(ToggleBookmarkWithMnemonic)
-map <leader>mm <Action>(ShowBookmarks)
-map <leader>mh <Action>(GoToNextBookmark)
-map <leader>ml <Action>(GoToPreviousBookmark)
+map <leader>ha <Action>(ToggleBookmarkWithMnemonic)
+map <leader>hh <Action>(ShowBookmarks)
 
 
 " #########################################
@@ -146,8 +146,6 @@ map <leader>go <Action>(ActivateTODOToolWindow)
 map <leader>gv <Action>(ActivateVersionControlToolWindow)
 map <leader>gm <Action>(ActivateMessagesToolWindow)
 map <leader>gx <Action>(BuildMenu)
-map <leader>gl <Action>(NextTab)
-map <leader>gh <Action>(PreviousTab)
 
 " Search Box; The all is opened with shift + shift on all platforms
 map <leader>ga <Action>(GotoAction)

@@ -133,6 +133,7 @@ return {
 				columns = {
 					"icon",
 					"size",
+          "permissions"
 				},
 
 				view_options = {
@@ -146,14 +147,14 @@ return {
 				win_options = {
 					wrap = false,
 					signcolumn = "no",
-					cursorcolumn = true,
+					cursorcolumn = false,
 					list = true,
 					conceallevel = 3,
 					concealcursor = "nvic",
 				},
 				float = {
-					max_width = 0.8,
-					max_height = 0.8,
+					max_width = 0.9,
+					max_height = 0.9,
 					preview_split = "right",
 				},
 				constrain_cursor = "name",

@@ -17,6 +17,7 @@ macos-option-as-alt = true
 #initial-command = /bin/zsh -l -c "tmux attach -d -t chungus || tmux new-session -s chungus"
 shell-integration-features = cursor,sudo,no-title
 
+command = /run/current-system/sw/bin/fish
 
 # ask if the app should close on cmd + q
 confirm-close-surface = false
