@@ -34,7 +34,7 @@
     nerd-fonts.hack
   ];
 
-  environment.systempackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     # tui
     neovim
     btop
