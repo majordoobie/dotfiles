@@ -25,15 +25,24 @@
 
       alias ll 'eza -la --group-directories-first'
 
-      fish_vi_key_bindings
       set -U fish_greeting
+      set -gx PATH /opt/homebrew/bin/ $PATH
       set -gx EDITOR "nvim"
       set -gx VISUAL "nvim"
       set -gx MANPAGER "nvim +Man!"
       set -gx XDG_CONFIG_HOME "$HOME/.config"
       set -gx SSH_AUTH_SOCK "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
+      # ─── Key-bindings ────────────────────────────────────────────────────────────
+      function fish_user_key_bindings
+          # enable vi mode (won't clobber any other custom binds)
+          fish_vi_key_bindings --no-erase insert
 
+          # Ctrl-C in insert mode should cancel the line (leaving it visible)
+          bind -M insert ctrl-c cancel-commandline
+      end
+
+      # ─── Theme ---------───────────────────────────────────────────────────────────
       # name: 'Catppuccin Mocha'
       # url: 'https://github.com/catppuccin/fish'
 

@@ -17,6 +17,9 @@
 }:
 
 {
+  imports = [
+    ../modules/fish.nix
+  ];
   /*
     Get a list of installed packages. It will be in a
     file in /etc/installed-packages

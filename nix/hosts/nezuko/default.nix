@@ -13,10 +13,9 @@
 }:
 {
   imports = [
-    ../../modules/fish.nix
-    ../../modules/touchID.nix
-    ../../modules/aerospaceConfig.nix
-    ../../modules/sketchybarConfig.nix
+    ../../modules/touchid.nix
+    ../../modules/aerospaceconfig.nix
+    # ../../modules/sketchybarconfig.nix
     ../../modules/development_config/c.nix
     ../../modules/development_config/docker.nix
     ../../modules/development_config/lua.nix
@@ -50,6 +49,7 @@
 
     brews = [
       "sketchybar"
+      "switchaudio-osx"
     ];
 
     casks = [
