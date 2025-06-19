@@ -15,8 +15,10 @@
 #include <mach/mach_port.h>
 #include <mach/message.h>
 #include <pthread.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /** @brief Environment variable type alias */
 typedef char *env;
@@ -41,6 +43,18 @@ struct mach_message {
 struct mach_buffer {
     struct mach_message message; /**< The actual message */
     mach_msg_trailer_t trailer;  /**< Message trailer */
+};
+
+/**
+ * @brief Mach server structure for event providers
+ */
+struct mach_server {
+    bool is_running;            /**< Server running state */
+    mach_port_name_t task;      /**< Mach task port */
+    mach_port_t port;           /**< Server port */
+    mach_port_t bs_port;        /**< Bootstrap port */
+    pthread_t thread;           /**< Server thread */
+    void (*handler)(char *env); /**< Event handler function/callback */
 };
 
 /**
@@ -94,3 +108,36 @@ uint32_t format_message(char *message, char *formatted_message);
  * sketchybar("--add item myitem left");
  */
 void sketchybar(char *message);
+
+/**
+ * @brief Send command to sketchybar and receive response
+ * @param message The command string to send
+ * @return char* Response from sketchybar, or empty string if no response
+ *
+ * This function sends a command and waits for a response from sketchybar.
+ * Useful for querying current state or getting configuration values.
+ */
+char *sketchybar_query(char *message);
+
+/**
+ * @brief Environment variable parsing for event handlers
+ * @param env Environment data from sketchybar events
+ * @param key The key to look for
+ * @return char* The value for the key, or empty string if not found
+ */
+char *env_get_value_for_key(char *env, char *key);
+
+/**
+ * @brief Receive a message from a Mach port
+ * @param port The port to receive from
+ * @param buffer Buffer to store the received message
+ * @param timeout Whether to use a timeout
+ */
+void mach_receive_message(mach_port_t port, struct mach_buffer *buffer, bool timeout);
+
+/**
+ * @brief Start an event server that can receive events from sketchybar
+ * @param event_handler Function to handle incoming events
+ * @param bootstrap_name Name to register in bootstrap namespace
+ */
+void event_server_begin(void (*event_handler)(char *env), char *bootstrap_name);
