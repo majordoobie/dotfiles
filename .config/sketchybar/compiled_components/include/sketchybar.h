@@ -30,17 +30,17 @@ typedef MACH_HANDLER(mach_handler);
  * @brief Structure representing a Mach message for sketchybar communication
  */
 struct mach_message {
-  mach_msg_header_t header;              /**< Message header */
-  mach_msg_size_t msgh_descriptor_count; /**< Number of descriptors */
-  mach_msg_ool_descriptor_t descriptor;  /**< Out-of-line data descriptor */
+    mach_msg_header_t header;              /**< Message header */
+    mach_msg_size_t msgh_descriptor_count; /**< Number of descriptors */
+    mach_msg_ool_descriptor_t descriptor;  /**< Out-of-line data descriptor */
 };
 
 /**
  * @brief Buffer structure containing message and trailer
  */
 struct mach_buffer {
-  struct mach_message message; /**< The actual message */
-  mach_msg_trailer_t trailer;  /**< Message trailer */
+    struct mach_message message; /**< The actual message */
+    mach_msg_trailer_t trailer;  /**< Message trailer */
 };
 
 /**

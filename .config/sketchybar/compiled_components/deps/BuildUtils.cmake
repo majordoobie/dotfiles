@@ -79,26 +79,30 @@ macro(set_compiler_flags)
             "-fPIC"
             )
 
-    # Base flags for static analysis. This should be added to both the
-    # compiler and linker options
-    if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-        set(base_static_analysis
-                "-fsanitize=address"
-                "-fno-omit-frame-pointer"
-                "-fsanitize=undefined"
-                "-fno-sanitize-recover=all"
-                "-fsanitize=float-divide-by-zero"
-                "-fsanitize=float-cast-overflow"
-                "-fno-sanitize=null"
-                "-fno-sanitize=alignment"
-        )
-    elseif(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-        set(base_static_analysis
-                "-fsanitize=address"
-                "-fno-omit-frame-pointer"
-                "-fsanitize=undefined"
-                "-fno-sanitize-recover=all"
-        )
+    # Base flags for static analysis. Only enable sanitizers in Debug mode
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+            set(base_static_analysis
+                    "-fsanitize=address"
+                    "-fno-omit-frame-pointer"
+                    "-fsanitize=undefined"
+                    "-fno-sanitize-recover=all"
+                    "-fsanitize=float-divide-by-zero"
+                    "-fsanitize=float-cast-overflow"
+                    "-fno-sanitize=null"
+                    "-fno-sanitize=alignment"
+            )
+        elseif(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+            set(base_static_analysis
+                    "-fsanitize=address"
+                    "-fno-omit-frame-pointer"
+                    "-fsanitize=undefined"
+                    "-fno-sanitize-recover=all"
+            )
+        endif()
+    else()
+        # No sanitizers for Release builds
+        set(base_static_analysis "")
     endif()
 
 

@@ -11,7 +11,7 @@ sketchybar --add item time right \
     --set time "${time_config[@]}"
 
 # Invoke binary that updates the time.label field using strftime string format
-${CONFIG_DIR}/compiled_components/clock/sketchybar_clock "%d-%b-%y %T" &
+${CONFIG_DIR}/compiled_components/build/bin/sketchybar_clock "%d-%b-%y %T" &
 
 # date=(
 #     icon=􀀁
