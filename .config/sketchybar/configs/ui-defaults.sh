@@ -15,6 +15,7 @@ FONT="JetBrainsMonoNL Nerd Font Mono"
 # Bar Appearance
 bar=(
     color="${TRANSPARENT}"
+    display="all"
     position=top
     topmost=off
     sticky=on

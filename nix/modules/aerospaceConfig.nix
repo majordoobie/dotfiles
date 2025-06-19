@@ -27,7 +27,10 @@
       ];
 
       gaps = {
-        outer.top = 0;
+        outer.top = [
+          { monitor."built-in" = 0; }
+          30
+        ];
         outer.bottom = 0;
         outer.left = 0;
         outer.right = 0;
@@ -184,6 +187,14 @@
         {
           check-further-callbacks = true;
           "if" = {
+            app-id = "company.thebrowser.Browser";
+            during-aerospace-startup = true;
+          };
+          run = [ "move-node-to-workspace 1" ];
+        }
+        {
+          check-further-callbacks = true;
+          "if" = {
             app-id = "app.zen-browser.zen";
             during-aerospace-startup = true;
           };
@@ -241,6 +252,10 @@
         #
         # App Startup
         #
+        {
+          "if".app-id = "company.thebrowser.Browser";
+          run = [ "move-node-to-workspace 1" ];
+        }
         {
           "if".app-id = "app.zen-browser.zen";
           run = [ "move-node-to-workspace 1" ];

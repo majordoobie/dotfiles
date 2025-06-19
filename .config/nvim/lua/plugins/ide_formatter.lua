@@ -48,6 +48,7 @@ return {
 				sh = { "shfmt" },
 				zsh = { "shfmt" },
 				c = { "clang-format" },
+				h = { "clang-format" },
 				json = { "prettierd" },
 				yaml = { "yamlfmt" },
 				["*"] = { "trim_whitespace", "trim_newlines" },
@@ -63,6 +64,9 @@ return {
 				lsp_format = "fallback",
 			},
 		})
-		vim.keymap.set({ "n", "v" }, "<leader>ef", conform.format, { desc = "Format File" })
+		vim.keymap.set({ "n", "v" }, "<leader>ef", function()
+			conform.format()
+			vim.notify("File formatted successfully!", vim.log.levels.INFO)
+		end, { desc = "Format File" })
 	end,
 }

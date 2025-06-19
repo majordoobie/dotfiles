@@ -30,6 +30,7 @@
     dock = {
       persistent-apps = [
         "/Applications/Zen.app/"
+        "/Applications/Arc.app/"
         "/Applications/Ghostty.app"
         "/System/Applications/iPhone Mirroring.app"
       ];
@@ -84,6 +85,7 @@
     direnv
     fd
 
+    claude-code
   ];
 
 }

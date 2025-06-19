@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+CONFIG_DIR="${HOME}/.config/sketchybar"
+PLUGIN_DIR="${CONFIG_DIR}/plugins"
+
 # Load global styles, colors and icons
 source "${CONFIG_DIR}/configs/ui-defaults.sh"
 
@@ -9,6 +12,7 @@ sketchybar --bar "${bar[@]}" --default "${item_defaults[@]}"
 
 # Right side
 source "${CONFIG_DIR}/items/datetime.sh"
+source "${CONFIG_DIR}/items/cpu.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 #sketchybar --hotload on

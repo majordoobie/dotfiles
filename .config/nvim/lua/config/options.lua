@@ -71,6 +71,9 @@ vim.filetype.add({
 		["compose.*%.ya?ml"] = "yaml.docker-compose",
 		["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
 	},
+	extension = {
+		h = "c", -- Force .h files to be treated as C instead of C++
+	},
 })
 
 -- This is the syntax highlighting for robot.txt files

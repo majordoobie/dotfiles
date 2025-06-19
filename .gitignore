@@ -5,3 +5,4 @@ repos/
 .DS_Store
 .config/raycast/
 .config/colima/*
+.config/sketchybar/compiled_components/build/
