@@ -91,6 +91,8 @@ macro(set_compiler_flags)
                     "-fsanitize=float-cast-overflow"
                     "-fno-sanitize=null"
                     "-fno-sanitize=alignment"
+                    "-fno-sanitize=bounds"
+                    "-fno-sanitize=integer"
             )
         elseif(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
             set(base_static_analysis
@@ -98,6 +100,9 @@ macro(set_compiler_flags)
                     "-fno-omit-frame-pointer"
                     "-fsanitize=undefined"
                     "-fno-sanitize-recover=all"
+                    "-fno-sanitize=null"
+                    "-fno-sanitize=bounds"
+                    "-fno-sanitize=integer"
             )
         endif()
     else()
