@@ -50,8 +50,8 @@ struct mach_buffer {
  */
 struct mach_server {
     bool is_running;            /**< Server running state */
-    mach_port_name_t task;      /**< Mach task port */
-    mach_port_t port;           /**< Server port */
+    mach_port_name_t task;      /**< Reference to self process*/
+    mach_port_t port;           /**< Incoming message port */
     mach_port_t bs_port;        /**< Bootstrap port */
     pthread_t thread;           /**< Server thread */
     void (*handler)(char *env); /**< Event handler function/callback */
@@ -127,13 +127,6 @@ char *sketchybar_query(char *message);
  */
 char *env_get_value_for_key(char *env, char *key);
 
-/**
- * @brief Receive a message from a Mach port
- * @param port The port to receive from
- * @param buffer Buffer to store the received message
- * @param timeout Whether to use a timeout
- */
-void mach_receive_message(mach_port_t port, struct mach_buffer *buffer, bool timeout);
 
 /**
  * @brief Start an event server that can receive events from sketchybar

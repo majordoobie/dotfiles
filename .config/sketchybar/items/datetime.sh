@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
-source "$HOME/.config/sketchybar/configs/icon.sh"
-source "$HOME/.config/sketchybar/configs/colors.sh"
+source "${CONFIG_DIR}/configs/icon.sh"
+source "${CONFIG_DIR}/configs/colors.sh"
 
 # item must be called "time" as the binary will be updating the time.label
 time_config=(
     label.color="${LABEL_COLOR}"
 )
+
+ITEM_NAME="time"
 sketchybar --add item time right \
-    --set time "${time_config[@]}"
+    --set "${ITEM_NAME}" "${time_config[@]}"
 
 # Invoke binary that updates the time.label field using strftime string format
-${CONFIG_DIR}/compiled_components/build/bin/sketchybar_clock "%d-%b-%y %T" &
+${CONFIG_DIR}/compiled_components/build/bin/sketchybar_clock "${ITEM_NAME}" "%d-%b-%y %T" &
 
 # date=(
 #     icon=􀀁
