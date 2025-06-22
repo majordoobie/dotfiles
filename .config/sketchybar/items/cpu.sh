@@ -2,13 +2,9 @@
 
 source "${CONFIG_DIR}/configs/colors.sh"
 
-HELPER=git.felix.helper
-killall sketchybar_cpu
-"${CONFIG_DIR}/compiled_components/build/bin/sketchybar_cpu" ${HELPER} &
-
 cpu_top=(
     label.font="${FONT}:Semibold:7"
-    label=CPUL
+    label=CPU
     icon.drawing=off
     width=0
     padding_right=15

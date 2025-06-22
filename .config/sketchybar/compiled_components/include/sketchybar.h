@@ -32,9 +32,9 @@ typedef MACH_HANDLER(mach_handler);
  * @brief Structure representing a Mach message for sketchybar communication
  */
 struct mach_message {
-    mach_msg_header_t header;              /**< Message header */
-    mach_msg_size_t msgh_descriptor_count; /**< Number of descriptors */
-    mach_msg_ool_descriptor_t descriptor;  /**< Out-of-line data descriptor */
+    mach_msg_header_t header;                /**< Message header */
+    mach_msg_size_t   msgh_descriptor_count; /**< Number of descriptors */
+    mach_msg_ool_descriptor_t descriptor;    /**< Out-of-line data descriptor */
 };
 
 /**
@@ -42,19 +42,19 @@ struct mach_message {
  */
 struct mach_buffer {
     struct mach_message message; /**< The actual message */
-    mach_msg_trailer_t trailer;  /**< Message trailer */
+    mach_msg_trailer_t  trailer; /**< Message trailer */
 };
 
 /**
  * @brief Mach server structure for event providers
  */
 struct mach_server {
-    bool is_running;            /**< Server running state */
-    mach_port_name_t task;      /**< Reference to self process*/
-    mach_port_t port;           /**< Incoming message port */
-    mach_port_t bs_port;        /**< Bootstrap port */
-    pthread_t thread;           /**< Server thread */
-    void (*handler)(char *env); /**< Event handler function/callback */
+    bool             is_running; /**< Server running state */
+    mach_port_name_t task;       /**< Reference to self process*/
+    mach_port_t      port;       /**< Incoming message port */
+    mach_port_t      bs_port;    /**< Bootstrap port */
+    pthread_t        thread;     /**< Server thread */
+    void (*handler)(char *env);  /**< Event handler function/callback */
 };
 
 /**
@@ -126,7 +126,6 @@ char *sketchybar_query(char *message);
  * @return char* The value for the key, or empty string if not found
  */
 char *env_get_value_for_key(char *env, char *key);
-
 
 /**
  * @brief Start an event server that can receive events from sketchybar

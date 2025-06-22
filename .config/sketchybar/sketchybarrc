@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+HELPER=cpu_provider
+killall sketchybar_cpu
+"${CONFIG_DIR}/compiled_components/build/bin/sketchybar_cpu" ${HELPER} &
+sleep 3
+
 CONFIG_DIR="${HOME}/.config/sketchybar"
 
 # Load defined colors
@@ -55,7 +60,7 @@ sketchybar --bar "${bar[@]}" --default "${item_defaults[@]}"
 
 # Right side
 source "${CONFIG_DIR}/items/datetime.sh"
-source "${CONFIG_DIR}/items/cpu.sh"
+ source "${CONFIG_DIR}/items/cpu.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

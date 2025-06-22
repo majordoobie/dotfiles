@@ -2,8 +2,9 @@
  * @file clock.c
  * @brief Sketchybar clock component that displays formatted time
  *
- * This program creates a real-time clock display for sketchybar using CoreFoundation
- * timers. It updates every second with a user-specified time format.
+ * This program creates a real-time clock display for sketchybar using
+ * CoreFoundation timers. It updates every second with a user-specified time
+ * format.
  */
 
 #include <CoreFoundation/CoreFoundation.h>
@@ -11,8 +12,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TIME_BUFFER_SIZE 64   /**< Buffer size for formatted time string */
-#define MESSAGE_EXTRA_SIZE 64 /**< Extra space for sketchybar command formatting */
+#define TIME_BUFFER_SIZE 64 /**< Buffer size for formatted time string */
+#define MESSAGE_EXTRA_SIZE \
+    64 /**< Extra space for sketchybar command formatting */
 
 typedef struct {
     char *item_name;
@@ -32,16 +34,23 @@ typedef struct {
  * @example For "%H:%M:%S" format, displays "14:30:25"
  */
 void callback(CFRunLoopTimerRef timer __attribute__((unused)), void *info) {
-    clock_item_t *clock_item = (clock_item_t *) info;
+    clock_item_t *clock_item = (clock_item_t *)info;
 
     time_t current_time;
     time(&current_time);
     char buffer[TIME_BUFFER_SIZE];
-    strftime(buffer, TIME_BUFFER_SIZE, clock_item->item_format, localtime(&current_time));
+    strftime(buffer,
+             TIME_BUFFER_SIZE,
+             clock_item->item_format,
+             localtime(&current_time));
 
     // Use stack allocation instead of malloc for better performance
     char message[TIME_BUFFER_SIZE + MESSAGE_EXTRA_SIZE];
-    snprintf(message, sizeof(message), "--set %s label=\"%s\"", clock_item->item_name, buffer);
+    snprintf(message,
+             sizeof(message),
+             "--set %s label=\"%s\"",
+             clock_item->item_name,
+             buffer);
     sketchybar(message);
 }
 
@@ -79,18 +88,21 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Memory allocation failed\n");
         return 1;
     }
-    *clock_item = (clock_item_t) {.item_name = argv[1], .item_format = argv[2]};
+    *clock_item
+        = (clock_item_t) { .item_name = argv[1], .item_format = argv[2] };
 
     // Setup timer context with the clock_item as user data
-    CFRunLoopTimerContext ctx = {.version = 0,
-                                 .info = (void *) clock_item,
-                                 .retain = NULL,  // if you were passing a CF type you'd use CFRetain
-                                 .release = NULL, // and CFRelease here
-                                 .copyDescription = NULL};
+    CFRunLoopTimerContext ctx
+        = { .version = 0,
+            .info    = (void *)clock_item,
+            .retain  = NULL, // if you were passing a CF type you'd use CFRetain
+            .release = NULL, // and CFRelease here
+            .copyDescription = NULL };
 
     // Create timer that fires after 1 second, then every 1 second thereafter
-    CFAbsoluteTime start_time = CFAbsoluteTimeGetCurrent() + 1.0;
-    CFRunLoopTimerRef timer = CFRunLoopTimerCreate(kCFAllocatorDefault, start_time, 1.0, 0, 0, callback, &ctx);
+    CFAbsoluteTime    start_time = CFAbsoluteTimeGetCurrent() + 1.0;
+    CFRunLoopTimerRef timer      = CFRunLoopTimerCreate(
+        kCFAllocatorDefault, start_time, 1.0, 0, 0, callback, &ctx);
 
     if (!timer) {
         fprintf(stderr, "Failed to create timer\n");

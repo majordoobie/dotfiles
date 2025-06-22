@@ -24,6 +24,7 @@ set -g set-titles off          # set terminal title
 set -g status-position bottom
 
 
+
 # never let applications or tmux itself rename our windows
 set -g allow-rename off
 setw -g automatic-rename off

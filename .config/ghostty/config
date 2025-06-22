@@ -3,7 +3,8 @@ keybind = super+shift+comma=reload_config
 
 # Themeing
 theme = "catppuccin-mocha"
-font-size = 20
+# 19 is the sweet spot to not get a gap in the bottom of the tmux bar
+font-size = 19
 font-family = "JetBrainsMono Nerd Font"
 mouse-hide-while-typing = true
 background-opacity = .93
@@ -25,6 +26,3 @@ confirm-close-surface = false
 # clipboard settings
 clipboard-read = allow
 copy-on-select = true
-
-
-

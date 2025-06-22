@@ -343,14 +343,14 @@ static bool mach_server_begin(struct mach_server *mach_server,
 
     mach_server->handler    = handler;
     mach_server->is_running = true;
-    debug_print("Successfully init mach service for %s. Starting loop...",
-                bootstrap_name);
+    debug_print("Successfully Mach port service for '%s'\n", bootstrap_name);
 
     struct mach_buffer buffer;
     while (mach_server->is_running) {
-        debug_print("%s", "Listening for message...");
+        debug_print("%s", "Listening for message...\n");
         mach_receive_message(mach_server->port, &buffer, false);
         if (buffer.message.descriptor.address) {
+            debug_print("%s", "Message received, calling handler...\n");
             mach_server->handler((char *)buffer.message.descriptor.address);
         }
         mach_msg_destroy(&buffer.message.header);

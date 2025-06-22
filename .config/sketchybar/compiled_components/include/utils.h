@@ -9,7 +9,7 @@
  * that are meant to be private.
  */
 #ifdef NDEBUG
-#define DEBUG_PRINT 0
+#define DEBUG_PRINT  0
 #define DEBUG_STATIC static
 #else
 #define DEBUG_PRINT 1
@@ -28,14 +28,19 @@
  * The debug_print_err adds the file and line number to the output for more
  * information when wanting to debug.
  */
-#define debug_print_err(fmt, ...)                                                                                      \
-    do {                                                                                                               \
-        if (DEBUG_PRINT)                                                                                               \
-            fprintf(stderr, "%s:%d:%s(): " fmt, __FILE__, __LINE__, __func__, __VA_ARGS__);                            \
+#define debug_print_err(fmt, ...)       \
+    do {                                \
+        if (DEBUG_PRINT)                \
+            fprintf(stderr,             \
+                    "%s:%d:%s(): " fmt, \
+                    __FILE__,           \
+                    __LINE__,           \
+                    __func__,           \
+                    __VA_ARGS__);       \
     } while (0)
 
-#define debug_print(fmt, ...)                                                                                          \
-    do {                                                                                                               \
-        if (DEBUG_PRINT)                                                                                               \
-            fprintf(stderr, fmt, __VA_ARGS__);                                                                         \
+#define debug_print(fmt, ...)                  \
+    do {                                       \
+        if (DEBUG_PRINT)                       \
+            fprintf(stderr, fmt, __VA_ARGS__); \
     } while (0)
