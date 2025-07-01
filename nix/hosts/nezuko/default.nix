@@ -14,7 +14,7 @@
 {
   imports = [
     ../../modules/touchid.nix
-    ../../modules/aerospaceconfig.nix
+    ../../modules/aerospaceConfig.nix
     # ../../modules/sketchybarconfig.nix
     ../../modules/development_config/c.nix
     ../../modules/development_config/docker.nix

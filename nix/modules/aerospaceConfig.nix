@@ -188,7 +188,6 @@
           check-further-callbacks = true;
           "if" = {
             app-id = "company.thebrowser.Browser";
-            during-aerospace-startup = true;
           };
           run = [ "move-node-to-workspace 1" ];
         }

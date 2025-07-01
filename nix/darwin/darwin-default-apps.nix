@@ -55,6 +55,7 @@
     eza
 
     _1password-cli
+    nh # nix manager
   ];
 
   homebrew = {
