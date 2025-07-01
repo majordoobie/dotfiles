@@ -52,4 +52,11 @@ sketchybar --add item cpu.top right \
     --set cpu.sys "${cpu_sys[@]}" \
     \
     --add graph cpu.user right 75 \
-    --set cpu.user "${cpu_user[@]}"
+    --set cpu.user "${cpu_user[@]}" \
+    \
+    --add bracket cpu_bracket cpu.top cpu.percent cpu.sys cpu.user \
+    --set cpu_bracket background.color="${LABEL_COLOR_NEGATIVE}" \
+    background.corner_radius=20 \
+    background.height=32 \
+    background.padding_left=6 \
+    background.padding_right=6

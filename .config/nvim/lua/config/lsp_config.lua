@@ -7,6 +7,7 @@ vim.lsp.config("*", {
 
 -- Enables languages in ../lsp/
 vim.lsp.enable({
+	"asm",
 	"bash",
 	"clangd",
 	"cmake",
@@ -18,7 +19,6 @@ vim.lsp.enable({
 	"pyright",
 	"robotframework",
 	"yaml",
-	"asm",
 })
 
 -- [[
@@ -62,6 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Builtin
 		map("<leader>er", vim.lsp.buf.rename, "rename")
 		map("K", vim.lsp.buf.hover, "show docs")
+
 		map("D", function()
 			local virt_line_setting = vim.diagnostic.config().virtual_lines
 			if virt_line_setting == false or virt_line_setting.current_line == false then
@@ -70,19 +71,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				vim.diagnostic.config({ virtual_lines = false })
 			end
 		end, "Toggle virtual lines")
+
 		map("<leader>jl", function()
 			vim.diagnostic.jump({ count = 1, float = true })
 		end, "Goto next diagnostic")
 		map("<leader>jh", function()
 			vim.diagnostic.jump({ count = -1, float = true })
 		end, "Goto prev diagnostic")
+		map("<leader>vd", function()
+			vim.diagnostic.open_float()
+		end, "View diagnostic popup")
+
 		map("<leader>ee", vim.lsp.buf.code_action, "show code actions")
-		map("<leader>jd", vim.lsp.buf.definition, "jump to definition")
 
 		--
 		-- telescope LSP functions
 		--
 		local telescope = require("telescope.builtin")
+		map("<leader>jd", telescope.lsp_definitions, "jump to definition")
 		map("<leader>je", telescope.diagnostics, "view all diagnostic messages in the current buffer")
 		map("<leader>jS", telescope.lsp_document_symbols, "View ALL symbols in the current file")
 		map("<leader>jA", telescope.lsp_workspace_symbols, "View ALL symbols across project")

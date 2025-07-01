@@ -15,10 +15,17 @@ vim.keymap.set("v", "<leader>p", '"+p') -- Paste from global buffer
 vim.keymap.set("n", "<leader>y", '"+y') -- Copy into global buffer
 vim.keymap.set("v", "<leader>y", '"+y') -- Copy into global buffer
 
+-- Make delete not yank to buffer (use black hole register)
+vim.keymap.set("n", "d", '"_d') -- Delete without affecting buffer
+vim.keymap.set("v", "d", '"_d') -- Delete without affecting buffer
+vim.keymap.set("n", "D", '"_D') -- Delete to end of line without affecting buffer
+vim.keymap.set("n", "dd", '"_dd') -- Delete line without affecting buffer
+
 vim.keymap.set("n", "<leader>d", '"_d') -- Delete without affecting the unamged buffer
 vim.keymap.set("v", "<leader>d", '"_d') -- Delete without affecting the unamed buffer
 
 vim.keymap.set("x", "<leader>p", '"_dP') -- Delete without affecting buffer then paste
+vim.keymap.set("x", "p", '"_dP') -- Delete without affecting buffer then paste
 
 vim.keymap.set("n", "x", '"_x') -- Delete without affecting the unamged buffer
 vim.keymap.set("v", "x", '"_x') -- Delete without affecting the unamed buffer
@@ -43,7 +50,7 @@ vim.keymap.set("n", "<CR>", ":noh<CR><CR>")
 -- window management
 vim.keymap.set("n", "<leader>_", "<C-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "Split window horizontally" })
-vim.keymap.set("n", "<leader>x", ":close<CR>", { desc = "Close current split" })
+vim.keymap.set("n", "<leader>q", ":close<CR>", { desc = "Close current split" })
 
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close current tab" }) -- close current tab

@@ -26,8 +26,8 @@ set -g status-position bottom
 
 
 # never let applications or tmux itself rename our windows
-set -g allow-rename off
-setw -g automatic-rename off
+set -g allow-rename on
+setw -g automatic-rename on
 set -g renumber-windows on    # renumber windows when a window is closed
 
 
