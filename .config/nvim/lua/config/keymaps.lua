@@ -17,7 +17,6 @@ vim.keymap.set("v", "<leader>y", '"+y') -- Copy into global buffer
 
 -- Make delete not yank to buffer (use black hole register)
 vim.keymap.set("n", "d", '"_d') -- Delete without affecting buffer
-vim.keymap.set("v", "d", '"_d') -- Delete without affecting buffer
 vim.keymap.set("n", "D", '"_D') -- Delete to end of line without affecting buffer
 vim.keymap.set("n", "dd", '"_dd') -- Delete line without affecting buffer
 

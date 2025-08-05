@@ -29,7 +29,7 @@
       gaps = {
         outer.top = [
           { monitor."built-in" = 0; }
-          30
+          0
         ];
         outer.bottom = 0;
         outer.left = 0;
@@ -81,6 +81,11 @@
         alt-a = "workspace A"; # built-in monitor
         alt-m = "workspace M"; # music
         alt-f = "fullscreen";
+
+        alt-shift-0 = [
+          "move-node-to-workspace C"
+          "workspace C"
+        ];
 
         alt-shift-1 = [
           "move-node-to-workspace 1"

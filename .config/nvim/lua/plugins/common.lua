@@ -37,25 +37,4 @@ return {
 		},
 	},
 
-	{
-		-- [[
-		-- Render markdown so that it is prettier to look at
-		-- ]]
-		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-		opts = {
-      render_modes = true,
-			completions = { blink = { enabled = true }, lsp = { enabled = true } },
-			heading = {
-				border = true,
-				border_virtual = true,
-				sign = true,
-				position = "inline",
-				width = "full",
-			},
-		},
-	},
 }

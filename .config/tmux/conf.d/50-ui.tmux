@@ -8,7 +8,7 @@ set -g @catppuccin_pane_active_border_style "##{?pane_in_mode,fg=#{@thm_lavender
 # Window options
 set -g @catppuccin_window_status_style "rounded"
 set -g @catppuccin_window_text " #W"
-set -g @catppuccin_window_current_number_color "#{@thm_mauve}"
+set -g @catppuccin_window_current_number_color "#{@thm_peach}"
 set -g @catppuccin_window_current_text " #W"
 set -g @catppuccin_window_flags "icon"
 

@@ -54,6 +54,18 @@ return {
 		image = { enable = true },
 
 		animate = { enable = true },
+
+		terminal = {
+			win = {
+				width = 0.95,
+				height = 0.95,
+        position = "float",
+        border = "rounded",
+			},
+			interactive = true,
+			shell = "fish",
+		},
+
 		-- Disable LSP when files are huge
 		bigfile = { enable = true },
 
@@ -152,7 +164,7 @@ return {
 					title = "Git Status",
 					enabled = vim.fn.isdirectory(".git") == 1,
 					-- cmd = 'hub diff --stat -B -M -C',
-					cmd = "hub status --short --branch --renames",
+					cmd = "git status --short --branch",
 					height = 8,
 					padding = 0,
 					indent = 2,

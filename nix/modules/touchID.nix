@@ -27,15 +27,25 @@ let
       file = "/etc/pam.d/sudo";
       option = "security.pam.enableSudoTouchId";
       sed = "${pkgs.gnused}/bin/sed";
+      symlinkPath = "/usr/local/lib/pam/pam_reattach.so";
     in
     ''
       ${
         if isEnabled then
           ''
+            # Create symlink directory if it doesn't exist
+            mkdir -p /usr/local/lib/pam
+            
+            # Update symlink to current pam_reattach.so
+            if [[ -L "${symlinkPath}" ]]; then
+              rm "${symlinkPath}"
+            fi
+            ln -sf "${pkgs.pam-reattach}/lib/pam/pam_reattach.so" "${symlinkPath}"
+            
             # Enable sudo Touch ID authentication, if not already enabled
             if ! grep '${option}' ${file} > /dev/null; then
               ${sed} -i '2i\
-            auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so # nix-darwin: ${option}\
+            auth       optional       ${symlinkPath} # nix-darwin: ${option}\
             auth       sufficient     pam_tid.so # nix-darwin: ${option}
               ' ${file}
             fi
@@ -45,6 +55,11 @@ let
             # Disable sudo Touch ID authentication, if added by nix-darwin
             if grep '${option}' ${file} > /dev/null; then
               ${sed} -i '/${option}/d' ${file}
+            fi
+            
+            # Remove symlink if it exists
+            if [[ -L "${symlinkPath}" ]]; then
+              rm "${symlinkPath}"
             fi
           ''
       }

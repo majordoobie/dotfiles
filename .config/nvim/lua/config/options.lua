@@ -8,8 +8,8 @@ vim.g.loaded_perl_provider = 0 -- Do not load Perl
 
 vim.cmd("let g:netrw_liststyle = 3")
 
--- Trying to see if this fixes my env issues when using toggleterm
-vim.opt.shell = "/bin/zsh"
+-- Set shell to fish for better integration
+vim.opt.shell = "fish"
 
 -- line numbers
 vim.opt.relativenumber = true -- show relative line numbers

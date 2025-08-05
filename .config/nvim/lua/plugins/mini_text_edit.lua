@@ -48,6 +48,14 @@ return {
 					suffix_last = "l", -- Suffix to search with "prev" method
 					suffix_next = "n", -- Suffix to search with "next" method
 				},
+				custom_surroundings = {
+					["["] = { output = { left = "[", right = "]" } },
+					["]"] = { output = { left = "[", right = "]" } },
+					["("] = { output = { left = "(", right = ")" } },
+					[")"] = { output = { left = "(", right = ")" } },
+					["{"] = { output = { left = "{", right = "}" } },
+					["}"] = { output = { left = "{", right = "}" } },
+				},
 			})
 
 			-- [[

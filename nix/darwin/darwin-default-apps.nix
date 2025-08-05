@@ -8,12 +8,9 @@
   pkgs,
   lib,
   config,
-  specialArgs,
   inputs,
-  modulesPath,
-  options,
   vars,
-  _class,
+  ...
 }:
 
 {
@@ -53,6 +50,10 @@
     fzf
     starship
     eza
+    bat
+    man
+
+
 
     _1password-cli
     nh # nix manager

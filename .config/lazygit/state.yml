@@ -1,9 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/nezuko/dotfiles
     - /Users/nezuko/code/active_projects/gitlab_repo_update
+    - /Users/nezuko/dotfiles
 startuppopupversion: 5
-lastversion: 0.52.0
+lastversion: 0.53.0
 customcommandshistory:
     - q
 hidecommandlog: false

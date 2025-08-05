@@ -7,6 +7,7 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
+      # source Tree
       starship init fish | source
       fzf --fish | source
       zoxide init fish | source
@@ -21,6 +22,24 @@
 
       function tree
         eza -T $argv
+      end
+
+      function cat
+        bat $argv
+      end
+
+      function mk
+        mkdir -p $argv[1]; and cd $argv[1]
+      end
+
+      function cp
+        # Copy current path to clipboard
+        pwd | pbcopy
+      end
+
+      function cf
+        # Copy file path to clipboard
+        realpath $argv[1] | pbcopy
       end
 
       alias ll 'eza -la --group-directories-first'

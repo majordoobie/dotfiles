@@ -3,12 +3,9 @@
   pkgs,
   lib,
   config,
-  specialArgs,
   inputs,
-  modulesPath,
-  options,
   vars,
-  _class,
+  ...
 }:
 {
 
@@ -17,6 +14,11 @@
   networking = {
     computerName = "${vars.user}";
     hostName = "${vars.user}";
+    applicationFirewall = {
+      enable = true;
+      enableStealthMode = true;
+    };
+
   };
 
   system = {
@@ -106,15 +108,6 @@
       WindowManager = {
         StandardHideDesktopIcons = true;
         StandardHideWidgets = true;
-      };
-
-      # firewall
-      alf = {
-        # Block all incoming connections unless essential
-        globalstate = 3;
-        loggingenabled = 1;
-        stealthenabled = 1;
-
       };
 
       controlcenter = {

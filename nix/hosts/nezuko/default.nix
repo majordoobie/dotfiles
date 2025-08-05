@@ -1,15 +1,10 @@
 {
-  _class,
   config,
   inputs,
   lib,
-  modulesPath,
-  nix-darwin,
-  nixpkgs,
-  options,
   pkgs,
-  specialArgs,
   vars,
+  ...
 }:
 {
   imports = [
@@ -86,6 +81,13 @@
     fd
 
     claude-code
+    gemini-cli
+
+    # Obsidean in neovim plugs
+    imagemagick
+    ghostscript
+    mermaid-cli
+    tectonic
   ];
 
 }
