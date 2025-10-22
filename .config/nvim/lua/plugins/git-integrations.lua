@@ -1,3 +1,90 @@
+--[[
+=================================================================================================
+NVIMDIFF REFERENCE & CONFIGURATION
+=================================================================================================
+
+Git Configuration (run these commands in your terminal):
+---------------------------------------------------------
+git config --global merge.tool nvimdiff
+git config --global mergetool.nvimdiff.layout "(LOCAL,BASE,REMOTE) / MERGED"
+git config --global mergetool.prompt false
+git config --global diff.tool nvimdiff
+git config --global difftool.nvimdiff.cmd 'nvim -d "$LOCAL" "$REMOTE"'
+
+
+Usage:
+------
+git mergetool                    # Open nvimdiff for merge conflicts
+git difftool                     # Compare uncommitted changes with HEAD
+git difftool HEAD~1              # Compare with previous commit
+nvim -d file1.txt file2.txt      # Compare two files directly
+
+
+During Merge Conflict (4 windows):
+-----------------------------------
+┌─────────────┬─────────────┬─────────────┐
+│   LOCAL     │    BASE     │   REMOTE    │
+│ (your code) │ (ancestor)  │ (their code)│
+├─────────────┴─────────────┴─────────────┤
+│              MERGED                      │
+│         (result you're editing)          │
+└──────────────────────────────────────────┘
+
+
+Essential Keybindings (in diff mode):
+--------------------------------------
+]c                  → Jump to next change
+[c                  → Jump to previous change
+do                  → Diff obtain (get changes from other window)
+dp                  → Diff put (put changes to other window)
+:diffget LOCAL      → Get changes from LOCAL window
+:diffget REMOTE     → Get changes from REMOTE window
+:diffget BASE       → Get changes from BASE window
+:diffupdate         → Recalculate diffs
+zo                  → Open fold
+zc                  → Close fold
+:wqa                → Write all and quit
+:cq                 → Quit and abort merge
+
+
+Advanced Commands:
+------------------
+:diffthis           → Make current window part of diff
+:diffoff            → Turn off diff mode
+:set diffopt+=iwhite → Ignore whitespace in diffs
+Ctrl-w Ctrl-w       → Switch between windows
+Ctrl-w =            → Equalize window sizes
+
+
+Workflows:
+----------
+# Compare local file with remote branch
+nvim -d myfile.py <(git show origin/main:myfile.py)
+
+# Compare with specific commit
+nvim -d myfile.py <(git show abc123:myfile.py)
+
+# Compare current file with HEAD
+nvim -d myfile.py <(git show HEAD:myfile.py)
+
+=================================================================================================
+--]]
+
+-- Recommended diff mode settings
+vim.opt.diffopt:append("vertical") -- Always use vertical splits for diffs
+vim.opt.diffopt:append("internal") -- Use Neovim's internal diff library
+vim.opt.diffopt:append("filler") -- Show filler lines for deleted content
+vim.opt.diffopt:append("closeoff") -- Turn off diff mode when only one window remains
+vim.opt.diffopt:append("algorithm:histogram") -- Use better diff algorithm
+
+-- Optional: Improve diff mode highlights (uncomment if you want custom colors)
+-- vim.cmd([[
+--   highlight DiffAdd    guifg=#00ff00 guibg=#005500
+--   highlight DiffChange guifg=#cccccc guibg=#555500
+--   highlight DiffDelete guifg=#ff0000 guibg=#550000
+--   highlight DiffText   guifg=#ffff00 guibg=#888800
+-- ]])
+
 return {
 	{
 		--[[
@@ -50,8 +137,6 @@ return {
 
 			-- Git diff commands
 			vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>")
-			vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory %<CR>", { desc = "View history of file" })
-			vim.keymap.set("n", "<leader>gH", ":DiffviewFileHistory<CR>", { desc = "View history of branch" })
 		end,
 	},
 	{

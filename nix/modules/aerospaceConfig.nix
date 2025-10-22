@@ -20,11 +20,11 @@
       on-focus-changed = [ "move-mouse window-lazy-center" ];
 
       # Notify Sketchybar about workspace change
-      exec-on-workspace-change = [
-        "/bin/bash"
-        "-c"
-        "sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
-      ];
+      # exec-on-workspace-change = [
+      #   "/bin/bash"
+      #   "-c"
+      #   "sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+      # ];
 
       gaps = {
         outer.top = [
@@ -130,7 +130,7 @@
         ];
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-        alt-tab = "workspace-back-and-forth";
+        # alt-tab = "workspace-back-and-forth";
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
@@ -189,6 +189,11 @@
         #
         # Aerospace Startup
         #
+        {
+          check-further-callbacks = true;
+          "if".app-id = "com.microsoft.edgemac";
+          run = [ "move-node-to-workspace 1" ];
+        }
         {
           check-further-callbacks = true;
           "if" = {

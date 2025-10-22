@@ -4,7 +4,7 @@ set -s set-clipboard off
 
 # based on os, set the copy-command to an external binary
 if-shell 'grep -qi microsoft /proc/version' {
-  set -s copy-command "clip.exe"
+  set -s copy-command "iconv -f utf-8 -t utf-16le | /mnt/c/WINDOWS/system32/clip.exe"
 } {
   if-shell 'uname | grep -q Darwin' {
     set -s copy-command "pbcopy"

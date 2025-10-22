@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     # python language
-    python3Full
+    python3
     pipx
 
     # LSP

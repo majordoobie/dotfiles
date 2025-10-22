@@ -1,0 +1,38 @@
+# Maximum line length for code (modern standard, more readable than PEP8's 79)
+line-length = 120
+
+# Target Python version - ensures rules are appropriate for your Python version
+# Update this to match your actual Python version (e.g., "py312" for Python 3.12)
+target-version = "py310"
+
+# Linters to enable - Full list available via `ruff linter`
+lint.select = [
+    "A",      # flake8-builtins: Prevents shadowing Python builtins (e.g., naming a variable 'list')
+    "ASYNC",  # flake8-async: Catches common async/await mistakes and bad practices
+    "B",      # flake8-bugbear: Finds likely bugs and design problems
+    "E",      # pycodestyle errors: PEP 8 style errors (indentation, whitespace, etc.)
+    "F",      # pyflakes: Detects unused imports, undefined names, etc.
+    "I",      # isort: Organizes and sorts imports alphabetically
+    "N",      # pep8-naming: Enforces PEP 8 naming conventions (snake_case, CamelCase, etc.)
+    "PYI",    # flake8-pyi: Checks for issues in type stub files (.pyi)
+    "Q",      # flake8-quotes: Enforces consistent quote style (single vs double quotes)
+    "RUF",    # Ruff-specific rules: Custom rules unique to Ruff
+    "SIM",    # flake8-simplify: Suggests simpler alternatives for complex code patterns
+    "TCH",    # flake8-type-checking: Optimizes type-checking imports (moves runtime imports to TYPE_CHECKING)
+    "UP",     # pyupgrade: Modernizes code to use newer Python syntax (e.g., f-strings, type hints)
+    "W",      # pycodestyle warnings: PEP 8 style warnings (less severe than errors)
+    "YTT",    # flake8-2020: Prevents misuse of sys.version or sys.version_info
+    #"PIE",   # flake8-pie: Additional performance and error-prone code checks
+    #"PL",    # Pylint: Comprehensive linting (can be verbose, enable if you want strict checks)
+    #"PTH",   # flake8-pathlib: Enforces using pathlib instead of os.path
+]
+
+# Rules to ignore - customize based on your preferences
+lint.ignore = [
+    "E501",  # Line too long: Let the formatter handle line length instead of erroring
+]
+
+# Formatting configuration
+[format]
+quote-style = "double"      # Use double quotes for strings (change to "single" if preferred)
+indent-style = "space"      # Use spaces for indentation (standard Python convention)

@@ -59,8 +59,11 @@ map <Space>x :close<CR>
 " Quick Switcher++ commands
 exmap qs_standard obcommand darlal-switcher-plus:switcher-plus:open
 exmap qs_symbols obcommand darlal-switcher-plus:switcher-plus:open-symbols
+exmap omni obcommand omnisearch:show-modal
+
 
 " File search mappings (Neovim-like)
 map <Space>sf :qs_standard<CR>
+map <Space>sg :omni<CR>
 map <Space>js :qs_symbols<CR>
 

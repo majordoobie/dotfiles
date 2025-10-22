@@ -18,6 +18,7 @@ vim.lsp.enable({
 	"nix",
 	"pyright",
 	"robotframework",
+	"ruff",
 	"yaml",
 })
 
@@ -89,12 +90,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		--
 		local telescope = require("telescope.builtin")
 		map("<leader>jd", telescope.lsp_definitions, "jump to definition")
-		map("<leader>je", telescope.diagnostics, "view all diagnostic messages in the current buffer")
+		map("<leader>jE", telescope.diagnostics, "view all diagnostic messages on all buffers")
 		map("<leader>jS", telescope.lsp_document_symbols, "View ALL symbols in the current file")
 		map("<leader>jA", telescope.lsp_workspace_symbols, "View ALL symbols across project")
 		map("<leader>jr", telescope.lsp_references, "View all the references")
 		map("<leader>ji", telescope.lsp_incoming_calls, "View all incoming calls")
 		map("<leader>jD", telescope.lsp_implementations, "Jump to implementation")
+
+		map("<leader>je", function()
+			telescope.diagnostics({ bufnr = 0 })
+		end, "view all diagnostic messages in the current buffer")
+
 		map("<leader>js", function()
 			telescope.lsp_document_symbols({ symbols = { "function", "method", "struct", "enum" } })
 		end, "View symbols")

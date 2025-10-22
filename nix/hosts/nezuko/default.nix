@@ -24,7 +24,6 @@
   system.defaults = {
     dock = {
       persistent-apps = [
-        "/Applications/Zen.app/"
         "/Applications/Arc.app/"
         "/Applications/Ghostty.app"
         "/System/Applications/iPhone Mirroring.app"
@@ -64,6 +63,7 @@
       "stats"
       "vnc-viewer"
       "zen"
+      "wireshark-app"
     ];
 
   };
@@ -75,10 +75,11 @@
 
     # tui
     yq
-    wifi-password
     fastfetch
     direnv
     fd
+    ncdu
+    uv
 
     claude-code
     gemini-cli
@@ -88,6 +89,9 @@
     ghostscript
     mermaid-cli
     tectonic
+
+    # gui
+    # steam
   ];
 
 }

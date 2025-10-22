@@ -8,145 +8,130 @@ return {
 		-- [[  Extensions ]]
 		-- Allows passing args to ripgrep
 		"nvim-telescope/telescope-live-grep-args.nvim",
+		-- undo tree
+		"debugloop/telescope-undo.nvim",
 
 		-- Makes searching faster
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	config = function()
+		-- ============================================================================
+		-- SETUP
+		-- ============================================================================
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
-
 		local lga_actions = require("telescope-live-grep-args.actions")
+		local undo_actions = require("telescope-undo.actions")
 
-		-- Dynamic layout function
+		-- Dynamic layout: vertical for wide screens, horizontal for narrow
+		-- Screen dimensions: MacBook Pro (131x36), External Monitor (222x54)
 		local function get_dynamic_layout()
 			if vim.o.columns >= 200 then
 				return {
 					layout_strategy = "vertical",
-					layout_config = {
-						height = 0.95,
-						width = 0.95,
-						preview_height = 0.6,
-					},
+					layout_config = { height = 0.95, width = 0.95, preview_height = 0.6 },
 				}
 			else
 				return {
 					layout_strategy = "horizontal",
-					layout_config = {
-						height = 0.95,
-						width = 0.95,
-						preview_width = 0.55,
-					},
+					layout_config = { height = 0.95, width = 0.95, preview_width = 0.55 },
 				}
 			end
 		end
 
+		-- ============================================================================
+		-- TELESCOPE CONFIGURATION
+		-- ============================================================================
 		telescope.setup({
-			-- 131; 36 -- macbook pro dimensions
-			-- 222; 54 -- external monitor dimensions
-
 			defaults = {
 				path_display = { "absolute" },
 			},
-
 			extensions = {
+				undo = {
+					mappings = {
+						i = {
+							["<cr>"] = undo_actions.yank_additions,
+							["<S-cr>"] = undo_actions.yank_deletions,
+							["<C-cr>"] = undo_actions.restore,
+							["<C-y>"] = undo_actions.yank_deletions,
+							["<C-r>"] = undo_actions.restore,
+						},
+						n = {
+							["y"] = undo_actions.yank_additions,
+							["Y"] = undo_actions.yank_deletions,
+							["u"] = undo_actions.restore,
+						},
+					},
+				},
 				live_grep_args = {
 					auto_quoting = true,
 					mappings = {
 						i = {
 							["C-k>"] = lga_actions.quote_prompt(),
 							["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-							-- freeze the current list and start a fuzzy search in the frozen list
 							["<C-space>"] = lga_actions.to_fuzzy_refine,
 						},
 					},
 				},
-
 				fzf = {
 					case_mode = "smart_case",
 				},
 			},
 		})
 
-		-- enable extensions
-		telescope.load_extension("fzf") -- loads telescope-fzf-native.nvim
+		-- Load extensions
+		telescope.load_extension("fzf")
 		telescope.load_extension("live_grep_args")
+		telescope.load_extension("undo")
 
+		-- ============================================================================
+		-- DYNAMIC LAYOUT WRAPPER
+		-- ============================================================================
 		local lga_shortcuts = require("telescope-live-grep-args.shortcuts")
 		local live_grep = telescope.extensions.live_grep_args
 
-		-- Wrap all builtin functions to use dynamic layout
-		local original_builtin = {}
-		for name, func in pairs(builtin) do
-			original_builtin[name] = func
-			builtin[name] = function(opts)
-				opts = vim.tbl_deep_extend("force", get_dynamic_layout(), opts or {})
-				return original_builtin[name](opts)
+		local function wrap_with_dynamic_layout(tbl)
+			local original = {}
+			for name, func in pairs(tbl) do
+				if type(func) == "function" then
+					original[name] = func
+					tbl[name] = function(opts)
+						opts = vim.tbl_deep_extend("force", get_dynamic_layout(), opts or {})
+						return original[name](opts)
+					end
+				end
 			end
 		end
 
-		-- Wrap lga_shortcuts functions
-		local original_lga_shortcuts = {}
-		for name, func in pairs(lga_shortcuts) do
-			original_lga_shortcuts[name] = func
-			lga_shortcuts[name] = function(opts)
-				opts = vim.tbl_deep_extend("force", get_dynamic_layout(), opts or {})
-				return original_lga_shortcuts[name](opts)
-			end
-		end
+		wrap_with_dynamic_layout(builtin)
+		wrap_with_dynamic_layout(lga_shortcuts)
+		wrap_with_dynamic_layout(live_grep)
+		wrap_with_dynamic_layout(telescope.extensions.undo)
 
-		-- Wrap live_grep extension functions
-		local original_live_grep = {}
-		for name, func in pairs(live_grep) do
-			original_live_grep[name] = func
-			live_grep[name] = function(opts)
-				opts = vim.tbl_deep_extend("force", get_dynamic_layout(), opts or {})
-				return original_live_grep[name](opts)
-			end
-		end
+		-- ============================================================================
+		-- KEYMAPS
+		-- ============================================================================
+		local map = vim.keymap.set
 
-		--
-		-- Searching with <leader>s
-		--
+		-- Undo tree
+		map("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Undo tree" })
 
-		-- File search commands
-		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search for files within the CWD" })
-		vim.keymap.set("n", "<leader>sf", function()
+		-- File search
+		map("n", "<leader>sf", function()
 			builtin.find_files({ glob_pattern = "!.git/", no_ignore = true, no_parent_ignore = true })
-		end, { desc = "Search for any file ignoring rules" })
+		end, { desc = "Search all files (ignore .gitignore)" })
 
 		-- Grep commands
-		vim.keymap.set("n", "<leader>sg", live_grep.live_grep_args, { desc = "Enter live grep mode" })
-
-		vim.keymap.set(
-			"n",
-			"<leader>sG",
-			lga_shortcuts.grep_word_under_cursor,
-			{ desc = "Live grep for item under cursor" }
-		)
-		vim.keymap.set("v", "<leader>sg", lga_shortcuts.grep_visual_selection, { desc = "Live grep visual selection" })
+		map("n", "<leader>sg", live_grep.live_grep_args, { desc = "Live grep with args" })
+		map("n", "<leader>sG", lga_shortcuts.grep_word_under_cursor, { desc = "Grep word under cursor" })
+		map("v", "<leader>sg", lga_shortcuts.grep_visual_selection, { desc = "Grep visual selection" })
 
 		-- Utilities
-		vim.keymap.set("n", "<C-f>", builtin.current_buffer_fuzzy_find, { desc = "ctrl + f" })
-		vim.keymap.set(
-			"n",
-			"<leader>sm",
-			":Telescope man_pages sections={'ALL'}<CR>",
-			{ desc = "Search for man pages" }
-		)
-		vim.keymap.set(
-			"n",
-			"<leader>sc",
-			builtin.spell_suggest,
-			{ desc = "Check for the correct spelling under cursor" }
-		)
-		vim.keymap.set("n", "<leader>sa", builtin.builtin, { desc = "Display all Telescope options" })
-		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "View all keymaps made" })
-		vim.keymap.set("n", "<leader>ss", builtin.keymaps, { desc = "Resume" })
-
-		-- Debug command to check window dimensions
-		vim.keymap.set("n", "<leader>sd", function()
-			print("Columns: " .. vim.o.columns .. ", Lines: " .. vim.o.lines)
-		end, { desc = "Debug window dimensions" })
+		map("n", "<C-f>", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find in current buffer" })
+		map("n", "<leader>sm", builtin.man_pages, { desc = "Search man pages" })
+		map("n", "<leader>sc", builtin.spell_suggest, { desc = "Spelling suggestions" })
+		map("n", "<leader>sa", builtin.builtin, { desc = "All Telescope pickers" })
+		map("n", "<leader>sk", builtin.keymaps, { desc = "Search keymaps" })
+		map("n", "<leader>ss", builtin.resume, { desc = "Resume last picker" })
 	end,
 }

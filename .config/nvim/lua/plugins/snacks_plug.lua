@@ -59,8 +59,8 @@ return {
 			win = {
 				width = 0.95,
 				height = 0.95,
-        position = "float",
-        border = "rounded",
+				position = "float",
+				border = "rounded",
 			},
 			interactive = true,
 			shell = "fish",
@@ -119,7 +119,7 @@ return {
 				relative = "cursor",
 			},
 			zen = {
-				width = 180,
+				width = 120,
 			},
 		},
 

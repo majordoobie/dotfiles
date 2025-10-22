@@ -2,12 +2,13 @@
 keybind = super+shift+comma=reload_config
 
 # Themeing
-theme = "catppuccin-mocha"
+theme = Catppuccin Mocha
+# theme = "catppuccin-mocha"
 # 19 is the sweet spot to not get a gap in the bottom of the tmux bar
 font-size = 19
 font-family = "JetBrainsMono Nerd Font"
 mouse-hide-while-typing = true
-# background-opacity = .93
+background-opacity = .96
 macos-titlebar-style = hidden
 macos-window-shadow = false
 bold-is-bright = true

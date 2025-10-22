@@ -3,8 +3,7 @@ Lua:
     cargo install stylua
 
 Python:
-    pip install black
-    pip install isort
+    pip install ruff
 
 C/C++:
     c/cpp (needs clangd, clang-tidy, and clang-check)
@@ -35,14 +34,21 @@ markdown:
 
 return {
 	"stevearc/conform.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "bufreadpre", "bufnewfile" },
 	config = function()
 		local conform = require("conform")
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- Conform will run multiple formatters sequentially
-				python = { "ruff" },
+				-- conform will run multiple formatters sequentially
+				python = {
+					-- To fix auto-fixable lint errors.
+					"ruff_fix",
+					-- To run the Ruff formatter.
+					"ruff_format",
+					-- To organize the imports.
+					"ruff_organize_imports",
+				},
 				nix = { "nixfmt" },
 				bash = { "shfmt" },
 				sh = { "shfmt" },
@@ -55,7 +61,7 @@ return {
 			},
 			clang_format = {
 				-- fallback to llvm style if not .clang-format file is found
-				prepend_args = { "--style=file", "--fallback-style=LLVM" },
+				prepend_args = { "--style=file", "--fallback-style=llvm" },
 			},
 
 			notify_on_error = true,
@@ -64,9 +70,6 @@ return {
 				lsp_format = "fallback",
 			},
 		})
-		vim.keymap.set({ "n", "v" }, "<leader>ef", function()
-			conform.format()
-			vim.notify("File formatted successfully!", vim.log.levels.INFO)
-		end, { desc = "Format File" })
+		vim.keymap.set({ "n", "v" }, "<leader>ef", conform.format, { desc = "format file" })
 	end,
 }

@@ -1,0 +1,14 @@
+[user]
+	email = username@users.noreply.github.com
+	name = doobie
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN30BTScVFkFUAGPcyA0mPqzA96n+sl4CVZLSJ/1KL+H
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"

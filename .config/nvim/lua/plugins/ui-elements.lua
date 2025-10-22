@@ -60,7 +60,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local lualine_funcs = require("custom.lualine_functions")
-      local colors = lualine_funcs.bubble_theme()
+			local colors = lualine_funcs.bubble_theme()
 			require("lualine").setup({
 				extensions = {
 					"oil",
@@ -133,7 +133,7 @@ return {
 				columns = {
 					"icon",
 					"size",
-          "permissions"
+					"permissions",
 				},
 
 				view_options = {
@@ -156,11 +156,48 @@ return {
 					max_width = 0.9,
 					max_height = 0.9,
 					preview_split = "right",
+					border = "rounded",
 				},
 				constrain_cursor = "name",
+				keymaps = {
+					["<C-p>"] = "actions.preview",
+					["q"] = { "actions.close", mode = "n" },
+					["-"] = { "actions.parent", mode = "n" },
+				},
 			})
 
 			vim.keymap.set("n", "-", oil.open_float, { desc = "Open parent directory" })
+		end,
+	},
+	{
+		-- [[\
+		-- File manager with tree view and buffer-based editing
+		-- Similar to oil.nvim but with tree navigation
+		-- ]]\
+		"A7Lavinraj/fyler.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = { icon_provider = "nvim_web_devicons" },
+		config = function()
+			local fyler = require("fyler")
+			fyler.setup({
+				icon_provider = "nvim_web_devicons",
+				win = {
+					kind_presets = {
+						float = {
+							-- 80% size, centered
+							width = "0.8rel",
+							height = "0.8rel",
+							-- Center the window: (100% - 80%) / 2 = 10%
+							left = "0.1rel",
+							top = "0.1rel",
+						},
+					},
+				},
+			})
+
+			vim.keymap.set("n", "_", function()
+				fyler.toggle({ kind = "float" })
+			end, { desc = "Open fyler file explorer (float)" })
 		end,
 	},
 }

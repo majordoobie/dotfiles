@@ -46,20 +46,6 @@ return {
 			})
 		end,
 	},
-
-	{
-		--[[
-        -- Visit all the undo changes with a tree view so that you can select the changes
-        -- and bring them to the present if you wanted to.
-        --]]
-		"jiaoshijie/undotree",
-		dependencies = "nvim-lua/plenary.nvim",
-		config = function()
-			local undotree = require("undotree")
-			undotree.setup({})
-			vim.keymap.set("n", "<leader>u", undotree.toggle, { desc = "undo tree" })
-		end,
-	},
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",

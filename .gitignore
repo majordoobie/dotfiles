@@ -6,3 +6,5 @@ repos/
 .config/raycast/
 .config/colima/*
 .config/sketchybar/compiled_components/build/
+~/.config/btop/
+~/.config/wireshark/
