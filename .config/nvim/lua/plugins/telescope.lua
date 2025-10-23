@@ -113,25 +113,30 @@ return {
 		-- ============================================================================
 		local map = vim.keymap.set
 
-		-- Undo tree
-		map("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Undo tree" })
+		-- ══════════════════════════════════════════════════════════════
+		-- ⏪ Undo Tree
+		-- ══════════════════════════════════════════════════════════════
+		map("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "⏪ Undo tree" })
 
-		-- File search
+		-- ══════════════════════════════════════════════════════════════
+		-- 🔍 File & Text Search
+		-- ══════════════════════════════════════════════════════════════
 		map("n", "<leader>sf", function()
 			builtin.find_files({ glob_pattern = "!.git/", no_ignore = true, no_parent_ignore = true })
-		end, { desc = "Search all files (ignore .gitignore)" })
+		end, { desc = "📁 Find files (all)" })
 
-		-- Grep commands
-		map("n", "<leader>sg", live_grep.live_grep_args, { desc = "Live grep with args" })
-		map("n", "<leader>sG", lga_shortcuts.grep_word_under_cursor, { desc = "Grep word under cursor" })
-		map("v", "<leader>sg", lga_shortcuts.grep_visual_selection, { desc = "Grep visual selection" })
+		map("n", "<leader>sg", live_grep.live_grep_args, { desc = "🔍 Live grep (with args)" })
+		map("n", "<leader>sG", lga_shortcuts.grep_word_under_cursor, { desc = "🎯 Grep word under cursor" })
+		map("v", "<leader>sg", lga_shortcuts.grep_visual_selection, { desc = "🔍 Grep selection" })
 
-		-- Utilities
-		map("n", "<C-f>", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find in current buffer" })
-		map("n", "<leader>sm", builtin.man_pages, { desc = "Search man pages" })
-		map("n", "<leader>sc", builtin.spell_suggest, { desc = "Spelling suggestions" })
-		map("n", "<leader>sa", builtin.builtin, { desc = "All Telescope pickers" })
-		map("n", "<leader>sk", builtin.keymaps, { desc = "Search keymaps" })
-		map("n", "<leader>ss", builtin.resume, { desc = "Resume last picker" })
+		-- ══════════════════════════════════════════════════════════════
+		-- 🛠️  Utilities
+		-- ══════════════════════════════════════════════════════════════
+		map("n", "<C-f>", builtin.current_buffer_fuzzy_find, { desc = "🔎 Find in buffer" })
+		map("n", "<leader>sm", builtin.man_pages, { desc = "📖 Man pages" })
+		map("n", "<leader>sp", builtin.spell_suggest, { desc = "✏️  Spelling suggestions" })
+		map("n", "<leader>sa", builtin.builtin, { desc = "🔭 All pickers" })
+		map("n", "<leader>sk", builtin.keymaps, { desc = "⌨️  Search keymaps" })
+		map("n", "<leader>ss", builtin.resume, { desc = "▶️  Resume picker" })
 	end,
 }

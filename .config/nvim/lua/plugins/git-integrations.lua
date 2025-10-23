@@ -136,7 +136,7 @@ return {
 			})
 
 			-- Git diff commands
-			vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>")
+			vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "🔍 Git diff view" })
 		end,
 	},
 	{
@@ -164,7 +164,7 @@ return {
 						else
 							gitsigns.nav_hunk("next")
 						end
-					end)
+					end, { desc = "⏭️  Next hunk" })
 
 					map("n", "<leader>gp", function()
 						if vim.wo.diff then
@@ -172,11 +172,11 @@ return {
 						else
 							gitsigns.nav_hunk("prev")
 						end
-					end)
+					end, { desc = "⏮️  Previous hunk" })
 
 					-- Actions
-					map("n", "<leader>gk", gitsigns.preview_hunk)
-					map("n", "<leader>gr", gitsigns.reset_hunk)
+					map("n", "<leader>gk", gitsigns.preview_hunk, { desc = "👁️  Preview hunk" })
+					map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "↩️  Reset hunk" })
 				end,
 			})
 		end,
@@ -188,7 +188,7 @@ return {
 		"FabijanZulj/blame.nvim",
 		config = function()
 			require("blame").setup()
-			vim.keymap.set("n", "<leader>gb", ":BlameToggle<CR>")
+			vim.keymap.set("n", "<leader>gb", ":BlameToggle<CR>", { desc = "👤 Toggle git blame" })
 		end,
 	},
 }

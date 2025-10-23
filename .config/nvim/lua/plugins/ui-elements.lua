@@ -40,16 +40,16 @@ return {
 			local noice = require("noice")
 			vim.keymap.set("n", "<leader>nh", function()
 				noice.cmd("telescope")
-			end, { desc = "Noice history view" })
+			end, { desc = "📜 Message history" })
 			vim.keymap.set("n", "<leader>nn", function()
 				noice.cmd("dismiss")
-			end, { desc = "Noice dismiss notifications" })
+			end, { desc = "❌ Dismiss notifications" })
 			vim.keymap.set("n", "<leader>ns", function()
 				noice.cmd("stats")
-			end, { desc = "Noice stats" })
+			end, { desc = "📊 Noice stats" })
 			vim.keymap.set("n", "<leader>ne", function()
 				noice.cmd("errors")
-			end, { desc = "Noice show errros" })
+			end, { desc = "⚠️  Show errors" })
 		end,
 	},
 	{
@@ -101,6 +101,7 @@ return {
 							icon = "LSP:",
 							color = { fg = colors.mocha_blue, gui = "bold" },
 						},
+						"venv-selector",
 					},
 				},
 			})
@@ -166,38 +167,25 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "-", oil.open_float, { desc = "Open parent directory" })
+			vim.keymap.set("n", "-", oil.open_float, { desc = "📁 Open file explorer" })
 		end,
 	},
 	{
-		-- [[\
-		-- File manager with tree view and buffer-based editing
-		-- Similar to oil.nvim but with tree navigation
-		-- ]]\
-		"A7Lavinraj/fyler.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = { icon_provider = "nvim_web_devicons" },
-		config = function()
-			local fyler = require("fyler")
-			fyler.setup({
-				icon_provider = "nvim_web_devicons",
-				win = {
-					kind_presets = {
-						float = {
-							-- 80% size, centered
-							width = "0.8rel",
-							height = "0.8rel",
-							-- Center the window: (100% - 80%) / 2 = 10%
-							left = "0.1rel",
-							top = "0.1rel",
-						},
-					},
-				},
-			})
-
-			vim.keymap.set("n", "_", function()
-				fyler.toggle({ kind = "float" })
-			end, { desc = "Open fyler file explorer (float)" })
-		end,
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- you configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
 	},
 }

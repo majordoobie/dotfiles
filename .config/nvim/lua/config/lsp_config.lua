@@ -60,9 +60,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set("n", keys, func, { buffer = bufnr, silent = true, desc = "[LSP] " .. desc })
 		end
 
-		-- Builtin
-		map("<leader>er", vim.lsp.buf.rename, "rename")
-		map("K", vim.lsp.buf.hover, "show docs")
+		-- ══════════════════════════════════════════════════════════════
+		-- 🔧 LSP Actions
+		-- ══════════════════════════════════════════════════════════════
+		map("<leader>er", vim.lsp.buf.rename, "✏️  Rename symbol")
+		map("K", vim.lsp.buf.hover, "📖 Show documentation")
 
 		map("D", function()
 			local virt_line_setting = vim.diagnostic.config().virtual_lines
@@ -71,38 +73,38 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			else
 				vim.diagnostic.config({ virtual_lines = false })
 			end
-		end, "Toggle virtual lines")
+		end, "🔄 Toggle virtual lines")
 
 		map("<leader>jl", function()
 			vim.diagnostic.jump({ count = 1, float = true })
-		end, "Goto next diagnostic")
+		end, "⏭️  Next diagnostic")
 		map("<leader>jh", function()
 			vim.diagnostic.jump({ count = -1, float = true })
-		end, "Goto prev diagnostic")
+		end, "⏮️  Previous diagnostic")
 		map("<leader>vd", function()
 			vim.diagnostic.open_float()
-		end, "View diagnostic popup")
+		end, "🔍 View diagnostic popup")
 
-		map("<leader>ee", vim.lsp.buf.code_action, "show code actions")
+		map("<leader>ee", vim.lsp.buf.code_action, "💡 Code actions")
 
-		--
-		-- telescope LSP functions
-		--
+		-- ══════════════════════════════════════════════════════════════
+		-- 🔭 Telescope LSP Functions
+		-- ══════════════════════════════════════════════════════════════
 		local telescope = require("telescope.builtin")
-		map("<leader>jd", telescope.lsp_definitions, "jump to definition")
-		map("<leader>jE", telescope.diagnostics, "view all diagnostic messages on all buffers")
-		map("<leader>jS", telescope.lsp_document_symbols, "View ALL symbols in the current file")
-		map("<leader>jA", telescope.lsp_workspace_symbols, "View ALL symbols across project")
-		map("<leader>jr", telescope.lsp_references, "View all the references")
-		map("<leader>ji", telescope.lsp_incoming_calls, "View all incoming calls")
-		map("<leader>jD", telescope.lsp_implementations, "Jump to implementation")
+		map("<leader>jd", telescope.lsp_definitions, "📍 Jump to definition")
+		map("<leader>jE", telescope.diagnostics, "🚨 All diagnostics (workspace)")
+		map("<leader>jS", telescope.lsp_document_symbols, "📑 Document symbols")
+		map("<leader>jA", telescope.lsp_workspace_symbols, "🌍 Workspace symbols")
+		map("<leader>jr", telescope.lsp_references, "🔗 View references")
+		map("<leader>ji", telescope.lsp_incoming_calls, "📞 Incoming calls")
+		map("<leader>jD", telescope.lsp_implementations, "⚙️  Jump to implementation")
 
 		map("<leader>je", function()
 			telescope.diagnostics({ bufnr = 0 })
-		end, "view all diagnostic messages in the current buffer")
+		end, "⚠️  Buffer diagnostics")
 
 		map("<leader>js", function()
 			telescope.lsp_document_symbols({ symbols = { "function", "method", "struct", "enum" } })
-		end, "View symbols")
+		end, "🔖 Filter symbols")
 	end,
 })

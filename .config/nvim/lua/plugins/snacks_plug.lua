@@ -14,13 +14,6 @@ return {
 			desc = "Open LazyGit in a floating window",
 		},
 		{
-			"gf",
-			function()
-				Snacks.explorer()
-			end,
-			desc = "Open file explorer tree",
-		},
-		{
 			"<leader>z",
 			function()
 				Snacks.zen.zen()
@@ -51,9 +44,31 @@ return {
 	},
 
 	opts = {
+
+		-- enable viewing images in neovim
 		image = { enable = true },
 
-		animate = { enable = true },
+		-- disable lsp on a huge file
+		bigfile = { enabled = true },
+
+		-- Disable file exploere
+		explorer = { enabled = false },
+
+		-- Override vim.ui.input to make a pretty box
+		input = { enabled = true },
+
+		-- We use teleschpe for a picker
+		picker = { enabled = false },
+
+		-- Disable notifier since we're using noice.nvim for notifications
+		notifier = { enabled = false },
+
+		-- dont need any of these
+		quickfile = { enabled = false },
+		scope = { enabled = false },
+		scroll = { enabled = false },
+		statuscolumn = { enabled = false },
+		words = { enabled = false },
 
 		terminal = {
 			win = {
@@ -66,16 +81,8 @@ return {
 			shell = "fish",
 		},
 
-		-- Disable LSP when files are huge
-		bigfile = { enable = true },
-
-		picker = { enabled = true },
-
 		-- Lets you get asked if you want to save a buffer
 		bufdelete = { enable = true },
-
-		-- Override vim.ui.input to make a pretty box
-		input = { enable = true },
 
 		-- [[
 		-- Enable Zen editing to remove distractions

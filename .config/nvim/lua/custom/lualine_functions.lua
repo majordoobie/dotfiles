@@ -25,6 +25,21 @@ function M.get_lsp_client_name()
 	return msg
 end
 
+function M.get_venv_name()
+	local venv_path = require("venv-selector").venv()
+	if not venv_path or venv_path == "" then
+		return ""
+	end
+
+	local venv_name = vim.fn.fnamemodify(venv_path, ":t")
+	if not venv_name then
+		return ""
+	end
+
+	local output = "🐍 [" .. venv_name .. "]"
+	return output
+end
+
 function M.bubble_theme()
 	return {
 		mocha_rosewater = "#f5e0dc",

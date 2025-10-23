@@ -10,7 +10,12 @@ return {
 			-- [[
 			--Comment out the highlighted section with "gc"
 			-- ]]
-			require("mini.comment").setup()
+			require("mini.comment").setup({
+				mappings = {
+					comment = "<leader>ec",
+					comment_visual = "<leader>ec",
+				},
+			})
 
 			--[[
             -- Move selected text and move them around easily with
@@ -68,15 +73,15 @@ return {
 
 			vim.keymap.set("n", "<leader>hta", function()
 				visits.add_label()
-			end, { desc = "mini.visits add label" })
+			end, { desc = "🏷️  Add visit label" })
 
 			vim.keymap.set("n", "<leader>hts", function()
 				visits.select_label()
-			end, { desc = "mini.visits select label" })
+			end, { desc = "🔖 Select visit label" })
 
 			vim.keymap.set("n", "<leader>hs", function()
 				pickers.toggle_telescope(visits.list_paths())
-			end, { desc = "mini.visits toggle visited paths" })
+			end, { desc = "🗺️  View visited paths" })
 
 			-- [[
 			-- 	Auto highlight word under cursor

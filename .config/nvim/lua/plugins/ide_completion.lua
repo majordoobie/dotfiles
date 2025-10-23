@@ -64,6 +64,13 @@ return {
 				},
 			},
 			completion = {
+				-- Enable blink.cmp's built-in auto-brackets (works alongside nvim-autopairs)
+				accept = {
+					auto_brackets = {
+						enabled = true,
+					},
+				},
+
 				-- As you scroll through the selection it will show docs for the selection
 				-- to the right of the selection window
 				documentation = { auto_show = true, auto_show_delay_ms = 100, window = { border = "rounded" } },

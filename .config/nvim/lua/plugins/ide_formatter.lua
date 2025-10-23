@@ -70,6 +70,6 @@ return {
 				lsp_format = "fallback",
 			},
 		})
-		vim.keymap.set({ "n", "v" }, "<leader>ef", conform.format, { desc = "format file" })
+		vim.keymap.set({ "n", "v" }, "<leader>ef", conform.format, { desc = "✨ Format file" })
 	end,
 }
