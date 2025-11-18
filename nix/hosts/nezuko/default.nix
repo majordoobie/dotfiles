@@ -45,6 +45,7 @@
     brews = [
       "sketchybar"
       "switchaudio-osx"
+      "opencode"
     ];
 
     casks = [

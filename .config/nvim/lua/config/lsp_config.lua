@@ -1,5 +1,18 @@
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+-- Set explicit position encoding to avoid warnings with multiple LSP servers
+capabilities.general = capabilities.general or {}
+capabilities.general.positionEncodings = { "utf-16", "utf-8" }
+
+-- Enable inlay hints capability
+capabilities.textDocument = capabilities.textDocument or {}
+capabilities.textDocument.inlayHint = {
+	dynamicRegistration = true,
+	resolveSupport = {
+		properties = { "tooltip", "textEdits", "label.tooltip", "label.location", "label.command" },
+	},
+}
+
 vim.lsp.config("*", {
 	capabilities = capabilities,
 	root_markers = { ".git" },
@@ -49,7 +62,10 @@ vim.diagnostic.config({
 -- Configure keymaps when a LSP server attaches to the current buffer
 -- ]]
 vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(_, bufnr)
+	callback = function(args)
+		local bufnr = args.buf
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+
 		-- [[
 		-- <leader>e -- Make a physical LSP change
 		-- <leader>j -- jump/view LSP information
@@ -91,13 +107,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- 🔭 Telescope LSP Functions
 		-- ══════════════════════════════════════════════════════════════
 		local telescope = require("telescope.builtin")
-		map("<leader>jd", telescope.lsp_definitions, "📍 Jump to definition")
+		-- Use native definition jump to avoid position_encoding warnings
+		map("<leader>jd", vim.lsp.buf.definition, "📍 Jump to definition")
 		map("<leader>jE", telescope.diagnostics, "🚨 All diagnostics (workspace)")
 		map("<leader>jS", telescope.lsp_document_symbols, "📑 Document symbols")
 		map("<leader>jA", telescope.lsp_workspace_symbols, "🌍 Workspace symbols")
-		map("<leader>jr", telescope.lsp_references, "🔗 View references")
-		map("<leader>ji", telescope.lsp_incoming_calls, "📞 Incoming calls")
-		map("<leader>jD", telescope.lsp_implementations, "⚙️  Jump to implementation")
+		-- Use native references to avoid position_encoding warnings
+		map("<leader>jr", vim.lsp.buf.references, "🔗 View references")
+		-- Use native incoming calls to avoid position_encoding warnings
+		map("<leader>ji", vim.lsp.buf.incoming_calls, "📞 Incoming calls")
+		-- Use native implementation jump to avoid position_encoding warnings
+		map("<leader>jD", vim.lsp.buf.implementation, "⚙️  Jump to implementation")
 
 		map("<leader>je", function()
 			telescope.diagnostics({ bufnr = 0 })

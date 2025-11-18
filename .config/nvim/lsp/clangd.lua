@@ -11,4 +11,13 @@ return {
 	},
 	filetypes = { "c", "cpp", "h" },
 	root_markers = { ".clangd", "compile_commands.json", ".clang-tidy" },
+	settings = {
+		clangd = {
+			InlayHints = {
+				Enabled = true,
+				ParameterNames = true,
+				DeducedTypes = true,
+			},
+		},
+	},
 }

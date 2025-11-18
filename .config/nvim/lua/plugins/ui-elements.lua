@@ -68,7 +68,6 @@ return {
 					"fzf",
 					"man",
 					"nvim-dap-ui",
-					"trouble",
 				},
 				options = {
 					theme = "catppuccin",
@@ -131,6 +130,15 @@ return {
 				delete_to_trash = true,
 				skip_confirm_for_simple_edits = true,
 
+				-- Enable LSP file operations (rename/move files updates imports)
+				lsp_file_operations = {
+					enabled = true,
+					autosave_changes = true, -- Automatically save buffers after LSP renames
+				},
+
+				-- Watch for external changes to keep oil buffers in sync
+				watch_for_changes = true,
+
 				columns = {
 					"icon",
 					"size",
@@ -187,5 +195,32 @@ return {
 				desc = "Buffer Local Keymaps (which-key)",
 			},
 		},
+	},
+	{
+		-- [[
+		-- Shows code context at the top of the window
+		-- (e.g., the function/class you're currently in as you scroll)
+		-- ]]
+		"nvim-treesitter/nvim-treesitter-context",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("treesitter-context").setup({
+				enable = true,
+				max_lines = 3, -- How many lines of context to show
+				min_window_height = 0, -- Minimum editor window height to enable context
+				line_numbers = true,
+				multiline_threshold = 20, -- Maximum number of lines to show for a single context
+				trim_scope = "outer", -- Which context lines to discard if max_lines is exceeded
+				mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
+				separator = nil, -- Separator between context and content. Should be a single character string, like '-'.
+				zindex = 20, -- The Z-index of the context window
+			})
+
+			-- Keybinding to jump to context (useful for going to function start)
+			vim.keymap.set("n", "[c", function()
+				require("treesitter-context").go_to_context(vim.v.count1)
+			end, { silent = true, desc = "Jump to context (function start)" })
+		end,
 	},
 }

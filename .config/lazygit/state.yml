@@ -4,7 +4,7 @@ recentrepos:
     - /Users/nezuko/code/active_projects/gitlab_repo_update
 startuppopupversion: 5
 didshowhunkstaginghint: true
-lastversion: 0.55.1
+lastversion: 0.56.0
 customcommandshistory:
     - q
 hidecommandlog: false

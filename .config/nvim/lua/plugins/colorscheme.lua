@@ -26,7 +26,6 @@ local colorschemes = {
 							indent_scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
 						},
 						fidget = true,
-						lsp_trouble = true,
 						gitsigns = true,
 						nvimtree = true,
 						harpoon = true,
@@ -59,22 +58,6 @@ local colorschemes = {
 			priority = 1000,
 			config = function()
 				vim.cmd.colorscheme("tokyonight")
-			end,
-		},
-	},
-
-	{
-		name = "gruvbox",
-		spec = {
-			"ellisonleao/gruvbox.nvim",
-			lazy = false,
-			priority = 1000,
-			config = function()
-				vim.g.gruvbox_material_enable_italic = true
-				vim.g.gruvbox_material_background = "hard"
-				vim.g.gruvbox_material_better_performance = 1
-				vim.g.gruvbox_material_palette = "mix"
-				vim.cmd.colorscheme("gruvbox-material")
 			end,
 		},
 	},

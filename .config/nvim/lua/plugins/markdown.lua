@@ -3,16 +3,18 @@ return {
 	-- Render markdown so that it is prettier to look at
 	-- ]]
 	"MeanderingProgrammer/render-markdown.nvim",
+	ft = { "markdown", "quarto" },
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		require("render-markdown").setup({
-			ft = { "markdown", "quarto" },
-
 			-- render_modes = { "n", "c", "t" },
 			render_modes = true,
+
+			-- Disable latex to avoid warnings about missing latex parsers
+			latex = { enabled = false },
 
 			completions = { blink = { enabled = true }, lsp = { enabled = true } },
 

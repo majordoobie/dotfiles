@@ -118,10 +118,6 @@ return {
 		-- Change the styles of the plugins
 		-- ]]
 		styles = {
-			notification_history = {
-				width = 0.999,
-				height = 0.999,
-			},
 			input = {
 				relative = "cursor",
 			},

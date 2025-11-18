@@ -22,9 +22,6 @@ lint.select = [
     "UP",     # pyupgrade: Modernizes code to use newer Python syntax (e.g., f-strings, type hints)
     "W",      # pycodestyle warnings: PEP 8 style warnings (less severe than errors)
     "YTT",    # flake8-2020: Prevents misuse of sys.version or sys.version_info
-    #"PIE",   # flake8-pie: Additional performance and error-prone code checks
-    #"PL",    # Pylint: Comprehensive linting (can be verbose, enable if you want strict checks)
-    #"PTH",   # flake8-pathlib: Enforces using pathlib instead of os.path
 ]
 
 # Rules to ignore - customize based on your preferences
