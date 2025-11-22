@@ -22,6 +22,7 @@ vim.lsp.config("*", {
 vim.lsp.enable({
 	"asm",
 	"bash",
+	"basedpyright",
 	"clangd",
 	"cmake",
 	"docker_compose",
@@ -29,7 +30,6 @@ vim.lsp.enable({
 	"json",
 	"lua",
 	"nix",
-	"pyright",
 	"robotframework",
 	"ruff",
 	"yaml",

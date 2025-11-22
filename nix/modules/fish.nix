@@ -29,7 +29,7 @@
       end
 
       function mk
-        mkdir -p $argv[1]; and cd $argv[1]
+        mkdir -p $argv[1]; and builtin cd $argv[1]
       end
 
       function cp

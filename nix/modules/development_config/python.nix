@@ -3,16 +3,12 @@
   environment.systemPackages = with pkgs; [
     # python language
     python3
-    pipx
+    uv
 
     # LSP
-    pyright
+    basedpyright
 
-    # Format
-    black
-    isort
-
-    # Linter
+    # Linter + Formatter
     ruff # Also a formatter
   ];
 }

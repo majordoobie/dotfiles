@@ -1,14 +1,12 @@
 return {
-	cmd = { "pyright-langserver", "--stdio" },
+	cmd = { "basedpyright-langserver", "--stdio" },
 	filetypes = { "python" },
 	settings = {
-		pyright = {
+		basedpyright = {
 			disableOrganizeImports = true,
-		},
-		python = {
 			analysis = {
 				autoSearchPaths = true,
-				diagnosticMode = "workplace",
+				diagnosticMode = "workspace",
 				useLibraryCodeForTypes = true,
 				autoImportCompletions = true,
 				diagnosticSeverityOverrides = {

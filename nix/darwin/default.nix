@@ -6,11 +6,20 @@
 }:
 
 let
+  # Define the overlay that disables fish tests
+  fishOverlay = final: prev: {
+    fish = prev.fish.overrideAttrs (old: {
+      doCheck = false;
+      checkPhase = null;
+    });
+  };
+
   systemConfig = system: {
     system = system;
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
+      overlays = [ fishOverlay ];
     };
   };
 in

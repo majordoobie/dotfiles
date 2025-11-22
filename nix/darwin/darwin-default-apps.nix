@@ -53,8 +53,6 @@
     bat
     man
 
-
-
     _1password-cli
     nh # nix manager
   ];
