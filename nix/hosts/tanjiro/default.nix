@@ -24,13 +24,13 @@
   ];
 
   system = {
-    activationScripts.postUserActivation.text = ''
+    activationScripts.postActivation.text = ''
       # Turn off wifi
       networksetup -setairportpower en1 off
 
       # Turn off bluetooth
-      sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0
-      sudo killall -HUP blued || true
+      defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0
+      killall -HUP blued || true
     '';
 
     defaults = {
