@@ -24,7 +24,7 @@
   ];
 
   system = {
-    activationScripts.postActivation.text = ''
+    activationScripts.extraActivation.text = ''
       # Turn off wifi
       networksetup -setairportpower en1 off
 
