@@ -56,6 +56,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    claude-code
+  ];
+
   networking.wakeOnLan.enable = true;
 
   homebrew = {
