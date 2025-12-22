@@ -1,10 +1,11 @@
 lastupdatecheck: 0
 recentrepos:
+    - /Users/nezuko/code/active_projects/tofu-stack
     - /Users/nezuko/dotfiles
     - /Users/nezuko/code/active_projects/gitlab_repo_update
 startuppopupversion: 5
 didshowhunkstaginghint: true
-lastversion: 0.56.0
+lastversion: 0.57.0
 customcommandshistory:
     - q
 hidecommandlog: false

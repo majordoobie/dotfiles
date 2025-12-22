@@ -55,16 +55,16 @@
       "bartender"
       "bettermouse"
       "brave-browser"
-      "clion"
       "google-drive"
       "microsoft-edge"
       "obsidian"
       "raycast"
       "signal"
       "stats"
+      "utm"
       "vnc-viewer"
-      "zen"
       "wireshark-app"
+      "zen"
     ];
 
   };
@@ -78,7 +78,6 @@
     yq
     fastfetch
     direnv
-    fd
     ncdu
     uv
 

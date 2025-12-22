@@ -11,18 +11,26 @@ end
 
 function M.get_lsp_client_name()
 	local msg = "No Active LSP"
-  local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
+	local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 	local clients = vim.lsp.get_clients()
 	if next(clients) == nil then
 		return msg
 	end
 
+	-- Collect all matching client names
+	local client_names = {}
 	for _, client in ipairs(clients) do
 		if client.config.filetypes and vim.fn.index(client.config.filetypes, buf_ft) ~= -1 then
-			return client.name
+			table.insert(client_names, client.name)
 		end
 	end
-	return msg
+
+	if #client_names == 0 then
+		return msg
+	end
+
+	-- Join all client names with " | " and wrap in brackets
+	return "[" .. table.concat(client_names, " | ") .. "]"
 end
 
 function M.get_venv_name()

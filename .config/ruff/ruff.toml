@@ -18,7 +18,7 @@ lint.select = [
     "Q",      # flake8-quotes: Enforces consistent quote style (single vs double quotes)
     "RUF",    # Ruff-specific rules: Custom rules unique to Ruff
     "SIM",    # flake8-simplify: Suggests simpler alternatives for complex code patterns
-    "TCH",    # flake8-type-checking: Optimizes type-checking imports (moves runtime imports to TYPE_CHECKING)
+    "TC",     # flake8-type-checking: Optimizes type-checking imports (moves runtime imports to TYPE_CHECKING)
     "UP",     # pyupgrade: Modernizes code to use newer Python syntax (e.g., f-strings, type hints)
     "W",      # pycodestyle warnings: PEP 8 style warnings (less severe than errors)
     "YTT",    # flake8-2020: Prevents misuse of sys.version or sys.version_info
@@ -28,6 +28,21 @@ lint.select = [
 lint.ignore = [
     "E501",  # Line too long: Let the formatter handle line length instead of erroring
 ]
+
+# Treat TC fixes as safe (quote-annotations makes them safe)
+lint.extend-safe-fixes = ["TC"]
+
+# isort configuration
+[lint.isort]
+# Auto-detect first-party imports from same package
+detect-same-package = true
+# Treat unknown imports as first-party (less strict, but avoids false positives)
+default-section = "first-party"
+
+# Type-checking configuration
+# Quote annotations to make TC001/TC002/TC003 fixes safe
+[lint.flake8-type-checking]
+quote-annotations = true
 
 # Formatting configuration
 [format]

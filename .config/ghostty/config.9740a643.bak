@@ -27,4 +27,3 @@ confirm-close-surface = false
 # clipboard settings
 clipboard-read = allow
 copy-on-select = true
-keybind = shift+enter=text:\x1b\r

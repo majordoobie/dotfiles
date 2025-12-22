@@ -1,3 +1,6 @@
+-- Set LSP log level to WARN to avoid performance issues
+vim.lsp.set_log_level("WARN")
+
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 -- Set explicit position encoding to avoid warnings with multiple LSP servers
@@ -64,7 +67,13 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local bufnr = args.buf
+		-- Enable inlay hints when LSP attaches
 		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+
+		-- Also try enabling without explicit buffer
+		pcall(function()
+			vim.lsp.inlay_hint.enable(true)
+		end)
 
 		-- [[
 		-- <leader>e -- Make a physical LSP change

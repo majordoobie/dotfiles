@@ -39,12 +39,12 @@
     neovim
     btop
     ripgrep
-    speedtest-rs
     yazi
     lazygit
     stow
 
     # terminal
+    fd
     tmux
     zoxide
     fzf
@@ -74,8 +74,8 @@
 
     casks = [
       "ghostty"
-      "scroll-reverser"
       "pearcleaner"
+      "scroll-reverser"
     ];
 
   };

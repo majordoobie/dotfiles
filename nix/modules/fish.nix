@@ -24,10 +24,6 @@
         eza -T $argv
       end
 
-      function cat
-        bat $argv
-      end
-
       function mk
         mkdir -p $argv[1]; and builtin cd $argv[1]
       end
