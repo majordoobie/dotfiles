@@ -31,6 +31,13 @@
       # Turn off bluetooth
       defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0
       killall -HUP blued || true
+
+      # Set fish as default shell
+      FISH_PATH="/run/current-system/sw/bin/fish"
+      if ! grep -q "$FISH_PATH" /etc/shells; then
+        echo "$FISH_PATH" >> /etc/shells
+      fi
+      dscl . -create /Users/${vars.user} UserShell "$FISH_PATH"
     '';
 
     defaults = {
