@@ -37,3 +37,12 @@ nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch 
 ### If you need modifications, you  c``bash
 darwin-rebuild switch --flake ~/dotfiles/nix#${hostname}
 ```
+
+
+## Updates with nh
+```bash
+nh darwin switch ~/dotfiles/nix/ --hostname nezuko --update
+nh darwin switch ~/dotfiles/nix/ --hostname tanjiro --update
+
+
+```

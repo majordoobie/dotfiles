@@ -1,7 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/nezuko/code/active_projects/tofu-stack
     - /Users/nezuko/dotfiles
+    - /Users/nezuko/code/active_projects/tofu-stack
     - /Users/nezuko/code/active_projects/gitlab_repo_update
 startuppopupversion: 5
 didshowhunkstaginghint: true
