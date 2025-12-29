@@ -52,6 +52,7 @@
     eza
     bat
     man
+    lazydocker
 
     _1password-cli
     nh # nix manager
