@@ -24,11 +24,10 @@
   system = {
     primaryUser = "${vars.user}";
 
-    activationScripts.extraActivation.text = ''
-
-      # Set desktop background
-      osascript -e 'tell application "System Events" to tell every desktop to set picture to "/Users/${vars.user}/dotfiles/images/cute_cat.png"'
-    '';
+    # activationScripts.extraActivation.text = ''
+    #   # Set desktop background
+    #   osascript -e 'tell application "System Events" to tell every desktop to set picture to "/Users/${vars.user}/dotfiles/images/cute_cat.png"'
+    # '';
 
     stateVersion = 5;
     checks.verifyNixPath = false;

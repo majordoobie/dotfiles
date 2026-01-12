@@ -9,8 +9,8 @@ font-size = 19
 font-family = "JetBrainsMono Nerd Font"
 mouse-hide-while-typing = true
 background-opacity = .96
-macos-titlebar-style = hidden
-macos-window-shadow = false
+#macos-titlebar-style = hidden
+#macos-window-shadow = false
 bold-is-bright = true
 macos-option-as-alt = true
 

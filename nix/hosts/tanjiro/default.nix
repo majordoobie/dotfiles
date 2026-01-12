@@ -58,7 +58,8 @@
 
   environment.systemPackages = with pkgs; [
     claude-code
-    plex
+    ncdu
+    socat
   ];
 
   networking.wakeOnLan.enable = true;
