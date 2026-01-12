@@ -24,7 +24,7 @@ bind -T copy-mode-vi L send -X end-of-line
 
 # Bind vi-mode yank (prefix+[ → v/y) to pipe to copy-command
 unbind -T copy-mode-vi y
-bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel
+bind -T copy-mode-vi y send-keys -X copy-pipe
 
 # Bind mouse drag end to the same action
 unbind -T copy-mode-vi MouseDragEnd1Pane
