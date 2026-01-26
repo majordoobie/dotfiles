@@ -3,12 +3,13 @@
   homebrew = {
     casks = [
       "orbstack"
+      #"docker"
     ];
   };
 
   environment.systemPackages = with pkgs; [
     # docker client
-    docker
+    #docker
 
     # LSP
     docker-compose-language-service

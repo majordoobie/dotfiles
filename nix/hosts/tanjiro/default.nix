@@ -58,16 +58,32 @@
 
   environment.systemPackages = with pkgs; [
     claude-code
+    gemini-cli
+    codex
+
     ncdu
     socat
+
+    # tdarr container needs this
+    mkvtoolnix
+    ccextractor
+    ffmpeg_7-full
+    mediainfo
   ];
 
   networking.wakeOnLan.enable = true;
 
   homebrew = {
     enable = true;
+    brews = [
+      "handbrake"
+    ];
     casks = [
       "1password"
+<<<<<<< Updated upstream
+=======
+      "plex-media-server"
+>>>>>>> Stashed changes
     ];
   };
 

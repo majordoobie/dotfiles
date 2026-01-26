@@ -53,6 +53,7 @@
     bat
     man
     lazydocker
+    watch
 
     _1password-cli
     nh # nix manager
