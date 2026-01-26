@@ -24,8 +24,8 @@ vim.lsp.config("*", {
 -- Enables languages in ../lsp/
 vim.lsp.enable({
 	"asm",
-	"bash",
 	"basedpyright",
+	"bash",
 	"clangd",
 	"cmake",
 	"docker_compose",
@@ -36,6 +36,7 @@ vim.lsp.enable({
 	"robotframework",
 	"ruff",
 	"yaml",
+  "toml"
 })
 
 -- [[

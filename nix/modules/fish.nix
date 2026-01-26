@@ -28,11 +28,6 @@
         mkdir -p $argv[1]; and builtin cd $argv[1]
       end
 
-      function cp
-        # Copy current path to clipboard
-        pwd | pbcopy
-      end
-
       function cf
         # Copy file path to clipboard
         realpath $argv[1] | pbcopy

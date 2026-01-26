@@ -46,6 +46,7 @@
       "sketchybar"
       "switchaudio-osx"
       "opencode"
+      "handbrake"
     ];
 
     casks = [
@@ -85,6 +86,7 @@
 
     claude-code
     gemini-cli
+    codex
 
     # Obsidean in neovim plugs
     imagemagick
@@ -92,8 +94,11 @@
     mermaid-cli
     tectonic
 
-    # gui
-    # steam
+    # needed for tdarr
+    mkvtoolnix
+    ccextractor
+    ffmpeg_7-full
+    mediainfo
   ];
 
 }
