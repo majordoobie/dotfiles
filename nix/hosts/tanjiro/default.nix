@@ -12,10 +12,25 @@
   ];
 
   services.openssh.enable = true;
+
   programs.ssh = {
     extraConfig = ''
-      PermitRootLogin no
+      # Automatically add SSH keys to ssh-agent when used
+      AddKeysToAgent yes
       PasswordAuthentication no
+
+      # Use macOS keychain to store SSH key passphrases
+      UseKeychain yes
+
+      # Keep connections alive to prevent timeouts
+      ServerAliveInterval 60
+      ServerAliveCountMax 3
+
+      # GitHub-specific settings
+      Host github.com
+        HostName github.com
+        User git
+        IdentitiesOnly yes
     '';
   };
 
@@ -48,9 +63,7 @@
 
       dock = {
         persistent-apps = [
-          "/Applications/Microsoft Edge.app/"
           "/Applications/Ghostty.app"
-          "/System/Applications/iPhone Mirroring.app"
         ];
       };
     };
@@ -80,10 +93,7 @@
     ];
     casks = [
       "1password"
-<<<<<<< Updated upstream
-=======
       "plex-media-server"
->>>>>>> Stashed changes
     ];
   };
 

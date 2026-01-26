@@ -41,7 +41,10 @@
       set -gx VISUAL "nvim"
       set -gx MANPAGER "nvim +Man!"
       set -gx XDG_CONFIG_HOME "$HOME/.config"
-      set -gx SSH_AUTH_SOCK "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+      set -l op_sock "/Users/tanjiro/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+      if test -z "$SSH_AUTH_SOCK"; and test -S "$op_sock"
+        set -gx SSH_AUTH_SOCK "$op_sock"
+      end
 
       # ─── Key-bindings ────────────────────────────────────────────────────────────
       function fish_user_key_bindings
