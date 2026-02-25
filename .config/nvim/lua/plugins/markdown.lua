@@ -3,13 +3,14 @@ return {
 	-- Render markdown so that it is prettier to look at
 	-- ]]
 	"MeanderingProgrammer/render-markdown.nvim",
-	ft = { "markdown", "quarto" },
+	ft = { "markdown", "quarto", "codecompanion" },
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		require("render-markdown").setup({
+			file_types = { "markdown", "quarto", "codecompanion" },
 			-- render_modes = { "n", "c", "t" },
 			render_modes = true,
 

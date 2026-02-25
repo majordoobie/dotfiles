@@ -9,3 +9,4 @@ repos/
 .config/btop/
 .config/wireshark/
 .config/cagent/
+.config/fish/secrets.fish

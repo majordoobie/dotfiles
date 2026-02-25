@@ -35,6 +35,11 @@
 
       alias ll 'eza -la --group-directories-first'
 
+      if test -f ~/.config/fish/secrets.fish
+        source ~/.config/fish/secrets.fish
+      end
+
+
       set -U fish_greeting
       set -gx PATH /opt/homebrew/bin/ $PATH
       set -gx EDITOR "nvim"

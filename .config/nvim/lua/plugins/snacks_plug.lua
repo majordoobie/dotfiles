@@ -88,6 +88,11 @@ return {
 		-- Enable Zen editing to remove distractions
 		-- ]]
 		zen = {
+			win = {
+				wo = {
+					wrap = false,
+				},
+			},
 			toggles = {
 				dim = false,
 			},

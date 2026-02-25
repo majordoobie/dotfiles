@@ -48,6 +48,7 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "📂 Copy file path" }
 )
 vim.keymap.set("n", "<CR>", ":noh<CR><CR>", { desc = "❌ Clear search highlight" })
+vim.keymap.set("n", "<leader>w", ":set wrap!<CR>", { desc = "Toggle line wrap" })
 
 -- ══════════════════════════════════════════════════════════════
 -- 🪟 Window Management
@@ -80,4 +81,9 @@ end
 -- ══════════════════════════════════════════════════════════════
 -- 📝 Spelling
 -- ══════════════════════════════════════════════════════════════
-vim.keymap.set("n", "<leader>tp", ToggleSpellWithNotify, { desc = "✏️  Toggle spell check", silent = true, noremap = true })
+vim.keymap.set(
+	"n",
+	"<leader>tp",
+	ToggleSpellWithNotify,
+	{ desc = "✏️  Toggle spell check", silent = true, noremap = true }
+)

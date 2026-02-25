@@ -45,7 +45,6 @@
     brews = [
       "sketchybar"
       "switchaudio-osx"
-      "opencode"
       "handbrake"
     ];
 
@@ -60,10 +59,10 @@
       "google-drive"
       "microsoft-edge"
       "obsidian"
+      "orion"
       "raycast"
       "signal"
       "stats"
-      "orion"
       "utm"
       "vnc-viewer"
       "wireshark-app"
@@ -87,6 +86,8 @@
     claude-code
     gemini-cli
     codex
+    opencode
+    claude-code-acp
 
     # Obsidean in neovim plugs
     imagemagick
@@ -99,6 +100,13 @@
     ccextractor
     ffmpeg_7-full
     mediainfo
+
+
+    # red team -- terminal cac access
+    opensc
+    (openvpn.override { pkcs11Support = true; })
+    wpscan
+    proxychains-ng
   ];
 
 }

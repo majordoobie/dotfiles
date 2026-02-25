@@ -1,5 +1,5 @@
 return {
-	cmd = { "ruff", "server", "--preview" },
+	cmd = { "ruff", "server" },
 	filetypes = { "python" },
 	-- Configuration for the Ruff language server
 	init_options = {
@@ -11,8 +11,9 @@ return {
 	},
 	root_markers = { "pyproject.toml", "requirements.txt", "setup.py", "setup.cfg", ".git" },
 	-- Disable hover in favor of Pyright
-	on_attach = function(client, bufnr)
+	on_attach = function(client, _)
 		-- Disable hover capability - let Pyright handle it
 		client.server_capabilities.hoverProvider = false
+		client.server_capabilities.completionProvider = nil
 	end,
 }

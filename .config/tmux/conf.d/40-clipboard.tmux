@@ -26,6 +26,10 @@ bind -T copy-mode-vi L send -X end-of-line
 unbind -T copy-mode-vi y
 bind -T copy-mode-vi y send-keys -X copy-pipe
 
+# Bind Enter to exit copy mode without clearing the buffer
+unbind -T copy-mode-vi Enter
+bind -T copy-mode-vi Enter send-keys -X cancel
+
 # Bind mouse drag end to the same action
 unbind -T copy-mode-vi MouseDragEnd1Pane
 bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel

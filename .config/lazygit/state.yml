@@ -1,9 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/tanjiro/containers/tofu-stack
+    - /Users/nezuko/dotfiles
 startuppopupversion: 5
 didshowhunkstaginghint: true
-lastversion: 0.58.1
+lastversion: 0.59.0
 customcommandshistory:
     - q
 hidecommandlog: false
