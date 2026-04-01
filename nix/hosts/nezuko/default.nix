@@ -66,6 +66,7 @@
       "utm"
       "vnc-viewer"
       "wireshark-app"
+      "vivaldi"
       "zen"
     ];
 
@@ -79,7 +80,6 @@
     # tui
     yq
     fastfetch
-    direnv
     ncdu
     uv
 
@@ -87,7 +87,7 @@
     gemini-cli
     codex
     opencode
-    claude-code-acp
+
 
     # Obsidean in neovim plugs
     imagemagick
