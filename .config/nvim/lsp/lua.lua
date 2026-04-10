@@ -6,6 +6,9 @@ return {
 	filetypes = { "lua" },
 	settings = {
 		Lua = {
+			diagnostics = {
+				globals = { "git_source", "Snacks" },
+			},
 			workspace = {
 				checkThirdParty = false,
 				library = {

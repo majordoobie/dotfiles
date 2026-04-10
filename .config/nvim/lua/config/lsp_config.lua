@@ -1,5 +1,5 @@
 -- Set LSP log level to WARN to avoid performance issues
-vim.lsp.set_log_level("WARN")
+vim.lsp.log.set_level("WARN")
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
@@ -24,7 +24,8 @@ vim.lsp.config("*", {
 -- Enables languages in ../lsp/
 vim.lsp.enable({
 	"asm",
-	"basedpyright",
+	-- "basedpyright", -- disabled, using ty instead
+	"ty",
 	"bash",
 	"clangd",
 	"cmake",
@@ -36,7 +37,7 @@ vim.lsp.enable({
 	"robotframework",
 	"ruff",
 	"yaml",
-  "toml"
+	"toml",
 })
 
 -- [[
@@ -123,7 +124,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("<leader>jS", telescope.lsp_document_symbols, "📑 Document symbols")
 		map("<leader>jA", telescope.lsp_workspace_symbols, "🌍 Workspace symbols")
 		-- Use native references to avoid position_encoding warnings
-		map("<leader>jr", vim.lsp.buf.references, "🔗 View references")
+		map("<leader>jr", telescope.lsp_references, "🔗 View references")
 		-- Use native incoming calls to avoid position_encoding warnings
 		map("<leader>ji", vim.lsp.buf.incoming_calls, "📞 Incoming calls")
 		-- Use native implementation jump to avoid position_encoding warnings

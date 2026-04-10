@@ -207,7 +207,7 @@
             app-id = "app.zen-browser.zen";
             during-aerospace-startup = true;
           };
-          run = [ "move-node-to-workspace 2" ];
+          run = [ "move-node-to-workspace 1" ];
         }
         {
           check-further-callbacks = true;
@@ -215,7 +215,19 @@
             app-id = "com.brave.Browser";
             during-aerospace-startup = true;
           };
-          run = [ "move-node-to-workspace 2" ];
+          run = [ "move-node-to-workspace 1" ];
+        }
+        {
+          check-further-callbacks = true;
+          "if".app-id = "com.vivaldi.Vivaldi";
+          run = [ "move-node-to-workspace 1" ];
+        }
+        {
+          check-further-callbacks = true;
+          "if" = {
+            app-id = "com.vivaldi.Vivaldi";
+          };
+          run = [ "move-node-to-workspace 1" ];
         }
         {
           check-further-callbacks = true;

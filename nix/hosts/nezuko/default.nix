@@ -19,12 +19,13 @@
     ../../modules/development_config/shell.nix
     ../../modules/development_config/web.nix
     ../../modules/development_config/yaml.nix
+    ../../modules/development_config/rust.nix
   ];
 
   system.defaults = {
     dock = {
       persistent-apps = [
-        "/Applications/Arc.app/"
+        "/Applications/Vivaldi.app/"
         "/Applications/Ghostty.app"
         "/System/Applications/iPhone Mirroring.app"
       ];
@@ -46,28 +47,23 @@
       "sketchybar"
       "switchaudio-osx"
       "handbrake"
+      "tree-sitter-cli"
     ];
 
     casks = [
       "1password"
       "adobe-acrobat-reader"
-      "arc"
       "bartender"
       "bettermouse"
-      "brainfm"
-      "brave-browser"
       "google-drive"
-      "microsoft-edge"
       "obsidian"
-      "orion"
       "raycast"
       "signal"
       "stats"
       "utm"
+      "vivaldi"
       "vnc-viewer"
       "wireshark-app"
-      "vivaldi"
-      "zen"
     ];
 
   };
@@ -83,10 +79,10 @@
     ncdu
     uv
 
-    claude-code
-    gemini-cli
-    codex
-    opencode
+    claude-code # temporarily removed - v2.1.88 yanked from npm
+    # gemini-cli
+    # codex
+    #opencode
 
 
     # Obsidean in neovim plugs

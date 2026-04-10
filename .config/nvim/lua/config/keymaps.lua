@@ -13,19 +13,13 @@ vim.keymap.set("v", "gl", "$", { desc = "➡️  Go to line end" })
 -- ══════════════════════════════════════════════════════════════
 -- 📋 Clipboard - System clipboard operations
 -- ══════════════════════════════════════════════════════════════
-vim.keymap.set("n", "<leader>p", '"+p', { desc = "📋 Paste from system clipboard" })
-vim.keymap.set("v", "<leader>p", '"+p', { desc = "📋 Paste from system clipboard" })
 vim.keymap.set("n", "<leader>y", '"+y', { desc = "📋 Copy to system clipboard" })
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "📋 Copy to system clipboard" })
 
 -- ══════════════════════════════════════════════════════════════
 -- 🗑️  Delete - Using black hole register (doesn't affect clipboard)
 -- ══════════════════════════════════════════════════════════════
-vim.keymap.set("n", "d", '"_d', { desc = "🗑️  Delete (no yank)" })
-vim.keymap.set("n", "D", '"_D', { desc = "🗑️  Delete to line end (no yank)" })
-vim.keymap.set("n", "dd", '"_dd', { desc = "🗑️  Delete line (no yank)" })
-vim.keymap.set("n", "<leader>d", '"_d', { desc = "🗑️  Delete (no yank)" })
-vim.keymap.set("v", "<leader>d", '"_d', { desc = "🗑️  Delete (no yank)" })
+-- d/dd/D use default behavior (yank + delete) so you can cut and paste
 vim.keymap.set("n", "x", '"_x', { desc = "🗑️  Delete char (no yank)" })
 vim.keymap.set("v", "x", '"_x', { desc = "🗑️  Delete selection (no yank)" })
 vim.keymap.set("n", "r", '"_r', { desc = "🗑️  Replace char (no yank)" })
@@ -34,7 +28,6 @@ vim.keymap.set("v", "r", '"_r', { desc = "🗑️  Replace selection (no yank)" 
 -- ══════════════════════════════════════════════════════════════
 -- 📝 Smart Paste - Replace without yanking deleted text
 -- ══════════════════════════════════════════════════════════════
-vim.keymap.set("x", "<leader>p", '"_dP', { desc = "📝 Paste (keep clipboard)" })
 vim.keymap.set("x", "p", '"_dP', { desc = "📝 Paste (keep clipboard)" })
 
 -- ══════════════════════════════════════════════════════════════
@@ -47,7 +40,7 @@ vim.keymap.set(
 	':lua vim.fn.setreg("+", vim.fn.expand("%:p"))<CR>',
 	{ noremap = true, silent = true, desc = "📂 Copy file path" }
 )
-vim.keymap.set("n", "<CR>", ":noh<CR><CR>", { desc = "❌ Clear search highlight" })
+-- nohlsearch built-in plugin auto-clears search highlight when cursor moves
 vim.keymap.set("n", "<leader>w", ":set wrap!<CR>", { desc = "Toggle line wrap" })
 
 -- ══════════════════════════════════════════════════════════════
@@ -72,9 +65,9 @@ local function ToggleSpellWithNotify()
 
 	-- Check the new state and notify the user
 	if setting then
-		vim.notify("Spell check eNABLED", vim.log.levels.INFO, { title = "Spell" })
+		vim.notify("Spell check ENABLED", vim.log.levels.INFO, { title = "Spell" })
 	else
-		vim.notify("Spell check dISABLED", vim.log.levels.INFO, { title = "Spell" })
+		vim.notify("Spell check DISABLED", vim.log.levels.INFO, { title = "Spell" })
 	end
 end
 

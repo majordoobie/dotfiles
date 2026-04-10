@@ -16,12 +16,16 @@ vim.opt.relativenumber = true -- show relative line numbers
 vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
-vim.softtabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.tabstop = 4 -- 2 spaces for tabs (prettier default)
 vim.opt.shiftwidth = 4 -- 2 spaces for indent width
 vim.opt.expandtab = true -- expand tab to spaces
 vim.opt.autoindent = true -- copy indent from current line when starting new one
 vim.opt.smartindent = true
+vim.opt.foldenable = false
+vim.opt.foldmethod = "manual"
+vim.opt.diffopt:remove("context:foldcolumn")
+vim.opt.diffopt:append("context:9999")
 
 -- system options
 vim.opt.background = "dark"
@@ -30,7 +34,7 @@ vim.opt.clipboard = "unnamedplus" -- use system clipboard
 vim.opt.cursorline = true -- highlight the current cursor line
 vim.opt.cursorlineopt = "screenline,number"
 vim.opt.completeopt = { "menuone", "noselect" } -- Completion opions for code completion
-vim.opt.mouse = "a" -- use mouse in all mouds
+vim.opt.mouse = "a" -- use mouse in all modes
 vim.opt.termguicolors = true -- support true colors
 
 -- search settings
@@ -55,7 +59,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.undodir"
 vim.opt.undofile = true
 vim.opt.undolevels = 1000
 
--- split windows hello helo
+-- split windows
 vim.opt.splitright = true -- split vertical window to the right
 vim.opt.splitbelow = true -- split horizontal window to the bottom
 

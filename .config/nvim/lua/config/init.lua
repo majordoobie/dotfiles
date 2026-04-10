@@ -1,7 +1,25 @@
 require("config.options")
 require("config.keymaps")
 
---  This installs plugins
-require("config.lazy")
+-- migrated to vim.pack
+require("config.pack_config")
+require("packs.common")
+require("packs.treesitter")
+require("packs.file_tree")
+require("packs.telescope")
+require("packs.snacks_plug")
+require("packs.ui_elements")
+require("packs.harpoon")
+require("packs.mini_text_edit")
+require("packs.codediff")
+require("packs.git_integrations")
+require("packs.markdown")
+require("packs.ide_editing")
+require("packs.blink_cmp")
+require("packs.ide_formatter")
+require("packs.ide_linter")
+require("packs.nvim_dap")
+require("packs.ai_slop")
+require("packs.nvim_builtin_plugins")
 
 require("config.lsp_config")
