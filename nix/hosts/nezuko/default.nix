@@ -55,6 +55,7 @@
       "adobe-acrobat-reader"
       "bartender"
       "bettermouse"
+      "claude"
       "google-drive"
       "obsidian"
       "raycast"
