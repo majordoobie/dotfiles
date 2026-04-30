@@ -8,7 +8,7 @@
 }:
 {
   imports = [
-    ../../modules/touchid.nix
+    ../../modules/touchID.nix
     ../../modules/aerospaceConfig.nix
     # ../../modules/sketchybarconfig.nix
     ../../modules/development_config/c.nix
@@ -56,6 +56,8 @@
       "bartender"
       "bettermouse"
       "claude"
+      "codex"
+      "codex-app"
       "google-drive"
       "obsidian"
       "raycast"
@@ -80,10 +82,8 @@
     ncdu
     uv
 
-    claude-code # temporarily removed - v2.1.88 yanked from npm
-    # gemini-cli
-    # codex
-    #opencode
+    claude-code
+    opencode
 
 
     # Obsidean in neovim plugs

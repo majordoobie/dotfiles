@@ -59,15 +59,17 @@ after/ftplugin/    Per-filetype overrides (indentation: lua/nix=2 spaces, c=4 sp
 Some plugins require compiled binaries. The config handles this with a fallback chain:
 
 ### blink.cmp (fuzzy matcher)
-1. Check if binary exists (`target/release/*.dylib` or `*.so`)
-2. Try fileshare: `/mnt/software/Neovim/blink.cmp/blink.cmp_<version>.so`
-3. Build from source: `cargo build --release`
-4. Fallback: Lua fuzzy implementation (`fuzzy.implementation = "lua"`)
+- **Air-gapped (fileshare mounted at `/mnt/software/Neovim`)**: copy prebuilt binary from `/mnt/software/Neovim/blink.cmp/blink.cmp_<version>.so` into `target/release/libblink_cmp_fuzzy.so`. `prebuilt_binaries.download = false`.
+- **Internet-connected (no fileshare)**: let blink.cmp's own downloader fetch the prebuilt binary from GitHub releases. `prebuilt_binaries.download = true`.
+- Building from source is **not** supported in this config (air-gapped systems can't fetch cargo deps).
+- If the Rust binary fails to load, `fuzzy.implementation = "prefer_rust"` silently falls back to the Lua implementation.
+- Stale `target/release/version` files from prior partial builds are cleaned up on startup so the GitHub download isn't blocked.
 
 ### codediff.nvim (diff engine)
-1. Check if binary exists (`libvscode_diff_*` in plugin root)
-2. Try fileshare: `/mnt/software/Neovim/codediff.nvim/codediff.nvim-libvscode_<version>.so`
-3. Fallback: prompt user to run `:CodeDiff install`
+- **Air-gapped (fileshare mounted at `/mnt/software/Neovim`)**: copy prebuilt binary from `/mnt/software/Neovim/codediff.nvim/codediff.nvim-libvscode_<tag>.so` (exact tag match via `git describe --tags --exact-match`) into the plugin root as `libvscode_diff_<version>.so`. Also copies `codediff.nvim-libgomp_<tag>.so.1` → `libgomp.so.1` if present (Linux OpenMP shim). `VSCODE_DIFF_NO_AUTO_INSTALL=1` is set to disable the built-in installer.
+- **Internet-connected (no fileshare)**: leave codediff's built-in installer enabled so it fetches the binary from GitHub releases on first use (or run `:CodeDiff install` manually).
+- Building from source is **not** supported in this config (air-gapped systems can't fetch build deps).
+- Exact-tag matching avoids ABI mismatch crashes when multiple versions sit on the fileshare.
 
 ## Air-Gapped Network Support
 

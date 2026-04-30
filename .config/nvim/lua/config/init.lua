@@ -3,12 +3,12 @@ require("config.keymaps")
 
 -- migrated to vim.pack
 require("config.pack_config")
+require("packs.ui_elements")
 require("packs.common")
 require("packs.treesitter")
 require("packs.file_tree")
 require("packs.telescope")
 require("packs.snacks_plug")
-require("packs.ui_elements")
 require("packs.harpoon")
 require("packs.mini_text_edit")
 require("packs.codediff")

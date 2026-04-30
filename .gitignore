@@ -10,3 +10,4 @@ repos/
 .config/wireshark/
 .config/cagent/
 .config/fish/secrets.fish
+nix/flake.lock

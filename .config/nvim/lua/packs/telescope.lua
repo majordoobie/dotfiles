@@ -2,11 +2,49 @@
 -- 📦 Plugins
 -- ══════════════════════════════════════════════════════════════
 
+local fzf_native_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/telescope-fzf-native.nvim"
+local lib_ext = vim.fn.has("mac") == 1 and "dylib" or "so"
+
+local function build_fzf_native(cwd)
+	if vim.fn.isdirectory(cwd) == 0 then
+		vim.api.nvim_echo({
+			{ "⚠️  telescope-fzf-native dir missing: " .. cwd, "ErrorMsg" },
+		}, true, {})
+		return
+	end
+	vim.api.nvim_echo({ { "Building telescope-fzf-native in " .. cwd, "WarningMsg" } }, true, {})
+	vim.cmd("redraw")
+	local ok, result = pcall(function()
+		return vim.system({ "make" }, { cwd = cwd, text = true }):wait()
+	end)
+	if not ok then
+		vim.api.nvim_echo({
+			{ "⚠️  telescope-fzf-native: could not run make: " .. tostring(result), "ErrorMsg" },
+		}, true, {})
+		return
+	end
+	if result.code == 0 then
+		vim.api.nvim_echo({ { "✅ telescope-fzf-native built!", "Normal" } }, true, {})
+	else
+		vim.api.nvim_echo({
+			{
+				"⚠️  telescope-fzf-native build failed (exit "
+					.. tostring(result.code)
+					.. "):\nstdout: "
+					.. (result.stdout or "")
+					.. "\nstderr: "
+					.. (result.stderr or ""),
+				"ErrorMsg",
+			},
+		}, true, {})
+	end
+end
+
 -- Build telescope-fzf-native after install or update
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function(ev)
 		if ev.data.spec.name == "telescope-fzf-native.nvim" and (ev.data.kind == "install" or ev.data.kind == "update") then
-			vim.system({ "make" }, { cwd = ev.data.path }):wait()
+			build_fzf_native(ev.data.path)
 		end
 	end,
 })
@@ -16,6 +54,13 @@ vim.pack.add({
 	git_source("nvim-telescope/telescope-live-grep-args.nvim"),
 	git_source("nvim-telescope/telescope-fzf-native.nvim"),
 }, { load = true })
+
+-- Fallback: if the native binary is missing (e.g. PackChanged didn't fire, prior build failed,
+-- or the build dir was wiped), build it now before telescope.load_extension("fzf") runs.
+local fzf_so = fzf_native_path .. "/build/libfzf." .. lib_ext
+if vim.fn.filereadable(fzf_so) == 0 then
+	build_fzf_native(fzf_native_path)
+end
 
 -- ══════════════════════════════════════════════════════════════
 -- ⚙️  Configurations

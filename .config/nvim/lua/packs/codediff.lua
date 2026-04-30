@@ -111,46 +111,68 @@ vim.opt.diffopt:append("algorithm:histogram") -- Use better diff algorithm
 -- ══════════════════════════════════════════════════════════════
 -- 📦 Plugins
 -- ══════════════════════════════════════════════════════════════
--- Disable auto-download of binary (we manage it via fileshare/gsync)
-vim.env.VSCODE_DIFF_NO_AUTO_INSTALL = "1"
+local fileshare = require("config.fileshare")
+
+local codediff_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/codediff.nvim"
+local lib_ext = vim.fn.has("mac") == 1 and "dylib" or "so"
+local is_airgapped = fileshare.is_airgapped()
+
+-- On air-gapped: disable codediff's built-in GitHub auto-installer (no internet).
+-- On internet: leave it enabled so codediff fetches its binary from GitHub releases on first use.
+if is_airgapped then
+	vim.env.VSCODE_DIFF_NO_AUTO_INSTALL = "1"
+end
+
+-- Copy codediff's prebuilt native diff library (per-tag) from the fileshare, plus the
+-- Linux-only libgomp shim when present. The ABI is tied to the plugin tag, so the match
+-- must be exact.
+local function copy_from_fileshare()
+	return fileshare.copy_tag_matched_binary({
+		name = "codediff",
+		plugin_path = codediff_path,
+		subdir = "codediff.nvim",
+		source_tmpl = "codediff.nvim-libvscode_%s.so",
+		dest = function(tag)
+			local version_num = tag:gsub("^v", "")
+			return codediff_path .. "/libvscode_diff_" .. version_num .. "." .. lib_ext
+		end,
+		post = function(tag, path)
+			-- Linux systems without OpenMP need libgomp.so.1 alongside the main binary.
+			if lib_ext ~= "so" then
+				return
+			end
+			local gomp_source = fileshare.fileshare_root()
+				.. "/codediff.nvim/codediff.nvim-libgomp_"
+				.. tag
+				.. ".so.1"
+			if vim.uv.fs_stat(gomp_source) then
+				vim.uv.fs_copyfile(gomp_source, path .. "/libgomp.so.1")
+			end
+		end,
+	})
+end
+
+-- On air-gapped: re-copy the binary from the fileshare when vim.pack installs or updates codediff.
+-- On internet: no hook needed — codediff's built-in installer fetches from GitHub on first use.
+if is_airgapped then
+	vim.api.nvim_create_autocmd("PackChanged", {
+		callback = function(ev)
+			if ev.data.spec.name == "codediff.nvim" and (ev.data.kind == "install" or ev.data.kind == "update") then
+				copy_from_fileshare()
+			end
+		end,
+	})
+end
 
 vim.pack.add({
 	git_source("esmuellert/codediff.nvim"),
 }, { load = true })
 
--- Ensure codediff binary exists, fallback chain:
--- 1. Check fileshare for prebuilt binary (air-gapped network)
--- 2. Use :CodeDiff install to download from GitHub releases
-local codediff_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/codediff.nvim"
-local fileshare_path = "/mnt/software/Neovim"
-local lib_ext = vim.fn.has("mac") == 1 and "dylib" or "so"
-local has_codediff_binary = vim.fn.glob(codediff_path .. "/libvscode_diff*." .. lib_ext) ~= ""
-
-if vim.fn.isdirectory(codediff_path) == 1 and not has_codediff_binary then
-	-- Try to copy prebuilt binary from fileshare (version-agnostic glob)
-	local fileshare_binary = vim.fn.glob(fileshare_path .. "/codediff.nvim/codediff.nvim-libvscode_*.so")
-	if fileshare_binary ~= "" then
-		-- Extract clean version from filename (e.g. "codediff.nvim-libvscode_v2.43.10.so" -> "2.43.10")
-		local version_num = fileshare_binary:match("_v(%d+%.%d+%.%d+)%.so$")
-		if version_num then
-			local dest = codediff_path .. "/libvscode_diff_" .. version_num .. "." .. lib_ext
-			vim.api.nvim_echo(
-				{ { "Copying codediff binary from fileshare (may be slow)...", "WarningMsg" } },
-				true,
-				{}
-			)
-			vim.cmd("redraw")
-			vim.uv.fs_copyfile(fileshare_binary, dest)
-			vim.api.nvim_echo({ { "codediff binary copied from fileshare!", "Normal" } }, true, {})
-		end
-	else
-		-- Fallback: let codediff download it on first use via :CodeDiff install
-		vim.api.nvim_echo(
-			{ { "codediff binary not found, run :CodeDiff install to download", "WarningMsg" } },
-			true,
-			{}
-		)
-	end
+-- Ensure a usable binary is in place. On air-gapped: copy from the fileshare. On internet:
+-- codediff's own installer handles the download on first use, so nothing to do here.
+local has_binary = vim.fn.glob(codediff_path .. "/libvscode_diff*." .. lib_ext) ~= ""
+if not has_binary and is_airgapped then
+	copy_from_fileshare()
 end
 
 -- ══════════════════════════════════════════════════════════════

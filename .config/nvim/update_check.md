@@ -1,2 +1,0 @@
-- [ ]  ./lua/plugins/git-integrations.lua
-- [ ] ./.luarc.json
