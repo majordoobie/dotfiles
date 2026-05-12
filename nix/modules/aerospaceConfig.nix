@@ -185,132 +185,110 @@
         ];
       };
 
+      # Fires both when aerospace starts (walking existing windows) and when new windows appear.
       on-window-detected = [
-        #
-        # Aerospace Startup
-        #
+        # Workspace 1 — browsers
         {
-          check-further-callbacks = true;
-          "if".app-id = "com.microsoft.edgemac";
-          run = [ "move-node-to-workspace 1" ];
-        }
-        {
-          check-further-callbacks = true;
           "if" = {
-            app-id = "company.thebrowser.Browser";
+            app-id = "com.microsoft.edgemac";
           };
           run = [ "move-node-to-workspace 1" ];
         }
         {
-          check-further-callbacks = true;
-          "if" = {
-            app-id = "app.zen-browser.zen";
-            during-aerospace-startup = true;
-          };
-          run = [ "move-node-to-workspace 1" ];
-        }
-        {
-          check-further-callbacks = true;
           "if" = {
             app-id = "com.brave.Browser";
-            during-aerospace-startup = true;
           };
           run = [ "move-node-to-workspace 1" ];
         }
         {
-          check-further-callbacks = true;
-          "if".app-id = "com.vivaldi.Vivaldi";
-          run = [ "move-node-to-workspace 1" ];
-        }
-        {
-          check-further-callbacks = true;
           "if" = {
             app-id = "com.vivaldi.Vivaldi";
           };
           run = [ "move-node-to-workspace 1" ];
         }
         {
-          check-further-callbacks = true;
           "if" = {
-            app-id = "com.mitchellh.ghostty";
-            during-aerospace-startup = true;
+            app-id = "company.thebrowser.Browser";
           };
-          run = [ "move-node-to-workspace 2" ];
+          run = [ "move-node-to-workspace 1" ];
         }
         {
-          check-further-callbacks = true;
           "if" = {
-            app-id = "md.obsidian";
-            during-aerospace-startup = true;
+            app-id = "app.zen-browser.zen";
           };
-          run = [ "move-node-to-workspace 3" ];
-        }
-        {
-          check-further-callbacks = true;
-          "if" = {
-            app-id = "org.whispersystems.signal-desktop";
-            during-aerospace-startup = true;
-          };
-          run = [ "move-node-to-workspace C" ];
-        }
-        {
-          check-further-callbacks = true;
-          "if" = {
-            app-id = "com.apple.MobileSMS";
-            during-aerospace-startup = true;
-          };
-          run = [ "move-node-to-workspace C" ];
-        }
-        {
-          check-further-callbacks = true;
-          "if" = {
-            app-id = "com.apple.Music";
-            during-aerospace-startup = true;
-          };
-          run = [ "move-node-to-workspace M" ];
+          run = [ "move-node-to-workspace 1" ];
         }
 
-        #
-        # App Startup
-        #
+        # Workspace 2 — terminal, PiP
         {
-          "if".app-id = "company.thebrowser.Browser";
-          run = [ "move-node-to-workspace 1" ];
-        }
-        {
-          "if".app-id = "app.zen-browser.zen";
-          run = [ "move-node-to-workspace 1" ];
-        }
-        {
-          "if".window-title-regex-substring = "Picture-in-Picture";
+          "if" = {
+            app-id = "com.mitchellh.ghostty";
+          };
           run = [ "move-node-to-workspace 2" ];
         }
         {
-          "if".app-id = "com.brave.Browser";
-          run = [ "move-node-to-workspace 1" ];
-        }
-        {
-          "if".app-id = "com.microsoft.edgemac";
-          run = [ "move-node-to-workspace 1" ];
-        }
-        {
-          "if".app-id = "com.mitchellh.ghostty";
+          "if" = {
+            window-title-regex-substring = "Picture-in-Picture";
+          };
           run = [ "move-node-to-workspace 2" ];
         }
+
+        # Workspace 3 — notes
         {
-          "if".app-id = "md.obsidian";
+          "if" = {
+            app-id = "md.obsidian";
+          };
           run = [ "move-node-to-workspace 3" ];
         }
+
+        # Workspace 4 — AI desktop
         {
-          "if".app-id = "org.whispersystems.signal-desktop";
+          "if" = {
+            app-id = "com.anthropic.claudefordesktop";
+          };
+          run = [ "move-node-to-workspace 4" ];
+        }
+        {
+          "if" = {
+            app-id = "com.openai.codex";
+          };
+          run = [ "move-node-to-workspace 4" ];
+        }
+        
+
+        # Workspace C — chat / messages
+        {
+          "if" = {
+            app-id = "org.whispersystems.signal-desktop";
+          };
           run = [ "move-node-to-workspace C" ];
         }
         {
-          "if".app-id = "com.apple.MobileSMS";
+          "if" = {
+            app-id = "com.apple.MobileSMS";
+          };
           run = [ "move-node-to-workspace C" ];
         }
         {
-          "if".app-id = "com.apple.Music";
+          "if" = {
+            app-id = "com.wickr.AWSWickrGovMac";
+          };
+          run = [ "move-node-to-workspace C" ];
+        }
+
+        # Workspace 5 — Windows APP
+        {
+          "if" = {
+            app-id = "com.microsoft.rdc.macos";
+          };
+          run = [ "move-node-to-workspace 5" ];
+        }
+
+        # Workspace M — music
+        {
+          "if" = {
+            app-id = "com.apple.Music";
+          };
           run = [ "move-node-to-workspace M" ];
         }
       ];

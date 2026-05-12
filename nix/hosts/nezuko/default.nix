@@ -92,13 +92,6 @@
     mermaid-cli
     tectonic
 
-    # needed for tdarr
-    mkvtoolnix
-    ccextractor
-    ffmpeg_7-full
-    mediainfo
-
-
     # red team -- terminal cac access
     opensc
     (openvpn.override { pkcs11Support = true; })
