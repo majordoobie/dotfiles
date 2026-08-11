@@ -57,6 +57,8 @@
 
     _1password-cli
     nh # nix manager
+    nvd # nix version diff — powers nh's stats/diff output
+    nix-output-monitor # nom — pretty build tree/log output for nh
   ];
 
   homebrew = {
@@ -68,7 +70,7 @@
     onActivation = {
       autoUpdate = false;
       upgrade = true;
-      cleanup = "zap";
+      cleanup = "none";
       extraFlags = [
         "--verbose"
       ];

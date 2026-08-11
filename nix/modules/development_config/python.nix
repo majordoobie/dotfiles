@@ -7,6 +7,7 @@
 
     # LSP
     basedpyright
+    ty
 
     # Linter + Formatter
     ruff # Also a formatter

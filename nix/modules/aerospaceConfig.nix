@@ -192,31 +192,55 @@
           "if" = {
             app-id = "com.microsoft.edgemac";
           };
-          run = [ "move-node-to-workspace 1" ];
+          run = [
+            "move-node-to-workspace 1"
+            "layout tiling"
+          ];
         }
         {
           "if" = {
             app-id = "com.brave.Browser";
           };
-          run = [ "move-node-to-workspace 1" ];
+          run = [
+            "move-node-to-workspace 1"
+            "layout tiling"
+          ];
         }
         {
           "if" = {
             app-id = "com.vivaldi.Vivaldi";
           };
-          run = [ "move-node-to-workspace 1" ];
+          run = [
+            "move-node-to-workspace 1"
+            "layout tiling"
+          ];
         }
         {
           "if" = {
             app-id = "company.thebrowser.Browser";
           };
-          run = [ "move-node-to-workspace 1" ];
+          run = [
+            "move-node-to-workspace 1"
+            "layout tiling"
+          ];
         }
         {
           "if" = {
             app-id = "app.zen-browser.zen";
           };
-          run = [ "move-node-to-workspace 1" ];
+          run = [
+            "move-node-to-workspace 1"
+            "layout tiling"
+          ];
+        }
+        {
+          "if" = {
+            app-id = "net.imput.helium";
+          };
+          run = [
+            "move-node-to-workspace 1"
+            "layout tiling"
+          ];
         }
 
         # Workspace 2 — terminal, PiP
@@ -224,13 +248,19 @@
           "if" = {
             app-id = "com.mitchellh.ghostty";
           };
-          run = [ "move-node-to-workspace 2" ];
+          run = [
+            "move-node-to-workspace 2"
+            "layout tiling"
+          ];
         }
         {
           "if" = {
             window-title-regex-substring = "Picture-in-Picture";
           };
-          run = [ "move-node-to-workspace 2" ];
+          run = [
+            "move-node-to-workspace 2"
+            "layout tiling"
+          ];
         }
 
         # Workspace 3 — notes
@@ -238,7 +268,10 @@
           "if" = {
             app-id = "md.obsidian";
           };
-          run = [ "move-node-to-workspace 3" ];
+          run = [
+            "move-node-to-workspace 3"
+            "layout tiling"
+          ];
         }
 
         # Workspace 4 — AI desktop
@@ -246,13 +279,19 @@
           "if" = {
             app-id = "com.anthropic.claudefordesktop";
           };
-          run = [ "move-node-to-workspace 4" ];
+          run = [
+            "move-node-to-workspace 4"
+            "layout tiling"
+          ];
         }
         {
           "if" = {
             app-id = "com.openai.codex";
           };
-          run = [ "move-node-to-workspace 4" ];
+          run = [
+            "move-node-to-workspace 4"
+            "layout tiling"
+          ];
         }
         
 
@@ -261,19 +300,28 @@
           "if" = {
             app-id = "org.whispersystems.signal-desktop";
           };
-          run = [ "move-node-to-workspace C" ];
+          run = [
+            "move-node-to-workspace C"
+            "layout tiling"
+          ];
         }
         {
           "if" = {
             app-id = "com.apple.MobileSMS";
           };
-          run = [ "move-node-to-workspace C" ];
+          run = [
+            "move-node-to-workspace C"
+            "layout tiling"
+          ];
         }
         {
           "if" = {
             app-id = "com.wickr.AWSWickrGovMac";
           };
-          run = [ "move-node-to-workspace C" ];
+          run = [
+            "move-node-to-workspace C"
+            "layout tiling"
+          ];
         }
 
         # Workspace 5 — Windows APP
@@ -281,7 +329,10 @@
           "if" = {
             app-id = "com.microsoft.rdc.macos";
           };
-          run = [ "move-node-to-workspace 5" ];
+          run = [
+            "move-node-to-workspace 5"
+            "layout tiling"
+          ];
         }
 
         # Workspace M — music
@@ -289,7 +340,10 @@
           "if" = {
             app-id = "com.apple.Music";
           };
-          run = [ "move-node-to-workspace M" ];
+          run = [
+            "move-node-to-workspace M"
+            "layout tiling"
+          ];
         }
       ];
     };

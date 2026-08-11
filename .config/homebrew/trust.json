@@ -1,0 +1,8 @@
+{
+  "trustedformulae": [
+    "felixkratz/formulae/sketchybar"
+  ],
+  "trustedtaps": [
+    "felixkratz/formulae"
+  ]
+}

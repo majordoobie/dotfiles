@@ -25,10 +25,10 @@ set -g status-position bottom
 
 
 
-# never let applications or tmux itself rename our windows
-set -g allow-rename on
+# never let applications rename our windows
+set -g allow-rename off
 setw -g automatic-rename on
-set -g automatic-rename-format '#{b:pane_current_path}'
+set -g automatic-rename-format '#{pane_current_command}:#{b:pane_current_path}'
 set -g renumber-windows on    # renumber windows when a window is closed
 
 

@@ -11,6 +11,7 @@
     ../../modules/touchID.nix
     ../../modules/aerospaceConfig.nix
     # ../../modules/sketchybarconfig.nix
+    ../../modules/development_config/node.nix
     ../../modules/development_config/c.nix
     ../../modules/development_config/docker.nix
     ../../modules/development_config/lua.nix
@@ -25,9 +26,8 @@
   system.defaults = {
     dock = {
       persistent-apps = [
-        "/Applications/Vivaldi.app/"
+        "/Applications/Helium.app"
         "/Applications/Ghostty.app"
-        "/System/Applications/iPhone Mirroring.app"
       ];
     };
 
@@ -40,14 +40,13 @@
     enable = true;
 
     taps = [
-      "FelixKratz/formulae"
     ];
 
     brews = [
-      "sketchybar"
       "switchaudio-osx"
       "handbrake"
       "tree-sitter-cli"
+      "mas"
     ];
 
     casks = [
@@ -59,14 +58,12 @@
       "codex"
       "codex-app"
       "google-drive"
+      "helium-browser"
       "obsidian"
       "raycast"
       "signal"
       "stats"
-      "utm"
-      "vivaldi"
       "vnc-viewer"
-      "wireshark-app"
     ];
 
   };
@@ -84,7 +81,6 @@
 
     claude-code
     opencode
-
 
     # Obsidean in neovim plugs
     imagemagick

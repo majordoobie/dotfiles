@@ -1,0 +1,10 @@
+Advantage 360 US 
+Profile 1
+Remaps 11
+Macros 0
+NKRO Off
+L Firmware 1.0.69
+R Firmware 1.0.69
+Bootloader 1.3
+www.kinesis.com/support/kb360
+
