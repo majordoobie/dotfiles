@@ -94,6 +94,13 @@ hipatterns.setup({
 		note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 		-- Highlight hex color strings (`#rrggbb`) using that color
 		hex_color = hipatterns.gen_highlighter.hex_color(),
+		-- Git merge conflict markers — codediff's 3-way view strips these, so this is
+		-- for when you read the raw conflicted file instead (mini.hipatterns uses Lua
+		-- patterns, not vim regex, so each marker gets its own entry)
+		conflict_ours = { pattern = "^<<<<<<<.*$", group = "DiagnosticError" },
+		conflict_base = { pattern = "^|||||||.*$", group = "DiagnosticHint" },
+		conflict_sep = { pattern = "^=======$", group = "DiagnosticWarn" },
+		conflict_theirs = { pattern = "^>>>>>>>.*$", group = "DiagnosticError" },
 	},
 })
 

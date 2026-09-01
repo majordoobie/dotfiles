@@ -3,7 +3,10 @@
 -- ══════════════════════════════════════════════════════════════
 
 local fzf_native_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/telescope-fzf-native.nvim"
-local lib_ext = vim.fn.has("mac") == 1 and "dylib" or "so"
+-- telescope-fzf-native's Makefile builds libfzf.so on every non-Windows platform —
+-- macOS included (it's a Mach-O library that just happens to be named .so). Checking
+-- for .dylib here never matched on macOS, so `make` re-ran on every startup.
+local lib_ext = "so"
 
 local function build_fzf_native(cwd)
 	if vim.fn.isdirectory(cwd) == 0 then
@@ -94,6 +97,9 @@ telescope.setup({
 			auto_quoting = true,
 			additional_args = function(_)
 				return {
+					-- Case-insensitive by default (overrides telescope's --smart-case).
+					-- Type -s in the prompt for a case-sensitive search, -S for smart-case.
+					"--ignore-case",
 					"--glob=!build/**",
 					"--glob=!**/build/**",
 				}
