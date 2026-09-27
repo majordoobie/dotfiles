@@ -6,6 +6,6 @@
     nil
 
     # Formatter
-    nixfmt-rfc-style
+    nixfmt
   ];
 }

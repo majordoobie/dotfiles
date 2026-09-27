@@ -11,4 +11,3 @@ repos/
 .config/cagent/
 .config/fish/secrets.fish
 nix/.claude
-nix/flake.lock
