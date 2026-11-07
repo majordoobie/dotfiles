@@ -4,7 +4,9 @@ repos/
 .config/nvim/*.json
 !.config/nvim/nvim-pack-lock.json
 .DS_Store
-.config/raycast/
+# Raycast (uninstalled): keep only the script commands; config.json holds login tokens
+.config/raycast/*
+!.config/raycast/personal/
 .config/colima/*
 .config/sketchybar/compiled_components/build/
 .config/btop/

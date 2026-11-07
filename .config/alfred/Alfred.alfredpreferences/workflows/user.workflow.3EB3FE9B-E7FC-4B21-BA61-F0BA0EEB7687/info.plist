@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.nezuko.screenshare-tanjiro</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>6B7896F0-C2D0-421C-A18C-EB577FD7557B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F70A0763-1F62-4C0A-A0E3-A25DE80AA1A9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>nezuko</string>
+	<key>description</key>
+	<string>Open a Screen Sharing session to tanjiro</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Screen Share: tanjiro</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>tanjiro</string>
+				<key>subtext</key>
+				<string>Screen share to tanjiro (vnc://192.168.1.2)</string>
+				<key>text</key>
+				<string>Tanjiro</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>6B7896F0-C2D0-421C-A18C-EB577FD7557B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/open "vnc://192.168.1.2"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F70A0763-1F62-4C0A-A0E3-A25DE80AA1A9</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Type 'tanjiro' to open Screen Sharing to vnc://192.168.1.2.
+Replaces the Raycast quicklink.</string>
+	<key>uidata</key>
+	<dict>
+		<key>6B7896F0-C2D0-421C-A18C-EB577FD7557B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>30</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+		<key>F70A0763-1F62-4C0A-A0E3-A25DE80AA1A9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>230</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>1.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

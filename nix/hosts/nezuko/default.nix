@@ -52,6 +52,7 @@
     casks = [
       "1password"
       "adobe-acrobat-reader"
+      "alfred"
       "bartender"
       "bettermouse"
       "claude"
@@ -60,7 +61,6 @@
       "google-drive"
       "helium-browser"
       "obsidian"
-      "raycast"
       "signal"
       "stats"
       "vnc-viewer"

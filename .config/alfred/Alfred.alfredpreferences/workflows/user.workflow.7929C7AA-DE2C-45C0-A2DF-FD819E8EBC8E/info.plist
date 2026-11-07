@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.vitorgalvao.alfred.axeprocesses</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>043BB5FF-386A-4307-BD82-0C1E2152D9AA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4B708B3A-FAAD-42CC-91ED-7BC9294013B5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>254C246F-F5BA-463E-BB05-DD594844CDFE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>54EE2F26-10E8-4445-A23E-F42E5CA09F38</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>0D672FFC-6AE8-44A2-B589-5F98A9792942</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Force kill</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>472492FC-C05D-4659-BF74-72AD1A8D869A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>254C246F-F5BA-463E-BB05-DD594844CDFE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7C9A8236-785A-4582-901B-F478DE741E5F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>043BB5FF-386A-4307-BD82-0C1E2152D9AA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>28C9F1B9-BDE0-4437-999A-20C106E9D21D</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>ECC273C2-A449-437C-A013-202951981174</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>598ACA6B-C34F-4A14-9EA2-CE48ED766FF6</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>950C4595-6AE3-483D-8615-6853316F950A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4B708B3A-FAAD-42CC-91ED-7BC9294013B5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B7A175A1-E54C-4F1A-A46A-A174CA1CB784</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>472492FC-C05D-4659-BF74-72AD1A8D869A</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>54EE2F26-10E8-4445-A23E-F42E5CA09F38</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>0D672FFC-6AE8-44A2-B589-5F98A9792942</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Force kill</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>7C9A8236-785A-4582-901B-F478DE741E5F</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Switch sort order</string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>E2E814E4-6ED3-42A4-8805-5D07DA53A4C0</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+		</array>
+		<key>E2E814E4-6ED3-42A4-8805-5D07DA53A4C0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>950C4595-6AE3-483D-8615-6853316F950A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>DB20F03A-C530-4824-856F-C840DAC00112</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>AEE557C2-7F8B-47C0-B41F-60D0EC1EC7B8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>ECC273C2-A449-437C-A013-202951981174</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4B708B3A-FAAD-42CC-91ED-7BC9294013B5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Vítor Galvão</string>
+	<key>description</key>
+	<string>Monitor and terminate processes</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Axe Processes</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>behaviour</key>
+				<integer>2</integer>
+				<key>fontmode</key>
+				<integer>0</integer>
+				<key>fontsizing</key>
+				<integer>0</integer>
+				<key>footertext</key>
+				<string>↩ Kill · ⌘↩ Force kill · ⎋ Go back</string>
+				<key>inputfile</key>
+				<string></string>
+				<key>inputtype</key>
+				<integer>0</integer>
+				<key>loadingtext</key>
+				<string></string>
+				<key>outputmode</key>
+				<integer>0</integer>
+				<key>scriptinput</key>
+				<integer>0</integer>
+				<key>spellchecking</key>
+				<integer>0</integer>
+				<key>stackview</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.userinterface.text</string>
+			<key>uid</key>
+			<string>254C246F-F5BA-463E-BB05-DD594844CDFE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>### Full Command
+
+```
+{var:full_command}
+```
+
+### Process Identifier
+
+```
+{query}
+```</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>pid</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>472492FC-C05D-4659-BF74-72AD1A8D869A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:axe_keyword}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Gathering running processes…</string>
+				<key>script</key>
+				<string>function envVar(varName) {
+  return $.NSProcessInfo
+    .processInfo
+    .environment
+    .objectForKey(varName).js
+}
+
+function runCommand(...arguments) {
+  const task = $.NSTask.alloc.init
+  const stdout = $.NSPipe.pipe
+
+  task.executableURL = $.NSURL.fileURLWithPath("/usr/bin/env")
+  task.arguments = arguments
+  task.standardOutput = stdout
+  task.launchAndReturnError(false)
+
+  const dataOut = stdout.fileHandleForReading.readDataToEndOfFileAndReturnError(false)
+  const stringOut = $.NSString.alloc.initWithDataEncoding(dataOut, $.NSUTF8StringEncoding).js
+
+  return stringOut
+}
+
+const processes = runCommand("ps", `-${envVar("sort_by_flag")}`, "-Ao", "%cpu=,rss=,pid=,comm=")
+  .split("\n")
+  .slice(0, -1)
+  .map(item =&gt; {
+    const fields = item.split(" ").filter(field =&gt; field)
+    const memory = parseInt(fields[1] / 1024)
+    const fullCommand = fields.slice(3).join(" ")
+    const splitCommand = fullCommand.split("/")
+
+    // Crude check for things which are running under meaningful bundles with icons
+    const iconablePath = fullCommand.match(/.*\.(app|framework|appex|dext)\//)?.[0]
+
+    // Crude removal of command arguments for presentation
+    // Commands from inside bundles can have names with spaces, and typically use argument flags
+    // Other commands, such as command-line tools typically do not have spaces in them
+    const commandName = iconablePath ?
+      splitCommand.slice(-1)[0].split(" -")[0] :
+      splitCommand.slice(-1)[0].split(" ")[0]
+
+    // If from a bundle, use that for the icon
+    // Otherwise, use the command path without arguments
+    const icon = iconablePath ?
+      iconablePath :
+      splitCommand.slice(0, -1).concat(commandName).join("/")
+
+    return {
+      cpu: fields[0],
+      memory: memory,
+      pid: fields[2],
+      fullCommand: fullCommand,
+      commandName: commandName,
+      icon: icon
+    }
+  })
+
+function run(argv) {
+  const liveMonitoring = envVar("refresh_rate") === "0" ?
+    { subtitle: "Resume live monitoring", "variables": { live_updates: true  } } :
+    { subtitle: "Pause live monitoring",  "variables": { live_updates: false } }
+
+  const sfItems = processes.flatMap(process =&gt; {
+    if (argv[0] &amp;&amp; !new RegExp(argv[0], "i").test(process.fullCommand)) return []
+    if (process.pid == $.NSProcessInfo.processInfo.processIdentifier) return [] // Ignore this script
+    if (process.fullCommand.match(/Alfred/)) return []
+
+    return {
+      variables: { full_command: process.fullCommand },
+      uid: process.pid,
+      title: process.commandName,
+      subtitle: `CPU: ${process.cpu}% · Memory: ${process.memory} MB · PID: ${process.pid}`,
+      arg: process.pid,
+      icon: { path: process.icon, type: "fileicon" },
+      mods: {
+        ctrl: { subtitle: process.fullCommand },
+        shift: liveMonitoring
+     }
+    }
+  })
+
+  return JSON.stringify({
+    rerun: envVar("refresh_rate"),
+    skipknowledge: true,
+    items: sfItems
+  })
+}</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>skipuniversalaction</key>
+				<true/>
+				<key>subtext</key>
+				<string>{const:alfred_workflow_description}</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+				<key>type</key>
+				<integer>7</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>inboundconfig</key>
+			<dict>
+				<key>externalid</key>
+				<string>view_processes</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>B7A175A1-E54C-4F1A-A46A-A174CA1CB784</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/bin/kill -15 "${1}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>11</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>54EE2F26-10E8-4445-A23E-F42E5CA09F38</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/bin/kill -9 "${1}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>11</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0D672FFC-6AE8-44A2-B589-5F98A9792942</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>view_processes</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>4B708B3A-FAAD-42CC-91ED-7BC9294013B5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>sort_by_flag</key>
+					<string>m</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>043BB5FF-386A-4307-BD82-0C1E2152D9AA</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:sort_by_flag}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>r</string>
+						<key>outputlabel</key>
+						<string>Memory</string>
+						<key>uid</key>
+						<string>28C9F1B9-BDE0-4437-999A-20C106E9D21D</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:sort_by_flag}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>m</string>
+						<key>outputlabel</key>
+						<string>CPU</string>
+						<key>uid</key>
+						<string>598ACA6B-C34F-4A14-9EA2-CE48ED766FF6</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string></string>
+				<key>hideelse</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>7C9A8236-785A-4582-901B-F478DE741E5F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>sort_by_flag</key>
+					<string>r</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>ECC273C2-A449-437C-A013-202951981174</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>refresh_rate</key>
+					<string>0</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>950C4595-6AE3-483D-8615-6853316F950A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>view_processes</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<false/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>AEE557C2-7F8B-47C0-B41F-60D0EC1EC7B8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:live_updates}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>6</integer>
+						<key>matchstring</key>
+						<string></string>
+						<key>outputlabel</key>
+						<string>Live Off</string>
+						<key>uid</key>
+						<string>DB20F03A-C530-4824-856F-C840DAC00112</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>Live On</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>E2E814E4-6ED3-42A4-8805-5D07DA53A4C0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>## Usage
+
+Search active processes, live sorted by CPU or memory usage, via the `axe` keyword.
+
+![Listing processes](images/about/axe.png)
+
+* &lt;kbd&gt;↩&lt;/kbd&gt; Ask process to terminate with TERM (software termination signal).
+* &lt;kbd&gt;⌘&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Force process to terminate with KILL (non-catchable, non-ignorable kill).
+* &lt;kbd&gt;⌥&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Flip sorting between CPU and memory usage.
+* &lt;kbd&gt;⇧&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Pause or resume live monitoring.
+* &lt;kbd&gt;⌃&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; View full command in Text View.
+
+![Viewing full command](images/about/full.png)</string>
+	<key>uidata</key>
+	<dict>
+		<key>043BB5FF-386A-4307-BD82-0C1E2152D9AA</key>
+		<dict>
+			<key>xpos</key>
+			<real>395</real>
+			<key>ypos</key>
+			<real>495</real>
+		</dict>
+		<key>0D672FFC-6AE8-44A2-B589-5F98A9792942</key>
+		<dict>
+			<key>xpos</key>
+			<real>580</real>
+			<key>ypos</key>
+			<real>350</real>
+		</dict>
+		<key>254C246F-F5BA-463E-BB05-DD594844CDFE</key>
+		<dict>
+			<key>xpos</key>
+			<real>355</real>
+			<key>ypos</key>
+			<real>65</real>
+		</dict>
+		<key>472492FC-C05D-4659-BF74-72AD1A8D869A</key>
+		<dict>
+			<key>xpos</key>
+			<real>285</real>
+			<key>ypos</key>
+			<real>95</real>
+		</dict>
+		<key>4B708B3A-FAAD-42CC-91ED-7BC9294013B5</key>
+		<dict>
+			<key>xpos</key>
+			<real>580</real>
+			<key>ypos</key>
+			<real>495</real>
+		</dict>
+		<key>54EE2F26-10E8-4445-A23E-F42E5CA09F38</key>
+		<dict>
+			<key>xpos</key>
+			<real>580</real>
+			<key>ypos</key>
+			<real>205</real>
+		</dict>
+		<key>7C9A8236-785A-4582-901B-F478DE741E5F</key>
+		<dict>
+			<key>xpos</key>
+			<real>285</real>
+			<key>ypos</key>
+			<real>515</real>
+		</dict>
+		<key>950C4595-6AE3-483D-8615-6853316F950A</key>
+		<dict>
+			<key>xpos</key>
+			<real>395</real>
+			<key>ypos</key>
+			<real>645</real>
+		</dict>
+		<key>AEE557C2-7F8B-47C0-B41F-60D0EC1EC7B8</key>
+		<dict>
+			<key>xpos</key>
+			<real>580</real>
+			<key>ypos</key>
+			<real>645</real>
+		</dict>
+		<key>B7A175A1-E54C-4F1A-A46A-A174CA1CB784</key>
+		<dict>
+			<key>xpos</key>
+			<real>80</real>
+			<key>ypos</key>
+			<real>205</real>
+		</dict>
+		<key>E2E814E4-6ED3-42A4-8805-5D07DA53A4C0</key>
+		<dict>
+			<key>xpos</key>
+			<real>225</real>
+			<key>ypos</key>
+			<real>650</real>
+		</dict>
+		<key>ECC273C2-A449-437C-A013-202951981174</key>
+		<dict>
+			<key>xpos</key>
+			<real>395</real>
+			<key>ypos</key>
+			<real>555</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>axe</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Axe Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>axe_keyword</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>r</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>CPU</string>
+						<string>r</string>
+					</array>
+					<array>
+						<string>Memory</string>
+						<string>m</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Sort By</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>sort_by_flag</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>defaultvalue</key>
+				<integer>1</integer>
+				<key>markercount</key>
+				<integer>5</integer>
+				<key>maxvalue</key>
+				<integer>5</integer>
+				<key>minvalue</key>
+				<integer>1</integer>
+				<key>onlystoponmarkers</key>
+				<true/>
+				<key>showmarkers</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Refresh Rate</string>
+			<key>type</key>
+			<string>slider</string>
+			<key>variable</key>
+			<string>refresh_rate</string>
+		</dict>
+	</array>
+	<key>variables</key>
+	<dict>
+		<key>default_cpu_limit</key>
+		<string>30</string>
+		<key>default_renice</key>
+		<string>1</string>
+		<key>rerun_timer</key>
+		<string>3</string>
+	</dict>
+	<key>version</key>
+	<string>25.1</string>
+	<key>webaddress</key>
+	<string>https://github.com/vitorgalvao/axe-processes-workflow/</string>
+</dict>
+</plist>

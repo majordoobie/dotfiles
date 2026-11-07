@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.nezuko.gif-search</string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>F4E5C55C-AFFD-42CA-B758-9A7AF52A7718</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B4F1AF6A-7F39-491A-A3B9-90C3BE3C6DBC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>nezuko</string>
+	<key>description</key>
+	<string>Search GIPHY in the browser</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>GIF Search</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>gif</string>
+				<key>subtext</key>
+				<string>Search GIPHY for '{query}'</string>
+				<key>text</key>
+				<string>GIF Search</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F4E5C55C-AFFD-42CA-B758-9A7AF52A7718</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python3 gif_search.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B4F1AF6A-7F39-491A-A3B9-90C3BE3C6DBC</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Type 'gif &lt;words&gt;' to open a GIPHY search, e.g. 'gif happy dance'.
+Replaces Raycast's GIF Search extension (browser version, no API key).</string>
+	<key>uidata</key>
+	<dict>
+		<key>B4F1AF6A-7F39-491A-A3B9-90C3BE3C6DBC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>230</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+		<key>F4E5C55C-AFFD-42CA-B758-9A7AF52A7718</key>
+		<dict>
+			<key>xpos</key>
+			<integer>30</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>1.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
