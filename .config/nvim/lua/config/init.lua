@@ -20,6 +20,7 @@ require("packs.ide_formatter")
 require("packs.ide_linter")
 require("packs.nvim_dap")
 require("packs.ai_slop")
+require("packs.mermaid")
 require("packs.nvim_builtin_plugins")
 
 require("config.lsp_config")

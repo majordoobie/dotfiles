@@ -2,6 +2,7 @@ repos/
 .config/tmux/plugins/
 .config/nvim/node_modules/
 .config/nvim/*.json
+!.config/nvim/nvim-pack-lock.json
 .DS_Store
 .config/raycast/
 .config/colima/*

@@ -87,12 +87,18 @@ end
 
 -- Main formatter entry used by <leader>ef.
 -- Python: organize imports via Ruff LSP, then run Conform formatters.
+-- Markdown: align pipe tables (prettier-compatible layout, no prettier needed).
 -- Other filetypes: just run Conform formatters.
 local function format_with_conform_and_ruff_imports(opts)
 	opts = opts or {}
 	local bufnr = opts.bufnr or vim.api.nvim_get_current_buf()
-	if vim.bo[bufnr].filetype == "python" then
+	local filetype = vim.bo[bufnr].filetype
+	if filetype == "python" then
 		organize_imports_with_ruff_lsp(bufnr)
+	elseif filetype == "markdown" then
+		-- Tables only: prettier would also rewrite bullets, emphasis and list
+		-- markers, which makes for noisy merge request diffs.
+		require("custom.markdown_tables").align_buffer(bufnr)
 	end
 	-- For Python, Conform runs: ruff_fix, then ruff_format.
 	conform.format(opts)

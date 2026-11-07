@@ -1,4 +1,4 @@
-{ ... }:
+{ config, lib, ... }:
 {
   system.defaults = {
     NSGlobalDomain = {
@@ -348,4 +348,19 @@
       ];
     };
   };
+
+  # Run AeroSpace from the stable /Applications/Nix Apps copy instead of its /nix/store path.
+  # macOS 27's menu bar treats every new store path (i.e. every rebuild) as a new app and
+  # keeps its icon hidden, even though Bartender lists it as shown.
+  # Keeps nix-darwin's generated command (incl. --config-path) and only swaps the app path.
+  launchd.user.agents.aerospace.serviceConfig.ProgramArguments = lib.mkForce [
+    "/bin/sh"
+    "-c"
+    (
+      "/bin/wait4path /nix/store && exec "
+      + builtins.replaceStrings [ "${config.services.aerospace.package}/Applications" ] [
+        "'/Applications/Nix Apps'"
+      ] config.launchd.user.agents.aerospace.command
+    )
+  ];
 }
