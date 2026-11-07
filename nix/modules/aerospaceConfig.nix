@@ -335,13 +335,13 @@
           ];
         }
 
-        # Workspace 9 — calendar / mail
+        # Workspace C (alt-0) — calendar / mail
         {
           "if" = {
             app-id = "com.apple.iCal";
           };
           run = [
-            "move-node-to-workspace 9"
+            "move-node-to-workspace C"
             "layout tiling"
           ];
         }
@@ -350,7 +350,7 @@
             app-id = "com.apple.mail";
           };
           run = [
-            "move-node-to-workspace 9"
+            "move-node-to-workspace C"
             "layout tiling"
           ];
         }
