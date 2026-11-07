@@ -335,6 +335,26 @@
           ];
         }
 
+        # Workspace 9 — calendar / mail
+        {
+          "if" = {
+            app-id = "com.apple.iCal";
+          };
+          run = [
+            "move-node-to-workspace 9"
+            "layout tiling"
+          ];
+        }
+        {
+          "if" = {
+            app-id = "com.apple.mail";
+          };
+          run = [
+            "move-node-to-workspace 9"
+            "layout tiling"
+          ];
+        }
+
         # Workspace M — music
         {
           "if" = {
