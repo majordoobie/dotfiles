@@ -16,7 +16,14 @@
 {
   imports = [
     ../modules/fish.nix
+    ../modules/upgradeAll.nix
   ];
+
+  # 1Password CLI: installed to /usr/local/bin/op (a plain systemPackages install only lands in
+  # /run/current-system/sw/bin). The 1Password app integration only works from /usr/local/bin,
+  # and that's also where Alfred's 1Password workflow can find it.
+  programs._1password.enable = true;
+
   /*
     Get a list of installed packages. It will be in a
     file in /etc/installed-packages
@@ -55,7 +62,6 @@
     lazydocker
     watch
 
-    _1password-cli
     nh # nix manager
     nvd # nix version diff — powers nh's stats/diff output
     nix-output-monitor # nom — pretty build tree/log output for nh
@@ -69,7 +75,9 @@
 
     onActivation = {
       autoUpdate = false;
-      upgrade = true;
+      # Don't upgrade on every rebuild: it replaced running apps (Helium broke mid-session).
+      # Run `upgrade-all` to update nix, brew and App Store apps together instead.
+      upgrade = false;
       cleanup = "none";
       extraFlags = [
         "--verbose"
