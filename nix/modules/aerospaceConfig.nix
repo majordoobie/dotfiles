@@ -187,6 +187,40 @@
 
       # Fires both when aerospace starts (walking existing windows) and when new windows appear.
       on-window-detected = [
+        # Floating (excluded from tiling) — stays wherever you put it
+        {
+          "if" = {
+            app-id = "com.apple.FaceTime";
+          };
+          run = [
+            "layout floating"
+          ];
+        }
+        {
+          "if" = {
+            app-id = "com.apple.mobilephone"; # Phone
+          };
+          run = [
+            "layout floating"
+          ];
+        }
+        {
+          "if" = {
+            app-id = "com.apple.systempreferences"; # System Settings
+          };
+          run = [
+            "layout floating"
+          ];
+        }
+        {
+          "if" = {
+            app-id = "com.apple.finder";
+          };
+          run = [
+            "layout floating"
+          ];
+        }
+
         # Workspace 1 — browsers
         {
           "if" = {
