@@ -358,14 +358,14 @@
           ];
         }
 
-        # Workspace 5 — Windows APP
+        # Workspace 5 — Windows APP (floating, excluded from tiling)
         {
           "if" = {
             app-id = "com.microsoft.rdc.macos";
           };
           run = [
             "move-node-to-workspace 5"
-            "layout tiling"
+            "layout floating"
           ];
         }
 

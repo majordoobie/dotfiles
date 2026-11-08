@@ -22,6 +22,10 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
+# Local-only agent docs (git-excluded): a link in ~ would load them in every Claude session
+^/AGENTS\.md
+^/CLAUDE\.md
+
 
 colors.sh
 .tmux.conf_bak
