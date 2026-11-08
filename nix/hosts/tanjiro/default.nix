@@ -9,9 +9,15 @@
 {
   imports = [
     ../../modules/development_config/docker.nix
+    ../../modules/development_config/python.nix
   ];
 
   services.openssh.enable = true;
+
+  # Tailscale as the CLI-only tailscaled daemon: starts at boot, before anyone logs in (right for a server).
+  # Lets the laptop reach tanjiro from anywhere to restart the Home Assistant VM if it hangs.
+  # One-time sign-in after the first rebuild: sudo tailscale up
+  services.tailscale.enable = true;
 
   programs.ssh = {
     extraConfig = ''
@@ -72,7 +78,7 @@
   environment.systemPackages = with pkgs; [
     claude-code
     gemini-cli
-    codex
+    opencode
 
     ncdu
     socat
@@ -80,7 +86,6 @@
     # tdarr container needs this
     mkvtoolnix
     ccextractor
-    ffmpeg_7-full
     mediainfo
   ];
 
@@ -93,6 +98,10 @@
     ];
     casks = [
       "1password"
+      "claude"
+      "codex"
+      "codex-app"
+      "obsidian"
       "plex-media-server"
     ];
   };

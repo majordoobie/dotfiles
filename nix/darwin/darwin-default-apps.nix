@@ -78,6 +78,11 @@
       # Don't upgrade on every rebuild: it replaced running apps (Helium broke mid-session).
       # Run `upgrade-all` to update nix, brew and App Store apps together instead.
       upgrade = false;
+      # "zap"/"uninstall" are broken with current Homebrew: nix-darwin still
+      # passes `--force-cleanup` to `brew bundle install`, but Homebrew moved
+      # cleanup to its own `brew bundle cleanup` subcommand and dropped that
+      # flag. Run `brew bundle cleanup --force --zap` manually until upstream
+      # nix-darwin catches up.
       cleanup = "none";
       extraFlags = [
         "--verbose"

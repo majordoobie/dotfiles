@@ -63,6 +63,8 @@
       "obsidian"
       "signal"
       "stats"
+      # Tailscale's recommended "Standalone" Mac app (menu bar GUI, can use exit nodes, updates itself)
+      "tailscale-app"
       "vnc-viewer"
     ];
 
